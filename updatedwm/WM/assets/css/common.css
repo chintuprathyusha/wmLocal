@@ -1,0 +1,7 @@
+
+.page-content{
+    height: 92vh;
+}
+.content-wrapper{
+    height: calc(100vh - 56px);
+}

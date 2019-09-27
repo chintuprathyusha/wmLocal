@@ -1,0 +1,1613 @@
+$( document ).ready(function() {
+    $('.loading').show();
+    $('#upl-btn').prop('disabled', true);
+    $('#upl-btn1').prop('disabled', true);
+    $('.budget_div_').hide();
+    $('.cprp_div').hide();
+    $('.spillover').hide();
+    $('.budgetdivnew').hide();
+    $('.texttodisplayspill').hide();
+    $('.next_').prop('disabled', true);
+    $(".budget_main").css("background-color", "#292828");
+    $(".cprp_main").css("background-color", "#F07144");
+    $('.radio_class').hide();
+    $('.changediv').hide();
+    var planid = sessionStorage.getItem('create_plan_id');
+    var userid = sessionStorage.getItem('userid');
+    $('.spillovertexttodisplay').hide()
+    $('.forfirstpathtext').hide()
+    $('.forsecoundpathtext').hide()
+    $('.channelbeing').hide();
+    $('.acceleratorfiletext').hide();
+    getData();
+    var newcampaign_id;
+    var buyingbasket_filename;
+    var path_selection;
+    var campaign_days;
+    var acd_dispersion;
+    var weightage;
+    var spilloversheet_filename;
+    var budgetallocation_filename;
+    var PlanProcessed;
+    var isFilePrepCompleted;
+    var BudgetAllocationFilePath;
+    var version = 1;
+    var replan = false;
+    var backclicked = "false";
+    $.urlParam = function(name){
+       var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+       if (results==null) {
+           return null;
+       }
+       return decodeURI(results[1]) || 0;
+    }
+    var paramgoback = $.urlParam('goback');
+    var parangonext = $.urlParam('gonext');
+    var markascompleted;
+    var channel_cprp;
+    var channel_frequency;
+    var acceleratedFilePath;
+    var i;
+    var campaignName;
+    var acceleratedFilePathByRPA;
+    $("#a").keyup(function(){
+        var a = parseInt($('#a').val());
+        var b = 100-a;
+        var b = parseInt($('#b').val(b));
+    })
+    $("#a").mousewheel(function(){
+        var a = parseInt($('#a').val());
+        var b = 100-a;
+        var b = parseInt($('#b').val(b));
+    })
+    $("#b").mousewheel(function(){
+        var a = parseInt($('#b').val());
+        var b = 100-a;
+        var b = parseInt($('#a').val(b));
+    })
+    $("#b").keyup(function(){
+        var a = parseInt($('#b').val());
+        var b = 100-a;
+        var b = parseInt($('#a').val(b));
+    })
+    var t = false
+    $('.input').focus(function () {
+        var $this = $(this)
+        t = setInterval(
+            function () {
+                if (($this.val() < 0 || $this.val() > 100) && $this.val().length != 0) {
+                    if ($this.val() < 0) {
+                        $this.val(0)
+                    }
+
+                    if ($this.val() > 100) {
+                        $this.val(100)
+                    }
+                }
+            }, )
+        })
+        var t = false
+        $('.campaign').focus(function () {
+            var $this = $(this)
+            t = setInterval(
+                function () {
+                    if (($this.val() < 0 || $this.val() > 100) && $this.val().length != 0) {
+                        if ($this.val() < 0) {
+                            $this.val(0)
+                        }
+
+                        if ($this.val() > 365) {
+                            $this.val(365)
+                        }
+                    }
+                }, )
+            })
+
+
+
+
+            function getData(){
+                debugger
+                sendObj = {}
+                sendObj.planid = planid;
+                console.log(sendObj);
+                var form = new FormData();
+                form.append("file", JSON.stringify(sendObj));
+                var settings11 = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url": aws_url+'buying_basket_freeze',
+                    "method": "POST",
+                    "processData": false,
+                    "contentType": false,
+                    "mimeType": "multipart/form-data",
+                    "data": form
+                };
+                $.ajax(settings11).done(function (msg) {
+                    //debugger
+                    msg =JSON.parse(msg)
+                    newcampaign_id=""
+                    console.log(msg);
+                    $('.loading').hide();
+                    if (msg.data == "true") {
+                        newcampaign_id = msg.CampaignId;
+                        buyingbasket_filename = msg.BuyingBasketFilePath;
+                        path_selection = msg.PathSelection;
+                        campaign_days = msg.CampaignDuration;
+                        acd_dispersion = msg.acd_dispersion;
+                        weightage = msg.CPRPWeightage;
+                        acceleratedFilePath = msg.AcceleratedFilePath;
+                        spilloversheet_filename= msg.SpillOverSheetFilePath;
+                        budgetallocation_filename = msg.BudgetAllocationFilePath;
+                        markascompleted = msg.IsMarkAsComplete;
+                        channel_cprp = msg.cprp_channel;
+                        channel_frequency = msg.frequency_channel;
+                        version = msg.Version;
+                        campaignName = msg.CampaignName;
+                        acceleratedFilePathByRPA = msg.AcceleratedFilePathByRPA;
+                        PlanProcessed = msg.planProcessed;
+                        // BudgetAllocationFilePath = msg.BudgetAllocationFilePath;
+                        // if (paramgoback == null && markascompleted =="true" && parangonext == null) {
+                        //     window.location.href="barc.php";
+                        // }
+                        //
+                        // if (path_selection == 1) {
+                        //     alert(firstpath)
+                        //
+                        // }
+                        // else {
+                        //     alert(secondpath)
+                        // }
+
+                        if (version > 1) {
+                            replan = true;
+                            $('.bb_files').show();
+                            $('.bb_txt').show();
+                            $('#upl-btn').show();
+
+                        }
+                        isFilePrepCompleted = msg.isFilePrepCompleted;
+                        $('cprp_div').show();
+                        if(path_selection == 1) {
+                            // $('.forfirstpathtext').show()
+                            $('.changediv').html('<h6 class="font-weight-semibold textforchange">Upload spillover sheet</h6>')
+                            $('.spanClass').css('color', '#0de6f1');
+                            $(".spanClass").css('font-weight', '700')
+                            $(".spanClass").css('font-size', '22px')
+                            $('.spanClass_').css('font-weight', '400')
+                            $('.spanClass_').css('font-size', '14px')
+                        }
+                        else {
+                            // $('.forfirstpathtext').hide()
+                            $('.spanClass_').css('color', '#0de6f1');
+                            $(".spanClass_").css('font-weight', '700')
+                            $(".spanClass_").css('font-size', '22px')
+                            $('.spanClass').css('font-weight', '400')
+                            $('.spanClass').css('font-size', '14px')
+                            $('.changediv').html('<h6 class="font-weight-semibold textforchange">Upload Budget File</h6>')
+                        }
+
+                        if (PlanProcessed == 1) {
+                            unfreezebuyinginfo();
+                        }
+                        else if (PlanProcessed == 2) {
+                            //debugger
+                            $('.acceleratorfiletext').hide();
+                            freezebuyinginfo();
+
+                            $(".next_").prop('disabled', true);
+                            $('.add_more').prop('disabled', true);
+                            $('.submit_').prop('disabled', true);
+                            $('.cprp_main').prop('disabled', true);
+                            $('.budget_main').prop('disabled', true);
+                            if (isFilePrepCompleted == "false") {
+                                //debugger
+                                $(".next_").prop('disabled', false);
+                                $('.spillover').hide();
+                                $('.changediv').show();
+                                $(".next_").prop('disabled', true);
+                            }
+                            else {
+                                $('.channelbeing').hide();
+                                if (path_selection == 1) {
+
+                                    if (spilloversheet_filename == '' || spilloversheet_filename == null ) {
+                                        $('.spillover').show();
+                                        $('.budegtdivnew').hide();
+                                        $('.changediv').hide();
+                                        $('.channelbeing').hide();
+                                    }
+                                    else {
+                                        $('.spillll').hide();
+                                        $('.spillovertexttodisplay').show();
+                                        // alert(spilloversheet_filename)
+                                        $('.spillovertexttodisplay').append('<h5>'+spilloversheet_filename+'</h5>')
+                                        $(".next_").prop('disabled', true);
+                                    }
+                                }
+                                else {
+                                    if (budgetallocation_filename == '' || budgetallocation_filename == null) {
+                                        $('.budgetdivnew').show();
+                                        $('.spillover').hide();
+                                        $('.changediv__').hide();
+                                        $('.channelbeing').hide();
+                                        $('.budget_text').hide();
+                                    }
+                                    else {
+                                        $('.budget_text').show();
+                                        $('.budget_files').hide();
+                                        $('.budget_text').append('<h5>'+budgetallocation_filename+'</h5>')
+                                        $(".next_").prop('disabled', true);
+                                    }
+                                }
+                            }
+
+                        }
+                        else {
+                            freezebuyinginfo();
+                            debugger
+                            if (path_selection == 1) {
+                                if (acceleratedFilePathByRPA == null) {
+                                    $(".next_").prop('disabled', true);
+                                    $('.acceleratorfiletext').show();
+                                    $('.acceleratorfiletext').append('<h5> Accelerator Output Sheet being created. Once complete you will receive it in your inbox. </h5>')
+                                }
+                                else {
+                                    $(".next_").prop('disabled', false);
+                                }
+                                $('.channelbeing').hide();
+                                $('.spillover').show();
+                                $('.budgetdivnew').hide();
+                                $('.changediv').show();
+                                $('.ss_files').hide();
+                                $('.submit_btn1').hide();
+                                $('.spillovertexttodisplay').show();
+                                $('.spillll').hide();
+                                $('.spillovertexttodisplay').append('<h5>Genre Level Budget Allocation Sheet is successfully uploaded</h5>')
+                            }
+                        }
+                    }
+                    // if (msg.message == "fail") {
+                    //     $.confirm({
+                    //         title: 'Oops ! something went wrong',
+                    //         // content: 'Oops ! something went wrong',
+                    //         animation: 'scale',
+                    //         closeAnimation: 'scale',
+                    //         opacity: 0.5,
+                    //         buttons: {
+                    //             okay: {
+                    //                 text: 'Okay',
+                    //                 btnClass: 'btn-primary'
+                    //             }
+                    //         }
+                    //     });
+                    // }
+                    else {
+                        console.log(msg.BuyingBasketFilePath);
+                        if (msg.BuyingBasketFilePath=='' || msg.BuyingBasketFilePath== null) {
+                            $('.bb_files').show();
+                            $('.bb_txt').show();
+                            $('#upl-btn').show();
+                            $('.next_').prop('disabled', true)
+                            $('.cprp_div').hide();
+                            $('.radio_class').hide();
+                        }
+                        else {
+                            $('.bb_files').hide();
+                            $('#upl-btn').hide();
+                            $('.texttodisplay').show()
+
+                            $('.texttodisplay').append('<h5>Buying Basket file is succesfully uploaded</h5>')
+                            $('.radio_class').show();
+                            $('.next_').prop('disabled', true)
+                        }
+                        newcampaign_id = msg.CampaignId;
+                        campaignName = msg.CampaignName;
+                        $(".camp_id_").append('<input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:#ccc"/>')
+                    }
+                })
+            }
+
+            function freezebuyinginfo() {
+                debugger
+                if (isFilePrepCompleted == "false") {
+                    $('.channelbeing').show();
+                    if (path_selection == 2) {
+                        $('.forfirstpathtext').hide();
+                        $('.forsecoundpathtext').show();
+                    }
+                    else {
+                        $('.forsecoundpathtext').hide();
+                        $('.forfirstpathtext').show();
+                    }
+                }
+                else {
+                    if (path_selection == 2) {
+                        $('.forfirstpathtext').hide();
+                        $('.forsecoundpathtext').hide();
+                        $('.spillover').hide();
+                        if (budgetallocation_filename == '' || budgetallocation_filename == null) {
+                            $('.budgetdivnew').show();
+                            $('.spillover').hide();
+                            $('.changediv__').hide();
+                            $('.channelbeing').hide();
+
+                            $('.budget_text').hide();
+                            $('.budget_files').show();
+                            $(".next_").prop('disabled', true);
+                        }
+                        else {
+                            // $('.forfirstpathtext').show();
+                            // $('.forsecoundpathtext').show();
+                            $('.budgetdivnew').show();
+                            $('.budget_files').hide();
+                            $('.budget_text').show();
+                            $('.budget__').hide();
+                            $('.submit_btn2').hide();
+                            // alert(budgetallocation_filename)
+                            // alert("pks")
+                            // $('.budget_text').append('<h5 class="texttodisplayspill" style="color:#000">'+budgetallocation_filename+'</h5>')
+                            $('.budget_text').append('<h5 class="texttodisplayspill" style="color:#000">Channel Level Budget Allocation Sheet is successfully uploaded</h5>')
+                            $(".next_").removeAttr('disabled');
+                        }
+                    }
+                    else {
+                        // $('.forsecoundpathtext').hide();
+                        $('.budget_files').hide();
+                        $('.spillover').show();
+                        // if (spilloversheet_filename == '' || spilloversheet_filename == null ) {
+                        //     $('.spillover').show();
+                        //     $('.budegtdivnew').hide();
+                        //     $('.changediv').hide();
+                        //     $('.channelbeing').hide();
+                        // }
+                        // else {
+                        //     $('.spillll').hide();
+                        //     $('.spillovertexttodisplay').show();
+                        //     $('.spillovertexttodisplay').append('<h5>'+spilloversheet_filename+'</h5>')
+                        //     $(".next_").prop('disabled', true);
+                        // }
+                    }
+                }
+                $('.radio_class').show()
+                $('.cprp_div').show()
+                $(".camp_id_").append('<input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:#ccc"/>')
+                if (buyingbasket_filename=='' || buyingbasket_filename== "NULL") {
+
+                    $('.bb_files').show();
+                    $('.bb_txt').show();
+                    $('#upl-btn').show();
+
+                }
+                else {
+                    $('.bb_files').hide();
+
+                    $('#upl-btn').hide();
+                    $('.texttodisplay').show()
+                    // $('.texttodisplay').append('<h5 style="color:#000">'+buyingbasket_filename+' is successfully uploaded</h5>')
+                    $('.texttodisplay').append('<h5 style="color:#000">Buying Basket file is succesfully uploaded</h5>')
+                }
+
+                 // alert(buyingbasket_filename)
+                if(path_selection==2){
+                    debugger
+                    $('.add_more_new').prop('disabled', true);
+                    $('.submit_new').prop('disabled', true);
+                    $(".cprp_main").prop("disabled", true);
+                    $(".cprp_main").css("background-color", "#292828");
+                    $(".budget_main").css("background-color", "#F07144");
+                   // $(".forsecoundpathtext").show()
+                    $('.radio_class').show();
+                    $('.cprp_div').hide();
+                    $('.budget_div_').show()
+                    $(".cprp_main").prop("checked", false);
+                    $(".budget_main").prop("checked", true);
+                    $('input[type="number"]').prop('readonly', true);
+                    $('input[type="text"]').prop('readonly', true);
+                    $('input[type="number"]').css('background', '#ccc');
+                    $('input[type="text"]').css('background', '#ccc');
+                    $('.campaign_days_new').val(campaign_days);
+
+
+                    console.log(acd_dispersion);
+                    acd_data = []
+                    acd_value = []
+
+
+                    $.each(acd_dispersion, function( key, value ) {
+                        $.each(value, function( keyy, valuee ) {
+
+                            acd_data.push(keyy)
+                            acd_value.push(valuee)
+
+                    })
+                })
+
+                    // $.each(acd_dispersion, function(key, value){
+                    //     console.log(key);
+                    //     acd_data.push(key)
+                    //     acd_value.push(value)
+                    // })
+                    $('.name_Class_new').val(acd_data.join(","))
+                    $('.path_Class_new').val(acd_value.join(","))
+
+
+                }
+                else if(path_selection == 1){
+
+                    $(".cprp_main").prop("checked", true);
+                    $(".budget_main").prop("checked", false);
+                    $(".budget_main").prop("disabled", true);
+                    $(".cprp_main").css("background-color", "#F07144");
+                    $(".budget_main").css("background-color", "#292828");
+                    $('.campaign_days').val(campaign_days);
+                    $('.cprp_channel_val').val(channel_cprp);
+                    $('.frequency_channel').val(channel_frequency);
+                    $('input[type="number"]').prop('readonly', true);
+                    $('input[type="text"]').prop('readonly', true);
+                    $('input[type="number"]').css('background', '#292828e8');
+                    $('input[type="number"]').css('color', 'white');
+                    $('input[type="text"]').css('background', '#292828e8');
+                    $('input[type="text"]').css('color', 'white');
+                    for(key in weightage){
+                        $(".cprp_val").val(key);
+                        $(".reach_val").val(weightage[key])
+                    }
+
+                    console.log(acd_dispersion);
+                    acd_data = []
+                    acd_value = []
+                    $.each(acd_dispersion, function( key, value ) {
+                        $.each(value, function( keyy, valuee ) {
+
+                            acd_data.push(keyy)
+                            acd_value.push(valuee)
+
+                    })
+                })
+
+
+
+                    // $.each(acd_dispersion, function(key, value){
+                    //     console.log(key);
+                    //     alert("DSsssssssss")
+                    //     acd_data.push(key)
+                    //     acd_value.push(value)
+                    // })
+                    $('.name_Class').val(acd_data.join(","))
+                    $('.path_Class').val(acd_value.join(","))
+                }
+                else {
+                    $(".cprp_main").prop("checked", true);
+                    $(".budget_main").prop("checked", false);
+                }
+                $('.add_more').prop('disabled', true);
+                $('.submit_').prop('disabled', true);
+
+                $.each(weightage ,function(key,value){
+                    $('.cprp_val').val(key)
+                    $('.reach_val').val(weightage[key])
+                })
+            }
+
+            function unfreezebuyinginfo() {
+                //debugger
+                $('.radio_class').show()
+                $('.cprp_div').show()
+                $(".camp_id_").append('<input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:#ccc"/>')
+                $('.texttodisplayspill').hide();
+
+                if (buyingbasket_filename=='' || buyingbasket_filename== "NULL") {
+                    $('.bb_files').show();
+                    $('.bb_txt').show();
+                    $('#upl-btn').show();
+                }
+                else {
+                    if (replan==false) {
+                        $('.bb_files').hide();
+                        $('#upl-btn').hide();
+                        $('.texttodisplay').show()
+                        // $('.texttodisplay').append('<h5 style="color:#000">'+buyingbasket_filename+' is successfully uploaded</h5>')
+                        $('.texttodisplay').append('<h5 style="color:#000">Buying Basket file is succesfully uploaded</h5>')
+
+                    }
+                }
+
+
+                if(path_selection==2){
+                    $(".cprp_main").css("background-color", "#292828");
+                    $(".budget_main").css("background-color", "#F07144");
+                    $('.radio_class').show();
+                    $('.cprp_div').hide();
+                    $('.budget_div_').show()
+                    $(".budget_main").prop("checked", true);
+                    console.log(campaign_days);
+                    $('.campaign_days_new').val(campaign_days);
+
+                    obj_keyss = acd_dispersion;
+
+
+               $(".main_new .sub_div_new").remove()
+                   $.each(obj_keyss, function( i, val ) {
+                        $.each(val, function( ii, vall ) {
+                            budget_allowcation = '<div class="sub_div_new" style="width:100%">'
+                            budget_allowcation += '<div class="row keyword_new">'
+                            budget_allowcation += '<div class="col-md-6">'
+                            budget_allowcation += '<input type="number" class="form-control colorchange mods_inputs name_Class_new ' + i + '" value="'+ii+'" placeholder="Enter keyword">'
+                            budget_allowcation += '</div>'
+                            budget_allowcation += '<div class="col-lg-6">'
+                            budget_allowcation += '<input type="number" class="form-control colorchange mods_inputs path_Class path_Class_new ' + i + '" value="'+vall+'" placeholder="Enter negative keyword">'
+                            budget_allowcation += '<span>'
+                            budget_allowcation += '<img src="assets/images/delete.svg" style="width:20px;" class="remove_new">'
+                            budget_allowcation += '</span>'
+                            budget_allowcation += '</div>'
+                            budget_allowcation += '</div>'
+                            budget_allowcation += '</div>'
+                            $(".main_new").append(budget_allowcation)
+                        })
+
+
+                   })
+                   $('.submit_new').prop('disabled', false);
+                   $('.add_more_new').prop('disabled', false);
+
+               }
+
+                    // var data = { 0: [ { "56":"44"}], 1: [{ "67":"56"} ] };
+                    //         $.each(data.key, function (i) {
+                    //             $.each(data.key[i], function (key, val) {
+                    //                 alert(key);
+                    //                 alert(val)
+                    //             });
+                    //         });
+
+                //     for (var i = 0; i < obj_keyss.length; i++) {
+                //         budget_allowcation = '<div class="sub_div_new" style="width:100%">'
+                //         budget_allowcation += '<div class="row keyword_new">'
+                //         budget_allowcation += '<div class="col-md-6">'
+                //         budget_allowcation += '<input type="number" class="form-control mods_inputs name_Class_new ' + i + '" value="'+obj_keyss[i]+'" placeholder="Enter keyword">'
+                //         budget_allowcation += '</div>'
+                //         budget_allowcation += '<div class="col-lg-6">'
+                //         budget_allowcation += '<input type="number" class="form-control mods_inputs path_Class path_Class_new ' + i + '" value="'+acd_dispersion[obj_keyss[i]]+'" placeholder="Enter negative keyword">'
+                //         budget_allowcation += '<span>'
+                //         budget_allowcation += '<img src="assets/images/delete.svg" style="width:20px;" class="remove_new">'
+                //         budget_allowcation += '</span>'
+                //         budget_allowcation += '</div>'
+                //         budget_allowcation += '</div>'
+                //         budget_allowcation += '</div>'
+                //         $(".main_new").append(budget_allowcation)
+                //     }
+                //     $('.submit_new').prop('disabled', false);
+                //     $('.add_more_new').prop('disabled', false);
+                // }
+
+                else if(path_selection == 1){
+                    $(".budget_main").css("background-color", "#292828");
+                    $(".cprp_main").css("background-color", "#F07144");
+                    $(".cprp_main").prop("checked", true);
+                    $('.budget_div_').hide()
+                    $('.campaign_days').val(campaign_days);
+                    $('.cprp_channel_val').val(channel_cprp);
+                    $('.frequency_channel').val(channel_frequency);
+                    for(key in weightage){
+                        $(".cprp_val").val(key);
+                        $(".reach_val").val(weightage[key])
+                    }
+
+
+                    obj_keys = acd_dispersion;
+
+                    $(".main .sub_div").remove()
+                    $.each(obj_keys, function( i, val ) {
+                         $.each(val, function( ii, vall ) {
+                             for (var i = 0; i < obj_keys.length; i++) {
+                                 ok = '<div class="sub_div" style="width:100%">'
+                                 ok += '<div class="row keyword">'
+                                 ok += '<div class="col-md-6">'
+                                 ok += '<input type="number" class="form-control colorchange mods_inputs name_Class ' + i + '" value="'+ii+'" placeholder="Enter keyword">'
+                                 ok += '</div>'
+                                 ok += '<div class="col-lg-6">'
+                                 ok += '<input type="number"  style="" class="form-control colorchange mods_inputs path_Class path_Class ' + i + '" value="'+vall+'" placeholder="Enter negative keyword">'
+                                 ok += '<span>'
+                                 ok += '<img src="assets/images/delete.svg" style="width:20px;" class="remove">'
+                                 ok += '</span>'
+                                 ok += '</div>'
+                                 ok += '</div>'
+                                 ok += '</div>'
+                                 $(".main").append(ok)
+                             }
+
+
+                         })
+                     })
+
+
+
+                    $('.submit_').prop('disabled', false);
+                    $('.add_more').prop('disabled', false);
+                }
+                else {
+                    $(".cprp_main").prop("checked", true);
+                    $(".budget_main").prop("checked", false);
+                }
+
+                $.each(weightage ,function(key,value){
+                    $('.cprp_val').val(key)
+                    $('.reach_val').val(weightage[key])
+                })
+            }
+
+
+            $('body').on('click', '.cprp_main', function(){
+                // $(".cprp_main").css('border', 'red')
+                $(".spanClass").css('color', 'rgb(13, 230, 241)')
+                $(".spanClass").css('font-weight', '700')
+                $(".spanClass").css('font-size', '22px')
+                $(".cprp_main").css('background-color', '#f07144')
+                $(".budget_main").css('background-color', '#211d1dbf')
+                $(".budget_main").css('color', '#ccc6c6')
+                $('.cprp_div').show(100);
+                $('.budget_div_').hide(100);
+                $(".spanClass_").css('color', 'rgb(165, 162, 162)');
+                $(".spanClass_").css('font-weight', '400')
+                $(".spanClass_").css('font-size', '14px')
+            })
+
+
+            $('body').on('click', '.budget_main', function(){
+                $(".cprp_main").css('background-color', '#211d1dbf')
+                    $(".cprp_main").css('color', '#ccc6c6')
+                $(".budget_main").css('background-color', '#f07144')
+                $(".spanClass").css('color', 'rgb(165, 162, 162)')
+                $(".spanClass").css('font-weight', '700')
+                $(".spanClass").css('font-size', '22px')
+                $("spanClass_").css('font-weight', '400')
+                $(".spanClass").css('font-size', '14px')
+                $('.cprp_div').hide(100);
+                $('.budget_div_').show(100);
+                $(".spanClass_").css('color', 'rgb(13, 230, 241)')
+                $(".spanClass_").css('font-weight', '700')
+                  $(".spanClass_").css('font-size', '22px')
+            })
+            $('.budget_div').hide();
+            var msg;
+            $('input[type=number]').bind("mousewheel", function() {
+                return false;
+            });
+
+            function nullCheck(value) {
+                if (value != "" && value != null && value != undefined) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+            var i; var c; var p; var s;
+            $("body").on("click", ".add_more", function(){
+
+                //debugger
+                var x=0;
+
+                thiss = $(this)
+                val = $(this).html();
+                children = $(".sub_div").children();
+
+                var name_cls = $(children[0]).find(".name_Class").val()
+
+                for (var i = 0; i < children.length; i++) {
+                    var path_cls =  $(children[0]).find('.path_Class').val();
+                    x = 0+parseInt(path_cls);
+                }
+                if (x>100) {
+                    alert("error")
+                }
+                if (name_cls=="" && /^[a-zA-Z-, ]*$/.test(name_cls)) {
+
+                    swal("Acd and Dispersion should not be empty");
+                }
+
+
+                else {
+
+                    console.log(i);
+
+                    $(".main").append('<div class="sub_div" style="width:100%"><div class="row keyword"><div class="col-md-6"><input type="number" class="inputboxstyle form-control mods_inputs name_Class ' + i + '" placeholder="Enter keyword"></div><div class="col-lg-6"><input type="number" class="inputboxstyle form-control mods_inputs path_Class path_Class ' + i + '" placeholder="Enter negative keyword"><span><img src="assets/images/delete.svg" style="width:20px;" class="remove"></span></div></div></div>')
+                    $(".hide_").show();
+
+                }
+            })
+
+
+
+            $("body").on("click", ".add_more_new", function(){
+
+                //debugger
+                var x=0;
+
+                thiss = $(this)
+                val = $(this).html();
+                children = $(".sub_div_new").children();
+
+                var name_cls = $(children[0]).find(".name_Class_new").val()
+                for (var i = 0; i < children.length; i++) {
+                    var path_cls =  $(children[0]).find('.path_Class_new').val();
+                    x = 0+parseInt(path_cls);
+                }
+                if (x>100) {
+                    alert("error")
+                }
+                if (name_cls=="" && /^[a-zA-Z-, ]*$/.test(name_cls)) {
+
+                    swal("Acd and Dispersion should not be empty");
+                }
+
+
+                else {
+
+                    console.log(i);
+                    $(".main_new").append('<div class="sub_div_new" style="width:100%"><div class="row keyword_new"><div class="col-md-6"><input type="number" class="form-control mods_inputs name_Class_new ' + i + '" placeholder="Enter keyword"></div><div class="col-lg-6"><input type="number" class="form-control mods_inputs path_Class_new path_Class_new ' + i + '" placeholder="Enter negative keyword"><span><img src="assets/images/delete.svg" style="width:20px;" class="remove_new"></span></div></div></div>')
+                    $(".hide_").show();
+                }
+            })
+
+
+
+            $("body").on("click", ".remove_new", function(){
+                $(this).closest('.sub_div_new').remove();
+                $('.hide_').hide();
+            })
+
+            $("body").on("click", ".remove", function(){
+                $(this).closest('.sub_div').remove();
+                $('.hide_').hide();
+            })
+            var arr = [];
+            var optn;
+            var existing_keys ;
+            var path_selection ='';
+            var budget_text;
+            var div_weitage;
+
+            $("body").on("click", ".submit_new", function(){
+               path_selection_ = $(this).closest('.common_class').find('.budget_main').attr('key');
+
+                var campaign_days = $('.campaign_days_new').val();
+                var userid = sessionStorage.getItem('userid');
+                var plan_id = sessionStorage.getItem('create_plan_id');
+                var err=0;
+                var arr_check = [];
+                children = $(".sub_div_new").children();
+                console.log(children);
+                obj = {}
+                sendObj = {}
+                sendObj2 = {}
+                sendObj2.path_selection = path_selection_;
+                sendObj2.user_id = userid;
+                sendObj2.plan_id = plan_id;
+                sendObj2.campaign_days = campaign_days;
+                var val_check =0 ;
+                var unique_name_val;
+                var oldArray;
+                var val;
+                val_check_this = 0;
+                val_check_this_ = 0;
+                empty = 0 ;
+
+                // subDivs = $(".sub_div_new");
+
+                // obj_subdivs = {}
+                // for (var sd = 0; sd < subDivs.length; sd++) {
+                //
+                //     kw = subDivs[sd].children[0].children[0].children[0].value
+                //     vl = subDivs[sd].children[0].children[1].children[0].value
+                //     obj_subdivs[kw] = vl;
+                // }
+                // console.log(obj_subdivs);
+                // array_val = []
+                // $.each(obj_subdivs, function(key, value){
+                //     array_val.push(value);
+                // })
+                //
+                // console.log(array_val);
+                // sum = 0;
+                // $.each(array_val,function(){
+                //     sum+=parseFloat(this) || 0;
+                // });
+                // console.log(sum);
+
+                // acdobj_new = {}
+                subDivs = $(".sub_div_new");
+                debugger
+                   obj_subdivs = []
+                   sum = 0;
+                   for (var sd = 0; sd < subDivs.length; sd++) {
+                       kw = subDivs[sd].children[0].children[0].children[0].value
+                       vl = subDivs[sd].children[0].children[1].children[0].value
+                       sum += parseFloat(vl) || 0;
+                       obj = {}
+                       obj[kw] = vl;
+                       obj_subdivs.push(obj)
+
+                   }
+                   // array_val = []
+                   console.log(obj_subdivs);
+
+
+                if (campaign_days == '') {
+                        $.confirm({
+                            title: 'Filed should not be empty',
+                            content: 'Oops ! something went wrong',
+                            animation: 'scale',
+                            closeAnimation: 'scale',
+                            opacity: 0.5,
+                            buttons: {
+                                okay: {
+                                    text: 'Okay',
+                                    btnClass: 'btn-primary'
+                                }
+                            }
+                        });
+
+                }
+                else if (sum!==100 || sum>100) {
+
+                        $.confirm({
+                            title: 'Dispersion should be empty',
+                            // content: 'Oops ! something went wrong',
+                            animation: 'scale',
+                            closeAnimation: 'scale',
+                            opacity: 0.5,
+                            buttons: {
+                                okay: {
+                                    text: 'Okay',
+                                    btnClass: 'btn-primary'
+                                }
+                            }
+                        });
+
+                }
+                else {
+                    $('.loading').show();
+                    debugger
+                    sendObj2.acd_dispersion = obj_subdivs;
+                    console.log(sendObj2);
+                    console.log(JSON.stringify(sendObj2));
+                    var form = new FormData();
+                    form.append("file", JSON.stringify(sendObj2));
+                    var settings11 = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": aws_url+'plan_selection_button',
+                        "method": "POST",
+                        "processData": false,
+                        "contentType": false,
+                        "mimeType": "multipart/form-data",
+                        "data": form
+                    };
+                    $.ajax(settings11).done(function (msg) {
+                        msg = JSON.parse(msg);
+                        console.log(msg);
+                        $('.loading').hide();
+
+                        if (msg.Status == "Fail") {
+                            $.confirm({
+                                title: 'Oops ! something went wrong, try again',
+                                // content: 'Oops ! something went wrong',
+                                animation: 'scale',
+                                closeAnimation: 'scale',
+                                opacity: 0.5,
+                                buttons: {
+                                    okay: {
+                                        text: 'Okay',
+                                        btnClass: 'btn-primary'
+                                    }
+                                }
+                            });
+                        }
+                        else {
+                        $('.add_more_new').prop('disabled', true);
+                        $(this).prop('disabled', true);
+                        $('.remove_new').hide();
+                        $('.spillover').hide();
+                        $('.channelbeing').show();
+                        $('.forsecoundpathtext').show();
+                        $('#upl-btn1').hide();
+
+                        $('input[type=text]').css("background", "#ccc");
+                        $('input[type=number]').css("background", "#ccc");
+                        $('input[type=text]').prop('readonly', true);
+                        $('input[type=number]').prop('readonly', true);
+                        $.confirm({
+                            title: 'Data submitted succesfully',
+                            // content: 'Oops ! something went wrong',
+                            animation: 'scale',
+                            closeAnimation: 'scale',
+                            opacity: 0.5,
+                            buttons: {
+                                okay: {
+                                    text: 'Okay',
+                                    btnClass: 'btn-primary'
+                                }
+                            }
+                        });
+                        $('.add_more').prop('disbale', true);
+                        $('.submit_').prop('disbale', true);
+                        $('.loading').hide();
+                        $('.cprp_main').prop('disabled', true);
+
+                        sessionStorage.getItem('create_plan_id', 0);
+                    }
+                    })
+                }
+
+            })
+
+
+
+            $("body").on("click", ".submit_", function(){
+                path_selection = $(this).closest('.common_class').find('.cprp_main').attr('key');
+                div_weitage = $(this).closest('.common_class').find('.cprp_div');
+                var cprp_weitage = div_weitage.find('.cprp_val').val();
+                var reach_weitage = div_weitage.find('.reach_val').val();
+                var cprp_channel_val = div_weitage.find('.cprp_channel_val').val();
+                var frequency_channel = div_weitage.find('.frequency_channel').val();
+                var campaign_days = div_weitage.find('.campaign_days').val();
+                var userid = sessionStorage.getItem('userid');
+                var plan_id = sessionStorage.getItem('create_plan_id');
+                var err=0;
+                var arr_check = [];
+                children = $(".sub_div").children();
+                console.log(children);
+                obj = {}
+                sendObj = {}
+                sendObj2 = {}
+                sendObj[cprp_weitage] = reach_weitage;
+                sendObj2.path_selection = path_selection;
+                sendObj2.user_id = userid;
+                sendObj2.plan_id = plan_id;
+                sendObj2.campaign_days = campaign_days;
+                sendObj2.cprp_channel = cprp_channel_val;
+                sendObj2.frequency_channel = frequency_channel;
+                var val_check =0 ;
+                var unique_name_val;
+                var oldArray;
+                var val;
+                val_check_this = 0;
+                val_check_this_ = 0;
+                empty = 0 ;
+                subDivs = $(".sub_div");
+                // obj_subdivs = {}
+                // for (var sd = 0; sd < subDivs.length; sd++) {
+                //
+                //     kw = subDivs[sd].children[0].children[0].children[0].value
+                //     vl = subDivs[sd].children[0].children[1].children[0].value
+                //
+                //
+                //     obj_subdivs[kw] = vl;
+                //
+                //
+                // }
+                // array_val = []
+                // console.log(obj_subdivs);
+                // $.each(obj_subdivs, function(key, value){
+                //     array_val.push(value);
+                // })
+                //
+                // console.log(array_val);
+                // sum = 0;
+                // $.each(array_val,function(){
+                //     sum+=parseFloat(this) || 0;
+                // });
+                // console.log(sum);
+
+
+                subDivs = $(".sub_div");
+                // debugger
+                   obj_subdivs = []
+                   sum = 0;
+                   for (var sd = 0; sd < subDivs.length; sd++) {
+                       kw = subDivs[sd].children[0].children[0].children[0].value
+                       vl = subDivs[sd].children[0].children[1].children[0].value
+                       sum += parseFloat(vl) || 0;
+                       acdobj = {}
+                       acdobj[kw] = vl;
+                       obj_subdivs.push(acdobj)
+
+                   }
+                   // array_val = []
+                   console.log(obj_subdivs);
+
+
+                if (campaign_days == '' || cprp_weitage == '' || reach_weitage == '') {
+
+                        $.confirm({
+                            title: 'Fields should not be empty',
+                            // content: 'Oops ! something went wrong',
+                            animation: 'scale',
+                            closeAnimation: 'scale',
+                            opacity: 0.5,
+                            buttons: {
+                                okay: {
+                                    text: 'Okay',
+                                    btnClass: 'btn-primary'
+                                }
+                            }
+                        });
+
+                }
+                else if (sum < 100 || sum>100) {
+                    // if(msg.message == "fail"){
+                        $.confirm({
+                            title: 'Dispersion should be 100',
+                            // content: 'Oops ! something went wrong',
+                            animation: 'scale',
+                            closeAnimation: 'scale',
+                            opacity: 0.5,
+                            buttons: {
+                                okay: {
+                                    text: 'Okay',
+                                    btnClass: 'btn-primary'
+                                }
+                            }
+                        });
+                    // }
+                }
+                else {
+                    $('.loading').show();
+                    $('.add_more').prop('disabled', true);
+                    $(this).prop('disabled', true);
+                    $('.remove').hide();
+                    $('.spillover').hide();
+                    $('.channelbeing').show();
+                    $('#upl-btn1').hide();
+                    sendObj2.acd_dispersion = obj_subdivs;
+                    sendObj2.weightage = sendObj;
+                    console.log(sendObj2);
+
+                    console.log(JSON.stringify(sendObj2));
+
+                    var form = new FormData();
+                    form.append("file", JSON.stringify(sendObj2));
+                    var settings11 = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": aws_url+'plan_selection_button',
+                        "method": "POST",
+                        "processData": false,
+                        "contentType": false,
+                        "mimeType": "multipart/form-data",
+                        "data": form
+                    };
+                    $.ajax(settings11).done(function (msg) {
+                        msg = JSON.parse(msg);
+                        console.log(msg);
+                        $('.loading').hide();
+                        if(msg.Status == "Fail"){
+                            $.confirm({
+                                title: 'Oops ! something went wrong, try again',
+                                // content: 'Oops ! something went wrong',
+                                animation: 'scale',
+                                closeAnimation: 'scale',
+                                opacity: 0.5,
+                                buttons: {
+                                    okay: {
+                                        text: 'Okay',
+                                        btnClass: 'btn-primary'
+                                    }
+                                }
+                            });
+                        }
+                        else {
+                            // $('input[type=text]').css("color", "black");
+                            // $('input[type=number]').css("background", "rgba(41, 40, 40, 0.91)");
+                            $('input[type=text]').css("color", "black");
+                            $('input[type=number]').css("background", "rgba(41, 40, 40, 0.91)");
+                            $('input[type=text]').prop('readonly', true);
+                            $('input[type=number]').prop('readonly', true);
+                            $('.add_more').prop('disbale', true);
+                            $('.submit_').prop('disbale', true);
+                            sessionStorage.getItem('create_plan_id', 0);
+                            $('.channelbeing').show();
+                            $('.forfirstpathtext').show();
+                            $('.budget_main').prop('disabled', true);
+                            $.confirm({
+                                title: 'Data submitted succesfully',
+                                // content: 'Oops ! something went wrong',
+                                animation: 'scale',
+                                closeAnimation: 'scale',
+                                opacity: 0.5,
+                                buttons: {
+                                    okay: {
+                                        text: 'Okay',
+                                        btnClass: 'btn-primary'
+                                    }
+                                }
+                            });
+                        }
+
+                    })
+                }
+
+            })
+
+            $("body").on("click", ".cprp_r", function(){
+                $(".cprp").show();
+                $(".budget").hide();
+            })
+            $("#cprp_upload").hide();
+            $(".complete_cprp").hide();
+            $(".complete_budget").hide();
+            $("#budget_upload").hide();
+            $("body").on("click", ".submit_budget", function(){
+                $("#budget_upload").show();
+                $(".budget").hide();
+                $(".complete_budget").show();
+                $(".cprp_r").attr('disabled', 'disabled');
+                $(".uniform-choice span").addClass("disable_border")
+                $(".budget_r").attr('disabled', 'disabled');
+            })
+
+            $("body").on("click", ".cprp_slip", function(){
+                $(".total_div").hide();
+            })
+            $("body").on("click", ".budget_slip", function(){
+                $(".total_div").hide();
+            })
+
+            $("body").on("click", ".backclass", function(){
+                window.location.href = 'planner_createnewplan.php?goback='+true
+            })
+
+
+            $("body").on("click", ".next_", function(){
+                window.location.href = "barc.php"
+            })
+
+            //budget upload file //
+
+            var plan_id = sessionStorage.getItem('create_plan_id');
+            var user_id = sessionStorage.getItem('userid');
+            $('.camp_id').append('<input class="form-control" value="'+plan_id+'" type="text"/ readonly>')
+            $('.radio_class').hide();
+            var file_name_new;
+            var main_output_new;
+            fileobj_new = {};
+            (function ($) {
+                $('#load-file').on('change', function () {
+                    //debugger
+                    main_output = ''
+                    var file = $('#load-file')[0].files[0];
+                    file_name_new = file.name;
+                    file_name_new = "Buying Basket.xlsx"
+
+                    var fileReader = new FileReader();
+                    fileReader.onloadend = function (e) {
+                        blob___ = e.target.result;
+
+                        fileobj_new.filename = file_name_new;
+
+                        fileobj_new.blob = blob___;
+                        fileobj_new.plan_id = plan_id;
+                        fileobj_new.user_id = user_id;
+                        console.log(fileobj_new);
+                        $('#upl-btn').prop('disabled', false);
+                    };
+
+                    fileReader.readAsDataURL(file);
+                });
+            })(jQuery);
+
+
+            var counting = 0;
+            function exceltoblob(file) {
+                pagesArr = [];
+                window.PDFJS = window.pdfjsLib;
+                PDFJS.disableWorker = true;
+                PDFJS.getDocument(file).then(function getPdfHelloWorld(pdf) {
+                    const go = async function(){
+                        let h = 0;
+                        for(var pageN = 1; pageN <= pdf.numPages; pageN++){
+                            const page = await pdf.getPage(pageN);
+                            var scale = 2;
+                            var viewport = page.getViewport(scale);
+                            //
+                            // Prepare canvas using PDF page dimensions
+                            //
+                            var canvas = document.createElement('canvas');
+                            //document.body.appendChild(canvas);
+                            var context = canvas.getContext('2d');
+                            canvas.height += viewport.height;
+                            canvas.width = viewport.width;
+                            //
+                            // Render PDF page into canvas context
+                            //
+                            var task = page.render({ canvasContext: context, viewport: viewport })
+                            await task.promise;
+                            pages = canvas.toDataURL('image/jpeg');
+                            pagesArr.push(pages)
+                            if (pageN == pdf.numPages) {
+                                displayImagesMain(pagesArr)
+                            }
+                        }
+                    };
+                    go();
+                }, function(error){
+                    //console.log(error);
+                });
+            }
+
+
+
+            $("body").on("click", "#upl-btn", function(){
+                //debugger
+                $(".loading").show();
+                fileobj_new.category = "buyingbasket";
+                console.log(file_name_new);
+                var form = new FormData();
+                form.append("file", JSON.stringify(fileobj_new));
+                var settings11 = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url":aws_url+'Buying_basket',
+                    "method": "POST",
+                    "processData": false,
+                    "contentType": false,
+                    "mimeType": "multipart/form-data",
+                    "data": form
+                };
+                $.ajax(settings11).done(function (msg) {
+                    console.log(msg);
+                    if(msg == "Path inserted Succesfully"){
+                        $('.texttodisplay').show();
+                        $('.file-input').hide();
+                        $('.red_color').hide();
+                        $('#upl-btn').hide();
+                        // alert(file_name_new)
+                        // alert("kkk")
+                        $('.texttodisplay').append('<h5 style="color:#000">Buying Basket file successfully uploaded</h5>')
+
+                            $.confirm({
+                                title: 'File succesfully uploaded',
+                                // content: 'Oops ! something went wrong',
+                                animation: 'scale',
+                                closeAnimation: 'scale',
+                                opacity: 0.5,
+                                buttons: {
+                                    okay: {
+                                        text: 'Okay',
+                                        btnClass: 'btn-primary'
+                                    }
+                                }
+                            });
+
+                    }
+                    else{
+                        $('#upl-btn').show();
+                        $('.texttodisplay').hide();
+                        $('.file-input').show();
+                        $('.red_color').show();
+                        $.confirm({
+                            title: 'Oops ! Seems you are uploading an incorrect file',
+                            // content: 'Oops ! something went wrong',
+                            animation: 'scale',
+                            closeAnimation: 'scale',
+                            opacity: 0.5,
+                            buttons: {
+                                okay: {
+                                    text: 'Okay',
+                                    btnClass: 'btn-primary'
+                                }
+                            }
+                        });
+                    }
+                    $('.loading').hide();
+                    $('.radio_class').show();
+                });
+            })
+
+
+            //budget upload file path B//
+
+            var file_name_;
+            var main_output;
+            fileobj = {};
+            (function ($) {
+                $('#load-file1').on('change', function () {
+                    //debugger
+                    main_output = ''
+                    var file = $('#load-file1')[0].files[0];
+                    filename = file.name;
+                    filename ="ChannelLevelBudgetAllocation"+newcampaign_id+"_"+version+".xlsx"
+                    var fileReader = new FileReader();
+                    fileReader.onloadend = function (e) {
+                        blob___ = e.target.result;
+
+                        fileobj.filename = filename;
+                        fileobj.blob = blob___;
+                        fileobj.plan_id = planid;
+                        fileobj.user_id = userid;
+                        fileobj.category = "budgetallocation";
+                        console.log(fileobj);
+                        $('#upl-btn1').prop('disabled', false);
+                        file_name_ = filename;
+                    };
+
+                    fileReader.readAsDataURL(file);
+                });
+            })(jQuery);
+
+
+            //Path A//
+
+
+
+                        var file_name_2;
+                        var main_output2;
+                        fileobj2 = {};
+                        (function ($) {
+                            $('#load-file__').on('change', function () {
+                                //debugger
+                                main_output = ''
+                                var file = $('#load-file__')[0].files[0];
+                                filename = file.name;
+                                filename ="GenreLevelBudgetAllocation_"+newcampaign_id+"_"+version+".xlsx"
+                                var fileReader = new FileReader();
+                                fileReader.onloadend = function (e) {
+                                    blob___ = e.target.result;
+
+                                    fileobj2.filename = filename;
+                                    fileobj2.blob = blob___;
+                                    fileobj2.plan_id = planid;
+                                    fileobj2.user_id = userid;
+                                    fileobj2.category = "spilloversheet";
+                                    console.log(fileobj2);
+                                    $('#upl-btn__').prop('disabled', false);
+                                    file_name_2 = filename;
+                                };
+
+                                fileReader.readAsDataURL(file);
+                            });
+                        })(jQuery);
+
+
+            var counting = 0;
+            function exceltoblob(file) {
+                pagesArr = [];
+                window.PDFJS = window.pdfjsLib;
+                PDFJS.disableWorker = true;
+                PDFJS.getDocument(file).then(function getPdfHelloWorld(pdf) {
+                    const go = async function(){
+                        let h = 0;
+                        for(var pageN = 1; pageN <= pdf.numPages; pageN++){
+                            const page = await pdf.getPage(pageN);
+                            var scale = 2;
+                            var viewport = page.getViewport(scale);
+                            //
+                            // Prepare canvas using PDF page dimensions
+                            //
+                            var canvas = document.createElement('canvas');
+                            //document.body.appendChild(canvas);
+                            var context = canvas.getContext('2d');
+                            canvas.height += viewport.height;
+                            canvas.width = viewport.width;
+                            //
+                            // Render PDF page into canvas context
+                            //
+                            var task = page.render({ canvasContext: context, viewport: viewport })
+                            await task.promise;
+                            pages = canvas.toDataURL('image/jpeg');
+                            pagesArr.push(pages)
+                            if (pageN == pdf.numPages) {
+                                displayImagesMain(pagesArr)
+                            }
+                        }
+                    };
+                    go();
+                }, function(error){
+                    //console.log(error);
+                });
+            }
+
+            $("body").on("click", "#upl-btn1", function(){
+                //debugger
+                $(".loading").show();
+                console.log(file_name_);
+                var form = new FormData();
+                form.append("file", JSON.stringify(fileobj));
+                var settings11 = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url":aws_url+'Buying_basket',
+                    "method": "POST",
+                    "processData": false,
+                    "contentType": false,
+                    "mimeType": "multipart/form-data",
+                    "data": form
+                };
+                $.ajax(settings11).done(function (msg) {
+                    console.log(msg);
+                    $(".loading").hide();
+
+
+                        $('.acceleratorfiletext').hide();
+
+
+                    if(msg == "Path inserted Succesfully"){
+                        $('.texttodisplay').show();
+                        $('.texttodisplayspill').show();
+                        $('#upl-btn1').hide();
+
+                        $('.bb_txt').hide();
+                        $('.file-input').hide();
+                        $('.red_color').hide();
+                        // alert(file_name_)
+                        // alert("kavv")
+                        $('.texttodisplayspill').append('<h5 style="color:#000">Genre Level Budget Allocation Sheet is successfully uploaded</h5>')
+
+                        $('.next_').prop('disabled', false)
+                        $.confirm({
+                            title: 'File succesfully uploaded',
+                            // content: 'Oops ! something went wrong',
+                            animation: 'scale',
+                            closeAnimation: 'scale',
+                            opacity: 0.5,
+                            buttons: {
+                                okay: {
+                                    text: 'Okay',
+                                    btnClass: 'btn-primary'
+                                }
+                            }
+                        });
+                    }
+                    else{
+                        $('.texttodisplay').hide();
+                        $('.texttodisplayspill').hide();
+                        $('#upl-btn1').show();
+                        $('.file-input').show();
+                        $('.red_color').show();
+                        $('.next_').prop('disabled', true)
+                        $.confirm({
+                            title: 'Oops ! Seems you are uploading an incorrect file',
+                            // content: 'Oops ! something went wrong',
+                            animation: 'scale',
+                            closeAnimation: 'scale',
+                            opacity: 0.5,
+                            buttons: {
+                                okay: {
+                                    text: 'Okay',
+                                    btnClass: 'btn-primary'
+                                }
+                            }
+                        });
+
+                    }
+                    version = 0;
+                });
+            })
+
+            $("body").on("click", "#upl-btn__", function(){
+                //debugger
+                $(".loading").show();
+                console.log(file_name_2);
+                var form = new FormData();
+                form.append("file", JSON.stringify(fileobj2));
+                var settings11 = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url":aws_url+'Buying_basket',
+                    "method": "POST",
+                    "processData": false,
+                    "contentType": false,
+                    "mimeType": "multipart/form-data",
+                    "data": form
+                };
+                $.ajax(settings11).done(function (msg) {
+                    console.log(msg);
+                    $(".loading").hide();
+                    if(msg == "Path inserted Succesfully"){
+                        if (path_selection == 1) {
+                            $('.acceleratorfiletext').show();
+                            $('.acceleratorfiletext').html('<h5>Accelerator Output Sheet being created. Once complete youwill receive it in your inbox. </h5>')
+                        }
+                        else {
+                            $('.acceleratorfiletext').hide();
+                            $('.next_').prop('disabled', false)
+                        }
+                        $('.texttodisplay').show();
+                        $('.texttodisplayspill').show();
+                        $('#upl-btn__').hide();
+
+                        $('.bb_txt').hide();
+                        $('.file-input').hide();
+                        $('.red_color').hide();
+                        // alert(file_name_2)
+                        // alert("sre")
+                        $('.texttodisplayspill').append('<h5 style="color:#000">'+file_name_2+' is successfully uploaded</h5>')
+                        $.confirm({
+                            title: 'File succesfully uploaded',
+                            // content: 'Oops ! something went wrong',
+                            animation: 'scale',
+                            closeAnimation: 'scale',
+                            opacity: 0.5,
+                            buttons: {
+                                okay: {
+                                    text: 'Okay',
+                                    btnClass: 'btn-primary'
+                                }
+                            }
+                        });
+                    }
+                    else{
+                        $('.texttodisplay').hide();
+                        $('.texttodisplayspill').hide();
+                        $('#upl-btn__').show();
+                        $('.file-input').show();
+                        $('.red_color').show();
+                        $.confirm({
+                            title: 'Oops ! Seems you are uploading an incorrect file',
+                            // content: 'Oops ! something went wrong',
+                            animation: 'scale',
+                            closeAnimation: 'scale',
+                            opacity: 0.5,
+                            buttons: {
+                                okay: {
+                                    text: 'Okay',
+                                    btnClass: 'btn-primary'
+                                }
+                            }
+                        });
+                    }
+                    version = 0;
+                });
+            })
+
+            $("body").on("change", ".name_Class", function () {
+                tlt = 0
+                if ($(this).hasClass('0')) {
+                    tlt = 100;
+                }
+                else {
+                    vll = $(".path_Class");
+                    x = 0;
+                    for (var pc = 0; pc < vll.length; pc++) {
+                        x += Number(vll[pc].value);
+                    }
+                    y = 100-x;
+                    if (y < 0) {
+                        tlt = 0;
+                    }
+                    else {
+                        tlt = y
+                    }
+                }
+                $(this).closest('.keyword').find('.path_Class').val(tlt);
+            })
+
+            $("body").on("change", ".name_Class_new", function () {
+                tlt = 0
+                if ($(this).hasClass('0')) {
+                    tlt = 100;
+                }
+                else {
+                    vll = $(".path_Class_new");
+                    x = 0;
+                    for (var pc = 0; pc < vll.length; pc++) {
+                        x += Number(vll[pc].value);
+                    }
+                    y = 100-x;
+                    if (y < 0) {
+                        tlt = 0;
+                    }
+                    else {
+                        tlt = y
+                    }
+                }
+                $(this).closest('.keyword_new').find('.path_Class_new').val(tlt);
+            })
+            $('body').on('click', '.backclass', function(){
+                sessionStorage.setItem('backclicked', true);
+            })
+
+
+        })
