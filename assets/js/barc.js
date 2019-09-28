@@ -135,7 +135,9 @@ $(document).ready(function () {
                 $('.file-input').hide();
                 $('.red_color').hide();
                 $('.texttodisplay').show();
-                $('.texttodisplay').append('<h5>'+file_name_+' is successfully uploaded</h5>')
+                // $('.texttodisplay').append('<h5>'+file_name_+' is successfully uploaded</h5>')
+                $('.texttodisplay').append('<h5>Accelerator Output file successfully uploaded</h5>')
+
                 $('.edit_barc').prop('disabled', false);
                 $('.confirm_barc').prop('disabled', false);
                 // $('.submit_barc').prop('disabled', false);

@@ -10,6 +10,13 @@ $(document).ready(function () {
     if (filename == 'planner_createnewplan.php') {
         $('#createplan').addClass('activee');
     }
+
+    if (filename == 'barc.php') {
+        debugger;
+        $('#myplans').addClass('activee');
+    }
+
+
     if (filename == 'planner_ongoing_dashboard.php') {
         $('#myplans').addClass('activee');
     }
@@ -25,6 +32,10 @@ $(document).ready(function () {
 
     if (filename == 'adminindex.php') {
         $('#admin').addClass('activee');
+    }
+
+    if (filename == 'buyingbasket.php') {
+       $('#ongoingdashboard').addClass('activee');
     }
 
 

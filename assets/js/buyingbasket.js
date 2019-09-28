@@ -377,7 +377,9 @@ $( document ).ready(function() {
                 }
                 $('.radio_class').show()
                 $('.cprp_div').show()
-                $(".camp_id_").append('<input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:#ccc"/>')
+                $(".camp_id_").append('<label>Campaign Name</label><input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:black;color:white;"/>')
+                // $(".camp_id_").append('<p style="color:orange;font-style:13px;">Campaign Name :-</p><span style="color:white;">'+campaignName+'</span>')
+
                 if (buyingbasket_filename=='' || buyingbasket_filename== "NULL") {
 
                     $('.bb_files').show();
@@ -410,8 +412,8 @@ $( document ).ready(function() {
                     $(".budget_main").prop("checked", true);
                     $('input[type="number"]').prop('readonly', true);
                     $('input[type="text"]').prop('readonly', true);
-                    $('input[type="number"]').css('background', '#ccc');
-                    $('input[type="text"]').css('background', '#ccc');
+                    $('input[type="number"]').css('background', '#292828');
+                    $('input[type="text"]').css('background', '#292828');
                     $('.campaign_days_new').val(campaign_days);
 
 
@@ -758,6 +760,7 @@ $( document ).ready(function() {
                     console.log(i);
                     $(".main_new").append('<div class="sub_div_new" style="width:100%"><div class="row keyword_new"><div class="col-md-6"><input type="number" class="form-control mods_inputs name_Class_new ' + i + '" placeholder="Enter keyword" style="background-color:#303134;border:none;color:white;"></div><div class="col-lg-6"><input type="number" class="form-control mods_inputs path_Class_new path_Class_new ' + i + '" placeholder="Enter negative keyword" style="background-color:#303134;border:none;color:white;"><span><img src="assets/images/delete.svg" style="width:20px;" class="remove_new"></span></div></div></div>')
                     $(".hide_").show();
+                    // $('.submit_new').prop('disbale', true);
                 }
             })
 
@@ -917,15 +920,16 @@ $( document ).ready(function() {
                         }
                         else {
                         $('.add_more_new').prop('disabled', true);
+                        $('.submit_new').prop('disabled', true);
                         $(this).prop('disabled', true);
                         $('.remove_new').hide();
                         $('.spillover').hide();
                         $('.channelbeing').show();
                         $('.forsecoundpathtext').show();
                         $('#upl-btn1').hide();
-
-                        $('input[type=text]').css("background", "#ccc");
-                        $('input[type=number]').css("background", "#ccc");
+                        // 
+                        // $('input[type=text]').css("background", "#ccc");
+                        // $('input[type=number]').css("background", "#ccc");
                         $('input[type=text]').prop('readonly', true);
                         $('input[type=number]').prop('readonly', true);
                         $.confirm({
@@ -943,6 +947,7 @@ $( document ).ready(function() {
                         });
                         $('.add_more').prop('disbale', true);
                         $('.submit_').prop('disbale', true);
+                        // $('.submit_new').prop('disbale', true);
                         $('.loading').hide();
                         $('.cprp_main').prop('disabled', true);
 
