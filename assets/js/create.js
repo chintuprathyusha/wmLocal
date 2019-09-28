@@ -168,6 +168,8 @@ $(document).ready(function () {
                 $(".base_tg").append('<option value='+base_tg[key]+' class="get_base_tg-'+count+'" key='+key+'>'+base_tg[key]+'</option>');
                 count++
             }
+
+
             for(key in campign_markets){
                 $(".campign_markets").append('<option value='+campign_markets[key]+' class="get_campign_markets-'+count+'" key='+key+'>'+campign_markets[key]+'</option>');
                 count++
@@ -319,7 +321,7 @@ $(document).ready(function () {
     })
 
     function get_freezeDetails(){
-        //debugger
+        debugger
         $('.next_btn').show();
         $('.client_freezeclass').show();
         $('.select2-hidden-accessible').hide();
@@ -330,6 +332,7 @@ $(document).ready(function () {
         $('.base_freeze').show();
         $('.endfreeze').show();
         $(".select_markets").show();
+        // $('.select').hide();
 
         plan_id = sessionStorage.getItem('create_plan_id');
         sendObj = {};
@@ -413,6 +416,7 @@ $(document).ready(function () {
             $(".create_plan").attr("disabled", true);
             $(".select2").addClass('hide');
             $("#select").hide();
+            $(".select2").hide();
             for (var i = 0; i < campaignMarketId_.length; i++) {
              $(".select_markets").append('<p class="multiclient form-control getClass" value='+campaignMarketId_[i]+' readonly style="background-color:#d6d6d6;">'+campaignMarketId_[i]+'</p>')
 

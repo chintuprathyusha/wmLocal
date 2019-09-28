@@ -372,9 +372,6 @@ input[type='radio']:checked:after {
 								<h6 style="color:#f07144!important;" class="font-weight-semibold">Weightage</h6>
 								<div class="row">
 									<div class="col-md-6">
-
-
-
 										<h6 class="font-weight-semibold">CPRP <span class="appendcprp"></span></h6>
 										<input  class="inputboxstyle form-control touchspin-no-mousewheel input cprp_val" id="a" type="number" name="number"  min="1" max="99"  placeholder="Select the range till 100">
 									</div>

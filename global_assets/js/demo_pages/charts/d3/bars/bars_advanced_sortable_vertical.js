@@ -106,7 +106,7 @@ var D3BarSortableVertical = function() {
             // Load data
             // ------------------------------
 
-            d3.tsv("http://demo.interface.club/limitless/demo/bs4/Template/global_assets/demo_data/d3/bars/bars_basic.tsv", function(error, data) {
+            d3.tsv("https://demo.interface.club/limitless/demo/bs4/Template/global_assets/demo_data/d3/bars/bars_basic.tsv", function(error, data) {
 
                 // Pull out values
                 data.forEach(function(d) {
@@ -217,9 +217,9 @@ var D3BarSortableVertical = function() {
             $('.sidebar-control').on('click', resize);
 
             // Resize function
-            // 
+            //
             // Since D3 doesn't support SVG resize by default,
-            // we need to manually specify parts of the graph that need to 
+            // we need to manually specify parts of the graph that need to
             // be updated on window resize
             function resize() {
 

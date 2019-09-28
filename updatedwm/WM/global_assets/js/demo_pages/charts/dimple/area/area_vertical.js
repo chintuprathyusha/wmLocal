@@ -35,7 +35,7 @@ var DimpleAreaVertical = function() {
             var svg = dimple.newSvg(element, "100%", 500);
 
 
-            d3.tsv("http://demo.interface.club/limitless/demo/bs4/Template/global_assets/demo_data/dimple/demo_data.tsv", function (data) {
+            d3.tsv("https://demo.interface.club/limitless/demo/bs4/Template/global_assets/demo_data/dimple/demo_data.tsv", function (data) {
 
                 // Filter data
                 data = dimple.filterData(data, "Owner", ["Aperture", "Black Mesa"])

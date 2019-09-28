@@ -32,8 +32,11 @@ session_start();
 	<link href="global_assets/css/extras/animate.min.css" rel="stylesheet" type="text/css">
 	<script src="global_assets/js/main/jquery.min.js"></script>
 	<link href="assets/css/jquery-confirm.css" rel="stylesheet" type="text/css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
+
 
 	<script src="assets/js/jquery-confirm.js" charset="utf-8"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
 
 	<?php include 'assets/includes/common_scripts.php';?>
 
@@ -124,6 +127,10 @@ session_start();
 p{
 	height: auto;
 }
+.basetgstyle{
+	padding: 12px !important;
+}
+
 </style>
 
 <body>
@@ -240,9 +247,13 @@ p{
 											<h6  title="<?php echo $_SESSION['tool_tips']['CreateNewPlan_PrimaryTGId'];?>" class="font-weight-semibold">Primary TG<span class="text-danger">*</span></h6>
 										</div>
 										<div class="col-md-4">
-											<select data-placeholder="Primary TG" required class="form-control select primary_tg" data-fouc>
+											<!-- <select data-placeholder="Primary TG" required class="form-control select primary_tg" data-fouc>
 												<option value=""></option>
-											</select>
+											</select> -->
+											<select  data-placeholder="Primary TG" class="form-control js-example-basic-single primary_tg" name="state">
+												<option value=""></option>
+
+												</select>
 											<div class="primary_freeze">
 												<!-- <input class="form-control" required  data-fouc placeholder="Type the Campaign Name"> -->
 											</div>
@@ -256,9 +267,15 @@ p{
 											<h6  title="<?php echo $_SESSION['tool_tips']['CreateNewPlan_BaseTGId'];?>" class="font-weight-semibold">Base TG<span class="text-danger">*</span></h6>
 										</div>
 										<div class="col-md-4">
-											<select data-placeholder="Base Tg" required class="form-control select base_tg" data-fouc>
+											<!-- <select data-placeholder="Base Tg" required class="form-control select base_tg" data-fouc>
 												<option value=""></option>
-											</select>
+											</select> -->
+
+											<select  data-placeholder="Base Tg" class="form-control js-example-basic-single  base_tg" name="state">
+												<option value=""></option>
+
+												</select>
+
 											<div class="base_freeze">
 												<!-- <input class="form-control" required  data-fouc placeholder="Type the Campaign Name"> -->
 											</div>
@@ -404,6 +421,12 @@ p{
 	<script src="assets/js/FileSaver.min.js" charset="utf-8"></script>
 	<script src="assets/js/xlsx.full.min.js" charset="utf-8"></script>
 	<script src="assets/js/common.js" charset="utf-8"></script>
+	<script>
+	$(document).ready(function() {
+	    $('.js-example-basic-single').select2();
+	});
+
+	</script>
 
 	<!-- Mirrored from demo.interface.club/limitless/demo/bs4/Template/layout_1/LTR/default/full/uploader_bootstrap.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 Jun 2019 06:48:45 GMT -->
 	</html>

@@ -47,9 +47,9 @@ var dataTable___1;
 
         // Default ordering example
         $('.datatable-sorting').DataTable({
-            order: [3, "desc"]
+            ordering: true,
+            order: [[1, desc]],
         });
-
 
         // Multi column ordering
         function dataTableMultiSortt() {
@@ -59,6 +59,7 @@ var dataTable___1;
             }
 
             dataTable___1 = $('.datatable-multi-sorting').DataTable({
+                order: [[1, desc]],
                 columnDefs: [{
                     targets: [0],
                     orderData: [0, 1]
@@ -90,7 +91,7 @@ var dataTable___1;
                     orderData: [0, 1]
                 }, {
                     targets: [1],
-                    orderData: [1, 0]
+                    orderData: [0, 0]
                 }, {
                     targets: [4],
                     orderData: [4, 0]

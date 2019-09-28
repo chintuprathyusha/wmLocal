@@ -38,7 +38,7 @@ var DimpleScatterMatrix = function() {
             // Chart setup
             // ------------------------------
 
-            d3.tsv("http://demo.interface.club/limitless/demo/bs4/Template/global_assets/demo_data/dimple/demo_data.tsv", function (data) {
+            d3.tsv("https://demo.interface.club/limitless/demo/bs4/Template/global_assets/demo_data/dimple/demo_data.tsv", function (data) {
 
 
                 // Create chart

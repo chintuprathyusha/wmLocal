@@ -109,7 +109,7 @@ var D3BarTooltip = function() {
             // Load data
             // ------------------------------
 
-            d3.tsv("http://demo.interface.club/limitless/demo/bs4/Template/global_assets/demo_data/d3/bars/bars_tooltip.tsv", function(error, data) {
+            d3.tsv("https://demo.interface.club/limitless/demo/bs4/Template/global_assets/demo_data/d3/bars/bars_tooltip.tsv", function(error, data) {
 
                 // Pull out values
                 data.forEach(function(d) {

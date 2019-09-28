@@ -20,7 +20,7 @@ var Modals = function () {
     // Load remote content
     var _componentModalRemote = function() {
         $('#modal_remote').on('show.bs.modal', function() {
-            $(this).find('.modal-body').load('http://demo.interface.club/limitless/demo/bs4/Template/global_assets/demo_data/wizard/education.html', function() {
+            $(this).find('.modal-body').load('https://demo.interface.club/limitless/demo/bs4/Template/global_assets/demo_data/wizard/education.html', function() {
                 _componentSelect2();
             });
         });

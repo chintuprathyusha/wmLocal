@@ -1,5 +1,11 @@
 $( document ).ready(function() {
     $('.loading').show();
+    $("body").on("click", ".onclickborder", function(){
+
+        // $(".onclickborder").css('border-color','red');
+        // $('.onclickborder').css('border', 'solid 3px red');
+    })
+
     $('#upl-btn').prop('disabled', true);
     $('#upl-btn1').prop('disabled', true);
     $('.budget_div_').hide();
@@ -593,21 +599,23 @@ $( document ).ready(function() {
                         $(".cprp_val").val(key);
                         $(".reach_val").val(weightage[key])
                     }
+                    debugger
 
-
+                    obj_keys__ = {};
                     obj_keys = acd_dispersion;
+                    for (var i = 0; i < obj_keys[i].length; i++) {
+                        debugger
+                        console.log(obj_keys[i]);
 
                     $(".main .sub_div").remove()
-                    $.each(obj_keys, function( i, val ) {
-                         $.each(val, function( ii, vall ) {
-                             for (var i = 0; i < obj_keys.length; i++) {
+                                 debugger
                                  ok = '<div class="sub_div" style="width:100%">'
                                  ok += '<div class="row keyword">'
                                  ok += '<div class="col-md-6">'
-                                 ok += '<input type="number" class="form-control colorchange mods_inputs name_Class ' + i + '" value="'+ii+'" placeholder="Enter keyword">'
+                                 ok += '<input type="number" class="form-control colorchange mods_inputs name_Class ' + i + '" value="'+obj_keys[i]+'" placeholder="Enter keyword">'
                                  ok += '</div>'
                                  ok += '<div class="col-lg-6">'
-                                 ok += '<input type="number"  style="" class="form-control colorchange mods_inputs path_Class path_Class ' + i + '" value="'+vall+'" placeholder="Enter negative keyword">'
+                                 ok += '<input type="number"  style="" class="form-control colorchange mods_inputs path_Class path_Class ' + i + '" value="'+obj_keys[i].val+'" placeholder="Enter negative keyword">'
                                  ok += '<span>'
                                  ok += '<img src="assets/images/delete.svg" style="width:20px;" class="remove">'
                                  ok += '</span>'
@@ -615,12 +623,7 @@ $( document ).ready(function() {
                                  ok += '</div>'
                                  ok += '</div>'
                                  $(".main").append(ok)
-                             }
-
-
-                         })
-                     })
-
+                 }
 
 
                     $('.submit_').prop('disabled', false);
@@ -1521,9 +1524,10 @@ $( document ).ready(function() {
                         $('.bb_txt').hide();
                         $('.file-input').hide();
                         $('.red_color').hide();
-                        // alert(file_name_2)
-                        // alert("sre")
-                        $('.texttodisplayspill').append('<h5 style="color:#000">'+file_name_2+' is successfully uploaded</h5>')
+                        // $('.texttodisplayspill').append('<h5 style="color:#000">'+file_name_2+' is successfully uploaded</h5>')
+                        $('.texttodisplayspill').append('<h5 style="color:#000">Genre Level Budget Allocation Sheet  successfully uploaded</h5>')
+
+
                         $.confirm({
                             title: 'File succesfully uploaded',
                             // content: 'Oops ! something went wrong',

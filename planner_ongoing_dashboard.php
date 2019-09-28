@@ -54,7 +54,7 @@ if ($_SESSION['usernamee'] == '') {
     <script src="global_assets/js/plugins/tables/datatables/datatables.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    <!-- <script src="global_assets/js/demo_pages/datatables_sorting.js"></script> -->
+    <script src="global_assets/js/demo_pages/datatables_sorting.js"></script>
     <script src="assets/js/user_dashboard.js"></script>
     <script src="assets/js/sidenavjscode.js"></script>
     <script src="assets\js\sessiontimeoutjs.js"></script>

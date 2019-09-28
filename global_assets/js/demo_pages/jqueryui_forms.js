@@ -377,7 +377,7 @@ var JqueryUiForms = function() {
                     return;
                 }
 
-                $.getJSON('http://demo.interface.club/limitless/demo/bs4/Template/global_assets/demo_data/jquery_ui/autocomplete.php', request, function(data, status, xhr) {
+                $.getJSON('https://demo.interface.club/limitless/demo/bs4/Template/global_assets/demo_data/jquery_ui/autocomplete.php', request, function(data, status, xhr) {
                     cache[ term ] = data;
                     response(data);
                 });

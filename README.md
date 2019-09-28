@@ -1,2 +1,1 @@
-# WMFlow
-WM 
+# WM-Flow

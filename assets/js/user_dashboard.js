@@ -176,12 +176,9 @@ $(document).ready(function () {
 
     }
 
-
     function dataTableMultiSort() {
-
         setTimeout(function () {
             dataTable___ = $('.datatable-multi-sortingg').DataTable({
-
                 columnDefs: [{
                     targets: [0],
                     orderData: [0, 1]
@@ -195,16 +192,15 @@ $(document).ready(function () {
                     orderable: false,
                     width: '100px',
                     targets: [5]
-                }]
+                }],
+
             });
         }, 0);
     }
 
 
 
-
     function dataTableMultiSortt() {
-
         setTimeout(function () {
             dataTable___1 = $('.datatable-multi-sorting').DataTable({
 
