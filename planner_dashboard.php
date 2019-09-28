@@ -359,7 +359,7 @@ Footer
 </div>
 <!-- /page content -->
 <div class="loading">
-    <img src="assets/images/loader.gif" alt="">
+    <img src="assets/images/loading.gif" alt="">
 </div>
 </body>
 

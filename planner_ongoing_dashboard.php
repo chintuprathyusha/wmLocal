@@ -3,6 +3,7 @@ session_start();
 if ($_SESSION['usernamee'] == '') {
 	 header("location:index.php");
 }
+  // echo $_SESSION['allprevialges'] 
 ?>
 
 <!DOCTYPE html>

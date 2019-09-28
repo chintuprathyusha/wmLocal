@@ -215,17 +215,17 @@ $(document).ready(function () {
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
             console.log(msg);
-            planProcess = msg.planProcess;
+            planProcess = msg.planProcessed;
             acce_file_name = msg.AcceleratedFilePath;
             if (planProcess == 4) {
-                $('.edit_barc').prop('disabled', false);
-                $('.submit_barc').prop('disabled', false);
-                $('.confirm_barc').prop('disabled', false);
-            }
-            else {
                 $('.edit_barc').prop('disabled', true);
                 $('.submit_barc').prop('disabled', true);
                 $('.confirm_barc').prop('disabled', true);
+            }
+            else {
+                $('.edit_barc').prop('disabled', false);
+                $('.submit_barc').prop('disabled', false);
+                $('.confirm_barc').prop('disabled', false);
             }
 
             setTimeout(function(){

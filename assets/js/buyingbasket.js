@@ -602,17 +602,17 @@ $( document ).ready(function() {
                     debugger
 
                     obj_keys__ = {};
-                    obj_keys = acd_dispersion;
-                    for (var i = 0; i < obj_keys[i].length; i++) {
-                        debugger
-                        console.log(obj_keys[i]);
-
+                    // obj_keys = acd_dispersion;
+                    obj_keys = Object.values(acd_dispersion);
+                     // values = obj_keys__.push(obj_keys);
+                    // values = obj_keys.push(obj_keys)
                     $(".main .sub_div").remove()
-                                 debugger
+                    for (var i = 0; i < obj_keys.length; i++) {
+
                                  ok = '<div class="sub_div" style="width:100%">'
                                  ok += '<div class="row keyword">'
                                  ok += '<div class="col-md-6">'
-                                 ok += '<input type="number" class="form-control colorchange mods_inputs name_Class ' + i + '" value="'+obj_keys[i]+'" placeholder="Enter keyword">'
+                                 ok += '<input type="number" class="form-control colorchange mods_inputs name_Class ' + i + '" value="'+obj_keys+'" placeholder="Enter keyword">'
                                  ok += '</div>'
                                  ok += '<div class="col-lg-6">'
                                  ok += '<input type="number"  style="" class="form-control colorchange mods_inputs path_Class path_Class ' + i + '" value="'+obj_keys[i].val+'" placeholder="Enter negative keyword">'
@@ -749,7 +749,7 @@ $( document ).ready(function() {
                 else {
 
                     console.log(i);
-                    $(".main_new").append('<div class="sub_div_new" style="width:100%"><div class="row keyword_new"><div class="col-md-6"><input type="number" class="form-control mods_inputs name_Class_new ' + i + '" placeholder="Enter keyword"></div><div class="col-lg-6"><input type="number" class="form-control mods_inputs path_Class_new path_Class_new ' + i + '" placeholder="Enter negative keyword"><span><img src="assets/images/delete.svg" style="width:20px;" class="remove_new"></span></div></div></div>')
+                    $(".main_new").append('<div class="sub_div_new" style="width:100%"><div class="row keyword_new"><div class="col-md-6"><input type="number" class="form-control mods_inputs name_Class_new ' + i + '" placeholder="Enter keyword" style="background-color:#303134;border:none;color:white;"></div><div class="col-lg-6"><input type="number" class="form-control mods_inputs path_Class_new path_Class_new ' + i + '" placeholder="Enter negative keyword" style="background-color:#303134;border:none;color:white;"><span><img src="assets/images/delete.svg" style="width:20px;" class="remove_new"></span></div></div></div>')
                     $(".hide_").show();
                 }
             })
