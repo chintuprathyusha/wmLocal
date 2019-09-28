@@ -32,11 +32,11 @@ session_start();
 	<link href="global_assets/css/extras/animate.min.css" rel="stylesheet" type="text/css">
 	<script src="global_assets/js/main/jquery.min.js"></script>
 	<link href="assets/css/jquery-confirm.css" rel="stylesheet" type="text/css">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
+	<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" /> -->
 
 
 	<script src="assets/js/jquery-confirm.js" charset="utf-8"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script> -->
 
 	<?php include 'assets/includes/common_scripts.php';?>
 
@@ -127,9 +127,9 @@ session_start();
 p{
 	height: auto;
 }
-.basetgstyle{
+/* .basetgstyle{
 	padding: 12px !important;
-}
+} */
 
 </style>
 
