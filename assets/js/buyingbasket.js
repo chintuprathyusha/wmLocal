@@ -603,19 +603,26 @@ $( document ).ready(function() {
 
                     obj_keys__ = {};
                     // obj_keys = acd_dispersion;
-                    obj_keys = Object.values(acd_dispersion);
+                    // obj_keys = Object.values(acd_dispersion);
+
+                    obj_keys = acd_dispersion
+
+
+
+
                      // values = obj_keys__.push(obj_keys);
                     // values = obj_keys.push(obj_keys)
                     $(".main .sub_div").remove()
                     for (var i = 0; i < obj_keys.length; i++) {
-
+                        var key=Object.keys(obj_keys[i]).pop()
+                        var val=Object.values(obj_keys[i]).pop()
                                  ok = '<div class="sub_div" style="width:100%">'
                                  ok += '<div class="row keyword">'
                                  ok += '<div class="col-md-6">'
-                                 ok += '<input type="number" class="form-control colorchange mods_inputs name_Class ' + i + '" value="'+obj_keys+'" placeholder="Enter keyword">'
+                                 ok += '<input type="number" class="form-control colorchange mods_inputs name_Class ' + i + '" value="'+key+'" placeholder="Enter keyword">'
                                  ok += '</div>'
                                  ok += '<div class="col-lg-6">'
-                                 ok += '<input type="number"  style="" class="form-control colorchange mods_inputs path_Class path_Class ' + i + '" value="'+obj_keys[i].val+'" placeholder="Enter negative keyword">'
+                                 ok += '<input type="number"  style="" class="form-control colorchange mods_inputs path_Class path_Class ' + i + '" value="'+val+'" placeholder="Enter negative keyword">'
                                  ok += '<span>'
                                  ok += '<img src="assets/images/delete.svg" style="width:20px;" class="remove">'
                                  ok += '</span>'

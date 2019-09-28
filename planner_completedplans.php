@@ -65,7 +65,10 @@ if ($_SESSION['usernamee'] == '') {
 
 
     <script>
-      var username = sessionStorage.getItem("usernamee");
+	$(document).ready(function () {
+	  $(".displaytoptextboxes").hide();
+	})
+      // var username = sessionStorage.getItem("usernamee");
       //debugger
         // if (username ==  null) {
         //     window.location.href="index.php";

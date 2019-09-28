@@ -3,7 +3,7 @@ session_start();
 if ($_SESSION['usernamee'] == '') {
 	 header("location:index.php");
 }
-  // echo $_SESSION['allprevialges'] 
+  // echo $_SESSION['allprevialges']
 ?>
 
 <!DOCTYPE html>
@@ -73,6 +73,11 @@ if ($_SESSION['usernamee'] == '') {
 <?php include 'assets/includes/common_scripts.php';?>
 <script src="assets/js/common.js" charset="utf-8"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Base64/1.0.2/base64.js"></script>
+<script>
+$(document).ready(function () {
+  $(".displaytoptextboxes").hide();
+})
+</script>
 </head>
 
 

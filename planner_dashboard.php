@@ -67,18 +67,23 @@ if ($_SESSION['usernamee'] == '') {
 
 </head>
 <script>
+$(document).ready(function () {
+  $(".displaytoptextboxes").hide();
   var username = sessionStorage.getItem("usernamee");
-    // if (username ==  null) {
-    //     window.location.href="index.php";
-    // }
-    var userrole = sessionStorage.getItem("role");
-    // if (userrole!= 'Planner') {
-    //     $('#hidepri').css('display','none');
-    // }
-    // else {
-    //     $('#hidepri').css('display','block');
-    //     $('.Prioritizebtn').empty()
-    // }
+  // if (username ==  null) {
+  //     window.location.href="index.php";
+  // }
+  var userrole = sessionStorage.getItem("role");
+  // if (userrole!= 'Planner') {
+  //     $('#hidepri').css('display','none');
+  // }
+  // else {
+  //     $('#hidepri').css('display','block');
+  //     $('.Prioritizebtn').empty()
+  // }$(document).ready(function () {
+  // $(".displaytoptextboxes").hide();
+})
+	// })
 
 </script>
 <style media="screen">
@@ -201,7 +206,7 @@ display: none !important;
 
                         <!-- Order direction sequence control -->
                         <!-- <div class="card" style="background-color: #222c31;"> -->
-                        <div class="row displaytoptextboxes">
+                        <div class="row displaytoptextboxes" >
                             <!-- <div class="row"> -->
                             <div style="margin-top:6px;margin-right:14px;margin-left:12px;" class="col-sm-2">
                                 <input type="text" style="padding:5px;" placeholder="search for Campaign ID" class="form-control Campaignidclass"/>
