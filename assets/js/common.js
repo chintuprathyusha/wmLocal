@@ -22,24 +22,26 @@ var getUrlParameter = function getUrlParameter(sParam) {
     //  return 'http://192.168.0.116:6767/'
     //  return 'http://192.168.0.116:6767/'
     //   return 'http://192.168.0.116:6767/'
-      return 'http://192.168.0.22:6767/'
-
-
-      // return 'https://cin-appsvplan-indtvauto-api-dev-03.azurewebsites.net/'
+    //   return 'http://192.168.0.22:6767/'
+    // return 'http://192.168.0.116:6767/'
+      return 'https://cin-appsvplan-indtvauto-api-dev-03.azurewebsites.net/'
  }
  function url1() {
 //   return 'http://192.168.0.110:6767/'
 // return 'http://192.168.0.116:6767/'
 // return 'http://192.168.0.116:6767/'
- return 'http://192.168.0.22:6767/'
-    // return 'https://cin-appsvplan-indtvauto-api-dev-03.azurewebsites.net/'
+//  return 'http://192.168.0.22:6767/'
+// return 'http://192.168.0.116:6767/'
+// 192.168.0.116
+    return 'https://cin-appsvplan-indtvauto-api-dev-03.azurewebsites.net/'
  }
  function url2() {
     //   return 'http://192.168.0.110:6767/'
     // return 'http://192.168.0.116:6767/'
     //  return 'http://192.168.0.116:6767/'
-    return 'http://192.168.0.22:6767/'
-    // return 'https://cin-appsvplan-indtvauto-api-dev-03.azurewebsites.net/'
+    // return 'http://192.168.0.116:6767/'
+    // return 'http://192.168.0.22:6767/'
+    return 'https://cin-appsvplan-indtvauto-api-dev-03.azurewebsites.net/'
  }
 
 
