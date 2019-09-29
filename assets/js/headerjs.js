@@ -58,14 +58,18 @@ $(document).ready(function () {
             msg  = JSON.parse(msg)
             console.log(msg);
             if (msg == "logoutdone") {
-                window.config = {
-                  clientId: '39fb1160-df4a-4ece-bb64-67eb14426482',
-                  popUp: false
-                };
-                var authContext1 = new AuthenticationContext(config);
+                // window.config = {
+                //   clientId: '39fb1160-df4a-4ece-bb64-67eb14426482',
+                //   popUp: false
+                // };
+                // var authContext1 = new AuthenticationContext(config);
                 authContext1.logOut();
 
-                window.location.href="index.php";
+                setTimeout(function(){
+                    alert("Hello");
+                    window.location.href="index.php";
+                }, 5000);
+
                 // document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
                 sessionStorage.clear();
                 localStorage.clear();
