@@ -866,7 +866,7 @@ $( document ).ready(function() {
                 else if (sum!==100 || sum>100) {
 
                         $.confirm({
-                            title: 'Dispersion should be empty',
+                            title: 'Dispersion should be 100',
                             // content: 'Oops ! something went wrong',
                             animation: 'scale',
                             closeAnimation: 'scale',
@@ -927,7 +927,7 @@ $( document ).ready(function() {
                         $('.channelbeing').show();
                         $('.forsecoundpathtext').show();
                         $('#upl-btn1').hide();
-                        // 
+                        //
                         // $('input[type=text]').css("background", "#ccc");
                         // $('input[type=number]').css("background", "#ccc");
                         $('input[type=text]').prop('readonly', true);
