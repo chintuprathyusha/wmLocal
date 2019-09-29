@@ -71,7 +71,7 @@ $(document).ready(function () {
                     sessionStorage.clear();
                     localStorage.clear();
                     alert("kavyaaaaaaaaaa")
-                    window.location.href="index.php";
+                    // window.location.href="index.php";
                 }
 
 
