@@ -123,7 +123,7 @@
             });
 
             // #3: Handle redirect after token requests
-            if (authContext.isCallback(window.location.hash)) {
+            if (authContext.isCallback('https://cin-webapp-indtvautop1-dev-02.azurewebsites.net')) {
 
                 authContext.handleWindowCallback();
                 var err = authContext.getLoginError();
