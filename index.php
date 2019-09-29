@@ -94,7 +94,7 @@
 									<div class="form-group">
 										<button type="submit"  class="login_btn btn btn-primary btn-block">Login</button>
 										<button onclick="authContext.login(); return false;" class="loginbtnn" >LOGIN AD</button>
-                                        <!-- <button  onclick="authContext.logOut(); return false;">Log out AD</button> -->
+                                        <button  onclick="authContext.logOut(); return false;">Log out AD</button>
 									</div>
 								</div>
 							</div>
