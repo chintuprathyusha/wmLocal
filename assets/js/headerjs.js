@@ -58,6 +58,7 @@ $(document).ready(function () {
             if (msg == "logoutdone") {
                 sessionStorage.clear();
                 localStorage.clear();
+                // session_destroy();
                 // window.config = {
                 //   clientId: '39fb1160-df4a-4ece-bb64-67eb14426482',
                 //   popUp: false
@@ -70,7 +71,11 @@ $(document).ready(function () {
                 } finally {
                     sessionStorage.clear();
                     localStorage.clear();
+                    // // session_destroy();
+
+                window.location.href="logout.php";
                     alert("kavyaaaaaaaaaa")
+
                     // window.location.href="index.php";
                 }
 
