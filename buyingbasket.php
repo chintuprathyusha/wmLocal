@@ -179,6 +179,7 @@ input[type='radio']:checked:after {
 .texttodisplay{
 	display: none;
 }
+button:focus {outline:0;}
 #logoutbtnid{
 	background-color: #ffffff2e !important;
 	border: none;
