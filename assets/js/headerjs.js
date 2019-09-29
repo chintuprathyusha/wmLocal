@@ -33,8 +33,6 @@ $(document).ready(function () {
     })
 
     $("body").on("click", ".logutAD", function () {
-        alert()
-        debugger;
         var sessionidddd = sessionStorage.getItem("sessionidd");
         var currentdate = new Date().toLocaleString();
         obj = {}
@@ -67,14 +65,6 @@ $(document).ready(function () {
                 // var authContext1 = new AuthenticationContext(config);
                 try {
                     authContext.logOut();
-
-                                    setTimeout(function(){
-                                        alert("Hello");
-                                        window.location.href="index.php";
-                                    }, 3000);
-
-                                    // document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
-                                    window.location.href="index.php";
                 } catch (e) {
                     alert("helooooooooooooooooooooooooo");
                 } finally {
