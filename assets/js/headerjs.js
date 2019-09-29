@@ -37,8 +37,9 @@ $(document).ready(function () {
 
     $("body").on("click", ".logutAD", function () {
         alert()
-        debugger;
+    
         var sessionidddd = sessionStorage.getItem("sessionidd");
+        alert(sessionidddd)
         var currentdate = new Date().toLocaleString();
         obj = {}
         obj.sessionid = sessionidddd
@@ -58,8 +59,6 @@ $(document).ready(function () {
             "data": form
         };
         $.ajax(settings11).done(function (msg) {
-            sessionStorage.clear();
-            localStorage.clear();
             msg = JSON.parse(msg);
             console.log(msg);
             if (msg == "logoutsuccess") {
