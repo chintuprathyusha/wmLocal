@@ -58,12 +58,7 @@ $(document).ready(function () {
             if (msg == "logoutdone") {
                 sessionStorage.clear();
                 localStorage.clear();
-                // session_destroy();
-                // window.config = {
-                //   clientId: '39fb1160-df4a-4ece-bb64-67eb14426482',
-                //   popUp: false
-                // };
-                // var authContext1 = new AuthenticationContext(config);
+                
                 try {
                     authContext.logOut();
                 } catch (e) {
@@ -73,8 +68,8 @@ $(document).ready(function () {
                     localStorage.clear();
                     // // session_destroy();
 
-                window.location.href="logout.php";
-                    alert("kavyaaaaaaaaaa")
+                   window.location.href="logout.php";
+
 
                     // window.location.href="index.php";
                 }
