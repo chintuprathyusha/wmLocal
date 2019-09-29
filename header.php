@@ -7,6 +7,48 @@
 <script>
 $(document).ready(function () {
     var username = sessionStorage.getItem("usernamee");
+
+
+
+    $("body").on("click", ".logutAD", function () {
+        alert()
+
+        var sessionidddd = sessionStorage.getItem("sessionidd");
+        alert(sessionidddd)
+        var currentdate = new Date().toLocaleString();
+        obj = {}
+        obj.sessionid = sessionidddd
+        obj.loggedoutdatetime = currentdate
+        obj.issessiontimedout = "false"
+        console.log(obj);
+        var form = new FormData();
+        form.append("file", JSON.stringify(obj));
+        var settings11 = {
+            "async": true,
+            "crossDomain": true,
+            "url": aws_url+'logout_button',
+            "method": "POST",
+            "processData": false,
+            "contentType": false,
+            "mimeType": "multipart/form-data",
+            "data": form
+        };
+        $.ajax(settings11).done(function (msg) {
+            msg = JSON.parse(msg);
+            console.log(msg);
+            if (msg == "logoutsuccess") {
+                authContext.logOut();
+                window.location.href="index.php";
+                // authContext.logOut();
+                sessionStorage.clear();
+                localStorage.clear();
+            }
+
+        })
+
+
+    })
+
     // $('#displayusername').append('<p value='+username+'>Hello &nbsp;&nbsp<img src="assets/images/WhiteIcons/user profile.png" alt="" style="height: 29px;color:white;">&nbsp'+username+'</p>')
 })
 </script>
@@ -283,7 +325,7 @@ $(document).ready(function () {
         <div class="dropdown-divider"></div>
         <a href="#" class="dropdown-item"><i class="icon-cog5"></i> Account settings</a> -->
         <button id="logoutbtnid" class="dropdown-item logoutbtn"><i class="icon-switch2"></i> Logout</button>
-            <button  onclick="authContext.logOut(); return false;">Log out    AD</button>
+            <!-- <button  onclick="authContext.logOut(); return false;">Log out123    AD</button> -->
 
         <!-- <button class="logutAD" onclick="authContext.logOut(); return false;">Log out AD</button> -->
         <button class="logutAD" >Log out AD</button>
