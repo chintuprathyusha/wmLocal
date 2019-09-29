@@ -58,7 +58,13 @@ $(document).ready(function () {
             msg  = JSON.parse(msg)
             console.log(msg);
             if (msg == "logoutdone") {
-                authContext.logOut();
+                window.config = {
+                  clientId: '39fb1160-df4a-4ece-bb64-67eb14426482',
+                  popUp: false
+                };
+                var authContext1 = new AuthenticationContext(config);
+                authContext1.logOut();
+
                 window.location.href="index.php";
                 // document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
                 sessionStorage.clear();
