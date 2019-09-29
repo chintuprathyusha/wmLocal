@@ -139,7 +139,7 @@ $(document).ready(function () {
                 $('.texttodisplay').append('<h5>Accelerator Output file successfully uploaded</h5>')
 
                 $('.edit_barc').prop('disabled', false);
-                $('.confirm_barc').prop('disabled', false);
+                // $('.confirm_barc').prop('disabled', false);
                 // $('.submit_barc').prop('disabled', false);
 
                     $.confirm({
