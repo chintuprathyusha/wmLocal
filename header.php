@@ -283,6 +283,7 @@ $(document).ready(function () {
         <div class="dropdown-divider"></div>
         <a href="#" class="dropdown-item"><i class="icon-cog5"></i> Account settings</a> -->
         <button id="logoutbtnid" class="dropdown-item logoutbtn"><i class="icon-switch2"></i> Logout</button>
+            <button  onclick="authContext.logOut(); return false;">Log out    AD</button>
 
         <!-- <button class="logutAD" onclick="authContext.logOut(); return false;">Log out AD</button> -->
         <button class="logutAD" >Log out AD</button>
