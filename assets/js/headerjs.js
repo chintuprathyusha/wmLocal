@@ -59,12 +59,12 @@ $(document).ready(function () {
         $.ajax(settings11).done(function (msg) {
             sessionStorage.clear();
             localStorage.clear();
-
             msg = JSON.parse(msg);
             console.log(msg);
             if (msg == "logoutsuccess") {
                 authContext.logOut();
                 window.location.href="index.php";
+                authContext.logOut();
                 sessionStorage.clear();
                 localStorage.clear();
             }

@@ -466,10 +466,14 @@ button:focus {outline:0;}
 										</div>
 									</div>
 								</div>
-								<div class="mr-t-10" style="margin-top: 20px; text-align: right;">
-									<button class="btn btn-primary remodal-add add_more_new">Add more</button>
-									<button class="submit_new btn btn-primary">Submit</button>
-								</div>
+								<!-- <div class="mr-t-10" style="margin-top: 20px; text-align: right;"> -->
+									<!-- <button class="btn btn-primary remodal-add add_more_new">Add more</button>
+									<button class="submit_new btn btn-primary">Submit</button> -->
+									<div class="mr-t-10" style="margin-top: 20px; text-align: right;">
+										<button style="background-color:#BB2734;color:white" class="btn remodal-add add_more">Add more</button>
+										<button class="submit_ btn" style="width:485px;background-color:#BB2734;color:white" data-toggle="modal" data-target="#myModal_">Submit</button>
+									</div>
+								<!-- </div> -->
 
 
 							</div>
