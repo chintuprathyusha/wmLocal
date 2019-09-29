@@ -37,7 +37,7 @@ $(document).ready(function () {
 
     $("body").on("click", ".logutAD", function () {
         alert()
-    
+
         var sessionidddd = sessionStorage.getItem("sessionidd");
         alert(sessionidddd)
         var currentdate = new Date().toLocaleString();
@@ -64,7 +64,7 @@ $(document).ready(function () {
             if (msg == "logoutsuccess") {
                 authContext.logOut();
                 window.location.href="index.php";
-                authContext.logOut();
+                // authContext.logOut();
                 sessionStorage.clear();
                 localStorage.clear();
             }
