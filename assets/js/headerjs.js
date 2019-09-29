@@ -63,7 +63,7 @@ $(document).ready(function () {
                 //   popUp: false
                 // };
                 // var authContext1 = new AuthenticationContext(config);
-                authContext1.logOut();
+                authContext.logOut();
 
                 setTimeout(function(){
                     alert("Hello");
