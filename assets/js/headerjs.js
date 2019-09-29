@@ -67,21 +67,22 @@ $(document).ready(function () {
                 // var authContext1 = new AuthenticationContext(config);
                 try {
                     authContext.logOut();
-                } catch (e) {
 
+                                    setTimeout(function(){
+                                        alert("Hello");
+                                        window.location.href="index.php";
+                                    }, 3000);
+                                    sessionStorage.clear();
+                                    localStorage.clear();
+                                    // document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+                                    window.location.href="index.php";
+                } catch (e) {
+                    alert("helooooooooooooooooooooooooo");
                 } finally {
                     window.location.href="index.php";
                 }
 
 
-                // setTimeout(function(){
-                //     alert("Hello");
-                //     window.location.href="index.php";
-                // }, 3000);
-                // sessionStorage.clear();
-                // localStorage.clear();
-                // // document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
-                // window.location.href="index.php";
             }
         })
     })
