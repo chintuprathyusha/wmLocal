@@ -82,7 +82,7 @@ $(document).ready(function () {
 
 
 
-<!-- <script type="text/javascript">
+<script type="text/javascript">
 
     // #1: Set up ADAL
     var authContext = new AuthenticationContext({
@@ -91,7 +91,7 @@ $(document).ready(function () {
     });
 
     // #3: Handle redirect after token requests
-    if (authContext.isCallback(window.location.hash)) {
+    if (authContext.isCallback('https://cin-webapp-indtvautop1-dev-02.azurewebsites.net/index.php')) {
 
         authContext.handleWindowCallback();
         var err = authContext.getLoginError();
@@ -207,7 +207,7 @@ $(document).ready(function () {
             console.log('Not signed in.')
         }
     }
-<!-- </script>  -->
+<!-- </script>
 <style media="screen">
 /* .same_Class{
     padding: 0px 16px;
