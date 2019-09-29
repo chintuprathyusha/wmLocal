@@ -60,7 +60,7 @@ $(document).ready(function () {
             if (msg == "logoutdone") {
                 authContext.logOut();
                 window.location.href="index.php";
-                document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+                // document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
                 sessionStorage.clear();
                 localStorage.clear();
             }
