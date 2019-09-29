@@ -58,6 +58,8 @@ $(document).ready(function () {
             msg  = JSON.parse(msg)
             console.log(msg);
             if (msg == "logoutdone") {
+                sessionStorage.clear();
+                localStorage.clear();
                 // window.config = {
                 //   clientId: '39fb1160-df4a-4ece-bb64-67eb14426482',
                 //   popUp: false
@@ -68,11 +70,11 @@ $(document).ready(function () {
                 setTimeout(function(){
                     alert("Hello");
                     window.location.href="index.php";
-                }, 5000);
-
-                // document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+                }, 3000);
                 sessionStorage.clear();
                 localStorage.clear();
+                // document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+
             }
         })
     })
