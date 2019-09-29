@@ -79,6 +79,7 @@ $(document).ready(function () {
                 } catch (e) {
                     alert("helooooooooooooooooooooooooo");
                 } finally {
+                    alert("kavyaaaaaaaaaa")
                     window.location.href="index.php";
                 }
 
