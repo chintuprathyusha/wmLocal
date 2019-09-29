@@ -65,7 +65,7 @@ if ($_SESSION['usernamee'] == '') {
     <script src="global_assets/js/demo_pages/form_checkboxes_radios.js"></script>
     <script src="assets/js/common.js" charset="utf-8"></script>
     <script src="assets/js/sweetalert.min.js"></script>
-    <!-- <script src="assets/js/azurecode.js"></script> -->
+    <script src="assets/js/azurecode.js"></script>
 
     <link href="assets/css/jquery-confirm.css" rel="stylesheet" type="text/css">
 
