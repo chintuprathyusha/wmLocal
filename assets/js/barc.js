@@ -219,17 +219,15 @@ $(document).ready(function () {
             console.log(msg);
             planProcess = msg.planProcessed;
             acce_file_name = msg.AcceleratedFilePath;
+            base_tg_ =  msg.BaseTGId;
+            campaignId_ = msg.CampaignId;
+            campaignMarkets = msg.CampaignMarketId;
+            console.log(campaignMarkets);
+            endWeekId_ = msg.EndWeek;
+            primaryTGTd_ = msg.PrimaryTGTd;
+            pathSelection = msg.PathSelection;
             debugger
-            if (planProcess == 3) {
-                $('.edit_barc').prop('disabled', false);
-                // $('.submit_barc').prop('disabled', true);
-                // $('.confirm_barc').prop('disabled', true);
-            }
-            else {
-                $('.edit_barc').prop('disabled', true);
-                $('.submit_barc').prop('disabled', true);
-                $('.confirm_barc').prop('disabled', true);
-            }
+
 
             setTimeout(function(){
                 $('.loading').hide();
@@ -254,36 +252,32 @@ $(document).ready(function () {
             }
 
             else {
-
                 $(".select2").addClass('hide');
-                base_tg_ =  msg.BaseTGId;
-                campaignId_ = msg.CampaignId;
-                campaignMarkets = msg.CampaignMarketId;
-                console.log(campaignMarkets);
-                endWeekId_ = msg.EndWeek;
-                primaryTGTd_ = msg.PrimaryTGTd;
-                pathSelection = msg.PathSelection;
+                if (planProcess == 3) {
 
-                if (pathSelection == 1) {
-                    if (acce_file_name==null) {
-                       $('.acce_div').show();
-                        $('.acce_File_').hide();
-
-                   }
-                   else {
-                       $('.acce_div').hide();
-                       $('.acce_File_').show();
-                       // $('.acce_File_').append('<h5>'+acce_file_name+' is successfully uploaded</h5>');
-                       $('.acce_File_').append('<h5>Accelerator Output file is successfully uploaded</h5>');
-
-                       // $('.edit_barc').prop('disabled', false);
-                   }
+                    if (pathSelection == 1) {
+                        if (acce_file_name==null) {
+                           $('.acce_div').show();
+                            $('.acce_File_').hide();
+                            $('.edit_barc').prop('disabled', true);
+                       }
+                       else {
+                           $('.acce_div').hide();
+                           $('.acce_File_').show();
+                           // $('.acce_File_').append('<h5>'+acce_file_name+' is successfully uploaded</h5>');
+                           $('.acce_File_').append('<h5>Accelerator Output file is successfully uploaded</h5>');
+                           $('.edit_barc').prop('disabled', true);
+                       }
+                    }
+                    else {
+                        $('.acce_div').hide();
+                    }
+                    // $('.edit_barc').prop('disabled', false);
                 }
                 else {
-                    $('.acce_div').hide();
-                    // $('.edit_barc').removeAttr('disabled');
-                    // $('.submit_barc').removeAttr('disabled');
-
+                    $('.edit_barc').prop('disabled', true);
+                    $('.submit_barc').prop('disabled', true);
+                    $('.confirm_barc').prop('disabled', true);
                 }
             }
         })
