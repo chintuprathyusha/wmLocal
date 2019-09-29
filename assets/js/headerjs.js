@@ -65,16 +65,23 @@ $(document).ready(function () {
                 //   popUp: false
                 // };
                 // var authContext1 = new AuthenticationContext(config);
-                authContext.logOut();
+                try {
+                    authContext.logOut();
+                } catch (e) {
 
-                setTimeout(function(){
-                    alert("Hello");
+                } finally {
                     window.location.href="index.php";
-                }, 3000);
-                sessionStorage.clear();
-                localStorage.clear();
-                // document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+                }
 
+
+                // setTimeout(function(){
+                //     alert("Hello");
+                //     window.location.href="index.php";
+                // }, 3000);
+                // sessionStorage.clear();
+                // localStorage.clear();
+                // // document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+                // window.location.href="index.php";
             }
         })
     })
