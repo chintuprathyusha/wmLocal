@@ -72,13 +72,14 @@ $(document).ready(function () {
                                         alert("Hello");
                                         window.location.href="index.php";
                                     }, 3000);
-                                    sessionStorage.clear();
-                                    localStorage.clear();
+
                                     // document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
                                     window.location.href="index.php";
                 } catch (e) {
                     alert("helooooooooooooooooooooooooo");
                 } finally {
+                    sessionStorage.clear();
+                    localStorage.clear();
                     alert("kavyaaaaaaaaaa")
                     window.location.href="index.php";
                 }
