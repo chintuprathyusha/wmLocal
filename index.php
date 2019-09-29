@@ -153,7 +153,6 @@
                             xhr.setRequestHeader('Authorization', 'Bearer ' + token);
                             xhr.onreadystatechange = function () {
                                 if (xhr.readyState === 4 && xhr.status === 200) {
-
                                     console.log(xhr.responseText);
 									var response_fromAD = xhr.responseText
 									console.log(response_fromAD);
@@ -177,6 +176,7 @@
 									$.ajax(settings11).done(function (msg) {
  						               msg = JSON.parse(msg);
  						               console.log(msg);
+									   alert()
  						               localStorage.setItem("allprevialges",JSON.stringify(msg.privilegers))
  						               sessionStorage.setItem("isnewuser",msg.isnewuser)
  						               sessionStorage.setItem("role",msg.role)

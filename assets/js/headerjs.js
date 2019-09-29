@@ -36,6 +36,7 @@ $(document).ready(function () {
 
 
     $("body").on("click", ".logutAD", function () {
+        alert()
         debugger;
         var sessionidddd = sessionStorage.getItem("sessionidd");
         var currentdate = new Date().toLocaleString();
