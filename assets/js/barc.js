@@ -219,15 +219,16 @@ $(document).ready(function () {
             console.log(msg);
             planProcess = msg.planProcessed;
             acce_file_name = msg.AcceleratedFilePath;
-            if (planProcess == 4) {
+            debugger
+            if (planProcess == 3) {
+                $('.edit_barc').prop('disabled', false);
+                // $('.submit_barc').prop('disabled', true);
+                // $('.confirm_barc').prop('disabled', true);
+            }
+            else {
                 $('.edit_barc').prop('disabled', true);
                 $('.submit_barc').prop('disabled', true);
                 $('.confirm_barc').prop('disabled', true);
-            }
-            else {
-                $('.edit_barc').prop('disabled', false);
-                $('.submit_barc').prop('disabled', false);
-                $('.confirm_barc').prop('disabled', false);
             }
 
             setTimeout(function(){
@@ -275,12 +276,12 @@ $(document).ready(function () {
                        // $('.acce_File_').append('<h5>'+acce_file_name+' is successfully uploaded</h5>');
                        $('.acce_File_').append('<h5>Accelerator Output file is successfully uploaded</h5>');
 
-                       $('.edit_barc').prop('disabled', false);
+                       // $('.edit_barc').prop('disabled', false);
                    }
                 }
                 else {
                     $('.acce_div').hide();
-                    $('.edit_barc').removeAttr('disabled');
+                    // $('.edit_barc').removeAttr('disabled');
                     // $('.submit_barc').removeAttr('disabled');
 
                 }

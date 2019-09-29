@@ -66,25 +66,10 @@ if ($_SESSION['usernamee'] == '') {
 
 </head>
 <script>
-// $(document).ready(function () {
-// 		var alltooltips =  JSON.parse(localStorage.getItem("tool_tips"))
-// 		var campaignmarket=alltooltips.BARC_CampaignMarkets;
-// 		var selectedpritg = alltooltips.BARC_PrimaryTGId;
-// 			var selectedbasetg = alltooltips.BARC_BaseTGId;
-// 				var selectedendweek = alltooltips.BARC_EndWeek;
-//
-// 	$('.appendcampaignmarket').append('<img style="width:17px;height:17px;margin-left:10px;" title="'+campaignmarket+'" src="assets/images/informicon.svg"/>')
-// 		$('.appendselectedpritg').append('<img style="width:17px;height:17px;margin-left:10px;" title="'+selectedpritg+'" src="assets/images/informicon.svg"/>')
-// 		$('.appendselectedbasetg').append('<img style="width:17px;height:17px;margin-left:10px;" title="'+selectedbasetg+'" src="assets/images/informicon.svg"/>')
-// 		$('.appendselectedendweek').append('<img style="width:17px;height:17px;margin-left:10px;" title="'+selectedendweek+'" src="assets/images/informicon.svg"/>')
-// 		// $('.appendprimarytg').append('<img style="width:17px;height:17px;margin-left:10px;" title="'+ClientLeadEmailId+'" src="assets/images/informicon.svg"/>')
-// 		// $('.appendbasetg').append('<img style="width:17px;height:17px;margin-left:10px;" title="'+ClientLeadEmailId+'" src="assets/images/informicon.svg"/>')
-// 		// $('.appendendweek').append('<img style="width:17px;height:17px;margin-left:10px;" title="'+ClientLeadEmailId+'" src="assets/images/informicon.svg"/>')
-// 		// $('.appendcampaignmarket').append('<img style="width:17px;height:17px;margin-left:10px;" title="'+ClientLeadEmailId+'" src="assets/images/informicon.svg"/>')
-//
-// 		// <img style="width:17px;height:17px;margin-left:10px;" src="assets/images/informicon.svg"/>
-//
-// })
+$(document).ready(function() {
+	$('.js-example-basic-single').select2();
+});
+
 </script>
 <style media="screen">
 .file-drop-zone-title {
@@ -235,9 +220,15 @@ if ($_SESSION['usernamee'] == '') {
                                 <div class="form-group row">
                                     <label title="<?php echo $_SESSION['tool_tips']['BARC_PrimaryTGId'];?>" class="col-form-label col-lg-3">Selected Primary TG <span class="text-danger">*</span><span class="appendselectedpritg"></span></label>
                                     <div class="col-lg-9">
-                                        <select name="select2" data-placeholder="Selected Primary TG" class="form-control form-control-select2 Primary_Tg_dt" required data-fouc>
+                                        <!-- <select name="select2" data-placeholder="Selected Primary TG" class="form-control form-control-select2 Primary_Tg_dt" required data-fouc>
                                             <option></option>
-                                        </select>
+                                        </select> -->
+
+										<select name="select2" data-placeholder="Selected Primary TG" class="form-control js-example-basic-single form-control-select2 Primary_Tg_dt" required data-fouc>
+										 <option value=""></option>
+
+										 </select>
+
                                         <div data-placeholder="" class="freezeLoc primary_freeze" data-fouc>
 
                                         </div>
@@ -246,9 +237,13 @@ if ($_SESSION['usernamee'] == '') {
                                 <div class="form-group row">
                                     <label title="<?php echo $_SESSION['tool_tips']['BARC_BaseTGId'];?>" class="col-form-label col-lg-3">Selected Base TG <span class="text-danger">*</span><span class="appendselectedbasetg"></span></label>
                                     <div class="col-lg-9">
-                                        <select name="select2" data-placeholder="Selected Base TG" class="form-control form-control-select2 base_tg" required data-fouc>
+                                        <!-- <select name="select2" data-placeholder="Selected Base TG" class="form-control form-control-select2 base_tg" required data-fouc>
                                             <option></option>
-                                        </select>
+                                        </select> -->
+										<select name="select2" data-placeholder="Selected Base TG" class="form-control js-example-basic-single form-control-select2 base_tg" required data-fouc>
+											<option value=""></option>
+
+											</select>
                                         <div data-placeholder="" class="freezeLoc base_freeze" data-fouc>
 
                                         </div>
