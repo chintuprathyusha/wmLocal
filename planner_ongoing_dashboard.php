@@ -73,6 +73,7 @@ if ($_SESSION['usernamee'] == '') {
 <?php include 'assets/includes/common_scripts.php';?>
 <script src="assets/js/common.js" charset="utf-8"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Base64/1.0.2/base64.js"></script>
+<script src="assets/js/azurecommoncode.js"></script>
 <script>
 $(document).ready(function () {
   $(".displaytoptextboxes").hide();
@@ -82,7 +83,7 @@ $(document).ready(function () {
 
 
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 
     // #1: Set up ADAL
     var authContext = new AuthenticationContext({
@@ -125,74 +126,7 @@ $(document).ready(function () {
                             console.log(xhr.responseText);
                             var response_fromAD = xhr.responseText
                             console.log(response_fromAD);
-                           //  currentdate = new Date().toLocaleString();
-                           //  sendObj = {};
-                           //  sendObj.responsefromad = response_fromAD;
-                           //  sendObj.currentdate = currentdate;
-                           //  console.log(sendObj);
-                           //  var form = new FormData();
-                           //  form.append("file", JSON.stringify(sendObj));
-                           //  var settings11 = {
-                           //      "async": true,
-                           //      "crossDomain": true,
-                           //      "url": aws_url+'Login_ad',
-                           //      "method": "POST",
-                           //      "processData": false,
-                           //      "contentType": false,
-                           //      "mimeType": "multipart/form-data",
-                           //      "data": form
-                           //  };
-                           //  $.ajax(settings11).done(function (msg) {
-                           //     msg = JSON.parse(msg);
-                           //     console.log(msg);
-                           //     localStorage.setItem("allprevialges",JSON.stringify(msg.privilegers))
-                           //     sessionStorage.setItem("isnewuser",msg.isnewuser)
-                           //     sessionStorage.setItem("role",msg.role)
-                           //     sessionStorage.setItem("useremail",msg.useremail)
-                           //     sessionStorage.setItem("userid",msg.user_id)
-                           //     sessionStorage.setItem("sessionidd",msg.sessionid)
-                           //     sessionStorage.setItem("usernamee",msg.username)
-                           //     sessionStorage.setItem("isprofile", msg.isprofile_created)
-                           //     if (msg.validlogin == "true") {
-                           //         login_obj = msg;
-                           //
-                           //         console.log(login_obj);
-                           //
-                           //         console.log(msg);
-                           //
-                           //         if(msg.role == "Admin"){
-                           //             window.location.href="adminindex.php";
-                           //         }
-                           //         else {
-                           //             if (msg.isnewuser == "true") {
-                           //                 window.location.href="userprofile.php";
-                           //             }
-                           //             else {
-                           //                 if (msg.isprofile_created == "true") {
-                           //                     window.location.href="planner_ongoing_dashboard.php";
-                           //                 }
-                           //                 else {
-                           //                     window.location.href="userprofile.php";
-                           //                 }
-                           //             }
-                           //         }
-                           //     }
-                           //     else {
-                           //         swal("Invalid username/password")
-                           //     }
-                           //
-                           //     $.ajax({
-                           //         url: 'assets/backgrounds/session_create.php',
-                           //         method: 'POST',
-                           //         data: login_obj,
-                           //
-                           //         success: function (msg) {
-                           //             console.log(msg);
-                           //
-                           //         }
-                           //     })
-                           //
-                           // })
+
 
                         } else {
                             // TODO: Do something with the error
@@ -207,7 +141,7 @@ $(document).ready(function () {
             console.log('Not signed in.')
         }
     }
-<!-- </script>
+<!-- </script> -->
 <style media="screen">
 /* .same_Class{
     padding: 0px 16px;

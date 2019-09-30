@@ -49,6 +49,7 @@ if ($_SESSION['usernamee'] == '') {
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="global_assets/js/demo_pages/form_select2.js"></script>
     <script src="global_assets/js/demo_pages/dashboard.js"></script>
+	<script src="assets/js/azurecode.js"></script>
     <!-- Theme JS files -->
     <script src="global_assets/js/plugins/tables/datatables/datatables.min.js"></script>
 
@@ -58,6 +59,7 @@ if ($_SESSION['usernamee'] == '') {
     <script src="assets\js\sessiontimeoutjs.js"></script>
     <script src="assets/js/sweetalert.min.js"></script>
     <script src="assets/js/common.js"></script>
+	<script src="assets/js/azurecommoncode.js"></script>
 
     <!-- Core JS files -->
 
