@@ -18,8 +18,6 @@ $(document).ready(function () {
     var version;
     var campaignName;
     function onLoad(){
-        // var $disabledResults = $(".campaign_markets");
-        // $disabledResults.select2();
         sendObj ={}
         sendObj.planid = plan_id;
         console.log(sendObj);
@@ -48,7 +46,6 @@ $(document).ready(function () {
     fileobj = {};
     (function ($) {
         $('#load-file').on('change', function () {
-            //debugger
             main_output = ''
             var file = $('#load-file')[0].files[0];
             file_name_ = "AcceleratorOutput_"+campaign_id+"_"+version+".xlsx";
@@ -135,16 +132,12 @@ $(document).ready(function () {
                 $('.file-input').hide();
                 $('.red_color').hide();
                 $('.texttodisplay').show();
-                // $('.texttodisplay').append('<h5>'+file_name_+' is successfully uploaded</h5>')
                 $('.texttodisplay').append('<h5>Accelerator Output file successfully uploaded</h5>')
 
                 $('.edit_barc').prop('disabled', false);
-                // $('.confirm_barc').prop('disabled', false);
-                // $('.submit_barc').prop('disabled', false);
 
                 $.confirm({
                     title: 'File succesfully uploaded',
-                    // content: 'Oops ! something went wrong',
                     animation: 'scale',
                     closeAnimation: 'scale',
                     opacity: 0.5,
@@ -167,7 +160,6 @@ $(document).ready(function () {
 
                 $.confirm({
                     title: 'Oops ! something went wrong, try again',
-                    // content: 'Oops ! something went wrong',
                     animation: 'scale',
                     closeAnimation: 'scale',
                     opacity: 0.5,
@@ -192,80 +184,65 @@ $(document).ready(function () {
     var count = 0;
     var version;
     var planProcess;
-    // $('option:not(:selected)').prop('disabled', true);
     $('.campaign_markets').attr("style", "pointer-events: none;");
     barcData();
     setTimeout(function(){ editData(); }, 1000);
     $('.select2').hide();
 
     function barcData() {
-         plan_id = sessionStorage.getItem('create_plan_id');
-         sendObj = {};
-         sendObj.planId = plan_id;
-         console.log(sendObj);
-         var form = new FormData();
-         form.append("file", JSON.stringify(sendObj));
-         var settings11 = {
-             "async": true,
-             "crossDomain": true,
-             "url": aws_url+'Barc_Plan_Freeze',
-             "method": "POST",
-             "processData": false,
-             "contentType": false,
-             "mimeType": "multipart/form-data",
-             "data": form
-         };
-         $.ajax(settings11).done(function (msg) {
-             msg = JSON.parse(msg);
-             console.log(msg);
-             planProcess = msg.planProcess;
-             acce_file_name = msg.AcceleratedFilePath;
-             if (planProcess == 3) {
-                 $('.edit_barc').prop('disabled', false);
-                 $('.submit_barc').prop('disabled', false);
-                 $('.confirm_barc').prop('disabled', false);
-             }
-             else {
-                 $('.edit_barc').prop('disabled', true);
-                 $('.submit_barc').prop('disabled', true);
-                 $('.confirm_barc').prop('disabled', true);
-             }
+        plan_id = sessionStorage.getItem('create_plan_id');
+        sendObj = {};
+        sendObj.planId = plan_id;
+        console.log(sendObj);
+        var form = new FormData();
+        form.append("file", JSON.stringify(sendObj));
+        var settings11 = {
+            "async": true,
+            "crossDomain": true,
+            "url": aws_url+'Barc_Plan_Freeze',
+            "method": "POST",
+            "processData": false,
+            "contentType": false,
+            "mimeType": "multipart/form-data",
+            "data": form
+        };
+        $.ajax(settings11).done(function (msg) {
+            msg = JSON.parse(msg);
+            console.log(msg);
+            planProcess = msg.planProcess;
+            acce_file_name = msg.AcceleratedFilePath;
+            $(".select2").addClass('hide');
+            base_tg_ =  msg.BaseTGId;
+            campaignId_ = msg.CampaignId;
+            campaignMarkets = msg.CampaignMarketId;
+            console.log(campaignMarkets);
+            endWeekId_ = msg.EndWeek;
+            primaryTGTd_ = msg.PrimaryTGTd;
+            pathSelection = msg.PathSelection;
+            setTimeout(function(){
+                $('.loading').hide();
+            }, 10000)
+            if (msg.message == "fail") {
+                $.confirm({
+                    title: 'Oops ! something went wrong, try again',
+                    animation: 'scale',
+                    closeAnimation: 'scale',
+                    opacity: 0.5,
+                    buttons: {
+                        okay: {
+                            text: 'Okay',
+                            btnClass: 'btn-primary'
+                        }
+                    }
+                });
 
-             setTimeout(function(){
-                 $('.loading').hide();
+            }
 
-             }, 10000)
-             // window.location.reload();
-             if (msg.message == "fail") {
-                 $.confirm({
-                     title: 'Oops ! something went wrong, try again',
-                     // content: 'Oops ! something went wrong',
-                     animation: 'scale',
-                     closeAnimation: 'scale',
-                     opacity: 0.5,
-                     buttons: {
-                         okay: {
-                             text: 'Okay',
-                             btnClass: 'btn-primary'
-                         }
-                     }
-                 });
-
-             }
-
-             else {
-                 $(".select2").addClass('hide');
-                 base_tg_ =  msg.BaseTGId;
-                 campaignId_ = msg.CampaignId;
-                 campaignMarkets = msg.CampaignMarketId;
-                 console.log(campaignMarkets);
-                 endWeekId_ = msg.EndWeek;
-                 primaryTGTd_ = msg.PrimaryTGTd;
-                 pathSelection = msg.PathSelection;
-                 if (pathSelection == 1) {
-                     if (acce_file_name==null) {
+            else {
+                if (pathSelection == 1) {
+                    if (acce_file_name==null) {
                         $('.acce_div').show();
-                         $('.acce_File_').hide();
+                        $('.acce_File_').hide();
                     }
                     else {
                         $('.acce_div').hide();
@@ -274,25 +251,25 @@ $(document).ready(function () {
                         $('.edit_barc').prop('disabled', false);
                     }
                     if (planProcess == 4) {
-                      $('.edit_barc').prop('disabled', false);
+                        $('.edit_barc').prop('disabled', false);
                     }
-                 }
-                 else if(pathSelection == 2) {
-                     $('.acce_div').hide();
-                     $('.edit_barc').removeAttr('disabled');
-                     if (planProcess>3) {
-                       $('.edit_barc').prop('disabled', true);
-                     }
-                     else if(planProcess == 3){
-                       $('.edit_barc').prop('disabled', true);
-                     }
-                     else {
-                          $('.edit_barc').prop('disabled', false);
-                     }
-                 }
-             }
-         })
-     }
+                }
+                else if(pathSelection == 2) {
+                    $('.acce_div').hide();
+                    $('.edit_barc').removeAttr('disabled');
+                    if (planProcess>3) {
+                        $('.edit_barc').prop('disabled', true);
+                    }
+                    else if(planProcess == 3){
+                        $('.edit_barc').prop('disabled', true);
+                    }
+                    else {
+                        $('.edit_barc').prop('disabled', false);
+                    }
+                }
+            }
+        })
+    }
 
     $('body').on('click', '.edit_barc', function(){
         $('.submit_barc').prop('disabled', true);
@@ -323,8 +300,7 @@ $(document).ready(function () {
             msg = JSON.parse(msg);
             setTimeout(function(){
                 $('.loading').hide();
-
-            }, 3000)
+            }, 7000)
             console.log(msg);
             $('.select2').show();
             $(".campaign_markets").prop("disabled", true);
@@ -422,15 +398,12 @@ $(document).ready(function () {
         };
         $.ajax(settings11).done(function (msg) {
             console.log(msg);
-            // msg = JSON.parse(msg);
 
             $('.loading').hide();
             debugger;
             if (msg == "updated") {
-                // alert("submitted succesfully")
                 $.confirm({
                     title: 'submitted succesfully',
-                    // content: 'Oops ! something went wrong',
                     animation: 'scale',
                     closeAnimation: 'scale',
                     opacity: 0.5,
@@ -450,7 +423,6 @@ $(document).ready(function () {
             else {
                 $.confirm({
                     title: 'Oops ! something went wrong, try again',
-                    // content: 'Oops ! something went wrong',
                     animation: 'scale',
                     closeAnimation: 'scale',
                     opacity: 0.5,
