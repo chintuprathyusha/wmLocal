@@ -25,6 +25,9 @@ if ($_SESSION['usernamee'] == '') {
 	<link href="assets/css/common.css" rel="stylesheet" type="text/css">
 	<link href="assets/css/components.min.css" rel="stylesheet" type="text/css">
 	<link href="assets/css/colors.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/sweetalert.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/jquery-confirm.css" rel="stylesheet" type="text/css">
+	<script src="assets/js/jquery-confirm.js" charset="utf-8"></script>
 	<!-- /global stylesheets -->
 
 	<!-- Core JS files -->
@@ -51,6 +54,8 @@ if ($_SESSION['usernamee'] == '') {
 	<script src="global_assets/js/demo_pages/datatables_sorting.js"></script>
 	<script src="assets/js/sidenavjscode.js"></script>
 	<script src="assets/js/common.js"></script>
+	<script src="assets/js/sweetalert.min.js"></script>
+
 
 	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script> -->
@@ -159,6 +164,10 @@ $( document ).ready(function() {
 
 		<?php include 'assets/includes/side_navbar.php';?>
 
+		<div class="loading">
+			<img src="assets/images/loading.gif" alt="">
+		</div>
+
 
 		<!-- Main content -->
 		<div class="content-wrapper" style="background-color: #1f2022;">
@@ -174,7 +183,7 @@ $( document ).ready(function() {
 							<div class="cprp new_plan">
                                 <div class="step-content">
                             		<div style="width: 100%;">
-                            			<div class="row">
+                            			<div class="row acce_div">
                             				<h6 class="font-weight-semibold">Upload Accelerator File</h6>
                             				<div class="col-lg-10">
 												<div class="texttodisplay"></div>
@@ -184,6 +193,9 @@ $( document ).ready(function() {
                             					<button type="button" class="btn btn-primary" id="upl-btn" style="background: #4caf50;">Upload <i class="icon-upload ml-2"></i></button>
                             				</div>
                             			</div>
+										<div class="acce_File_">
+
+										</div>
                             		</div>
                             	</div>
 							</div>

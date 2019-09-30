@@ -1,13 +1,10 @@
 $( document ).ready(function() {
     $('.loading').show();
     $("body").on("click", ".onclickborder", function(){
-
-        // $(".onclickborder").css('border-color','red');
-        // $('.onclickborder').css('border', 'solid 3px red');
     })
-
     $('#upl-btn').prop('disabled', true);
     $('#upl-btn1').prop('disabled', true);
+    $('#upl-btn__').prop('disabled', true);
     $('.budget_div_').hide();
     $('.cprp_div').hide();
     $('.spillover').hide();
@@ -41,11 +38,11 @@ $( document ).ready(function() {
     var replan = false;
     var backclicked = "false";
     $.urlParam = function(name){
-       var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-       if (results==null) {
-           return null;
-       }
-       return decodeURI(results[1]) || 0;
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+        if (results==null) {
+            return null;
+        }
+        return decodeURI(results[1]) || 0;
     }
     var paramgoback = $.urlParam('goback');
     var parangonext = $.urlParam('gonext');
@@ -309,7 +306,7 @@ $( document ).ready(function() {
                         }
                         newcampaign_id = msg.CampaignId;
                         campaignName = msg.CampaignName;
-                        $(".camp_id_").append('<input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:#ccc"/>')
+                        $(".camp_id_").append('<input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:#ccc";color:#000/>')
                     }
                 })
             }
@@ -396,7 +393,7 @@ $( document ).ready(function() {
                     $('.texttodisplay').append('<h5 style="color:#000">Buying Basket file is succesfully uploaded</h5>')
                 }
 
-                 // alert(buyingbasket_filename)
+                // alert(buyingbasket_filename)
                 if(path_selection==2){
                     debugger
                     $('.add_more_new').prop('disabled', true);
@@ -404,7 +401,7 @@ $( document ).ready(function() {
                     $(".cprp_main").prop("disabled", true);
                     $(".cprp_main").css("background-color", "#292828");
                     $(".budget_main").css("background-color", "#F07144");
-                   // $(".forsecoundpathtext").show()
+                    // $(".forsecoundpathtext").show()
                     $('.radio_class').show();
                     $('.cprp_div').hide();
                     $('.budget_div_').show()
@@ -428,8 +425,8 @@ $( document ).ready(function() {
                             acd_data.push(keyy)
                             acd_value.push(valuee)
 
+                        })
                     })
-                })
 
                     // $.each(acd_dispersion, function(key, value){
                     //     console.log(key);
@@ -471,8 +468,8 @@ $( document ).ready(function() {
                             acd_data.push(keyy)
                             acd_value.push(valuee)
 
+                        })
                     })
-                })
 
 
 
@@ -502,7 +499,7 @@ $( document ).ready(function() {
                 //debugger
                 $('.radio_class').show()
                 $('.cprp_div').show()
-                $(".camp_id_").append('<input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:#ccc"/>')
+                $(".camp_id_").append('<input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:#ccc;color:#000"/>')
                 $('.texttodisplayspill').hide();
 
                 if (buyingbasket_filename=='' || buyingbasket_filename== "NULL") {
@@ -535,8 +532,8 @@ $( document ).ready(function() {
                     obj_keyss = acd_dispersion;
 
 
-               $(".main_new .sub_div_new").remove()
-                   $.each(obj_keyss, function( i, val ) {
+                    $(".main_new .sub_div_new").remove()
+                    $.each(obj_keyss, function( i, val ) {
                         $.each(val, function( ii, vall ) {
                             budget_allowcation = '<div class="sub_div_new" style="width:100%">'
                             budget_allowcation += '<div class="row keyword_new">'
@@ -555,19 +552,19 @@ $( document ).ready(function() {
                         })
 
 
-                   })
-                   $('.submit_new').prop('disabled', false);
-                   $('.add_more_new').prop('disabled', false);
+                    })
+                    $('.submit_new').prop('disabled', false);
+                    $('.add_more_new').prop('disabled', false);
 
-               }
+                }
 
-                    // var data = { 0: [ { "56":"44"}], 1: [{ "67":"56"} ] };
-                    //         $.each(data.key, function (i) {
-                    //             $.each(data.key[i], function (key, val) {
-                    //                 alert(key);
-                    //                 alert(val)
-                    //             });
-                    //         });
+                // var data = { 0: [ { "56":"44"}], 1: [{ "67":"56"} ] };
+                //         $.each(data.key, function (i) {
+                //             $.each(data.key[i], function (key, val) {
+                //                 alert(key);
+                //                 alert(val)
+                //             });
+                //         });
 
                 //     for (var i = 0; i < obj_keyss.length; i++) {
                 //         budget_allowcation = '<div class="sub_div_new" style="width:100%">'
@@ -612,27 +609,27 @@ $( document ).ready(function() {
 
 
 
-                     // values = obj_keys__.push(obj_keys);
+                    // values = obj_keys__.push(obj_keys);
                     // values = obj_keys.push(obj_keys)
                     $(".main .sub_div").remove()
                     for (var i = 0; i < obj_keys.length; i++) {
                         var key=Object.keys(obj_keys[i]).pop()
                         var val=Object.values(obj_keys[i]).pop()
-                                 ok = '<div class="sub_div" style="width:100%">'
-                                 ok += '<div class="row keyword">'
-                                 ok += '<div class="col-md-6">'
-                                 ok += '<input type="number" class="form-control colorchange mods_inputs name_Class ' + i + '" value="'+key+'" placeholder="Enter keyword">'
-                                 ok += '</div>'
-                                 ok += '<div class="col-lg-6">'
-                                 ok += '<input type="number"  style="" class="form-control colorchange mods_inputs path_Class path_Class ' + i + '" value="'+val+'" placeholder="Enter negative keyword">'
-                                 ok += '<span>'
-                                 ok += '<img src="assets/images/delete.svg" style="width:20px;" class="remove">'
-                                 ok += '</span>'
-                                 ok += '</div>'
-                                 ok += '</div>'
-                                 ok += '</div>'
-                                 $(".main").append(ok)
-                 }
+                        ok = '<div class="sub_div" style="width:100%">'
+                        ok += '<div class="row keyword">'
+                        ok += '<div class="col-md-6">'
+                        ok += '<input type="number" class="form-control colorchange mods_inputs name_Class ' + i + '" value="'+key+'" placeholder="Enter keyword">'
+                        ok += '</div>'
+                        ok += '<div class="col-lg-6">'
+                        ok += '<input type="number"  style="" class="form-control colorchange mods_inputs path_Class path_Class ' + i + '" value="'+val+'" placeholder="Enter negative keyword">'
+                        ok += '<span>'
+                        ok += '<img src="assets/images/delete.svg" style="width:20px;" class="remove">'
+                        ok += '</span>'
+                        ok += '</div>'
+                        ok += '</div>'
+                        ok += '</div>'
+                        $(".main").append(ok)
+                    }
 
 
                     $('.submit_').prop('disabled', false);
@@ -668,7 +665,7 @@ $( document ).ready(function() {
 
             $('body').on('click', '.budget_main', function(){
                 $(".cprp_main").css('background-color', '#211d1dbf')
-                    $(".cprp_main").css('color', '#ccc6c6')
+                $(".cprp_main").css('color', '#ccc6c6')
                 $(".budget_main").css('background-color', '#f07144')
                 $(".spanClass").css('color', 'rgb(165, 162, 162)')
                 $(".spanClass").css('font-weight', '700')
@@ -679,7 +676,7 @@ $( document ).ready(function() {
                 $('.budget_div_').show(100);
                 $(".spanClass_").css('color', 'rgb(13, 230, 241)')
                 $(".spanClass_").css('font-weight', '700')
-                  $(".spanClass_").css('font-size', '22px')
+                $(".spanClass_").css('font-size', '22px')
             })
             $('.budget_div').hide();
             var msg;
@@ -783,7 +780,7 @@ $( document ).ready(function() {
             var div_weitage;
 
             $("body").on("click", ".submit_new", function(){
-               path_selection_ = $(this).closest('.common_class').find('.budget_main').attr('key');
+                path_selection_ = $(this).closest('.common_class').find('.budget_main').attr('key');
 
                 var campaign_days = $('.campaign_days_new').val();
                 var userid = sessionStorage.getItem('userid');
@@ -832,52 +829,52 @@ $( document ).ready(function() {
                 // acdobj_new = {}
                 subDivs = $(".sub_div_new");
                 debugger
-                   obj_subdivs = []
-                   sum = 0;
-                   for (var sd = 0; sd < subDivs.length; sd++) {
-                       kw = subDivs[sd].children[0].children[0].children[0].value
-                       vl = subDivs[sd].children[0].children[1].children[0].value
-                       sum += parseFloat(vl) || 0;
-                       obj = {}
-                       obj[kw] = vl;
-                       obj_subdivs.push(obj)
+                obj_subdivs = []
+                sum = 0;
+                for (var sd = 0; sd < subDivs.length; sd++) {
+                    kw = subDivs[sd].children[0].children[0].children[0].value
+                    vl = subDivs[sd].children[0].children[1].children[0].value
+                    sum += parseFloat(vl) || 0;
+                    obj = {}
+                    obj[kw] = vl;
+                    obj_subdivs.push(obj)
 
-                   }
-                   // array_val = []
-                   console.log(obj_subdivs);
+                }
+                // array_val = []
+                console.log(obj_subdivs);
 
 
                 if (campaign_days == '') {
-                        $.confirm({
-                            title: 'Filed should not be empty',
-                            content: 'Oops ! something went wrong',
-                            animation: 'scale',
-                            closeAnimation: 'scale',
-                            opacity: 0.5,
-                            buttons: {
-                                okay: {
-                                    text: 'Okay',
-                                    btnClass: 'btn-primary'
-                                }
+                    $.confirm({
+                        title: 'Filed should not be empty',
+                        content: 'Oops ! something went wrong',
+                        animation: 'scale',
+                        closeAnimation: 'scale',
+                        opacity: 0.5,
+                        buttons: {
+                            okay: {
+                                text: 'Okay',
+                                btnClass: 'btn-primary'
                             }
-                        });
+                        }
+                    });
 
                 }
                 else if (sum!==100 || sum>100) {
 
-                        $.confirm({
-                            title: 'Dispersion should be 100',
-                            // content: 'Oops ! something went wrong',
-                            animation: 'scale',
-                            closeAnimation: 'scale',
-                            opacity: 0.5,
-                            buttons: {
-                                okay: {
-                                    text: 'Okay',
-                                    btnClass: 'btn-primary'
-                                }
+                    $.confirm({
+                        title: 'Dispersion should be 100',
+                        // content: 'Oops ! something went wrong',
+                        animation: 'scale',
+                        closeAnimation: 'scale',
+                        opacity: 0.5,
+                        buttons: {
+                            okay: {
+                                text: 'Okay',
+                                btnClass: 'btn-primary'
                             }
-                        });
+                        }
+                    });
 
                 }
                 else {
@@ -919,43 +916,43 @@ $( document ).ready(function() {
                             });
                         }
                         else {
-                        $('.add_more_new').prop('disabled', true);
-                        $('.submit_new').prop('disabled', true);
-                        $(this).prop('disabled', true);
-                        $('.remove_new').hide();
-                        $('.spillover').hide();
-                        $('.channelbeing').show();
-                        $('.forsecoundpathtext').show();
-                        $('#upl-btn1').hide();
-                        //
-                        // $('input[type=text]').css("background", "#ccc");
-                        $('.mods_inputs').css("background", "rgba(41, 40, 40, 0.91)");
-                        $('.mods_inputs').css("color", "#fff");
+                            $('.add_more_new').prop('disabled', true);
+                            $('.submit_new').prop('disabled', true);
+                            $(this).prop('disabled', true);
+                            $('.remove_new').hide();
+                            $('.spillover').hide();
+                            $('.channelbeing').show();
+                            $('.forsecoundpathtext').show();
+                            $('#upl-btn1').hide();
+                            //
+                            // $('input[type=text]').css("background", "#ccc");
+                            $('.mods_inputs').css("background", "rgba(41, 40, 40, 0.91)");
+                            $('.mods_inputs').css("color", "#fff");
 
 
-                        $('input[type=text]').prop('readonly', true);
-                        $('input[type=number]').prop('readonly', true);
-                        $.confirm({
-                            title: 'Data submitted succesfully',
-                            // content: 'Oops ! something went wrong',
-                            animation: 'scale',
-                            closeAnimation: 'scale',
-                            opacity: 0.5,
-                            buttons: {
-                                okay: {
-                                    text: 'Okay',
-                                    btnClass: 'btn-primary'
+                            $('input[type=text]').prop('readonly', true);
+                            $('input[type=number]').prop('readonly', true);
+                            $.confirm({
+                                title: 'Data submitted succesfully',
+                                // content: 'Oops ! something went wrong',
+                                animation: 'scale',
+                                closeAnimation: 'scale',
+                                opacity: 0.5,
+                                buttons: {
+                                    okay: {
+                                        text: 'Okay',
+                                        btnClass: 'btn-primary'
+                                    }
                                 }
-                            }
-                        });
-                        $('.add_more').prop('disbale', true);
-                        $('.submit_').prop('disbale', true);
-                        // $('.submit_new').prop('disbale', true);
-                        $('.loading').hide();
-                        $('.cprp_main').prop('disabled', true);
+                            });
+                            $('.add_more').prop('disbale', true);
+                            $('.submit_').prop('disbale', true);
+                            // $('.submit_new').prop('disbale', true);
+                            $('.loading').hide();
+                            $('.cprp_main').prop('disabled', true);
 
-                        sessionStorage.getItem('create_plan_id', 0);
-                    }
+                            sessionStorage.getItem('create_plan_id', 0);
+                        }
                     })
                 }
 
@@ -1022,53 +1019,53 @@ $( document ).ready(function() {
 
                 subDivs = $(".sub_div");
                 // debugger
-                   obj_subdivs = []
-                   sum = 0;
-                   for (var sd = 0; sd < subDivs.length; sd++) {
-                       kw = subDivs[sd].children[0].children[0].children[0].value
-                       vl = subDivs[sd].children[0].children[1].children[0].value
-                       sum += parseFloat(vl) || 0;
-                       acdobj = {}
-                       acdobj[kw] = vl;
-                       obj_subdivs.push(acdobj)
+                obj_subdivs = []
+                sum = 0;
+                for (var sd = 0; sd < subDivs.length; sd++) {
+                    kw = subDivs[sd].children[0].children[0].children[0].value
+                    vl = subDivs[sd].children[0].children[1].children[0].value
+                    sum += parseFloat(vl) || 0;
+                    acdobj = {}
+                    acdobj[kw] = vl;
+                    obj_subdivs.push(acdobj)
 
-                   }
-                   // array_val = []
-                   console.log(obj_subdivs);
+                }
+                // array_val = []
+                console.log(obj_subdivs);
 
 
                 if (campaign_days == '' || cprp_weitage == '' || reach_weitage == '') {
 
-                        $.confirm({
-                            title: 'Fields should not be empty',
-                            // content: 'Oops ! something went wrong',
-                            animation: 'scale',
-                            closeAnimation: 'scale',
-                            opacity: 0.5,
-                            buttons: {
-                                okay: {
-                                    text: 'Okay',
-                                    btnClass: 'btn-primary'
-                                }
+                    $.confirm({
+                        title: 'Fields should not be empty',
+                        // content: 'Oops ! something went wrong',
+                        animation: 'scale',
+                        closeAnimation: 'scale',
+                        opacity: 0.5,
+                        buttons: {
+                            okay: {
+                                text: 'Okay',
+                                btnClass: 'btn-primary'
                             }
-                        });
+                        }
+                    });
 
                 }
                 else if (sum < 100 || sum>100) {
                     // if(msg.message == "fail"){
-                        $.confirm({
-                            title: 'Dispersion should be 100',
-                            // content: 'Oops ! something went wrong',
-                            animation: 'scale',
-                            closeAnimation: 'scale',
-                            opacity: 0.5,
-                            buttons: {
-                                okay: {
-                                    text: 'Okay',
-                                    btnClass: 'btn-primary'
-                                }
+                    $.confirm({
+                        title: 'Dispersion should be 100',
+                        // content: 'Oops ! something went wrong',
+                        animation: 'scale',
+                        closeAnimation: 'scale',
+                        opacity: 0.5,
+                        buttons: {
+                            okay: {
+                                text: 'Okay',
+                                btnClass: 'btn-primary'
                             }
-                        });
+                        }
+                    });
                     // }
                 }
                 else {
@@ -1286,19 +1283,19 @@ $( document ).ready(function() {
                         // alert("kkk")
                         $('.texttodisplay').append('<h5 style="color:#000">Buying Basket file successfully uploaded</h5>')
 
-                            $.confirm({
-                                title: 'File succesfully uploaded',
-                                // content: 'Oops ! something went wrong',
-                                animation: 'scale',
-                                closeAnimation: 'scale',
-                                opacity: 0.5,
-                                buttons: {
-                                    okay: {
-                                        text: 'Okay',
-                                        btnClass: 'btn-primary'
-                                    }
+                        $.confirm({
+                            title: 'File succesfully uploaded',
+                            // content: 'Oops ! something went wrong',
+                            animation: 'scale',
+                            closeAnimation: 'scale',
+                            opacity: 0.5,
+                            buttons: {
+                                okay: {
+                                    text: 'Okay',
+                                    btnClass: 'btn-primary'
                                 }
-                            });
+                            }
+                        });
 
                     }
                     else{
@@ -1361,33 +1358,33 @@ $( document ).ready(function() {
 
 
 
-                        var file_name_2;
-                        var main_output2;
-                        fileobj2 = {};
-                        (function ($) {
-                            $('#load-file__').on('change', function () {
-                                //debugger
-                                main_output = ''
-                                var file = $('#load-file__')[0].files[0];
-                                filename = file.name;
-                                filename ="GenreLevelBudgetAllocation_"+newcampaign_id+"_"+version+".xlsx"
-                                var fileReader = new FileReader();
-                                fileReader.onloadend = function (e) {
-                                    blob___ = e.target.result;
+            var file_name_2;
+            var main_output2;
+            fileobj2 = {};
+            (function ($) {
+                $('#load-file__').on('change', function () {
+                    //debugger
+                    main_output = ''
+                    var file = $('#load-file__')[0].files[0];
+                    filename = file.name;
+                    filename ="GenreLevelBudgetAllocation_"+newcampaign_id+"_"+version+".xlsx"
+                    var fileReader = new FileReader();
+                    fileReader.onloadend = function (e) {
+                        blob___ = e.target.result;
 
-                                    fileobj2.filename = filename;
-                                    fileobj2.blob = blob___;
-                                    fileobj2.plan_id = planid;
-                                    fileobj2.user_id = userid;
-                                    fileobj2.category = "spilloversheet";
-                                    console.log(fileobj2);
-                                    $('#upl-btn__').prop('disabled', false);
-                                    file_name_2 = filename;
-                                };
+                        fileobj2.filename = filename;
+                        fileobj2.blob = blob___;
+                        fileobj2.plan_id = planid;
+                        fileobj2.user_id = userid;
+                        fileobj2.category = "spilloversheet";
+                        console.log(fileobj2);
+                        $('#upl-btn__').prop('disabled', false);
+                        file_name_2 = filename;
+                    };
 
-                                fileReader.readAsDataURL(file);
-                            });
-                        })(jQuery);
+                    fileReader.readAsDataURL(file);
+                });
+            })(jQuery);
 
 
             var counting = 0;
@@ -1447,27 +1444,18 @@ $( document ).ready(function() {
                 $.ajax(settings11).done(function (msg) {
                     console.log(msg);
                     $(".loading").hide();
-
-
-                        $('.acceleratorfiletext').hide();
-
-
+                    $('.acceleratorfiletext').hide();
                     if(msg == "Path inserted Succesfully"){
                         $('.texttodisplay').show();
                         $('.texttodisplayspill').show();
                         $('#upl-btn1').hide();
-
                         $('.bb_txt').hide();
                         $('.file-input').hide();
                         $('.red_color').hide();
-                        // alert(file_name_)
-                        // alert("kavv")
                         $('.texttodisplayspill').append('<h5 style="color:#000">Genre Level Budget Allocation Sheet is successfully uploaded</h5>')
-
                         $('.next_').prop('disabled', false)
                         $.confirm({
                             title: 'File succesfully uploaded',
-                            // content: 'Oops ! something went wrong',
                             animation: 'scale',
                             closeAnimation: 'scale',
                             opacity: 0.5,
