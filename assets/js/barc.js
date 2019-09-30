@@ -261,9 +261,6 @@ $(document).ready(function () {
                         $('.edit_barc').prop('disabled', true);
                     }
                     else if(planProcess == 3){
-                        $('.edit_barc').prop('disabled', true);
-                    }
-                    else {
                         $('.edit_barc').prop('disabled', false);
                     }
                 }
