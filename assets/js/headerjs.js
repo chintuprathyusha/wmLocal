@@ -68,7 +68,7 @@ $(document).ready(function () {
                     sessionStorage.clear();
                     localStorage.clear();
                     alert("logout succesfullyyyyyyyyyyyyyyy")
-                   window.location.href="logout.php";
+                   // window.location.href="logout.php";
 
 
                     // window.location.href="index.php";
