@@ -199,93 +199,100 @@ $(document).ready(function () {
     $('.select2').hide();
 
     function barcData() {
-        plan_id = sessionStorage.getItem('create_plan_id');
-        sendObj = {};
-        sendObj.planId = plan_id;
-        console.log(sendObj);
-        var form = new FormData();
-        form.append("file", JSON.stringify(sendObj));
-        var settings11 = {
-            "async": true,
-            "crossDomain": true,
-            "url": aws_url+'Barc_Plan_Freeze',
-            "method": "POST",
-            "processData": false,
-            "contentType": false,
-            "mimeType": "multipart/form-data",
-            "data": form
-        };
-        $.ajax(settings11).done(function (msg) {
-            msg = JSON.parse(msg);
-            console.log(msg);
-            planProcess = msg.planProcess;
-            acce_file_name = msg.AcceleratedFilePath;
-            if (planProcess == 3) {
-                $('.edit_barc').prop('disabled', false);
-                $('.submit_barc').prop('disabled', false);
-                $('.confirm_barc').prop('disabled', false);
-            }
-            else {
-                $('.edit_barc').prop('disabled', true);
-                $('.submit_barc').prop('disabled', true);
-                $('.confirm_barc').prop('disabled', true);
-            }
+         plan_id = sessionStorage.getItem('create_plan_id');
+         sendObj = {};
+         sendObj.planId = plan_id;
+         console.log(sendObj);
+         var form = new FormData();
+         form.append("file", JSON.stringify(sendObj));
+         var settings11 = {
+             "async": true,
+             "crossDomain": true,
+             "url": aws_url+'Barc_Plan_Freeze',
+             "method": "POST",
+             "processData": false,
+             "contentType": false,
+             "mimeType": "multipart/form-data",
+             "data": form
+         };
+         $.ajax(settings11).done(function (msg) {
+             msg = JSON.parse(msg);
+             console.log(msg);
+             planProcess = msg.planProcess;
+             acce_file_name = msg.AcceleratedFilePath;
+             if (planProcess == 3) {
+                 $('.edit_barc').prop('disabled', false);
+                 $('.submit_barc').prop('disabled', false);
+                 $('.confirm_barc').prop('disabled', false);
+             }
+             else {
+                 $('.edit_barc').prop('disabled', true);
+                 $('.submit_barc').prop('disabled', true);
+                 $('.confirm_barc').prop('disabled', true);
+             }
 
-            setTimeout(function(){
-                $('.loading').hide();
+             setTimeout(function(){
+                 $('.loading').hide();
 
-            }, 10000)
-            // window.location.reload();
-            if (msg.message == "fail") {
-                $.confirm({
-                    title: 'Oops ! something went wrong, try again',
-                    // content: 'Oops ! something went wrong',
-                    animation: 'scale',
-                    closeAnimation: 'scale',
-                    opacity: 0.5,
-                    buttons: {
-                        okay: {
-                            text: 'Okay',
-                            btnClass: 'btn-primary'
-                        }
-                    }
-                });
-            }
-            else {
-                $(".select2").addClass('hide');
-                base_tg_ =  msg.BaseTGId;
-                campaignId_ = msg.CampaignId;
-                campaignMarkets = msg.CampaignMarketId;
-                console.log(campaignMarkets);
-                endWeekId_ = msg.EndWeek;
-                primaryTGTd_ = msg.PrimaryTGTd;
-                pathSelection = msg.PathSelection;
-                if (pathSelection == 1) {
-                    if (acce_file_name==null) {
+             }, 10000)
+             // window.location.reload();
+             if (msg.message == "fail") {
+                 $.confirm({
+                     title: 'Oops ! something went wrong, try again',
+                     // content: 'Oops ! something went wrong',
+                     animation: 'scale',
+                     closeAnimation: 'scale',
+                     opacity: 0.5,
+                     buttons: {
+                         okay: {
+                             text: 'Okay',
+                             btnClass: 'btn-primary'
+                         }
+                     }
+                 });
+
+             }
+
+             else {
+                 $(".select2").addClass('hide');
+                 base_tg_ =  msg.BaseTGId;
+                 campaignId_ = msg.CampaignId;
+                 campaignMarkets = msg.CampaignMarketId;
+                 console.log(campaignMarkets);
+                 endWeekId_ = msg.EndWeek;
+                 primaryTGTd_ = msg.PrimaryTGTd;
+                 pathSelection = msg.PathSelection;
+                 if (pathSelection == 1) {
+                     if (acce_file_name==null) {
                         $('.acce_div').show();
-                        $('.acce_File_').hide();
+                         $('.acce_File_').hide();
                     }
                     else {
                         $('.acce_div').hide();
                         $('.acce_File_').show();
                         $('.acce_File_').append('<h5>Accelerator Output file is successfully uploaded</h5>');
+                        $('.edit_barc').prop('disabled', false);
                     }
                     if (planProcess == 4) {
-                        $('.edit_barc').prop('disabled', false);
+                      $('.edit_barc').prop('disabled', false);
                     }
-                }
-                else if(pathSelection == 2) {
-                    $('.acce_div').hide();
-                    if (planProcess>3) {
-                        $('.edit_barc').prop('disabled', true);
-                    }
-                    else if(planProcess == 3){
-                        $('.edit_barc').prop('disabled', false);
-                    }
-                }
-            }
-        })
-    }
+                 }
+                 else if(pathSelection == 2) {
+                     $('.acce_div').hide();
+                     $('.edit_barc').removeAttr('disabled');
+                     if (planProcess>3) {
+                       $('.edit_barc').prop('disabled', true);
+                     }
+                     else if(planProcess == 3){
+                       $('.edit_barc').prop('disabled', true);
+                     }
+                     else {
+                          $('.edit_barc').prop('disabled', false);
+                     }
+                 }
+             }
+         })
+     }
 
     $('body').on('click', '.edit_barc', function(){
         $('.submit_barc').prop('disabled', true);
