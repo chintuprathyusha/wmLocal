@@ -330,3 +330,6 @@ body{
 .dataTables_paginate{
         text-transform: uppercase;
 }
+.fileinput-upload-button{
+    display: none;
+}
