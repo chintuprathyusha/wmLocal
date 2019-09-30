@@ -99,8 +99,8 @@ var version;
     }
 
     $("body").on("click", "#upl-btn", function(){
-        //debugger
         $(".loading").show();
+        fileobj.fromReplan = true;
         fileobj.category = "acceleratedfile";
         console.log(file_name_);
 

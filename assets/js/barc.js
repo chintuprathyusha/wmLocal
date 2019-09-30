@@ -9,7 +9,6 @@ $(document).ready(function () {
     $('.submit_barc').prop('disabled', true);
     var acce_file_name;
     $('.acce_div').hide();
-
     var plan_id = sessionStorage.getItem('create_plan_id');
     var user_id = sessionStorage.getItem('userid');
     $('.texttodisplay').hide();
@@ -112,6 +111,7 @@ $(document).ready(function () {
     $("body").on("click", "#upl-btn", function(){
         //debugger
         $(".loading").show();
+        fileobj.fromReplan = false;
         fileobj.category = "acceleratedfile";
         console.log(file_name_);
 
@@ -142,19 +142,19 @@ $(document).ready(function () {
                 // $('.confirm_barc').prop('disabled', false);
                 // $('.submit_barc').prop('disabled', false);
 
-                    $.confirm({
-                        title: 'File succesfully uploaded',
-                        // content: 'Oops ! something went wrong',
-                        animation: 'scale',
-                        closeAnimation: 'scale',
-                        opacity: 0.5,
-                        buttons: {
-                            okay: {
-                                text: 'Okay',
-                                btnClass: 'btn-primary'
-                            }
+                $.confirm({
+                    title: 'File succesfully uploaded',
+                    // content: 'Oops ! something went wrong',
+                    animation: 'scale',
+                    closeAnimation: 'scale',
+                    opacity: 0.5,
+                    buttons: {
+                        okay: {
+                            text: 'Okay',
+                            btnClass: 'btn-primary'
                         }
-                    });
+                    }
+                });
             }
             else {
                 $('#upl-btn').show();
@@ -165,19 +165,19 @@ $(document).ready(function () {
                 $('.confirm_barc').prop('disabled', true);
                 $('.submit_barc').prop('disabled', true);
 
-                    $.confirm({
-                        title: 'Oops ! something went wrong, try again',
-                        // content: 'Oops ! something went wrong',
-                        animation: 'scale',
-                        closeAnimation: 'scale',
-                        opacity: 0.5,
-                        buttons: {
-                            okay: {
-                                text: 'Okay',
-                                btnClass: 'btn-primary'
-                            }
+                $.confirm({
+                    title: 'Oops ! something went wrong, try again',
+                    // content: 'Oops ! something went wrong',
+                    animation: 'scale',
+                    closeAnimation: 'scale',
+                    opacity: 0.5,
+                    buttons: {
+                        okay: {
+                            text: 'Okay',
+                            btnClass: 'btn-primary'
                         }
-                    });
+                    }
+                });
 
             }
         });
@@ -197,6 +197,7 @@ $(document).ready(function () {
     barcData();
     setTimeout(function(){ editData(); }, 1000);
     $('.select2').hide();
+
     function barcData() {
         plan_id = sessionStorage.getItem('create_plan_id');
         sendObj = {};
@@ -217,17 +218,18 @@ $(document).ready(function () {
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
             console.log(msg);
-            planProcess = msg.planProcessed;
+            planProcess = msg.planProcess;
             acce_file_name = msg.AcceleratedFilePath;
-            base_tg_ =  msg.BaseTGId;
-            campaignId_ = msg.CampaignId;
-            campaignMarkets = msg.CampaignMarketId;
-            console.log(campaignMarkets);
-            endWeekId_ = msg.EndWeek;
-            primaryTGTd_ = msg.PrimaryTGTd;
-            pathSelection = msg.PathSelection;
-            debugger
-
+            if (planProcess == 3) {
+                $('.edit_barc').prop('disabled', false);
+                $('.submit_barc').prop('disabled', false);
+                $('.confirm_barc').prop('disabled', false);
+            }
+            else {
+                $('.edit_barc').prop('disabled', true);
+                $('.submit_barc').prop('disabled', true);
+                $('.confirm_barc').prop('disabled', true);
+            }
 
             setTimeout(function(){
                 $('.loading').hide();
@@ -248,36 +250,38 @@ $(document).ready(function () {
                         }
                     }
                 });
-
             }
-
             else {
                 $(".select2").addClass('hide');
-                if (planProcess == 3) {
-
-                    if (pathSelection == 1) {
-                        if (acce_file_name==null) {
-                           $('.acce_div').show();
-                            $('.acce_File_').hide();
-                            $('.edit_barc').prop('disabled', true);
-                       }
-                       else {
-                           $('.acce_div').hide();
-                           $('.acce_File_').show();
-                           // $('.acce_File_').append('<h5>'+acce_file_name+' is successfully uploaded</h5>');
-                           $('.acce_File_').append('<h5>Accelerator Output file is successfully uploaded</h5>');
-                           $('.edit_barc').prop('disabled', true);
-                       }
+                base_tg_ =  msg.BaseTGId;
+                campaignId_ = msg.CampaignId;
+                campaignMarkets = msg.CampaignMarketId;
+                console.log(campaignMarkets);
+                endWeekId_ = msg.EndWeek;
+                primaryTGTd_ = msg.PrimaryTGTd;
+                pathSelection = msg.PathSelection;
+                if (pathSelection == 1) {
+                    if (acce_file_name==null) {
+                        $('.acce_div').show();
+                        $('.acce_File_').hide();
                     }
                     else {
                         $('.acce_div').hide();
+                        $('.acce_File_').show();
+                        $('.acce_File_').append('<h5>Accelerator Output file is successfully uploaded</h5>');
                     }
-                    // $('.edit_barc').prop('disabled', false);
+                    if (planProcess == 4) {
+                        $('.edit_barc').prop('disabled', false);
+                    }
                 }
-                else {
-                    $('.edit_barc').prop('disabled', true);
-                    $('.submit_barc').prop('disabled', true);
-                    $('.confirm_barc').prop('disabled', true);
+                else if(pathSelection == 2) {
+                    $('.acce_div').hide();
+                    if (planProcess>3) {
+                        $('.edit_barc').prop('disabled', true);
+                    }
+                    else if(planProcess == 3){
+                        $('.edit_barc').prop('disabled', false);
+                    }
                 }
             }
         })
@@ -451,7 +455,7 @@ $(document).ready(function () {
                     }
                 });
             }
-                })
+        })
     })
 
     $('body').on('click', '.backclass', function(){

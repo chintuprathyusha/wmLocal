@@ -33,6 +33,7 @@ $(document).ready(function () {
     })
 
     $("body").on("click", ".logutAD", function () {
+        debugger;
         var sessionidddd = sessionStorage.getItem("sessionidd");
         var currentdate = new Date().toLocaleString();
         obj = {}
@@ -58,7 +59,7 @@ $(document).ready(function () {
             if (msg == "logoutdone") {
                 sessionStorage.clear();
                 localStorage.clear();
-                
+
                 try {
                     authContext.logOut();
                 } catch (e) {
@@ -68,7 +69,7 @@ $(document).ready(function () {
                     localStorage.clear();
                     // // session_destroy();
 
-                   window.location.href="logout.php";
+                   // window.location.href="logout.php";
 
 
                     // window.location.href="index.php";

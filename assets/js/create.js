@@ -139,6 +139,8 @@ $(document).ready(function () {
             console.log(base_tg);
             primary_tg = msg.Primary_Tg;
             campign_markets = msg.Campaign_Market;
+            campign_markets = Object.Values(campign_markets);
+            console.log(campign_markets.sort());
             end_week = msg.End_Week;
             data = msg.Client;
             debugger

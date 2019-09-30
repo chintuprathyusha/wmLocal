@@ -377,8 +377,8 @@ $( document ).ready(function() {
                 }
                 $('.radio_class').show()
                 $('.cprp_div').show()
-                $(".camp_id_").append('<label>Campaign Name</label><input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:black;color:white;"/>')
-                // $(".camp_id_").append('<p style="color:orange;font-style:13px;">Campaign Name :-</p><span style="color:white;">'+campaignName+'</span>')
+                $(".camp_id_").append('<label>Campaign Name</label><input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:black;color:#fff;"/>')
+                // $(".camp_id_").append('<p style="color:orange;font-style:13px;">Campaign Name :-</p><span style="color:#fff;">'+campaignName+'</span>')
 
                 if (buyingbasket_filename=='' || buyingbasket_filename== "NULL") {
 
@@ -454,9 +454,9 @@ $( document ).ready(function() {
                     $('input[type="number"]').prop('readonly', true);
                     $('input[type="text"]').prop('readonly', true);
                     $('input[type="number"]').css('background', '#292828e8');
-                    $('input[type="number"]').css('color', 'white');
+                    $('input[type="number"]').css('color', '#fff');
                     $('input[type="text"]').css('background', '#292828e8');
-                    $('input[type="text"]').css('color', 'white');
+                    $('input[type="text"]').css('color', '#fff');
                     for(key in weightage){
                         $(".cprp_val").val(key);
                         $(".reach_val").val(weightage[key])
@@ -758,7 +758,7 @@ $( document ).ready(function() {
                 else {
 
                     console.log(i);
-                    $(".main_new").append('<div class="sub_div_new" style="width:100%"><div class="row keyword_new"><div class="col-md-6"><input type="number" class="form-control mods_inputs name_Class_new ' + i + '" placeholder="Enter keyword" style="background-color:#303134;border:none;color:white;"></div><div class="col-lg-6"><input type="number" class="form-control mods_inputs path_Class_new path_Class_new ' + i + '" placeholder="Enter negative keyword" style="background-color:#303134;border:none;color:white;"><span><img src="assets/images/delete.svg" style="width:20px;" class="remove_new"></span></div></div></div>')
+                    $(".main_new").append('<div class="sub_div_new" style="width:100%"><div class="row keyword_new"><div class="col-md-6"><input type="number" class="form-control mods_inputs name_Class_new ' + i + '" placeholder="Enter keyword" style="background-color:#303134;border:none;color:#fff;"></div><div class="col-lg-6"><input type="number" class="form-control mods_inputs path_Class_new path_Class_new ' + i + '" placeholder="Enter negative keyword" style="background-color:#303134;border:none;color:#fff;"><span><img src="assets/images/delete.svg" style="width:20px;" class="remove_new"></span></div></div></div>')
                     $(".hide_").show();
                     // $('.submit_new').prop('disbale', true);
                 }
@@ -929,7 +929,10 @@ $( document ).ready(function() {
                         $('#upl-btn1').hide();
                         //
                         // $('input[type=text]').css("background", "#ccc");
-                        // $('input[type=number]').css("background", "#ccc");
+                        $('.mods_inputs').css("background", "rgba(41, 40, 40, 0.91)");
+                        $('.mods_inputs').css("color", "#fff");
+
+
                         $('input[type=text]').prop('readonly', true);
                         $('input[type=number]').prop('readonly', true);
                         $.confirm({
@@ -1115,8 +1118,9 @@ $( document ).ready(function() {
                         }
                         else {
                             // $('input[type=text]').css("color", "black");
-                            // $('input[type=number]').css("background", "rgba(41, 40, 40, 0.91)");
-                            $('input[type=text]').css("color", "black");
+                            $('.mods_inputs').css("color", "#fff");
+                            $('.mods_inputs').css("background", "rgba(41, 40, 40, 0.91)");
+                            $('input[type=text]').css("color", "#fff");
                             $('input[type=number]').css("background", "rgba(41, 40, 40, 0.91)");
                             $('input[type=text]').prop('readonly', true);
                             $('input[type=number]').prop('readonly', true);
