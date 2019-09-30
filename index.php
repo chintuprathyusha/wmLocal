@@ -119,7 +119,7 @@ session_start();
 	<!-- /page content -->
 
 	<script type="text/javascript">
-
+		$(".loading").hide();
 	// #1: Set up ADAL
 	var authContext = new AuthenticationContext({
 		clientId: '39fb1160-df4a-4ece-bb64-67eb14426482',
