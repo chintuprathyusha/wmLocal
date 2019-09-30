@@ -59,7 +59,9 @@ $(document).ready(function () {
             if (msg == "logoutdone") {
 
                 try {
-                    authContext.logOut();
+                    authContext.logOut(function(msg) {
+                        console.log(msg)
+                    });
                 } catch (e) {
                     alert("helooooooooooooooooooooooooo");
                 } finally {
