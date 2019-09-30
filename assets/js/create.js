@@ -116,6 +116,7 @@ $(document).ready(function () {
             "data": form
         };
         $.ajax(settings11).done(function (msg) {
+            console.log(msg);
             msg = JSON.parse(msg);
             console.log(msg);
             $(".loading").hide();
