@@ -307,6 +307,9 @@ $(document).ready(function () {
 
             var Base_Tg_dt = msg.Base_Tg_dt;
             var Campaign_Market_dt = msg.Campaign_Market_dt;
+            Campaign_Market_dt = Object.values(Campaign_Market_dt);
+            Campaign_Market_dt = Campaign_Market_dt.sort()
+            console.log(Campaign_Market_dt);
             var End_Week_dt = msg.End_Week_dt;
             var Primary_Tg_dt= msg.Primary_Tg_dt;
 

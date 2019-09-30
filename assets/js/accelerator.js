@@ -1,11 +1,13 @@
 $(document).ready(function(){
+    $('.loading').show();
     $('.texttodisplay').hide();
-var plan_id = sessionStorage.getItem('create_plan_id');
-var user_id = sessionStorage.getItem('userid');
-onLoad();
-$('#upl-btn').prop('disabled', true);
-var campaign_id;
-var version;
+    var plan_id = sessionStorage.getItem('create_plan_id');
+    var user_id = sessionStorage.getItem('userid');
+    barcData()
+    onLoad();
+    $('#upl-btn').prop('disabled', true);
+    var campaign_id;
+    var version;
     function onLoad(){
         sendObj ={}
         sendObj.planid = plan_id;
@@ -25,28 +27,79 @@ var version;
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
             console.log(msg);
+            $('.loading').hide();
             campaign_id = msg.CampaignId;
             version = msg.Version;
         })
     }
+
+    function barcData() {
+        plan_id = sessionStorage.getItem('create_plan_id');
+        sendObj = {};
+        sendObj.planId = plan_id;
+        console.log(sendObj);
+        var form = new FormData();
+        form.append("file", JSON.stringify(sendObj));
+        var settings11 = {
+            "async": true,
+            "crossDomain": true,
+            "url": aws_url+'Barc_Plan_Freeze',
+            "method": "POST",
+            "processData": false,
+            "contentType": false,
+            "mimeType": "multipart/form-data",
+            "data": form
+        };
+        $.ajax(settings11).done(function (msg) {
+            msg = JSON.parse(msg);
+            console.log(msg);
+            acce_file_name = msg.AcceleratedFilePath;
+            $(".select2").addClass('hide');
+            setTimeout(function(){
+                // $('.loading').hide();
+            }, 10000)
+            if (msg.message == "fail") {
+                $.confirm({
+                    title: 'Oops ! something went wrong, try again',
+                    animation: 'scale',
+                    closeAnimation: 'scale',
+                    opacity: 0.5,
+                    buttons: {
+                        okay: {
+                            text: 'Okay',
+                            btnClass: 'btn-primary'
+                        }
+                    }
+                });
+            }
+            else {
+                if (acce_file_name==null) {
+                    $('.acce_div').show();
+                    $('.acce_File_').hide();
+                }
+                else {
+                    $('.acce_div').hide();
+                    $('.acce_File_').show();
+                    $('.acce_File_').append('<h5>Accelerator Output file is successfully uploaded</h5>');
+                    $('.edit_barc').prop('disabled', true);
+                }
+            }
+        })
+    }
+
+barcData()
+
     var file_name_;
     var main_output;
     fileobj = {};
     (function ($) {
-        // $('#upl-btn').attr('disabled', 'false');
-        // $("#upl-btn").click(function () {
-        //   $('#load-file').click();
-        // })
         $('#load-file').on('change', function () {
-            //debugger
             main_output = ''
             var file = $('#load-file')[0].files[0];
-            // file_name_ = file.name;
             file_name_ = "AcceleratorOutput_"+campaign_id+"_"+version+".xlsx";
             var fileReader = new FileReader();
             fileReader.onloadend = function (e) {
                 blob___ = e.target.result;
-
                 fileobj.filename = "AcceleratorOutput_"+campaign_id+"_"+version+".xlsx";
                 fileobj.blob = blob___;
                 fileobj.plan_id = plan_id;
@@ -103,7 +156,6 @@ var version;
         fileobj.fromReplan = true;
         fileobj.category = "acceleratedfile";
         console.log(file_name_);
-
         var form = new FormData();
         form.append("file", JSON.stringify(fileobj));
         var settings11 = {

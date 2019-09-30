@@ -122,18 +122,7 @@ $(document).ready(function() {
 .navbar-nav-link{
 	display: none !important;
 }
-.acce_File_ h5{
-	margin: auto;
-	background:rgb(209, 216, 224);
-	padding: 30px;
-	margin-top: 47px;
-	color: #000;
-	margin-bottom: 30px;
-}
-.acce_File_{
-	width: 70%;
-	margin: auto;
-}
+
 
 #logoutbtnid{
 	background-color: #ffffff2e !important;

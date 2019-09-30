@@ -8,7 +8,9 @@ body{
 
 .texttodisplay {
     margin: auto;
-    background: #f3713c;
+    background: #ccc;
+    color: #000;
+    text-align: center;
     padding: 30px;
     margin-top: 47px;
 }
@@ -332,4 +334,23 @@ body{
 }
 .fileinput-upload-button{
     display: none;
+}
+.camp_id_ input{
+    background: rgb(209, 216, 224);
+    color: #000;
+}
+.acce_File_{
+	text-align: center;
+}
+.acce_File_ h5{
+	margin: auto;
+	background:rgb(209, 216, 224);
+	padding: 30px;
+	margin-top: 47px;
+	color: #000;
+	margin-bottom: 30px;
+}
+.acce_File_{
+	width: 70%;
+	margin: auto;
 }
