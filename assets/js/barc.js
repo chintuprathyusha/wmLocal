@@ -300,8 +300,7 @@ $(document).ready(function () {
             msg = JSON.parse(msg);
             setTimeout(function(){
                 $('.loading').hide();
-
-            }, 3000)
+            }, 7000)
             console.log(msg);
             $('.select2').show();
             $(".campaign_markets").prop("disabled", true);
