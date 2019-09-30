@@ -139,12 +139,14 @@ $(document).ready(function () {
             console.log(base_tg);
             primary_tg = msg.Primary_Tg;
             campign_markets = msg.Campaign_Market;
+            console.log(Object.values(campign_markets));
+            campign_markets = Object.values(campign_markets);
             // campign_markets = Object.Values(msg.Campaign_Market);
-            // campign_markets = campign_markets.sort();
+            campign_markets = campign_markets.sort();
             end_week = msg.End_Week;
             data = msg.Client;
             debugger
-            console.log(data);
+            // console.log(data);
 
             $.each(data ,function(key,i){
                 $('#select').append('<option value='+key+'>'+key+'</option>')
