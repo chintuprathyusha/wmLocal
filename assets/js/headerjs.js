@@ -57,17 +57,15 @@ $(document).ready(function () {
             msg  = JSON.parse(msg)
             console.log(msg);
             if (msg == "logoutdone") {
-                sessionStorage.clear();
-                localStorage.clear();
 
                 try {
                     authContext.logOut();
                 } catch (e) {
                     alert("helooooooooooooooooooooooooo");
                 } finally {
-                    sessionStorage.clear();
-                    localStorage.clear();
-                    alert("logout succesfullyyyyyyyyyyyyyyy")
+                    // sessionStorage.clear();
+                    // localStorage.clear();
+                    // alert("logout succesfullyyyyyyyyyyyyyyy")
                    // window.location.href="logout.php";
 
 
