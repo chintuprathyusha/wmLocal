@@ -16,7 +16,7 @@ $(document).ready(function () {
         window.location.href='planner_createnewplan.php?type=new';
     })
     $(".displaytoptextboxes").slideToggle('hidden');
-    
+
     $(".btn3").click(function(){
              $(".displaytoptextboxes").slideToggle('slow');
        });
@@ -222,6 +222,8 @@ $(document).ready(function () {
             });
         }, 0);
     }
+
+    dataTable___1.order([1, 'asc'], [2, 'asc'])
 
     var attr__, plannIdd;
     $("body").on("click", ".replanmodal", function(){
