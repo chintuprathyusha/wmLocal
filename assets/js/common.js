@@ -1,3 +1,8 @@
+var authContext = new AuthenticationContext({
+    clientId: '39fb1160-df4a-4ece-bb64-67eb14426482',
+    postLogoutRedirectUri: window.location
+});
+
 var getUrlParameter = function getUrlParameter(sParam) {
     var sPageURL = window.location.search.substring(1),
         sURLVariables = sPageURL.split('&'),

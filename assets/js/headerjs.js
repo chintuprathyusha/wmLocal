@@ -1,8 +1,5 @@
 $(document).ready(function () {
-    var authContext = new AuthenticationContext({
-		clientId: '39fb1160-df4a-4ece-bb64-67eb14426482',
-		postLogoutRedirectUri: window.location
-	});
+    
     $("body").on("click", ".logoutbtn", function () {
         var sessionidddd = sessionStorage.getItem("sessionidd");
         var currentdate = new Date().toLocaleString();
