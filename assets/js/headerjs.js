@@ -57,11 +57,10 @@ $(document).ready(function () {
             msg  = JSON.parse(msg)
             console.log(msg);
             if (msg == "logoutdone") {
-
                 try {
-                    authContext.logOut();
+                    alert("helloooooooooooooooooooooo")
                 } catch (e) {
-                    alert("helooooooooooooooooooooooooo");
+                    authContext.logOut();
                 } finally {
                     // sessionStorage.clear();
                     // localStorage.clear();
