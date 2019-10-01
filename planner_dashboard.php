@@ -58,10 +58,11 @@ if ($_SESSION['usernamee'] == '') {
     <script src="assets/js/sidenavjscode.js"></script>
     <!-- <script src="assets/js/completedplansjs.js"></script> -->
     <script src="assets\js\sessiontimeoutjs.js"></script>
-    <script src="assets/js/ongoing_dashboardjs.js"></script>
     <link href="assets/css/sweetalert.css" rel="stylesheet" type="text/css">
     <script src="assets/js/sweetalert.min.js"></script>
-    <script src="assets/js/common.js"></script>
+    <!-- <script src="assets/js/common.js"></script> -->
+	<?php include 'assets/includes/common_scripts.php';?>
+	<script src="assets/js/ongoing_dashboardjs.js"></script>
 
     <!-- <script src="assets\js\sessiontimeoutjs.js"></script> -->
 
