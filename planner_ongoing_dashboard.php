@@ -73,7 +73,7 @@ if ($_SESSION['usernamee'] == '') {
 <?php include 'assets/includes/common_scripts.php';?>
 <script src="assets/js/common.js" charset="utf-8"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Base64/1.0.2/base64.js"></script>
-<script src="assets/js/azurecommoncode.js"></script>
+<!-- <script src="assets/js/azurecommoncode.js"></script> -->
 <script>
 $(document).ready(function () {
   $(".displaytoptextboxes").hide();
@@ -83,7 +83,7 @@ $(document).ready(function () {
 
 
 
-<!-- <script type="text/javascript">
+ <script type="text/javascript">
 
     // #1: Set up ADAL
     var authContext = new AuthenticationContext({
@@ -141,7 +141,7 @@ $(document).ready(function () {
             console.log('Not signed in.')
         }
     }
-<!-- </script> -->
+ </script>
 <style media="screen">
 /* .same_Class{
     padding: 0px 16px;
