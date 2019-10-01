@@ -70,14 +70,17 @@ if ($_SESSION['usernamee'] == '') {
 	<?php include 'assets/includes/common_scripts.php';?>
 	<script src="assets/js/user_dashboard.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Base64/1.0.2/base64.js"></script>
-	<script>
+	<!-- <script>
 	$(document).ready(function () {
 		$(".displaytoptextboxes").hide();
 	})
-	</script>
+	</script> -->
 </head>
 
 <style media="screen">
+.displaytoptextboxes{
+	display: none;
+}
 /* .same_Class{
 padding: 0px 16px;
 font-size: 18px;
