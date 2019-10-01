@@ -41,11 +41,21 @@ $(document).ready(function () {
     }
     $("body").on("click", ".addsavebtn", function(){
         email = $('.emailvalue').val()
-        // clientname = $('.clientoptionclass').attr("keyy")
-        clientname = $('.clientoptionclass').val()
+        client_name = []
+        clientname = $(".campign_markets").select2('data');
+
+        for (var i = 0; i < clientname.length; i++) {
+            client_name.push(clientname[i].text);
+        }
+
+      var clientnamees = $.unique(client_name);
+
+
+        // clientname = $('.clientoptionclass').val()
 
         objj = {}
         objj.email = email
+        objj.client = $.unique(clientnamees);
         objj.clientid = clientname
         objj.user_id = useridd
         console.log(objj);
@@ -129,11 +139,23 @@ $(document).ready(function () {
     }
 
     $("body").on("click", ".deletesavebtn", function(){
+
+
+                client_delete = []
+                deleteclient = $(".clientdelete").select2('data');
+
+                for (var i = 0; i < deleteclient.length; i++) {
+                    client_delete.push(deleteclient[i].text);
+                }
+
+              var deletclientnames = $.unique(client_delete);
+
+
         email = $('.deletemails').val()
         clientdelete = $('.clientdelete').val()
         objjj = {}
         objjj.email = email
-        objjj.clientname = clientdelete
+        objjj.clientname = $.unique(deletclientnames);
         objjj.user_id = useridd
         console.log(objjj);
         var form = new FormData();
