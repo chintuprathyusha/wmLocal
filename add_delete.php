@@ -50,10 +50,11 @@
 	<script src="global_assets/js/plugins/forms/selects/select2.min.js"></script>
     <script src="global_assets/js/demo_pages/form_select2.js"></script>
     <script src="assets/js/sidenavjscode.js"></script>
-        <script src="assets/js/add_delete.js"></script>
     <script src="assets\js\sessiontimeoutjs.js"></script>
     <script src="assets/js/sweetalert.min.js"></script>
-    <script src="assets/js/common.js"></script>
+    <?php include 'assets/includes/common_scripts.php';?>
+    <script src="assets/js/add_delete.js"></script>
+    <!-- <script src="assets/js/common.js"></script> -->
 
 	<!-- /theme JS files -->
 
