@@ -233,8 +233,8 @@ display: none !important;
                             </div>
                         </div>
 
-                        <div class="linesss">
-                        </div>
+                        <!-- <div class="linesss">
+                        </div> -->
                         <table class="table datatable-multi-sorting" style="color:white;margin-top:30px">
                             <thead>
                                 <tr>

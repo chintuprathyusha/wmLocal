@@ -82,21 +82,7 @@ if ($_SESSION['usernamee'] == '') {
 .displaytoptextboxes{
 	display: none;
 }
-/* .same_Class{
-padding: 0px 16px;
-font-size: 18px;
-color: green;
-margin-top: 20px;
-}
-.datatable-header{
-display: none !important;
-}
-.dataTables_filter input{
-margin-left: 17px;
-}
-/* .paginate_button {
-color: #f2f9ee !important;
-} */
+
 .DownloadAllfiles{
 	padding: 4px 20px;
 	background: #4caf50;
@@ -214,9 +200,9 @@ color: #f2f9ee !important;
 							<div class="same_Class" style="color:#f07144">
 								On-Going Plans
 							</div>
-							<div class="liness">
+							<!-- <div class="liness">
 
-							</div>
+							</div> -->
 							<table class="table datatable-multi-sortingg datatableTable" style="color:white;">
 								<thead style="text-align:center;">
 									<tr>

@@ -250,8 +250,8 @@ margin-top: 45px;
                         <button style="background-color:#00b894;border:none;color:#fff;border:none;" class="form-control gobtn">GO</button>
                     </div>
                 </div>
-                <div class="linesss">
-                </div>
+                <!-- <div class="linesss">
+                </div> -->
                 <table class="table datatable-multi-sorting" style="color:white;margin-top:30px">
 
                     <thead style="text-align:center;">
