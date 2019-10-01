@@ -58,9 +58,10 @@ if ($_SESSION['usernamee'] == '') {
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 
 	<script src="assets/js/app.js"></script>
-	<script src="assets/js/plannerprofile.js"></script>
 	<script src="global_assets/js/demo_pages/form_validation.js"></script>
 	<script src="assets/js/sidenavjscode.js"></script>
+	<?php include 'assets/includes/common_scripts.php';?>
+	<script src="assets/js/plannerprofile.js"></script>
 
 
 	<!-- /theme JS files -->
