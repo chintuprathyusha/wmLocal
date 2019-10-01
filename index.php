@@ -39,6 +39,7 @@ session_start();
 	<script src="global_assets/js/plugins/forms/selects/select2.min.js"></script>
 	<script src="global_assets/js/demo_pages/form_select2.js"></script>
 	<script src="global_assets/js/demo_pages/login.js"></script>
+	<script src="assets/js/azurecode.js" charset="utf-8"></script>
 	<script src="assets/js/login.js" charset="utf-8"></script>
 	<script src="assets/js/login_ad.js" charset="utf-8"></script>
 	<script src="assets/js/common.js" charset="utf-8"></script>
