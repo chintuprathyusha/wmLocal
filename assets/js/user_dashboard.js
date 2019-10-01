@@ -16,6 +16,7 @@ $(document).ready(function () {
         window.location.href='planner_createnewplan.php?type=new';
     })
     $(".displaytoptextboxes").slideToggle('hidden');
+    
     $(".btn3").click(function(){
              $(".displaytoptextboxes").slideToggle('slow');
        });

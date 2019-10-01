@@ -78,6 +78,7 @@ if ($_SESSION['usernamee'] == '') {
 </head>
 
 <style media="screen">
+
 .displaytoptextboxes{
 	display: none;
 }
@@ -192,7 +193,7 @@ color: #f2f9ee !important;
 								<img class="btn3" style="width:20px;height:20px;float:right;cursor:pointer;cursor:pointer !important;"src="assets/images/filter-icon.svg">
 							</div>
 
-							<div class="row displaytoptextboxes">
+							<div class="row displaytoptextboxes" style="display: flex;">
 								<div class="col-sm-4">
 									<div style="margin-top:12px;margin-right:12px;padding:12px;">Start Date:
 										<input class="form-control startdateclass"  placeholder="start date" type="date"/>
