@@ -54,12 +54,12 @@ if ($_SESSION['usernamee'] == '') {
 	<script src="assets/js/sweetalert.min.js"></script>
 	<!-- <script src="assets/js/plannerprofile.js"></script> -->
 	<script src="global_assets/js/demo_pages/form_validation.js"></script>
-	<script src="assets/js/barc.js"></script>
 	<script src="assets/js/sidenavjscode.js"></script>
 	<script src="assets/js/common.js" charset="utf-8"></script>
 	<link href="assets/css/jquery-confirm.css" rel="stylesheet" type="text/css">
 	<script src="assets/js/jquery-confirm.js" charset="utf-8"></script>
 	<?php include 'assets/includes/common_scripts.php';?>
+	<script src="assets/js/barc.js"></script>
 	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script> -->
 	<!-- /theme JS files -->

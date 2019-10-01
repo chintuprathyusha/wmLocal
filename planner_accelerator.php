@@ -41,7 +41,6 @@ if ($_SESSION['usernamee'] == '') {
 	<script src="global_assets/js/plugins/uploaders/fileinput/plugins/sortable.min.js"></script>
 	<script src="global_assets/js/plugins/uploaders/fileinput/fileinput.min.js"></script>
 	<script src="assets/js/app.js"></script>
-	<script src="assets/js/accelerator.js"></script>
 	<script src="global_assets/js/demo_pages/uploader_bootstrap.js"></script>
     <script src="global_assets/js/plugins/forms/styling/uniform.min.js"></script>
 	<script src="global_assets/js/plugins/forms/styling/switchery.min.js"></script>
@@ -53,9 +52,11 @@ if ($_SESSION['usernamee'] == '') {
 	<script src="global_assets/js/plugins/tables/datatables/datatables.min.js"></script>
 	<script src="global_assets/js/demo_pages/datatables_sorting.js"></script>
 	<script src="assets/js/sidenavjscode.js"></script>
-	<script src="assets/js/common.js"></script>
+	<!-- <script src="assets/js/common.js"></script> -->
 	<script src="assets/js/azurecode.js"></script>
 	<script src="assets/js/sweetalert.min.js"></script>
+	<?php include 'assets/includes/common_scripts.php';?>
+	<script src="assets/js/accelerator.js"></script>
 	<script>
 	$(document).ready(function () {
 	  $(".displaytoptextboxes").hide();
