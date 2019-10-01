@@ -54,11 +54,10 @@ if ($_SESSION['usernamee'] == '') {
 
     <script src="global_assets/js/demo_pages/datatables_sorting.js"></script>
     <script src="assets/js/sidenavjscode.js"></script>
-    <script src="assets/js/completedplansjs.js"></script>
     <script src="assets\js\sessiontimeoutjs.js"></script>
     <script src="assets/js/sweetalert.min.js"></script>
-    <script src="assets/js/common.js"></script>
-	<script src="assets/js/azurecommoncode.js"></script>
+	<?php include 'assets/includes/common_scripts.php';?>
+	<script src="assets/js/completedplansjs.js"></script>
 
     <!-- Core JS files -->
 
