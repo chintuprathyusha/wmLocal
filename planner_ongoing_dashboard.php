@@ -56,7 +56,6 @@ if ($_SESSION['usernamee'] == '') {
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 	<script src="global_assets/js/demo_pages/datatables_sorting.js"></script>
-	<script src="assets/js/user_dashboard.js"></script>
 	<script src="assets/js/sidenavjscode.js"></script>
 	<script src="assets\js\sessiontimeoutjs.js"></script>
 	<script src="assets/js/exportExcel.js" charset="utf-8"></script>
@@ -69,6 +68,7 @@ if ($_SESSION['usernamee'] == '') {
 
 	<script src="assets/js/jquery-confirm.js" charset="utf-8"></script>
 	<?php include 'assets/includes/common_scripts.php';?>
+	<script src="assets/js/user_dashboard.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Base64/1.0.2/base64.js"></script>
 	<script>
 	$(document).ready(function () {

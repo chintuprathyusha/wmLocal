@@ -460,7 +460,6 @@ p{
 	<script src="global_assets/js/plugins/uploaders/fileinput/fileinput.min.js"></script>
 
 	<script src="assets/js/app.js"></script>
-	<script src="assets/js/create.js"></script>
 	<script src="global_assets/js/demo_pages/uploader_bootstrap.js"></script>
 	<script src="global_assets/js/plugins/forms/styling/uniform.min.js"></script>
 	<script src="global_assets/js/plugins/forms/styling/switchery.min.js"></script>
@@ -481,7 +480,9 @@ p{
 	<script src="assets/js/exportExcel.js" charset="utf-8"></script>
 	<script src="assets/js/FileSaver.min.js" charset="utf-8"></script>
 	<script src="assets/js/xlsx.full.min.js" charset="utf-8"></script>
-	<script src="assets/js/common.js" charset="utf-8"></script>
+	<?php include 'assets/includes/common_scripts.php';?>
+	<script src="assets/js/create.js"></script>
+	<!-- <script src="assets/js/common.js" charset="utf-8"></script> -->
 	<script>
 	$(document).ready(function() {
 	    $('.js-example-basic-single').select2();
