@@ -56,21 +56,7 @@ $(document).ready(function () {
             msg  = JSON.parse(msg)
             console.log(msg);
             if (msg == "logoutdone") {
-                try {
-                    alert("helloooooooooooooooooooooo")
-                } catch (e) {
-                    authContext.logOut();
-                } finally {
-                    // sessionStorage.clear();
-                    // localStorage.clear();
-                    // alert("logout succesfullyyyyyyyyyyyyyyy")
-                   // window.location.href="logout.php";
-
-
-                    // window.location.href="index.php";
-                }
-
-
+                authContext.logOut();
             }
         })
     })
