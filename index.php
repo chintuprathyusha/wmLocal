@@ -120,7 +120,7 @@ session_start();
 	<!-- /page content -->
 
 	<script type="text/javascript">
-
+		$(".loading").hide();
 	</script>
 
 </body>

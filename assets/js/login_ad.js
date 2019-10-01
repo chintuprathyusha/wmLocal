@@ -1,4 +1,3 @@
-$(".loading").hide();
 // #1: Set up ADAL
 var authContext = new AuthenticationContext({
     clientId: '39fb1160-df4a-4ece-bb64-67eb14426482',
@@ -13,7 +12,7 @@ if (authContext.isCallback(window.location.hash)) {
     if (err) {
         // TODO: Handle errors signing in and getting tokens
     }
-    
+
 } else {
 
     // If logged in, get access token and make an API request
