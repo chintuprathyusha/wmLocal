@@ -66,7 +66,8 @@ if ($_SESSION['usernamee'] == '') {
 
     <script>
 	$(document).ready(function () {
-	  $(".displaytoptextboxes").hide();
+	  // $(".displaytoptextboxes").hide();
+	  $(".displaytoptextboxes").slideToggle('hidden');
 	})
       // var username = sessionStorage.getItem("usernamee");
       //debugger
