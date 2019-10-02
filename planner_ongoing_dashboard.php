@@ -203,7 +203,7 @@ if ($_SESSION['usernamee'] == '') {
 							<!-- <div class="liness">
 
 							</div> -->
-							<table class="table datatable-multi-sortingg datatableTable" style="color:white;">
+							<table class="table datatable-multi-sortingg datatableTable" style="color:white;width: -1px;">
 								<thead style="text-align:center;">
 									<tr>
 										<th>Campaign ID</th>
