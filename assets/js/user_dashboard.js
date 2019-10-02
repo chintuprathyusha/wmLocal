@@ -223,7 +223,6 @@ $(document).ready(function () {
         }, 0);
     }
 
-    dataTable___1.order([1, 'asc'], [2, 'asc'])
 
     var attr__, plannIdd;
     $("body").on("click", ".replanmodal", function(){
