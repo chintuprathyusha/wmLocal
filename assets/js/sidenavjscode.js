@@ -12,7 +12,6 @@ $(document).ready(function () {
     }
 
     if (filename == 'barc.php') {
-        debugger;
         $('#myplans').addClass('activee');
     }
 
@@ -35,7 +34,7 @@ $(document).ready(function () {
     }
 
     if (filename == 'buyingbasket.php') {
-       $('#ongoingdashboard').addClass('activee');
+        $('#ongoingdashboard').addClass('activee');
     }
 
 
@@ -63,44 +62,47 @@ $(document).ready(function () {
     if(prev.hasOwnProperty('viewCreatePlan')){
         var crepro=prev.viewCreatePlan;
         if(crepro!=''&&crepro){
-            $('body #createplan').removeClass('hidden')}
+            $('body #createplan').removeClass('hidden')
         }
+    }
 
 
-        if(prev.hasOwnProperty('viewDashboard')){
-            var myplans=prev.viewDashboard;
-            if(myplans!=''&&myplans){
-                $('body #myplans').removeClass('hidden')}
-            }
+    if(prev.hasOwnProperty('viewDashboard')){
+        var myplans=prev.viewDashboard;
+        if(myplans!=''&&myplans){
+            $('body #myplans').removeClass('hidden')
+        }
+    }
 
 
-            if(prev.hasOwnProperty('viewOngoingPlans')){
-                var ongoi=prev.viewOngoingPlans;
-                if(ongoi!=''&&ongoi){
-                    $('body #ongoingdashboard').removeClass('hidden')}
-                }
+    if(prev.hasOwnProperty('viewOngoingPlans')){
+        var ongoi=prev.viewOngoingPlans;
+        if(ongoi!=''&&ongoi){
+            $('body #ongoingdashboard').removeClass('hidden')
+        }
+    }
 
 
-                if(prev.hasOwnProperty('viewCompletedPlans')){
-                    var comple=prev.viewCompletedPlans;
-                    if(comple!=''&&comple){
-                        $('body #comple').removeClass('hidden')
-                    }
-                }
+    if(prev.hasOwnProperty('viewCompletedPlans')){
+        var comple=prev.viewCompletedPlans;
+        if(comple!=''&&comple){
+            $('body #comple').removeClass('hidden')
+        }
+    }
 
 
-                if(prev.hasOwnProperty('assignPlannerToClient')){
-                    var adddelt=prev.assignPlannerToClient;
-                    if(adddelt!=''&&adddelt){
-                        $('body #add_deleteid').removeClass('hidden')}
-                    }
+    if(prev.hasOwnProperty('assignPlannerToClient')){
+        var adddelt=prev.assignPlannerToClient;
+        if(adddelt!=''&&adddelt){
+            $('body #add_deleteid').removeClass('hidden')
+        }
+    }
 
 
-                    if(prev.hasOwnProperty('viewMasterData') || prev.hasOwnProperty('viewPrivileges') ){
-                        var admin=prev.viewmasterdata;
-                        if(admin!=''&&admin){
-                            $('body #admin').removeClass('hidden')}
-                        }
-
-
-                    })
+    if(prev.hasOwnProperty('viewMasterData') || prev.hasOwnProperty('viewPrivileges') ){
+        var admin=prev.viewmasterdata;
+        if(admin!=''&&admin){
+            $('body #admin').removeClass('hidden')
+        }
+    }
+})

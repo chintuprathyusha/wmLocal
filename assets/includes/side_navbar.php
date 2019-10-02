@@ -40,7 +40,7 @@
         <li id="userprofileid" class="nav-item nav-item-submenu hidden">
           <a href="userprofile.php" class="nav-link" style="color: #fff !important;" style="color: #fff !important;">
             <!-- <i class="icon-home4"></i> -->
-            <img style="width:22px;height:22px;color:white;" src="assets/images/WhiteIcons/user Profile.png"/>
+            <img style="width:22px;height:22px;color:white;" src="assets/images/user.svg"/>
             <span style="width:20px;"></span>
             <span>
               User Profile

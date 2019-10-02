@@ -15,21 +15,8 @@ $(document).ready(function () {
     var filenames;
     var paths;
     var backclicked = "false";
-    $.urlParam = function(name){
-       var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-       if (results==null) {
-           return null;
-       }
-       return decodeURI(results[1]) || 0;
-    }
+    
     var paramgoback = $.urlParam('goback');
-    //debugger
-    $('body').on('click', '#createplan', function(){
-        $(".next_btn").hide();
-        sessionStorage.setItem('create_plan_id', 0);
-        console.log(create_plan_id);
-    })
-
 
     $(".texttodisplay").hide();
     js_yyyy_mm_dd_hh_mm_ss();
@@ -52,9 +39,8 @@ $(document).ready(function () {
     $('.base_freeze').hide();
     $('.endfreeze').hide();
     $(".select_markets").hide();
-
     if (urlType != 'new') {
-        plan_id = sessionStorage.getItem('create_plan_id');
+        plan_id = $.urlParam('planid');
     }
 
 
@@ -83,7 +69,7 @@ $(document).ready(function () {
 
     console.log(isnewuser)
     console.log(plan_id);
-    if (plan_id>"0") {
+    if (plan_id != "0") {
         get_freezeDetails();
     }
     else if(plan_id == null || plan_id == "" || plan_id == "0"){
@@ -99,7 +85,6 @@ $(document).ready(function () {
     campign_markets
 
     function createPlan() {
-        debugger
         sendObj = {};
         sendObj.user_id = sessionStorage.getItem('userid');
         console.log(sendObj);
@@ -146,7 +131,6 @@ $(document).ready(function () {
             campign_markets = campign_markets.sort();
             end_week = msg.End_Week;
             data = msg.Client;
-            debugger
             // console.log(data);
 
             $.each(data ,function(key,i){
@@ -326,7 +310,6 @@ $(document).ready(function () {
     })
 
     function get_freezeDetails(){
-        debugger
         $('.next_btn').show();
         $('.client_freezeclass').show();
         $('.select2-hidden-accessible').hide();
@@ -339,7 +322,6 @@ $(document).ready(function () {
         $(".select_markets").show();
         // $('.select').hide();
 
-        plan_id = sessionStorage.getItem('create_plan_id');
         sendObj = {};
         sendObj.createplanid = plan_id;
         console.log(sendObj);
@@ -549,7 +531,6 @@ $(document).ready(function () {
         return buf;
     }
     $("body").on("click", ".next_btn", function(){
-        debugger
         window.location.href = 'buyingbasket.php?gonext='+true
     })
 

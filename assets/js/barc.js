@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    debugger
     $('.loading').show();
     $('#upl-btn').prop('disabled', true);
     $(".campaign_markets").attr("disabled", "disabled");
@@ -9,7 +8,7 @@ $(document).ready(function () {
     $('.submit_barc').prop('disabled', true);
     var acce_file_name;
     $('.acce_div').hide();
-    var plan_id = sessionStorage.getItem('create_plan_id');
+    var plan_id = $.urlParam('planid');
     var user_id = sessionStorage.getItem('userid');
     $('.texttodisplay').hide();
     onLoad();
@@ -44,27 +43,25 @@ $(document).ready(function () {
     var file_name_;
     var main_output;
     fileobj = {};
-    (function ($) {
-        $('#load-file').on('change', function () {
-            main_output = ''
-            var file = $('#load-file')[0].files[0];
-            file_name_ = "AcceleratorOutput_"+campaign_id+"_"+version+".xlsx";
-            var fileReader = new FileReader();
-            fileReader.onloadend = function (e) {
-                blob___ = e.target.result;
+    $('#load-file').on('change', function () {
+        main_output = ''
+        var file = $('#load-file')[0].files[0];
+        file_name_ = "AcceleratorOutput_"+campaign_id+"_"+version+".xlsx";
+        var fileReader = new FileReader();
+        fileReader.onloadend = function (e) {
+            blob___ = e.target.result;
 
-                fileobj.filename = "AcceleratorOutput_"+campaign_id+"_"+version+".xlsx";
-                fileobj.blob = blob___;
-                fileobj.plan_id = plan_id;
-                fileobj.user_id = user_id;
-                console.log(fileobj);
-                file_name_ = file_name_;
-                $('#upl-btn').prop('disabled', false);
+            fileobj.filename = "AcceleratorOutput_"+campaign_id+"_"+version+".xlsx";
+            fileobj.blob = blob___;
+            fileobj.plan_id = plan_id;
+            fileobj.user_id = user_id;
+            console.log(fileobj);
+            file_name_ = file_name_;
+            $('#upl-btn').prop('disabled', false);
 
-            };
-            fileReader.readAsDataURL(file);
-        });
-    })(jQuery);
+        };
+        fileReader.readAsDataURL(file);
+    });
 
 
     var counting = 0;
@@ -179,7 +176,6 @@ $(document).ready(function () {
     var edit_flag = false;
     var base_tg_;
     var campaignId_; var campaignMarkets; var endWeekId_; var primaryTGTd_;
-    var plan_id= sessionStorage.getItem('create_plan_id');
     var userid= sessionStorage.getItem('userid');
     var count = 0;
     var version;
@@ -190,7 +186,6 @@ $(document).ready(function () {
     $('.select2').hide();
 
     function barcData() {
-        plan_id = sessionStorage.getItem('create_plan_id');
         sendObj = {};
         sendObj.planId = plan_id;
         console.log(sendObj);
@@ -219,11 +214,9 @@ $(document).ready(function () {
             endWeekId_ = msg.EndWeek;
             primaryTGTd_ = msg.PrimaryTGTd;
             pathSelection = msg.PathSelection;
-            setTimeout(function(){
-                $('.loading').hide();
-            }, 10000)
+            $('.loading').hide();
             if (msg.message == "fail") {
-                $.confirm({
+                $.alert({
                     title: 'Oops ! something went wrong, try again',
                     animation: 'scale',
                     closeAnimation: 'scale',
@@ -250,7 +243,10 @@ $(document).ready(function () {
                         $('.acce_File_').append('<h5>Accelerator Output file is successfully uploaded</h5>');
                         $('.edit_barc').prop('disabled', true);
                     }
-                    if (planProcess > 4) {
+                    if (planProcess == 3) {
+                        $('.edit_barc').prop('disabled', false);
+                    }
+                    else {
                         $('.edit_barc').prop('disabled', true);
                     }
                 }
@@ -358,7 +354,10 @@ $(document).ready(function () {
         $(this).prop("disbaled", true);
         $(this).attr('disabled', 'disabled')
         $('.edit_barc').removeAttr('disabled')
-        swal("Modified successfully");
+        $.alert({
+            title: "Alert",
+            content: "Modified successfully"
+        });
         $('select').prop('disabled', true);
         $('.submit_barc').prop('disabled', false)
     })

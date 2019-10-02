@@ -1,5 +1,5 @@
 <?php
-session_start();
+	session_start();
 	if ($_SESSION['usernamee'] == '') {
 		 header("location:index.php");
 	}
@@ -16,97 +16,10 @@ session_start();
 	<title>Wavemaker - WM FLOW</title>
 
 	<!-- Global stylesheets -->
-	<!-- <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css"> -->
-	<link href="assets/css/fonts.css" rel="stylesheet" type="text/css">
-	<link href="global_assets/css/icons/icomoon/styles.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/bootstrap_limitless.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/layout.min.css" rel="stylesheet" type="text/css">
-	<!-- <link href="assets/css/common.css" rel="stylesheet" type="text/css"> -->
-	<link href="assets/css/common.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/components.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/colors.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/sweetalert.css" rel="stylesheet" type="text/css">
 
-	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css"> -->
-	<link href="global_assets/css/extras/animate.min.css" rel="stylesheet" type="text/css">
-	<script src="global_assets/js/main/jquery.min.js"></script>
-	<link href="assets/css/jquery-confirm.css" rel="stylesheet" type="text/css">
-	<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" /> -->
-
-
-	<script src="assets/js/jquery-confirm.js" charset="utf-8"></script>
-	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script> -->
+	<?php include 'assets/includes/common_css.php'; ?>
 
 	<?php include 'assets/includes/common_scripts.php';?>
-
-	<script src="assets/js/common.js" charset="utf-8"></script>
-	<script src="assets/js/azurecode.js"></script>
-
-	<script type="text/javascript">
-	$(document).ready(function () {
-	  $(".displaytoptextboxes").hide();
-	  var authContext = new AuthenticationContext({
-		  clientId: '39fb1160-df4a-4ece-bb64-67eb14426482',
-		  postLogoutRedirectUri: window.location
-	  });
-
-	  // #3: Handle redirect after token requests
-	  if (authContext.isCallback('https://cin-webapp-indtvautop1-dev-02.azurewebsites.net/index.php')) {
-
-		  authContext.handleWindowCallback();
-		  var err = authContext.getLoginError();
-		  if (err) {
-			  // TODO: Handle errors signing in and getting tokens
-		  }
-
-	  } else {
-
-		  // If logged in, get access token and make an API request
-		  var user = authContext.getCachedUser();
-		  if (user) {
-
-			  console.log('Signed in as: ' + user.userName);
-
-			  // #4: Get an access token to the Microsoft Graph API
-			  authContext.acquireToken(
-				  'https://graph.microsoft.com',
-				  function (error, token) {
-
-					  // TODO: Handle error obtaining access token
-					  if (error || !token) { return; }
-
-					  // #5: Use the access token to make an AJAX call
-					  var xhr = new XMLHttpRequest();
-					  xhr.open('GET', 'https://graph.microsoft.com/v1.0/me', true);
-					  xhr.setRequestHeader('Authorization', 'Bearer ' + token);
-					  xhr.onreadystatechange = function () {
-						  if (xhr.readyState === 4 && xhr.status === 200) {
-
-							  console.log(xhr.responseText);
-							  var response_fromAD = xhr.responseText
-							  console.log(response_fromAD);
-
-
-						  } else {
-							  // TODO: Do something with the error
-							  // (or other non-200 responses)
-						  }
-					  };
-					  xhr.send();
-				  }
-			  );
-		  } else {
-
-			  console.log('Not signed in.')
-		  }
-	  }
-	})
-	</script>
-
-	<!-- /global stylesheets -->
-
-	<!-- /theme JS files -->
 
 </head>
 <style>
@@ -450,37 +363,7 @@ p{
 
 		<!-- <script src="assets/js/sample.js" charset="utf-8"></script> -->
 	</body>
-	<script src="global_assets/js/main/bootstrap.bundle.min.js"></script>
-	<script src="global_assets/js/plugins/loaders/blockui.min.js"></script>
-	<!-- /core JS files -->
 
-	<!-- Theme JS files -->
-	<script src="global_assets/js/plugins/uploaders/fileinput/plugins/purify.min.js"></script>
-	<script src="global_assets/js/plugins/uploaders/fileinput/plugins/sortable.min.js"></script>
-	<script src="global_assets/js/plugins/uploaders/fileinput/fileinput.min.js"></script>
-
-	<script src="assets/js/app.js"></script>
-	<script src="global_assets/js/demo_pages/uploader_bootstrap.js"></script>
-	<script src="global_assets/js/plugins/forms/styling/uniform.min.js"></script>
-	<script src="global_assets/js/plugins/forms/styling/switchery.min.js"></script>
-	<script src="global_assets/js/plugins/forms/styling/switch.min.js"></script>
-	<script src="global_assets/js/demo_pages/form_checkboxes_radios.js"></script>
-	<script src="global_assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
-	<script src="global_assets/js/plugins/forms/selects/select2.min.js"></script>
-	<script src="global_assets/js/demo_pages/form_select2.js"></script>
-	<script src="global_assets/js/plugins/tables/datatables/datatables.min.js"></script>
-	<script src="global_assets/js/demo_pages/datatables_sorting.js"></script>
-
-	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script> -->
-	<script src="global_assets/js/demo_pages/form_validation.js"></script>
-	<script src="assets/js/sweetalert.min.js"></script>
-
-	<script src="global_assets/js/demo_pages/animations_css3.js"></script>
-	<script src="assets/js/sidenavjscode.js"></script>
-	<script src="assets/js/exportExcel.js" charset="utf-8"></script>
-	<script src="assets/js/FileSaver.min.js" charset="utf-8"></script>
-	<script src="assets/js/xlsx.full.min.js" charset="utf-8"></script>
-	<?php include 'assets/includes/common_scripts.php';?>
 	<script src="assets/js/create.js"></script>
 	<!-- <script src="assets/js/common.js" charset="utf-8"></script> -->
 	<script>

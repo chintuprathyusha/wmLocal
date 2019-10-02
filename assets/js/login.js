@@ -55,6 +55,7 @@ $(document).ready(function () {
 
             if (msg.validlogin == "true") {
                 login_obj = msg;
+                login_obj.login_type = 'login'
 
                 console.log(login_obj);
 

@@ -18,49 +18,9 @@ if ($_SESSION['usernamee'] == '') {
 
     <!-- Global stylesheets -->
     <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css"> -->
-    <link href="assets/css/fonts.css" rel="stylesheet" type="text/css">
-    <link href="global_assets/css/icons/icomoon/styles.min.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/bootstrap_limitless.min.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/layout.min.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/components.min.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/colors.min.css" rel="stylesheet" type="text/css">
-    <!-- <link rel="assets/css/common.css" href="/css/master.css"> -->
-    <link href="assets/css/common.css" rel="stylesheet" type="text/css">
 
-    <link href="assets/css/sweetalert.css" rel="stylesheet" type="text/css">
-   <script src="assets/js/sweetalert.min.js"></script>
-    <!-- /global stylesheets -->
-    <script src="global_assets/js/main/jquery.min.js"></script>
-    <script src="global_assets/js/main/bootstrap.bundle.min.js"></script>
-    <script src="global_assets/js/plugins/loaders/blockui.min.js"></script>
-    <!-- /core JS files -->
-
-    <!-- Theme JS files -->
-    <script src="global_assets/js/plugins/visualization/d3/d3.min.js"></script>
-    <script src="global_assets/js/plugins/visualization/d3/d3_tooltip.js"></script>
-    <script src="global_assets/js/plugins/forms/styling/switchery.min.js"></script>
-    <script src="global_assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
-    <script src="global_assets/js/plugins/ui/moment/moment.min.js"></script>
-    <script src="global_assets/js/plugins/pickers/daterangepicker.js"></script>
-
-    <script src="global_assets/js/plugins/extensions/jquery_ui/interactions.min.js"></script>
-    <script src="global_assets/js/plugins/forms/selects/select2.min.js"></script>
-
-    <script src="assets/js/app.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="global_assets/js/demo_pages/form_select2.js"></script>
-    <script src="global_assets/js/demo_pages/dashboard.js"></script>
-    <!-- Theme JS files -->
-    <script src="global_assets/js/plugins/tables/datatables/datatables.min.js"></script>
-
-    <script src="global_assets/js/demo_pages/datatables_sorting.js"></script>
-    <script src="assets/js/sidenavjscode.js"></script>
-    <!-- <script src="assets/js/completedplansjs.js"></script> -->
-    <script src="assets\js\sessiontimeoutjs.js"></script>
-    <link href="assets/css/sweetalert.css" rel="stylesheet" type="text/css">
-    <script src="assets/js/sweetalert.min.js"></script>
     <!-- <script src="assets/js/common.js"></script> -->
+	<?php include 'assets/includes/common_css.php';?>
 	<?php include 'assets/includes/common_scripts.php';?>
 	<script src="assets/js/ongoing_dashboardjs.js"></script>
 
@@ -207,7 +167,7 @@ display: none !important;
 
                         <!-- Order direction sequence control -->
                         <!-- <div class="card" style="background-color: #222c31;"> -->
-                        <div class="row displaytoptextboxes" >
+                        <div class="row displaytoptextboxes" style="display:none;" >
                             <!-- <div class="row"> -->
                             <div style="margin-top:6px;margin-right:14px;margin-left:12px;" class="col-sm-2">
                                 <input type="text" style="padding:5px;" placeholder="search for Campaign ID" class="form-control Campaignidclass"/>
@@ -238,6 +198,7 @@ display: none !important;
                         <table class="table datatable-multi-sorting" style="color:white;margin-top:30px">
                             <thead>
                                 <tr>
+									<th>Sl.no</th>
                                     <th>Campaign ID</th>
                                     <th>Brand</th>
                                     <th>Client</th>
@@ -315,7 +276,7 @@ Footer
                     <!-- <i class="icon-spinner11 icon-2x text-warning border-warning border-3 rounded-round p-3 mb-3 mt-1"></i>
                     <h5 class="mb-0">Password recovery</h5>
                     <span class="d-block text-muted">We'll send you instructions in email</span> -->
-                    <button class="form-control" style="background-color: #192124;color: white;"><a href="planner_ongoing.php" style="color:#fff">Re-Plan from Buying Basket Upload </a></button>
+                    <button class="form-control" style="background-color: #192124;color: white;"><a href="buyingbasket.php" style="color:#fff">Re-Plan from Buying Basket Upload </a></button>
 
                 </div>
 

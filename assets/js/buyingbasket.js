@@ -1,7 +1,5 @@
 $( document ).ready(function() {
     $('.loading').show();
-    $("body").on("click", ".onclickborder", function(){
-    })
     $('#upl-btn').prop('disabled', true);
     $('#upl-btn1').prop('disabled', true);
     $('#upl-btn__').prop('disabled', true);
@@ -15,7 +13,7 @@ $( document ).ready(function() {
     $(".cprp_main").css("background-color", "#F07144");
     $('.radio_class').hide();
     $('.changediv').hide();
-    var planid = sessionStorage.getItem('create_plan_id');
+    var planid = $.urlParam('planid');
     var userid = sessionStorage.getItem('userid');
     $('.spillovertexttodisplay').hide()
     $('.forfirstpathtext').hide()
@@ -845,7 +843,7 @@ $( document ).ready(function() {
 
 
                 if (campaign_days == '') {
-                    $.confirm({
+                    $.alert({
                         title: 'Filed should not be empty',
                         content: 'Oops ! something went wrong',
                         animation: 'scale',
@@ -862,7 +860,7 @@ $( document ).ready(function() {
                 }
                 else if (sum!==100 || sum>100) {
 
-                    $.confirm({
+                    $.alert({
                         title: 'Dispersion should be 100',
                         // content: 'Oops ! something went wrong',
                         animation: 'scale',
@@ -879,7 +877,6 @@ $( document ).ready(function() {
                 }
                 else {
                     $('.loading').show();
-                    debugger
                     sendObj2.acd_dispersion = obj_subdivs;
                     console.log(sendObj2);
                     console.log(JSON.stringify(sendObj2));
@@ -901,9 +898,9 @@ $( document ).ready(function() {
                         $('.loading').hide();
 
                         if (msg.Status == "Fail") {
-                            $.confirm({
-                                title: 'Oops ! something went wrong, try again',
-                                // content: 'Oops ! something went wrong',
+                            $.alert({
+                                title: 'Error',
+                                content: 'Oops ! something went wrong, try again',
                                 animation: 'scale',
                                 closeAnimation: 'scale',
                                 opacity: 0.5,
@@ -932,9 +929,9 @@ $( document ).ready(function() {
 
                             $('input[type=text]').prop('readonly', true);
                             $('input[type=number]').prop('readonly', true);
-                            $.confirm({
-                                title: 'Data submitted succesfully',
-                                // content: 'Oops ! something went wrong',
+                            $.alert({
+                                title: 'Success',
+                                content: 'Data submitted succesfully',
                                 animation: 'scale',
                                 closeAnimation: 'scale',
                                 opacity: 0.5,
@@ -1036,35 +1033,17 @@ $( document ).ready(function() {
 
                 if (campaign_days == '' || cprp_weitage == '' || reach_weitage == '') {
 
-                    $.confirm({
-                        title: 'Fields should not be empty',
-                        // content: 'Oops ! something went wrong',
-                        animation: 'scale',
-                        closeAnimation: 'scale',
-                        opacity: 0.5,
-                        buttons: {
-                            okay: {
-                                text: 'Okay',
-                                btnClass: 'btn-primary'
-                            }
-                        }
+                    $.alert({
+                        title: 'Alert',
+                        content: 'Fields should not be empty'
                     });
 
                 }
                 else if (sum < 100 || sum>100) {
                     // if(msg.message == "fail"){
-                    $.confirm({
-                        title: 'Dispersion should be 100',
-                        // content: 'Oops ! something went wrong',
-                        animation: 'scale',
-                        closeAnimation: 'scale',
-                        opacity: 0.5,
-                        buttons: {
-                            okay: {
-                                text: 'Okay',
-                                btnClass: 'btn-primary'
-                            }
-                        }
+                    $.alert({
+                        title: 'Alert',
+                        content: 'Dispersion should be 100'
                     });
                     // }
                 }
@@ -1099,18 +1078,9 @@ $( document ).ready(function() {
                         console.log(msg);
                         $('.loading').hide();
                         if(msg.Status == "Fail"){
-                            $.confirm({
-                                title: 'Oops ! something went wrong, try again',
-                                // content: 'Oops ! something went wrong',
-                                animation: 'scale',
-                                closeAnimation: 'scale',
-                                opacity: 0.5,
-                                buttons: {
-                                    okay: {
-                                        text: 'Okay',
-                                        btnClass: 'btn-primary'
-                                    }
-                                }
+                            $.alert({
+                                title: 'Error',
+                                content: 'Oops ! something went wrong, try again'
                             });
                         }
                         else {
@@ -1127,18 +1097,9 @@ $( document ).ready(function() {
                             $('.channelbeing').show();
                             $('.forfirstpathtext').show();
                             $('.budget_main').prop('disabled', true);
-                            $.confirm({
-                                title: 'Data submitted succesfully',
-                                // content: 'Oops ! something went wrong',
-                                animation: 'scale',
-                                closeAnimation: 'scale',
-                                opacity: 0.5,
-                                buttons: {
-                                    okay: {
-                                        text: 'Okay',
-                                        btnClass: 'btn-primary'
-                                    }
-                                }
+                            $.alert({
+                                title: 'Success',
+                                content: 'Data submitted succesfully'
                             });
                         }
 
@@ -1177,7 +1138,7 @@ $( document ).ready(function() {
 
 
             $("body").on("click", ".next_", function(){
-                window.location.href = "barc.php"
+                window.location.href = "barc.php?planid="+planid
             })
 
             //budget upload file //
@@ -1283,18 +1244,8 @@ $( document ).ready(function() {
                         // alert("kkk")
                         $('.texttodisplay').append('<h5 style="color:#000">Buying Basket file successfully uploaded</h5>')
 
-                        $.confirm({
-                            title: 'File succesfully uploaded',
-                            // content: 'Oops ! something went wrong',
-                            animation: 'scale',
-                            closeAnimation: 'scale',
-                            opacity: 0.5,
-                            buttons: {
-                                okay: {
-                                    text: 'Okay',
-                                    btnClass: 'btn-primary'
-                                }
-                            }
+                        $.alert({
+                            title: 'File succesfully uploaded'
                         });
 
                     }
@@ -1303,19 +1254,10 @@ $( document ).ready(function() {
                         $('.texttodisplay').hide();
                         $('.file-input').show();
                         $('.red_color').show();
-                        $.confirm({
-                            title: 'Oops ! Seems you are uploading an incorrect file',
-                            // content: 'Oops ! something went wrong',
-                            animation: 'scale',
-                            closeAnimation: 'scale',
-                            opacity: 0.5,
-                            buttons: {
-                                okay: {
-                                    text: 'Okay',
-                                    btnClass: 'btn-primary'
-                                }
-                            }
+                        $.alert({
+                            title: 'Oops ! Seems you are uploading an incorrect file'
                         });
+
                     }
                     $('.loading').hide();
                     $('.radio_class').show();

@@ -17,48 +17,21 @@ if ($_SESSION['usernamee'] == '') {
 
     <!-- Global stylesheets -->
     <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css"> -->
-    <link href="assets/css/fonts.css" rel="stylesheet" type="text/css">
-    <link href="global_assets/css/icons/icomoon/styles.min.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/bootstrap_limitless.min.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/layout.min.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/common.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/components.min.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/colors.min.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/sweetalert.css" rel="stylesheet" type="text/css">
-    <!-- /global stylesheets -->
+	<?php include 'assets/includes/common_css.php';?>
 
-    <!-- Core JS files -->
-    <script src="global_assets/js/main/jquery.min.js"></script>
-    <script src="global_assets/js/main/bootstrap.bundle.min.js"></script>
-    <script src="global_assets/js/plugins/loaders/blockui.min.js"></script>
-    <!-- /core JS files -->
+    <?php include 'assets/includes/common_scripts.php';?>
 
     <!-- Theme JS files -->
     <script src="global_assets/js/plugins/uploaders/fileinput/plugins/purify.min.js"></script>
     <script src="global_assets/js/plugins/uploaders/fileinput/plugins/sortable.min.js"></script>
     <script src="global_assets/js/plugins/uploaders/fileinput/fileinput.min.js"></script>
 
-    <script src="assets/js/app.js"></script>
     <script src="global_assets/js/demo_pages/uploader_bootstrap.js"></script>
-    <script src="global_assets/js/plugins/forms/styling/uniform.min.js"></script>
-    <script src="global_assets/js/plugins/forms/styling/switchery.min.js"></script>
-    <script src="global_assets/js/plugins/forms/styling/switch.min.js"></script>
-    <script src="global_assets/js/demo_pages/form_checkboxes_radios.js"></script>
-    <script src="global_assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
-    <script src="global_assets/js/plugins/forms/selects/select2.min.js"></script>
-    <script src="global_assets/js/demo_pages/form_select2.js"></script>
-    <script src="assets/js/sidenavjscode.js"></script>
     <script src="assets/js/adminmasterdatajs.js"></script>
     <script src="assets/js/adminuserprevilagesjs.js"></script>
-    <script src="assets\js\sessiontimeoutjs.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
     <script src="assets/js/exportExcel.js" charset="utf-8"></script>
     <script src="assets/js/FileSaver.min.js" charset="utf-8"></script>
     <script src="assets/js/xlsx.full.min.js" charset="utf-8"></script>
-    <script src="assets/js/sweetalert.min.js"></script>
-    <script src="assets/js/common.js"></script>
     <!-- /theme JS files -->
 
 </head>

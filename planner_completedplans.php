@@ -66,8 +66,7 @@ if ($_SESSION['usernamee'] == '') {
 
     <script>
 	$(document).ready(function () {
-	  // $(".displaytoptextboxes").hide();
-	  $(".displaytoptextboxes").slideToggle('hidden');
+	  $(".displaytoptextboxes").hide();
 	})
       // var username = sessionStorage.getItem("usernamee");
       //debugger
@@ -257,6 +256,7 @@ margin-top: 45px;
 
                     <thead style="text-align:center;">
                         <tr>
+							<th>Sl.no</th>
                             <th>Campaign ID</th>
                             <th>Brand</th>
                             <th>Client</th>

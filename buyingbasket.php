@@ -20,81 +20,22 @@ if ($_SESSION['usernamee'] == '') {
 
 	<!-- Global stylesheets -->
 	<!-- <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css"> -->
-	<link href="assets/css/fonts.css" rel="stylesheet" type="text/css">
-	<link href="global_assets/css/icons/icomoon/styles.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/bootstrap_limitless.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/layout.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/components.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/colors.min.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="assets/css/common.css">
-	<link href="assets/css/sweetalert.css" rel="stylesheet" type="text/css">
+	<?php include 'assets/includes/common_css.php';?>
+
+	<?php include 'assets/includes/common_scripts.php';?>
 	<!-- /global stylesheets -->
 
-	<!-- Core JS files -->
-	<script src="global_assets/js/main/jquery.min.js"></script>
-	<script src="global_assets/js/main/bootstrap.bundle.min.js"></script>
-	<script src="global_assets/js/plugins/loaders/blockui.min.js"></script>
-	<!-- /core JS files -->
-
-	<!-- Theme JS files -->
-	<script src="global_assets/js/plugins/visualization/d3/d3.min.js"></script>
-	<script src="global_assets/js/plugins/visualization/d3/d3_tooltip.js"></script>
-	<script src="global_assets/js/plugins/forms/styling/switchery.min.js"></script>
-	<script src="global_assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
-	<script src="global_assets/js/plugins/ui/moment/moment.min.js"></script>
-	<script src="global_assets/js/plugins/pickers/daterangepicker.js"></script>
-
-	<script src="global_assets/js/plugins/extensions/jquery_ui/interactions.min.js"></script>
-	<script src="global_assets/js/plugins/forms/selects/select2.min.js"></script>
-
-	<script src="assets/js/app.js"></script>
-	<!-- <script src="global_assets/js/demo_pages/form_select2.js"></script> -->
-	<script src="global_assets/js/demo_pages/dashboard.js"></script>
-	<!-- Theme JS files -->
-	<script src="global_assets/js/plugins/tables/datatables/datatables.min.js"></script>
-
-	<script src="global_assets/js/demo_pages/datatables_sorting.js"></script>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
-	<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" /> -->
-	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css"> -->
-	<link rel="stylesheet" href="https://www.samclarke.com/assets/migrating-to-hugo/monokai.css" />
-	<!--NVD3-->
-	<!-- <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
-	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script> -->
-	<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
-
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
 
 
 	<script src="global_assets/js/demo_pages/uploader_bootstrap.js"></script>
-	<script src="global_assets/js/plugins/forms/styling/uniform.min.js"></script>
-	<script src="global_assets/js/plugins/forms/styling/switchery.min.js"></script>
-	<script src="global_assets/js/plugins/forms/styling/switch.min.js"></script>
-	<script src="global_assets/js/demo_pages/form_checkboxes_radios.js"></script>
-	<script src="global_assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
-	<!-- <script src="global_assets/js/plugins/forms/selects/select2.min.js"></script> -->
-	<script src="global_assets/js/demo_pages/form_select2.js"></script>
+
 
 	<script src="global_assets/js/plugins/uploaders/fileinput/plugins/purify.min.js"></script>
 	<script src="global_assets/js/plugins/uploaders/fileinput/plugins/sortable.min.js"></script>
 	<script src="global_assets/js/plugins/uploaders/fileinput/fileinput.min.js"></script>
 
-	<script src="global_assets/js/plugins/forms/styling/uniform.min.js"></script>
-	<script src="global_assets/js/plugins/forms/styling/switchery.min.js"></script>
-	<script src="global_assets/js/plugins/forms/inputs/touchspin.min.js"></script>
-	<script src="global_assets/js/demo_pages/form_input_groups.js"></script>
 	<script src="assets/js/plannerongoing.js"></script>
-	<script src="assets/js/sidenavjscode.js"></script>
-	<script src="assets/js/sweetalert.min.js"></script>
-	<!-- <script src="assets/js/common.js" charset="utf-8"></script> -->
-	<link href="assets/css/jquery-confirm.css" rel="stylesheet" type="text/css">
-<script src="assets/js/jquery-confirm.js" charset="utf-8"></script>
-<?php include 'assets/includes/common_scripts.php';?>
-<script src="assets/js/buyingbasket.js"></script>
-<!-- <script src="assets/js/common.js" charset="utf-8"></script> -->
-	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script> -->
+	<script src="assets/js/buyingbasket.js"></script>
 </head>
 <style>
 input[type='radio']:after {

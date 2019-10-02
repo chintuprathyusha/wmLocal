@@ -15,66 +15,12 @@ if ($_SESSION['usernamee'] == '') {
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Wavemaker</title>
 
-	<!-- Global stylesheets -->
-	<!-- <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css"> -->
-	<link href="assets/css/fonts.css" rel="stylesheet" type="text/css">
-	<link href="global_assets/css/icons/icomoon/styles.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/bootstrap_limitless.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/layout.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/components.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/colors.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/common.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/sweetalert.css" rel="stylesheet" type="text/css">
-
-	<!-- /global stylesheets -->
-
-	<!-- Core JS files -->
-
-	<script src="global_assets/js/main/jquery.min.js"></script>
-	<script src="global_assets/js/main/bootstrap.bundle.min.js"></script>
-	<script src="global_assets/js/plugins/loaders/blockui.min.js"></script>
-	<!-- /core JS files -->
-
-	<!-- Theme JS files -->
-	<script src="global_assets/js/plugins/visualization/d3/d3.min.js"></script>
-	<script src="global_assets/js/plugins/visualization/d3/d3_tooltip.js"></script>
-	<script src="global_assets/js/plugins/forms/styling/switchery.min.js"></script>
-	<script src="global_assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
-	<script src="global_assets/js/plugins/ui/moment/moment.min.js"></script>
-	<script src="global_assets/js/plugins/pickers/daterangepicker.js"></script>
-
-	<script src="global_assets/js/plugins/extensions/jquery_ui/interactions.min.js"></script>
-	<script src="global_assets/js/plugins/forms/selects/select2.min.js"></script>
-
-	<script src="assets/js/app.js"></script>
-	<script src="global_assets/js/demo_pages/form_select2.js"></script>
-	<script src="global_assets/js/demo_pages/dashboard.js"></script>
-
-	<!-- Theme JS files -->
-	<script src="global_assets/js/plugins/tables/datatables/datatables.min.js"></script>
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-	<script src="global_assets/js/demo_pages/datatables_sorting.js"></script>
-	<script src="assets/js/sidenavjscode.js"></script>
-	<script src="assets\js\sessiontimeoutjs.js"></script>
-	<script src="assets/js/exportExcel.js" charset="utf-8"></script>
-	<script src="assets/js/FileSaver.min.js" charset="utf-8"></script>
-	<script src="assets/js/xlsx.full.min.js" charset="utf-8"></script>
-	<script src="global_assets/js/demo_pages/form_checkboxes_radios.js"></script>
-	<script src="assets/js/sweetalert.min.js"></script>
-
-	<link href="assets/css/jquery-confirm.css" rel="stylesheet" type="text/css">
-
-	<script src="assets/js/jquery-confirm.js" charset="utf-8"></script>
+	<?php include 'assets/includes/common_css.php'; ?>
 	<?php include 'assets/includes/common_scripts.php';?>
+
 	<script src="assets/js/user_dashboard.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Base64/1.0.2/base64.js"></script>
-	<!-- <script>
-	$(document).ready(function () {
-		$(".displaytoptextboxes").hide();
-	})
-	</script> -->
+
 </head>
 
 <style media="screen">
@@ -118,7 +64,7 @@ if ($_SESSION['usernamee'] == '') {
 	border: none;
 	width: 214px;
 	padding: 5px;
-	} */
+}
 </style>
 <body>
 
@@ -173,24 +119,21 @@ if ($_SESSION['usernamee'] == '') {
 							<div class="createbtn__">
 
 								<button class="createbtn">CREATE PLAN</button>
-								<!-- <span style="float:right;font-size:16px; color: #eade47;
-								font-weight: 600;
-								text-decoration: none;">More Filters </span> -->
 								<img class="btn3" style="width:20px;height:20px;float:right;cursor:pointer;cursor:pointer !important;"src="assets/images/filter-icon.svg">
 							</div>
 
-							<div class="row displaytoptextboxes" style="display: flex;">
-								<div class="col-sm-4">
+							<div class="row displaytoptextboxes" style="display:none;">
+								<div class="col-sm-4" style="display: inline-block;">
 									<div style="margin-top:12px;margin-right:12px;padding:12px;">Start Date:
 										<input class="form-control startdateclass"  placeholder="start date" type="date"/>
 									</div>
 								</div>
-								<div class="col-sm-4">
+								<div class="col-sm-4" style="display: inline-block;">
 									<div style="margin-top:12px;margin-right:12px;padding:12px;">End Date:
 										<input  class="form-control enddateclass" placeholder="end date" type="date"/>
 									</div>
 								</div>
-								<div class="col-sm-4">
+								<div class="col-sm-3" style="display: inline-block;">
 
 									<div style="margin-top: 32px;margin-right: 12px;padding: 12px;">
 										<button style="background-color:#00b894;border:none;color:#fff;width:55px;" class="form-control gobtn">GO</button>
@@ -200,12 +143,10 @@ if ($_SESSION['usernamee'] == '') {
 							<div class="same_Class" style="color:#f07144">
 								On-Going Plans
 							</div>
-							<!-- <div class="liness">
-
-							</div> -->
-							<table class="table datatable-multi-sortingg datatableTable" style="color:white;width: -1px;!important">
+							<table class="table datatable-multi-sortingg" style="color:white;">
 								<thead style="text-align:center;">
 									<tr>
+										<th>Sl.no</th>
 										<th>Campaign ID</th>
 										<th>Campaign Name</th>
 										<th>Client</th>
@@ -216,125 +157,88 @@ if ($_SESSION['usernamee'] == '') {
 									</tr>
 								</thead>
 								<tbody class="displayincompletedplans">
-									<!-- <tr>
-									<td><a href="#">Campaign 1232322</a></td>
-									<td>Enright</td>
-									<td>Traffic Court Referee</td>
-									<td>22 Jun 1972</td>
-									<td>Active</td>
-									<td><button>complete</button></td>
 
-								</tr> -->
+								</tbody>
+							</table>
 
-							</tbody>
-						</table>
+							<div class="same_Class" style="color:#f07144">
+								Completed Plans
+							</div>
+							<table class="table datatable-multi-sorting" style="color:white;margin-top:30px;">
+								<thead>
+									<tr>
+										<th>Sl.no</th>
+										<th>Campaign ID</th>
+										<th>Campaign Name</th>
+										<th>Client</th>
+										<th>Brand</th>
+										<th>Replan</th>
+										<th>End Date</th>
+										<th>Action</th>
+									</tr>
+								</thead>
+								<tbody class="displaycompletedplans">
 
-						<!-- <div style="border-bottom: 1px dashed #d4adad;"></div> -->
-						<!-- <div style="border-bottom: 1px dashed #d4adad;"></div> -->
-
-						<div class="same_Class" style="color:#f07144">
-							Completed Plans
+								</tbody>
+							</table>
 						</div>
-						<!-- <div class="linesss">
-
-					</div> -->
-					<table class="table datatable-multi-sorting" style="color:white;margin-top:30px;">
-						<thead>
-							<tr>
-								<th>Campaign ID</th>
-								<th>Campaign Name</th>
-								<th>Client</th>
-								<th>Brand</th>
-								<th>Replan</th>
-								<th>End Date</th>
-								<th>Action</th>
-							</tr>
-						</thead>
-						<tbody class="displaycompletedplans">
-							<!-- <tr>
-							<td><a href="#">Campaign 1232322</a></td>
-							<td>Enright</td>
-							<td>Traffic Court Referee</td>
-							<td>22 Jun 1972</td>
-							<td>Active</td>
-							<td><button>complete</button></td>
-
-						</tr> -->
-
-					</tbody>
-				</table>
-			</div>
-			<!-- /order direction sequence control -->
-		</div>
-		<!-- /traffic sources -->
-
-	</div>
-</div>
-<!-- /main charts -->
-</div>
-
-</div>
-<!-- /main content -->
-
-</div>
-<div id="downloadicon" class="modal fade" tabindex="-1"  data-backdrop="static" data-keyboard="false">
-	<div class="modal-dialog modal-lg">
-		<div class="modal-content" style="margin-top: 255px;">
-			<div class="modal-header">
-				<!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-				<button type="button" class="close closeModal closeClass" data-dismiss="modal">&times;</button>
-			</div>
-			<!-- Form -->
-			<div class="modal-body" style="padding-top: 0px;">
-				<div class="row" style="display:block">
-					<div class="row row_header">
-						<div class="col-md-6">
-							<button type="button" class="selectAll">Select All</button>
-							<button type="button" class="downloadAll">Download </button>
-						</div>
-						<div class="col-md-6"><p>Click here to download all the files
-							<button type="button" class="DownloadAllfiles">Download All Files</button></p>
-						</div>
-					</div>
-					<div class="row row_body">
-
+						<!-- /order direction sequence control -->
 					</div>
 				</div>
 			</div>
-
-
-
+			<!-- /main charts -->
 		</div>
-		<!-- /form -->
 
 	</div>
-</div>
-<div id="replanmodal" class="modal fade" tabindex="-1">
-	<div class="modal-dialog modal-sm">
-		<div class="modal-content" style="margin-top: 255px;">
+	<!-- /main content -->
 
-			<!-- Form -->
-			<div class="modal-body">
-				<div class="text-center mb-3">
-					<!-- <i class="icon-spinner11 icon-2x text-warning border-warning border-3 rounded-round p-3 mb-3 mt-1"></i>
-					<h5 class="mb-0">Password recovery</h5>
-					<span class="d-block text-muted">We'll send you instructions in email</span> -->
-					<button class="form-control buyingbasketbtn" style="background-color: #192124;color: white;">Re-Plan from Buying Basket Upload </button>
+	<div id="downloadicon" class="modal fade" tabindex="-1"  data-backdrop="static" data-keyboard="false">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content" style="margin-top: 255px;">
+				<div class="modal-header">
+					<!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+					<button type="button" class="close closeModal closeClass" data-dismiss="modal">&times;</button>
+				</div>
+				<!-- Form -->
+				<div class="modal-body" style="padding-top: 0px;">
+					<div class="row" style="display:block">
+						<div class="row row_header">
+							<div class="col-md-6">
+								<button type="button" class="selectAll">Select All</button>
+								<button type="button" class="downloadAll">Download </button>
+							</div>
+							<div class="col-md-6"><p>Click here to download all the files
+								<button type="button" class="DownloadAllfiles">Download All Files</button></p>
+							</div>
+						</div>
+						<div class="row row_body">
 
+						</div>
+					</div>
 				</div>
 
-				<div class="form-group form-group-feedback form-group-feedback-right">
-					<button class="form-control acceleratorbtn"style="background-color: #192124;color: white;" ><a href="planner_accelerator.php" style="color:#fff">Re-plan by Uploading Revised Accelerator Plan</a></button>
-				</div>
 
-				<!-- <button type="submit" class="btn bg-blue btn-block"><i class="icon-spinner11 mr-2"></i> Reset password</button> -->
+
 			</div>
 			<!-- /form -->
 
 		</div>
 	</div>
-</div>
-</div>
-<!-- /page content -->
+	<div id="replanmodal" class="modal fade" tabindex="-1">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content" style="margin-top: 255px;">
+				<div class="modal-body">
+					<div class="text-center mb-3">
+						<button class="form-control buyingbasketbtn" style="background-color: #192124;color: white;">Re-Plan from Buying Basket Upload </button>
+					</div>
+
+					<div class="form-group form-group-feedback form-group-feedback-right">
+						<button class="form-control acceleratorbtn"style="background-color: #192124;color: white;" ><a href="planner_accelerator.php" style="color:#fff">Re-plan by Uploading Revised Accelerator Plan</a></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /page content -->
 
 </body>

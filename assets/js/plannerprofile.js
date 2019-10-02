@@ -20,12 +20,10 @@ $(document).ready(function () {
     $(".update_btn").hide();
     $('.locationClass').attr("required", "true");
     isnewuser = sessionStorage.getItem('isnewuser');
-    debugger;
     console.log(isnewuser);
     if(!(plan_id=='')){
         get_freezeDetails();
     }
-    debugger;
 
     if (isnewuser == "false") {
         if (role=="ClientLead") {
@@ -135,7 +133,6 @@ $(document).ready(function () {
         })
     }
     $('body').on('change', '.locationClass', function(){
-        //debugger
         $('.select_').show();
         if (role=="ClientLead") {
             $('.CLemId').hide();
@@ -145,7 +142,6 @@ $(document).ready(function () {
         $(".create_plan").attr("disabled", false);
     })
     function freezeforclientlead(){
-        //debugger
         $('.CLemId').hide();
         $('.select_').css('display', 'none');
         $(".update_btn").show();
@@ -332,7 +328,6 @@ $(document).ready(function () {
                 else {
 
                     if (role=='ClientLead') {
-                        //debugger
 
                         for(key in msg){
                             sel = ''
@@ -442,7 +437,6 @@ $(document).ready(function () {
             var selectedValues_;
             $(".clientClass").empty();
             $("body").on("change", ".clientClass", function(){
-                //debugger
                 $('.freezeClientLead').hide();
                 $('.loading').show();
                 client_key = $(this).find("option:selected").attr('key');
@@ -505,7 +499,6 @@ $(document).ready(function () {
                 var selectedValues__;
                 $(".clientClass__").empty();
                 $("body").on("change", ".clientClass__", function(){
-                    debugger
                     $('.freezeClientLead').hide();
                     $('.loading').show();
                     client_key = $(this).find("option:selected").attr('key');
@@ -553,9 +546,6 @@ $(document).ready(function () {
                             }
                             else {
                                 for(key in msg){
-                                    debugger
-                                    console.log(msg[key], key);
-                                    console.log(msg[key]);
                                     $(".clientleadClass").append('<textarea class="form-control" key='+key+' value='+msg[key]+' class="getClass get_clientlead-'+count+'">'+msg[key]+'</textarea>')
                                     count++
                                 }
@@ -618,7 +608,6 @@ $(document).ready(function () {
                                     "data": form
                                 };
                                 $.ajax(settings11).done(function (msg) {
-                                    //debugger
                                     msg = JSON.parse(msg);
                                     console.log(msg);
                                     setInterval(function(){
@@ -702,7 +691,6 @@ $(document).ready(function () {
                                         "data": form
                                     };
                                     $.ajax(settings11).done(function (msg) {
-                                        //debugger
                                         msg = JSON.parse(msg);
                                         console.log(msg);
 

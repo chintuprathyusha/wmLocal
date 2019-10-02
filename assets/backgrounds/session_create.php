@@ -9,4 +9,5 @@
       $_SESSION['useremail'] = $data['useremail'];
       $_SESSION['sessionidd'] = $data['sessionidd'];
       $_SESSION['userid'] = $data['userid'];
+      $_SESSION['login_type'] = $data['login_type'];
 ?>

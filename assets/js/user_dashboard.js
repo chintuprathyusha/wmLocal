@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
     $(".loading").show();
     var startdate;
     var allData;
@@ -8,18 +9,15 @@ $(document).ready(function () {
     var useridd = sessionStorage.getItem("userid");
     var useridd = sessionStorage.getItem("userid");
     var data_table_;
-    var dataTable___;
-    var dataTable___1;
     pageonloadhit()
 
     $('body').on('click', '.createbtn', function(){
         window.location.href='planner_createnewplan.php?type=new';
     })
-    $(".displaytoptextboxes").slideToggle('hidden');
 
-    $(".btn3").click(function(){
-             $(".displaytoptextboxes").slideToggle('slow');
-       });
+    $("body").on("click", ".btn3", function(){
+        $(".displaytoptextboxes").slideToggle('slow');
+    });
 
 
     function pageonloadhit() {
@@ -46,7 +44,7 @@ $(document).ready(function () {
             console.log(msg);
             allData = msg;
             displaytable(msg);
-              // dataTableMultiSort()
+            // dataTableMultiSort()
 
         })
     }
@@ -79,30 +77,13 @@ $(document).ready(function () {
                     msg = JSON.parse(msg);
                     console.log(msg);
                     displaytable(msg);
-                      // dataTableMultiSort()
+                    // dataTableMultiSort()
                     // planid = msg[Id];
                     // console.log(planid);
 
                 })
             }
             else {
-                    $.confirm({
-                        title: 'Invalid Dates',
-                        // content: 'Oops ! something went wrong',
-                        animation: 'scale',
-                        closeAnimation: 'scale',
-                        opacity: 0.5,
-                        buttons: {
-                            okay: {
-                                text: 'Okay',
-                                btnClass: 'btn-primary'
-                            }
-                        }
-                    });
-
-            }
-        }
-        else {
                 $.confirm({
                     title: 'Invalid Dates',
                     // content: 'Oops ! something went wrong',
@@ -117,6 +98,23 @@ $(document).ready(function () {
                     }
                 });
 
+            }
+        }
+        else {
+            $.confirm({
+                title: 'Invalid Dates',
+                // content: 'Oops ! something went wrong',
+                animation: 'scale',
+                closeAnimation: 'scale',
+                opacity: 0.5,
+                buttons: {
+                    okay: {
+                        text: 'Okay',
+                        btnClass: 'btn-primary'
+                    }
+                }
+            });
+
         }
     })
 
@@ -124,28 +122,29 @@ $(document).ready(function () {
 
     function displaytable(msg) {
         $(".loading").hide();
-      if (dataTable___ != undefined) {
-          dataTable___.clear();
-          dataTable___.destroy()
-      }
+        if (dataTable___ != undefined) {
+            dataTable___.clear();
+            dataTable___.destroy()
+        }
         $.each(msg ,function(key,v){
             console.log(key , v);
             if (key == 'Incompleted') {
                 ap1 = ''
                 for (var i = 0; i < v.length; i++) {
                     ap1 += '<tr>'
-                    ap1 += '<td  style="text-align:center;"><a  style="text-decoration:underline;cursor:pointer;" plainidattr="'+v[i]['PlanId']+'" status = "'+v[i]['PlanStatus']+'" id="camp_idhyperlink">'+v[i]['CampaignId']+'</a></td>'
+                    ap1 += '<td  style="text-align:center;">'+(i+1)+'</td>'
+                    ap1 += '<td  style="text-align:center;"><a style="text-decoration:underline;cursor:pointer;" plainidattr="'+v[i]['PlanId']+'" status = "'+v[i]['PlanStatus']+'" id="camp_idhyperlink">'+v[i]['CampaignId']+'</a></td>'
                     ap1 += '<td  style="text-align:center;">'+v[i]['CampaignName']+ '</td>'
                     ap1 += '<td  style="text-align:center;">'+v[i]['ClientName']+'</td>'
                     ap1 += '<td  style="text-align:center;">'+v[i]['BrandName']+'</td>'
                     ap1 += '<td  style="text-align:center;">'+format_date(v[i]['StartDate'])+'</td>'
                     ap1 += '<td> <button  plainidattr="'+v[i]['PlanId']+'" style="color: white;border: none;  background: #BB2734;  padding: 1px;font-size: 9px;width: 94px;font-weight: 700;" class="form-control completebtn">Mark As Complete</button> </td>'
-                    ap1 += '<td style="text-align:center;"><div class="downloadbtn pointer" campId="'+v[i]['CampaignId']+'" plainidattr="'+v[i]['PlanId']+'" style=""><img src="assets/images/WhiteIcons/FilesDownload.png" style="width:27px;"></div></td>';
+                    ap1 += '<td style="text-align:center;"><div class="pointer downloadbtn" campId="'+v[i]['CampaignId']+'" plainidattr="'+v[i]['PlanId']+'" style=""><img src="assets/images/WhiteIcons/FilesDownload.png" style="width:27px;"></div></td>';
                     ap1 += '</tr>'
                 }
                 $(".displayincompletedplans").html(ap1);
 
-                    dataTableMultiSort()
+                dataTableMultiSort()
 
             }
             else {
@@ -158,6 +157,7 @@ $(document).ready(function () {
 
                 for (var i = 0; i < v.length; i++) {
                     ap += '<tr>'
+                    ap += '<td  style="text-align:center;">'+(i+1)+'</td>'
                     ap += '<td  style="text-align:center;"><a  style="text-decoration:underline;cursor:pointer;" plainidattr="'+v[i]['PlanId']+'" status = "'+v[i]['PlanStatus']+'" id="camp_idhyperlink_">'+v[i]['CampaignId']+'</a></td>'
                     ap += '<td  style="text-align:center;">'+v[i]['CampaignName']+'</td>'
                     ap += '<td  style="text-align:center;">'+v[i]['ClientName']+'</td>'
@@ -170,57 +170,12 @@ $(document).ready(function () {
                     ap += '</tr>'
                 }
                 $(".displaycompletedplans").html(ap);
-                  dataTableMultiSortt()
+
+                dataTableMultiSortt()
 
             }
         })
 
-    }
-
-    function dataTableMultiSort() {
-        setTimeout(function () {
-            dataTable___ = $('.datatable-multi-sortingg').DataTable({
-                columnDefs: [{
-                    targets: [0],
-                    orderData: [0, 1]
-                }, {
-                    targets: [1],
-                    orderData: [1, 0]
-                }, {
-                    targets: [4],
-                    orderData: [4, 0]
-                }, {
-                    orderable: false,
-                    width: '100px',
-                    targets: [5]
-                }],
-
-            });
-        }, 0);
-    }
-
-
-
-    function dataTableMultiSortt() {
-        setTimeout(function () {
-            dataTable___1 = $('.datatable-multi-sorting').DataTable({
-
-                columnDefs: [{
-                    targets: [0],
-                    orderData: [0, 1]
-                }, {
-                    targets: [1],
-                    orderData: [1, 0]
-                }, {
-                    targets: [4],
-                    orderData: [4, 0]
-                }, {
-                    orderable: false,
-                    width: '100px',
-                    targets: [5]
-                }]
-            });
-        }, 0);
     }
 
 
@@ -234,9 +189,8 @@ $(document).ready(function () {
         $('#replanmodal').modal();
     })
 
-var planId;
+    var planId;
     $("body").on("click", ".buyingbasketbtn", function(){
-        debugger
         campid = $(this).attr('title');
         planId = $(this).attr('plan_id')
         objj = {}
@@ -259,14 +213,10 @@ var planId;
         };
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
-            debugger
             console.log(msg);
             updatedplanid = msg.planid;
-            sessionStorage.setItem("create_plan_id", '')
-            sessionStorage.setItem("create_plan_id", updatedplanid)
-            //     sessionStorage.setItem(updatedplanid, "create_plan_id")
-            // create_plan_id
-            window.location.href = 'buyingbasket.php';
+
+            window.location.href = 'buyingbasket.php?planid='+updatedplanid;
 
         })
 
@@ -301,15 +251,16 @@ var planId;
             // alert(updatedplanid)
             // window.location.href = 'buyingbasket.php';
 
-            window.location.href = 'planner_accelerator.php';
+            window.location.href = 'planner_accelerator.php?planid='+updatedplanid;
 
         })
 
     })
-var all_files_;
-var global_campId;
-    $("body").on("click", ".downloadbtn", function(){
+    var all_files_;
+    var global_campId;
 
+    $("body").on("click", ".downloadbtn", function() {
+        debugger
         plainiddd =  $(this).attr('plainidattr');
         global_campId = $(this).attr('campId');
 
@@ -351,14 +302,14 @@ var global_campId;
                 console.log(keys.length);
                 all_files_ = val;
                 for (var i = 0; i < keys.length; i++) {
-                  console.log(keys[i]);
+                    console.log(keys[i]);
                     $('.row_body').append('<div class="col-sm-3"><div class="fileClick pointer" file_camid="'+global_campId+'" title="'+keys[i]+'"><span>'+keys[i]+'</span></div></div>');
                 }
             }
         })
 
     })
-$('.downloadAll').prop('disabled', true)
+    $('.downloadAll').prop('disabled', true)
     $("body").on("click", ".fileClick", function () {
         key = $(this).attr('title');
         path = filesData[key];
@@ -416,78 +367,78 @@ $('.downloadAll').prop('disabled', true)
             };
             $.ajax(settings11).done(function (msg) {
                 result = result+'.xlsx'
-                    console.log(msg);
-                    // console.log(JSON.parse(msg))
-                    msg_obj = msg
-                    var blob = new Blob([s2ab(atob(encodeURI(msg_obj)))], {
-                        type: 'octet/stream'
-                    });
+                console.log(msg);
+                // console.log(JSON.parse(msg))
+                msg_obj = msg
+                var blob = new Blob([s2ab(atob(encodeURI(msg_obj)))], {
+                    type: 'octet/stream'
+                });
 
-                    href = URL.createObjectURL(blob);
-                    var a = document.createElement("a");
-                    a.href = href;
-                    a.download = result;
-                    document.body.appendChild(a);
-                    a.click();
-                    success_notify(result+ " Excel sheet downloaded Successfully")
-                    // setInterval(function () {
-                    //     location.reload();
-                    // }, 1000);
+                href = URL.createObjectURL(blob);
+                var a = document.createElement("a");
+                a.href = href;
+                a.download = result;
+                document.body.appendChild(a);
+                a.click();
+                success_notify(result+ " Excel sheet downloaded Successfully")
+                // setInterval(function () {
+                //     location.reload();
+                // }, 1000);
 
             })
         }
         else{
             sendObj.file_path = selectedFiles;
-        var form = new FormData();
-        form.append("file", JSON.stringify(sendObj));
-        var settings11 = {
-            "async": true,
-            "crossDomain": true,
-            "url": aws_url+'download_file',
-            "method": "POST",
-            "processData": false,
-            "contentType": false,
-            "mimeType": "multipart/form-data",
-            "data": form
-        };
-        $.ajax(settings11).done(function (msg) {
-            console.log(msg);
-            result = result+'.zip'
-            // file_name = msg.file_name;
-            var bin = atob(msg);
-            var ab = s2ab(bin); // from example above
-            var blob = new Blob([ab], { type: 'octet/stream' });
+            var form = new FormData();
+            form.append("file", JSON.stringify(sendObj));
+            var settings11 = {
+                "async": true,
+                "crossDomain": true,
+                "url": aws_url+'download_file',
+                "method": "POST",
+                "processData": false,
+                "contentType": false,
+                "mimeType": "multipart/form-data",
+                "data": form
+            };
+            $.ajax(settings11).done(function (msg) {
+                console.log(msg);
+                result = result+'.zip'
+                // file_name = msg.file_name;
+                var bin = atob(msg);
+                var ab = s2ab(bin); // from example above
+                var blob = new Blob([ab], { type: 'octet/stream' });
 
-            var link = document.createElement('a');
-            link.href = window.URL.createObjectURL(blob);
-            link.download = result
-            ;
-            // link.download = 'file_name';
+                var link = document.createElement('a');
+                link.href = window.URL.createObjectURL(blob);
+                link.download = result
+                ;
+                // link.download = 'file_name';
 
-            document.body.appendChild(link);
+                document.body.appendChild(link);
 
-            link.click();
+                link.click();
 
-            resetSelect()
+                resetSelect()
 
-            document.body.removeChild(link);
-        });
+                document.body.removeChild(link);
+            });
         }
     });
 
-// function s2ab_(s) {
-//  var buf = new ArrayBuffer(s.length);
-//  var view = new Uint8Array(buf);
-//  for (var i=0; i!=s.length; ++i) view[i] = s.charCodeAt(i) & 0xFF;
-//  return buf;
-// }
-function encrypt(value) {
-    return window.btoa(value);
-  }
+    // function s2ab_(s) {
+    //  var buf = new ArrayBuffer(s.length);
+    //  var view = new Uint8Array(buf);
+    //  for (var i=0; i!=s.length; ++i) view[i] = s.charCodeAt(i) & 0xFF;
+    //  return buf;
+    // }
+    function encrypt(value) {
+        return window.btoa(value);
+    }
 
-  function decrypt(value) {
-    return window.atob(value);
-  }
+    function decrypt(value) {
+        return window.atob(value);
+    }
 
 
 
@@ -613,13 +564,13 @@ function encrypt(value) {
         // window.location.href = 'planner_createnewplan.php';
         newstatus = $(this).attr('status');
         if (newstatus == 1) {
-            window.location.href = 'planner_createnewplan.php';
+            window.location.href = 'planner_createnewplan.php?planid='+plainiddd;
         }
         else if (newstatus == 2) {
-            window.location.href = 'buyingbasket.php';
+            window.location.href = 'buyingbasket.php?planid='+plainiddd;
         }
         else {
-            window.location.href = 'barc.php';
+            window.location.href = 'barc.php?planid='+plainiddd;
         }
     });
 
@@ -631,13 +582,13 @@ function encrypt(value) {
         // window.location.href = 'planner_createnewplan.php';
         newstatus = $(this).attr('status');
         if (newstatus == 1) {
-            window.location.href = 'planner_createnewplan.php';
+            window.location.href = 'planner_createnewplan.php?planid='+plainiddd;
         }
         else if (newstatus == 2) {
-            window.location.href = 'buyingbasket.php';
+            window.location.href = 'buyingbasket.php?planid='+plainiddd;
         }
         else {
-            window.location.href = 'barc.php';
+            window.location.href = 'barc.php?planid='+plainiddd;
         }
 
     })
@@ -696,11 +647,6 @@ function encrypt(value) {
 
     })
 
-
-
-
-
-
     function format_date(date_string) {
         date = new Date(date_string)
         months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
@@ -710,5 +656,15 @@ function encrypt(value) {
         mins = date.getMinutes().toString().length < 2 ? '0'+date.getMinutes() : date.getMinutes()
         return date.getDate()+'/'+months[date.getMonth()]+'/'+date.getFullYear()+' &nbsp&nbsp'+hrs+':'+mins;
     }
-
 })
+
+function recreateTable() {
+    if (dataTable___ != undefined) {
+        dataTable___.destroy()
+    }
+    if (dataTable___1 != undefined) {
+        dataTable___1.destroy()
+    }
+    dataTableMultiSort()
+    dataTableMultiSortt()
+}

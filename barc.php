@@ -16,53 +16,16 @@ if ($_SESSION['usernamee'] == '') {
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Wavemaker - WM FLOW</title>
 
-	<!-- Global stylesheets -->
-	<!-- <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css"> -->
-	<link href="assets/css/fonts.css" rel="stylesheet" type="text/css">
+	<?php include 'assets/includes/common_css.php';?>
+	<?php include 'assets/includes/common_scripts.php';?>
 
-	<link href="global_assets/css/icons/icomoon/styles.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/bootstrap_limitless.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/layout.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/components.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/colors.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/common.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/sweetalert.css" rel="stylesheet" type="text/css">
-	<!-- /global stylesheets -->
-
-	<!-- Core JS files -->
-	<script src="global_assets/js/main/jquery.min.js"></script>
-	<script src="global_assets/js/main/bootstrap.bundle.min.js"></script>
-	<script src="global_assets/js/plugins/loaders/blockui.min.js"></script>
-	<!-- /core JS files -->
-	<script src="global_assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
-
-	<!-- Theme JS files -->
-	<script src="global_assets/js/plugins/forms/validation/validate.min.js"></script>
-	<script src="global_assets/js/plugins/forms/inputs/touchspin.min.js"></script>
-	<script src="global_assets/js/plugins/forms/selects/select2.min.js"></script>
-	<script src="global_assets/js/demo_pages/form_select2.js"></script>
-	<script src="global_assets/js/plugins/forms/styling/switch.min.js"></script>
-	<script src="global_assets/js/plugins/forms/styling/switchery.min.js"></script>
-	<script src="global_assets/js/plugins/forms/styling/uniform.min.js"></script>
 	<script src="global_assets/js/plugins/uploaders/fileinput/plugins/purify.min.js"></script>
 	<script src="global_assets/js/plugins/uploaders/fileinput/plugins/sortable.min.js"></script>
 	<script src="global_assets/js/plugins/uploaders/fileinput/fileinput.min.js"></script>
 	<script src="global_assets/js/demo_pages/form_input_groups.js"></script>
 	<script src="global_assets/js/demo_pages/uploader_bootstrap.js"></script>
-	<script src="assets/js/app.js"></script>
-	<script src="assets/js/sweetalert.min.js"></script>
-	<!-- <script src="assets/js/plannerprofile.js"></script> -->
-	<script src="global_assets/js/demo_pages/form_validation.js"></script>
-	<script src="assets/js/sidenavjscode.js"></script>
-	<script src="assets/js/common.js" charset="utf-8"></script>
-	<link href="assets/css/jquery-confirm.css" rel="stylesheet" type="text/css">
-	<script src="assets/js/jquery-confirm.js" charset="utf-8"></script>
-	<?php include 'assets/includes/common_scripts.php';?>
+    <script src="global_assets/js/demo_pages/form_validation.js"></script>
 	<script src="assets/js/barc.js"></script>
-	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script> -->
-	<!-- /theme JS files -->
 
 </head>
 <script>
@@ -213,107 +176,76 @@ $(document).ready(function() {
 								<div class="form-group row">
 									<label title="<?php echo $_SESSION['tool_tips']['BARC_PrimaryTGId'];?>" class="col-form-label col-lg-3">Selected Primary TG <span class="text-danger">*</span><span class="appendselectedpritg"></span></label>
 									<div class="col-lg-9">
-										<!-- <select name="select2" data-placeholder="Selected Primary TG" class="form-control form-control-select2 Primary_Tg_dt" required data-fouc>
-										<option></option>
-									</select> -->
 
-									<select name="select2" data-placeholder="Selected Primary TG" class="form-control js-example-basic-single form-control-select2 Primary_Tg_dt" required data-fouc>
-										<option value=""></option>
+										<select name="select2" data-placeholder="Selected Primary TG" class="form-control js-example-basic-single form-control-select2 Primary_Tg_dt" required data-fouc>
+											<option value=""></option>
 
-									</select>
+										</select>
 
-									<div data-placeholder="" class="freezeLoc primary_freeze" data-fouc>
+										<div data-placeholder="" class="freezeLoc primary_freeze" data-fouc>
 
+										</div>
 									</div>
 								</div>
-							</div>
-							<div class="form-group row">
-								<label title="<?php echo $_SESSION['tool_tips']['BARC_BaseTGId'];?>" class="col-form-label col-lg-3">Selected Base TG <span class="text-danger">*</span><span class="appendselectedbasetg"></span></label>
-								<div class="col-lg-9">
-									<!-- <select name="select2" data-placeholder="Selected Base TG" class="form-control form-control-select2 base_tg" required data-fouc>
-									<option></option>
-								</select> -->
-								<select name="select2" data-placeholder="Selected Base TG" class="form-control js-example-basic-single form-control-select2 base_tg" required data-fouc>
-									<option value=""></option>
+								<div class="form-group row">
+									<label title="<?php echo $_SESSION['tool_tips']['BARC_BaseTGId'];?>" class="col-form-label col-lg-3">Selected Base TG <span class="text-danger">*</span><span class="appendselectedbasetg"></span></label>
+									<div class="col-lg-9">
 
-								</select>
-								<div data-placeholder="" class="freezeLoc base_freeze" data-fouc>
+										<select name="select2" data-placeholder="Selected Base TG" class="form-control js-example-basic-single form-control-select2 base_tg" required data-fouc>
+											<option value=""></option>
 
+										</select>
+										<div data-placeholder="" class="freezeLoc base_freeze" data-fouc>
+
+										</div>
+									</div>
 								</div>
+								<div class="form-group row">
+									<label title="<?php echo $_SESSION['tool_tips']['BARC_EndWeek'];?>" class="col-form-label col-lg-3">Selected End Week<span class="text-danger">*</span><span class="appendselectedendweek"></span></label>
+									<div class="col-lg-9">
+										<select name="select2" data-placeholder="Selected End Week" class="form-control form-control-select2 End_Week_dt" required data-fouc>
+											<option></option>
+										</select>
+										<div data-placeholder="" class="freezeLoc endfreeze" data-fouc>
+
+										</div>
+									</div>
+								</div>
+
+
+							</fieldset>
+							<!-- <hr> -->
+							<div class="" style="float:right">
+								<button type="submit" class="btn btn-primary cprp_submit edit_barc" style="background: #4caf50;">Edit <i class="icon-paperplane ml-2"></i></button>
+								<button type="submit" class="btn btn-primary cprp_submit confirm_barc" style="background: #4caf50;">Confirm <i class="icon-paperplane ml-2"></i></button>
+
+
+							</div>
+							<div class="" style="text-align:center;margin-top: 80px;">
+								<button type="submit" class="btn btn-primary cprp_submit submit_barc" style="background: #4caf50;">Submit <i class="icon-paperplane ml-2"></i></button>
 							</div>
 						</div>
-						<div class="form-group row">
-							<label title="<?php echo $_SESSION['tool_tips']['BARC_EndWeek'];?>" class="col-form-label col-lg-3">Selected End Week<span class="text-danger">*</span><span class="appendselectedendweek"></span></label>
-							<div class="col-lg-9">
-								<select name="select2" data-placeholder="Selected End Week" class="form-control form-control-select2 End_Week_dt" required data-fouc>
-									<option></option>
-								</select>
-								<div data-placeholder="" class="freezeLoc endfreeze" data-fouc>
+						<div class="mr-t-10" style="margin-top: 20px;">
+							<button class="btn btn-primary backclass" title="Previous" tooltip="Previous"style="color: #fff;border:none;float: left;background-color: transparent !Important;"><span>Previous </span><img src="assets/images/left.svg" style="width:30px;"></button>
 
-								</div>
-							</div>
 						</div>
-						<!-- <div class="form-group row">
-						<label class="col-form-label col-lg-3">Multiple select <span class="text-danger">*</span></label>
-						<div class="col-lg-9">
-
-						<select data-placeholder="Client" required class="form-control select clientClass" multiple  data-fouc>
-						<option value=""></option>
-					</select>
-
-
-					<div data-placeholder="" class="freezeclient" data-fouc>
-
+					</div>
 				</div>
+				<!-- /form validation -->
+
 			</div>
+			<!-- /content area -->
+
+
+			<div class="loading">
+				<img src="assets/images/loading.gif" alt="">
+			</div>
+
 		</div>
-		<div class="form-group row">
-		<label class="col-form-label col-lg-3">CLient lead <span class="text-danger">*</span></label>
-		<div class="col-lg-9">
-		<input type="text" name="text" class="form-control CLemId" readonly placeholder="Enter a valid email address">
-		<div data-placeholder="Client Lead" class="clientleadClass" data-fouc>
+		<!-- /main content -->
 
 	</div>
-	<div class="freezeClientLead">
-
-</div>
-</div>
-</div> -->
-
-
-</fieldset>
-<!-- <hr> -->
-<div class="" style="float:right">
-	<button type="submit" class="btn btn-primary cprp_submit edit_barc" style="background: #4caf50;">Edit <i class="icon-paperplane ml-2"></i></button>
-	<button type="submit" class="btn btn-primary cprp_submit confirm_barc" style="background: #4caf50;">Confirm <i class="icon-paperplane ml-2"></i></button>
-
-
-</div>
-<div class="" style="text-align:center;margin-top: 80px;">
-	<button type="submit" class="btn btn-primary cprp_submit submit_barc" style="background: #4caf50;">Submit <i class="icon-paperplane ml-2"></i></button>
-</div>
-</div>
-<div class="mr-t-10" style="margin-top: 20px;">
-	<button class="btn btn-primary backclass" title="Previous" tooltip="Previous"style="color: #fff;border:none;float: left;background-color: transparent !Important;"><span>Previous </span><img src="assets/images/left.svg" style="width:30px;"></button>
-
-</div>
-</div>
-</div>
-<!-- /form validation -->
-
-</div>
-<!-- /content area -->
-
-
-<div class="loading">
-	<img src="assets/images/loading.gif" alt="">
-</div>
-
-</div>
-<!-- /main content -->
-
-</div>
-<!-- /page content -->
+	<!-- /page content -->
 
 </body>
 </html>

@@ -10,43 +10,11 @@ session_start();
 	<title>Wavemaker - WM FLOW</title>
 
 	<!-- <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css"> -->
-	<link href="assets/css/fonts.css" rel="stylesheet" type="text/css">
-	<link href="global_assets/css/icons/icomoon/styles.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/common.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/bootstrap_limitless.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/layout.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/components.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/colors.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/sweetalert.css" rel="stylesheet" type="text/css">
+	<?php include 'assets/includes/common_css.php';?>
 
-	<!-- /global stylesheets -->
+    <?php include 'assets/includes/common_scripts.php';?>
 
-	<!-- Core JS files -->
-	<script src="global_assets/js/main/jquery.min.js"></script>
-	<script src="global_assets/js/main/bootstrap.bundle.min.js"></script>
-	<script src="global_assets/js/plugins/loaders/blockui.min.js"></script>
-	<!-- /core JS files -->
-
-	<!-- Theme JS files -->
-	<script src="global_assets/js/plugins/forms/styling/uniform.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-	<script src="assets/js/app.js"></script>
-	<script src="global_assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
-
-	<script src="global_assets/js/plugins/extensions/jquery_ui/interactions.min.js"></script>
-	<script src="global_assets/js/plugins/forms/selects/select2.min.js"></script>
-	<script src="global_assets/js/demo_pages/form_select2.js"></script>
-	<script src="global_assets/js/demo_pages/login.js"></script>
-	<script src="assets/js/azurecode.js" charset="utf-8"></script>
 	<script src="assets/js/login.js" charset="utf-8"></script>
-	<script src="assets/js/common.js" charset="utf-8"></script>
-	<script src="assets/js/sweetalert.min.js"></script>
-	<!-- <script src="assets\js\sessiontimeoutjs.js"></script> -->
-
-
-	<!-- /theme JS files -->
 
 </head>
 <style>
@@ -94,7 +62,8 @@ session_start();
 
 								<div class="form-group">
 									<button type="submit"  class="login_btn btn btn-primary btn-block">Login</button>
-									<button onclick="authContext.login(); return false;" class="loginbtnn" >LOGIN AD</button>
+									<p class="text-center mr-t-10">(or)</p>
+									<button onclick="authContext.login(); return false;" class="loginbtnn btn btn-primary btn-block" >LOGIN AD</button>
 									<!-- <button  onclick="authContext.logOut(); return false;">Log out AD</button> -->
 								</div>
 							</div>
@@ -192,6 +161,7 @@ session_start();
 								sessionStorage.setItem("isprofile", msg.isprofile_created)
 								if (msg.validlogin == "true") {
 									login_obj = msg;
+									login_obj.login_type = 'ad'
 
 									console.log(login_obj);
 

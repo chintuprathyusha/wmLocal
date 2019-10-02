@@ -23,13 +23,13 @@ $(document).ready(function () {
             allemails = msg.emails
             allclients = msg.clients
             $(".allemailsvalues").html('')
-                      $(".allemailsvalues").append("<option value='0'>Select Email</option>")
+            $(".allemailsvalues").append("<option value='0'>Select Email</option>")
 
             for (var i = 0; i < allemails.length; i++) {
                 $('.allemailsvalues').append('<option value='+allemails[i]+'>'+allemails[i]+'</option>')
             }
             $(".allclientnames").html('')
-                      $(".allclientnames").append("<option value='0'>---Select ClientName--</option>")
+            $(".allclientnames").append("<option value='0'>---Select ClientName--</option>")
 
             $.each(allclients ,function(key,val){
                 $('.allclientnames').append('<option class="clientoptionclass" keyy='+key+' value='+val+'>'+val+'</option>')
@@ -42,21 +42,21 @@ $(document).ready(function () {
     $("body").on("click", ".addsavebtn", function(){
         email = $('.emailvalue').val()
         client_name = []
-        clientname = $(".campign_markets").select2('data');
+        clientname = $(".allclientnames").select2('data');
 
         for (var i = 0; i < clientname.length; i++) {
             client_name.push(clientname[i].text);
         }
 
-      var clientnamees = $.unique(client_name);
+        var clientnamees = $.unique(client_name);
 
 
         // clientname = $('.clientoptionclass').val()
-
+        debugger
         objj = {}
         objj.email = email
         objj.client = $.unique(clientnamees);
-        objj.clientid = clientname
+        objj.clientid = client_name
         objj.user_id = useridd
         console.log(objj);
         var form = new FormData();
@@ -110,7 +110,7 @@ $(document).ready(function () {
             data = msg
             console.log(data);
             $(".clientdelete").html('')
-                      $(".clientdelete").append("<option value='0'>--Select ClientName---</option>")
+            $(".clientdelete").append("<option value='0'>--Select ClientName---</option>")
 
             $.each(data ,function(key,i){
                 console.log(key);
@@ -125,7 +125,7 @@ $(document).ready(function () {
                 var a=data[$dropdown.val()];
 
                 $(".deletemails").html('')
-                          $(".deletemails").append("<option value='0'>---Select UserEmail---</option>")
+                $(".deletemails").append("<option value='0'>---Select UserEmail---</option>")
 
                 $.each(a,function(j){
                     console.log(a[j]);
@@ -141,14 +141,14 @@ $(document).ready(function () {
     $("body").on("click", ".deletesavebtn", function(){
 
 
-                client_delete = []
-                deleteclient = $(".clientdelete").select2('data');
+        client_delete = []
+        deleteclient = $(".clientdelete").select2('data');
 
-                for (var i = 0; i < deleteclient.length; i++) {
-                    client_delete.push(deleteclient[i].text);
-                }
+        for (var i = 0; i < deleteclient.length; i++) {
+            client_delete.push(deleteclient[i].text);
+        }
 
-              var deletclientnames = $.unique(client_delete);
+        var deletclientnames = $.unique(client_delete);
 
 
         email = $('.deletemails').val()
