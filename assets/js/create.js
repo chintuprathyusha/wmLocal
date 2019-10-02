@@ -15,7 +15,7 @@ $(document).ready(function () {
     var filenames;
     var paths;
     var backclicked = "false";
-    
+
     var paramgoback = $.urlParam('goback');
 
     $(".texttodisplay").hide();
@@ -69,7 +69,7 @@ $(document).ready(function () {
 
     console.log(isnewuser)
     console.log(plan_id);
-    if (plan_id != "0") {
+    if (plan_id != "0" && urlType != 'new') {
         get_freezeDetails();
     }
     else if(plan_id == null || plan_id == "" || plan_id == "0"){
