@@ -105,33 +105,29 @@ $(document).ready(function () {
         };
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
+            debugger;
             console.log(msg);
 
-            data = msg
-            console.log(data);
-            $(".clientdelete").html('')
-            $(".clientdelete").append("<option value='0'>--Select ClientName---</option>")
+            data = msg;
+            // console.log(data);
 
             $.each(data ,function(key,i){
-                console.log(key);
-                $('.clientdelete').append('<option value='+key+'>'+key+'</option>')
+                $('#select').append('<option value='+key+'>'+key+'</option>')
             })
 
-            var $dropdown = $('.clientdelete');
+            var $dropdown = $('#select');
             console.log($dropdown);
             $dropdown.on('change', function() {
                 console.log($dropdown);
-                $('.deletemails').empty();
-                var a=data[$dropdown.val()];
-
-                $(".deletemails").html('')
-                $(".deletemails").append("<option value='0'>---Select UserEmail---</option>")
-
+                $('#select0').empty();
+                // var a=data[$dropdown.val()];
+                var a=data[$.trim($dropdown[0].selectedOptions[0].text)];
                 $.each(a,function(j){
                     console.log(a[j]);
-                    $('.deletemails').append('<option value='+a[j]+'>'+a[j]+'</option>')
+                    $('#select0').append('<option value='+a[j]+'>'+a[j]+'</option>')
                 })
             });
+
             $dropdown.trigger('change');
 
 
