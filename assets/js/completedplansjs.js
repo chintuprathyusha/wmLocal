@@ -121,6 +121,7 @@ function displaytable(msg) {
     for (var i = 0; i < msg.length; i++) {
         block = msg[i];
         row += '<tr>';
+        row += '<td  style="text-align:center;">'+(i+1)+'</td>'
         row += '<td  style="width:132px;" class="nr"><a key="'+i+'" style="text-decoration:underline; cursor:pointer;" id="camp_idhyperlink_" status="'+block.PlanStatus+'" class="statusCheck">'+block.CampaignId+'</a></td>';
         row += '<td>'+block.BrandName+' </td>';
         row += '<td>'+block.ClientName+'</td>';
