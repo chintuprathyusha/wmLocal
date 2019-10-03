@@ -252,7 +252,7 @@ $( document ).ready(function() {
                                         <!-- <p class="mb-2">Select2 supports ability to add choices automatically as the user is typing into the search field. Try typing in the search field below and entering a space or a comma.</p> -->
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <select class="form-control select  clientdelete"  data-fouc >
+                                                <select class="form-control select  clientdelete" id="select"  data-fouc >
                                                     <option disabled>--select ClientName--</option>
 
                                                 </select>
@@ -263,7 +263,7 @@ $( document ).ready(function() {
                                         <h6  title="<?php echo $_SESSION['tool_tips']['DeletePlanner_Useremails'];?>"  class="font-weight-semibold" >UserEmail</h6>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <select class="form-control select  deletemails"  data-fouc >
+                                                <select class="form-control select  deletemails" id="select0"  data-fouc >
                                                     <option disabled>--select UserEmail--</option>
 
                                                 </select>
