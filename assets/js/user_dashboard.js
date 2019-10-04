@@ -163,7 +163,7 @@ $(document).ready(function () {
                     ap += '<td  style="text-align:center;">'+v[i]['ClientName']+'</td>'
                     ap += '<td  style="text-align:center;">'+v[i]['BrandName']+'</td>'
                     // ap += '<td  style="text-align:center;">'+format_date(v[i]['StartDate'])+'</td>'
-                    ap += '<td> <button class="replanmodal" Campaignid="'+v[i]['CampaignId']+'" plainidattr="'+v[i]['PlanId']+'"  style="color:#505052 !important;background-color: #91eae2;color: #000;border: none;padding: 4PX;width: 68px;border-radius: 4px;">Re-Plan</button></td>';
+                    ap += '<td> <button class="replanmodal" Campaignid="'+v[i]['CampaignId']+'" plainidattr="'+v[i]['PlanId']+'"  style="color:white!important;background-color: #f07144;;border: none;padding: 4PX;width: 68px;border-radius: 2px;">Re-Plan</button></td>';
                     // ap += '<td  style="text-align:center;"><button class="replanmodal" campaign_id='+v[i]['CampaignId']+'  plainidattr="'+v[i]['PlanId']+'" style="background-color: #a5b1c2;color: #000;border: none;padding: 4PX;width: 68px;border-radius: 5px;">Re-Plan</button></td>'
                     ap += '<td  style="text-align:center;width:152px;">'+format_date(v[i]['EndDate'])+'</td>'
                     ap += '<td style="text-align:center;"><div class="downloadbtn pointer" campId="'+v[i]['CampaignId']+'" plainidattr="'+v[i]['PlanId']+'" style=""><img src="assets/images/WhiteIcons/FilesDownload.png" style="width:27px;"></div></td>'

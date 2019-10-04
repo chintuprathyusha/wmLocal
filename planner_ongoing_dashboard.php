@@ -94,8 +94,8 @@ if ($_SESSION['usernamee'] == '') {
 							<a href="planner_ongoing_dashboard.php" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
 							<span class="breadcrumb-item active">My Plans</span>
 							<!-- <span style="position:absolute;right:0px;margin-left:13px;">Help<img style="width:17px;height:17px;" title="'+client+'" src="assets/images/informicon.svg"/></span> -->
-							<span style="position:absolute;right:0px; font-size: 14px;font-weight: 500;float: left;margin-right: 30px;margin-top: 8px;color:red;text-decoration: underline;">Help
-								<img style="width:17px;" title="Write to adminwmflow@wmglobal.com to get details added" src="assets/images/informicon.svg">
+							<p class="help">HELP
+								<img style="width:15px;" title="Write to adminwmflow@wmglobal.com to get details added" src="assets/images/informicon.svg">
 							</span>
 						</div>
 
@@ -136,7 +136,7 @@ if ($_SESSION['usernamee'] == '') {
 								<div class="col-sm-3" style="display: inline-block;">
 
 									<div style="margin-top: 32px;margin-right: 12px;padding: 12px;">
-										<button style="background-color:#00b894;border:none;color:#fff;width:55px;" class="form-control gobtn">GO</button>
+										<button style="background-color:#f07144;border:none;color:#fff;width:55px;" class="form-control gobtn">GO</button>
 									</div>
 								</div>
 							</div>
@@ -153,7 +153,7 @@ if ($_SESSION['usernamee'] == '') {
 										<th>Brand</th>
 										<th>Start Date</th>
 										<th>Mark As Complete</th>
-										<th>Action</th>
+										<th>Download</th>
 									</tr>
 								</thead>
 								<tbody class="displayincompletedplans">
@@ -174,7 +174,7 @@ if ($_SESSION['usernamee'] == '') {
 										<th>Brand</th>
 										<th>Replan</th>
 										<th>End Date</th>
-										<th>Action</th>
+										<th>Download</th>
 									</tr>
 								</thead>
 								<tbody class="displaycompletedplans">
