@@ -130,7 +130,7 @@ function displaytable(msg) {
         row += '<td style="width:144px;">'+format_date(block.StartDate)+'</td>';
         row += '<td style="width:172px">'+format_date(block.EndDate)+'</td>';
         // if (block.IsPrioritized == false) {
-        row += '<td><button class="replanmodal" Campaignid='+block.CampaignId+' plainidattr='+block.PlanId+'  style="background-color: #91eae2;color: #000;border: none;padding: 4PX;width: 68px;border-radius: 5px;">Re-Plan</button></td>';
+        row += '<td><button class="replanmodal" Campaignid='+block.CampaignId+' plainidattr='+block.PlanId+'  style="background-color: #f07144;color: #fff;border: none;padding: 4PX;width: 68px;border-radius: 2px;">Re-Plan</button></td>';
         row += '<td style="text-align:center"><div class="downloadbtn pointer" campId="'+block.CampaignId+'" plainidattr="'+block.PlanId+'" style=""><img src="assets/images/WhiteIcons/FilesDownload.png" style="width:27px;"></div></td>';
 
 

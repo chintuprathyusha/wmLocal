@@ -354,3 +354,14 @@ body{
 	width: 70%;
 	margin: auto;
 }
+.help{
+    position:absolute;
+    right:0px;
+    font-size: 16px;
+    font-weight: 500;
+    float: left;
+    margin-right: 30px;
+    margin-top: 8px;
+    color:#F07144;
+    margin-left: 5px;
+}

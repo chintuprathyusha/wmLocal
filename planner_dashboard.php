@@ -139,9 +139,9 @@ display: none !important;
                           <a href="planner_ongoing_dashboard.php" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
                           <span class="breadcrumb-item active">OnGoing Plan</span>
                           <!-- <span style="position:absolute;right:0px;margin-left:13px;">Help<img style="width:17px;height:17px;" title="'+client+'" src="assets/images/informicon.svg"/></span> -->
-                          <span style="position:absolute;right:0px; font-size: 14px;font-weight: 500;float: left;margin-right: 30px;margin-top: 8px;color:red;text-decoration: underline;">Help
-                            <img style="width:17px;" title="Write to adminwmflow@wmglobal.com to get details added" src="assets/images/informicon.svg">
-                          </span>
+                          <p class="help">HELP
+                            <img style="width:15px;" title="Write to adminwmflow@wmglobal.com to get details added" src="assets/images/informicon.svg">
+						</p>
                       </div>
 
 
@@ -189,7 +189,7 @@ display: none !important;
                                 </select>
                             </div>
                             <div style="margin-top:6px;" class="col-sm-1">
-                                <button style="background-color:#00b894;color:#fff;border:none;" class="form-control gobtn">GO</button>
+                                <button style="background-color:#f07144;color:#fff;border:none;" class="form-control gobtn">GO</button>
                             </div>
                         </div>
 
