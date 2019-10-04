@@ -13,6 +13,7 @@ $( document ).ready(function() {
     $(".cprp_main").css("background-color", "#F07144");
     $('.radio_class').hide();
     $('.changediv').hide();
+    debugger
     var planid = $.urlParam('planid');
     var userid = sessionStorage.getItem('userid');
     $('.spillovertexttodisplay').hide()
@@ -1133,7 +1134,7 @@ $( document ).ready(function() {
             })
 
             $("body").on("click", ".backclass", function(){
-                window.location.href = 'planner_createnewplan.php?goback='+true
+                window.location.href = 'planner_createnewplan.php?planid='+planid
             })
 
 
@@ -1245,7 +1246,8 @@ $( document ).ready(function() {
                         $('.texttodisplay').append('<h5 style="color:#000">Buying Basket file successfully uploaded</h5>')
 
                         $.alert({
-                            title: 'File succesfully uploaded'
+                            title: 'Success',
+                            content: 'File succesfully uploaded'
                         });
 
                     }

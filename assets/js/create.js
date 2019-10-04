@@ -43,7 +43,7 @@ $(document).ready(function () {
         plan_id = $.urlParam('planid');
     }
 
-
+    console.log(plan_id);
     function js_yyyy_mm_dd_hh_mm_ss () {
         now = new Date();
         year = "" + now.getFullYear().toString().substr(2,2);
@@ -420,9 +420,7 @@ $(document).ready(function () {
         })
     }
 
-    $("body").on("click", ".next_btn", function(){
-        window.location.href="buyingbasket.php";
-    })
+
     var global_path;
     $("body").on("click", ".file_download", function(){
         $('#myModal').modal();
@@ -531,7 +529,7 @@ $(document).ready(function () {
         return buf;
     }
     $("body").on("click", ".next_btn", function(){
-        window.location.href = 'buyingbasket.php?gonext='+true
+        window.location.href = "buyingbasket.php?planid="+plan_id
     })
 
 })

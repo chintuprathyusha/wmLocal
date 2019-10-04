@@ -346,6 +346,7 @@ $(document).ready(function () {
         $('.downloadAll').prop('disabled', true)
     })
     $('body').on('click', '.downloadAll', function(){
+        $('.loading').show()
         sendObj={};
         console.log(selectedFiles.length);
 
@@ -370,6 +371,7 @@ $(document).ready(function () {
                 console.log(msg);
                 // console.log(JSON.parse(msg))
                 msg_obj = msg
+                $('.loading').hide()
                 var blob = new Blob([s2ab(atob(encodeURI(msg_obj)))], {
                     type: 'octet/stream'
                 });
@@ -443,6 +445,7 @@ $(document).ready(function () {
 
 
     $('body').on('click', '.DownloadAllfiles', function(){
+        $('.loading').show()
         sendObj={};
         result = $(this).attr('this_Campid')
         sendObj.file_path = all_files_;
@@ -461,6 +464,7 @@ $(document).ready(function () {
         };
         $.ajax(settings11).done(function (msg) {
             console.log(msg);
+            $('.loading').hide()
             result = result+'.zip'
             // file_name = msg.file_name;
             var bin = atob(msg);

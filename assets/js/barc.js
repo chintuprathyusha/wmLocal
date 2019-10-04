@@ -133,17 +133,19 @@ $(document).ready(function () {
 
                 $('.edit_barc').prop('disabled', false);
 
-                $.confirm({
-                    title: 'File succesfully uploaded',
-                    animation: 'scale',
-                    closeAnimation: 'scale',
-                    opacity: 0.5,
-                    buttons: {
-                        okay: {
-                            text: 'Okay',
-                            btnClass: 'btn-primary'
-                        }
-                    }
+                $.alert({
+                    title: 'Success',
+                    content: 'File succesfully uploaded'
+                    //
+                    // animation: 'scale',
+                    // closeAnimation: 'scale',
+                    // opacity: 0.5,
+                    // buttons: {
+                    //     okay: {
+                    //         text: 'Okay',
+                    //         btnClass: 'btn-primary'
+                    //     }
+                    // }
                 });
             }
             else {
@@ -155,17 +157,19 @@ $(document).ready(function () {
                 $('.confirm_barc').prop('disabled', true);
                 $('.submit_barc').prop('disabled', true);
 
-                $.confirm({
-                    title: 'Oops ! something went wrong, try again',
-                    animation: 'scale',
-                    closeAnimation: 'scale',
-                    opacity: 0.5,
-                    buttons: {
-                        okay: {
-                            text: 'Okay',
-                            btnClass: 'btn-primary'
-                        }
-                    }
+                $.alert({
+                    title: 'Error',
+                    Content: 'Oops ! something went wrong, try again'
+                    //
+                    // animation: 'scale',
+                    // closeAnimation: 'scale',
+                    // opacity: 0.5,
+                    // buttons: {
+                    //     okay: {
+                    //         text: 'Okay',
+                    //         btnClass: 'btn-primary'
+                    //     }
+                    // }
                 });
 
             }
@@ -186,6 +190,7 @@ $(document).ready(function () {
     $('.select2').hide();
 
     function barcData() {
+        $('.loading').show()
         sendObj = {};
         sendObj.planId = plan_id;
         console.log(sendObj);
@@ -204,6 +209,7 @@ $(document).ready(function () {
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
             console.log(msg);
+            $('.loading').hide()
             planProcess = msg.planProcess;
             acce_file_name = msg.AcceleratedFilePath;
             $(".select2").addClass('hide');
@@ -217,16 +223,17 @@ $(document).ready(function () {
             $('.loading').hide();
             if (msg.message == "fail") {
                 $.alert({
-                    title: 'Oops ! something went wrong, try again',
-                    animation: 'scale',
-                    closeAnimation: 'scale',
-                    opacity: 0.5,
-                    buttons: {
-                        okay: {
-                            text: 'Okay',
-                            btnClass: 'btn-primary'
-                        }
-                    }
+                    title: 'Error',
+                    content: 'Oops ! something went wrong, try again'
+                    // animation: 'scale',
+                    // closeAnimation: 'scale',
+                    // opacity: 0.5,
+                    // buttons: {
+                    //     okay: {
+                    //         text: 'Okay',
+                    //         btnClass: 'btn-primary'
+                    //     }
+                    // }
                 });
 
             }
@@ -401,17 +408,9 @@ $(document).ready(function () {
             $('.loading').hide();
             debugger;
             if (msg == "updated") {
-                $.confirm({
-                    title: 'submitted succesfully',
-                    animation: 'scale',
-                    closeAnimation: 'scale',
-                    opacity: 0.5,
-                    buttons: {
-                        okay: {
-                            text: 'Okay',
-                            btnClass: 'btn-primary'
-                        }
-                    }
+                $.alert({
+                    title: 'Success',
+                    content: 'File succesfully uploaded'
                 });
                 $('select').prop('disabled', true);
                 $('.submit_barc').prop('disabled', true);
@@ -420,24 +419,16 @@ $(document).ready(function () {
                 $('.edit_barc').prop('disabled', true);
             }
             else {
-                $.confirm({
-                    title: 'Oops ! something went wrong, try again',
-                    animation: 'scale',
-                    closeAnimation: 'scale',
-                    opacity: 0.5,
-                    buttons: {
-                        okay: {
-                            text: 'Okay',
-                            btnClass: 'btn-primary'
-                        }
-                    }
+                $.alert({
+                    title: 'Error',
+                    content: 'Oops ! something went wrong, try again'
                 });
             }
         })
     })
 
     $('body').on('click', '.backclass', function(){
-        window.location.href = 'buyingbasket.php?goback='+true
+        window.location.href = 'buyingbasket.php?planid='+plan_id;
     })
 
 })

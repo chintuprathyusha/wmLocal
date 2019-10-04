@@ -39,9 +39,6 @@ $(document).ready(function () {
 
 
 
-
-
-
     var prev =  JSON.parse(localStorage.getItem("allprevialges"))
     var userpro='';
     var crepro='';
