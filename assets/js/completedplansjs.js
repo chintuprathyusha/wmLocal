@@ -1,3 +1,4 @@
+$(document).ready(function(){
 $(".loading").show();
 var useridd = sessionStorage.getItem("userid");
 var dataTable___;
@@ -604,3 +605,4 @@ function s2ab(s) {
     for (var i=0; i!=s.length; ++i) view[i] = s.charCodeAt(i) & 0xFF;
     return buf;
 }
+})

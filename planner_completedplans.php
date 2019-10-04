@@ -15,47 +15,7 @@ if ($_SESSION['usernamee'] == '') {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Wavemaker</title>
-
-    <!-- Global stylesheets -->
-    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css"> -->
-    <link href="assets/css/fonts.css" rel="stylesheet" type="text/css">
-    <link href="global_assets/css/icons/icomoon/styles.min.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/bootstrap_limitless.min.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/layout.min.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/components.min.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/colors.min.css" rel="stylesheet" type="text/css">
-    <!-- <link rel="assets/css/common.css" href="/css/master.css"> -->
-    <link href="assets/css/common.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/sweetalert.css" rel="stylesheet" type="text/css">
-    <!-- /global stylesheets -->
-    <script src="global_assets/js/main/jquery.min.js"></script>
-    <script src="global_assets/js/main/bootstrap.bundle.min.js"></script>
-    <script src="global_assets/js/plugins/loaders/blockui.min.js"></script>
-    <!-- /core JS files -->
-
-    <!-- Theme JS files -->
-    <script src="global_assets/js/plugins/visualization/d3/d3.min.js"></script>
-    <script src="global_assets/js/plugins/visualization/d3/d3_tooltip.js"></script>
-    <script src="global_assets/js/plugins/forms/styling/switchery.min.js"></script>
-    <script src="global_assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
-    <script src="global_assets/js/plugins/ui/moment/moment.min.js"></script>
-    <script src="global_assets/js/plugins/pickers/daterangepicker.js"></script>
-
-    <script src="global_assets/js/plugins/extensions/jquery_ui/interactions.min.js"></script>
-    <script src="global_assets/js/plugins/forms/selects/select2.min.js"></script>
-
-    <script src="assets/js/app.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="global_assets/js/demo_pages/form_select2.js"></script>
-    <script src="global_assets/js/demo_pages/dashboard.js"></script>
-    <!-- Theme JS files -->
-    <script src="global_assets/js/plugins/tables/datatables/datatables.min.js"></script>
-
-    <script src="global_assets/js/demo_pages/datatables_sorting.js"></script>
-    <script src="assets/js/sidenavjscode.js"></script>
-    <script src="assets\js\sessiontimeoutjs.js"></script>
-    <script src="assets/js/sweetalert.min.js"></script>
+	<?php include 'assets/includes/common_css.php'; ?>
 	<?php include 'assets/includes/common_scripts.php';?>
 	<script src="assets/js/completedplansjs.js"></script>
 

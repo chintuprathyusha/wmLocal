@@ -36,7 +36,7 @@ $(document).ready(function () {
 <div class="navbar navbar-expand-md" style="background-color:#1F2022">
     <div class="navbar-brand">
         <!-- <a href="" class="d-inline-block" style=""> -->
-        <img src="assets/images/2nd Folder/whitelogo2.png" alt="" style="height: 29px;margin-top: 9px;margin-left: 55px;">
+        <img src="assets/images/2nd Folder/whitelogo2.png" alt="" style="height: 35px;margin-top: 9px;">
         <!-- </a> -->
     </div>
     <div class="d-md-none">
@@ -49,13 +49,13 @@ $(document).ready(function () {
     </div>
 
     <div class="collapse navbar-collapse" id="navbar-mobile">
-        <ul class="navbar-nav" style="margin-bottom: 0px;">
+        <!-- <ul class="navbar-nav" style="margin-bottom: 0px;">
             <li class="nav-item">
                 <a href="#" class="navbar-nav-link sidebar-control sidebar-main-toggle d-none d-md-block" style="color:white">
                     <i class="icon-paragraph-justify3"></i>
                 </a>
             </li>
-        </ul>
+        </ul> -->
 
 
         <ul style="float: right;width: 100%;">

@@ -369,9 +369,17 @@ button:focus {outline:0;}
 
 								</div>
 
-								<div class="mr-t-10" style="margin-top: 20px; text-align: right;">
-									<button style="background-color:#BB2734;color:white" class="btn remodal-add add_more">Add more</button>
-									<button class="submit_ btn" style="width:485px;background-color:#BB2734;color:white" data-toggle="modal" data-target="#myModal_">Submit</button>
+								<div class="row mr-t-10" style="margin-top: 20px;">
+									<div class="col-lg-3">
+
+									</div>
+									<div class="col-lg-3" style="text-align:right">
+										<button style="background-color:#BB2734;color:white" class="btn remodal-add add_more">Add more</button>
+									</div>
+									<div class="col-lg-6">
+										<button class="submit_ btn" style="width:485px;background-color:#BB2734;color:white" data-toggle="modal" data-target="#myModal_">Submit</button>
+
+									</div>
 								</div>
 
 
@@ -410,9 +418,20 @@ button:focus {outline:0;}
 								<!-- <div class="mr-t-10" style="margin-top: 20px; text-align: right;"> -->
 									<!-- <button class="btn btn-primary remodal-add add_more_new">Add more</button>
 									<button class="submit_new btn btn-primary">Submit</button> -->
+									<div class="row mr-t-10" style="margin-top: 20px;">
+										<div class="col-lg-3">
+
+										</div>
+										<div class="col-lg-3" style="text-align:right">
+											<button style="background-color:#BB2734;color:white" class="btn remodal-add add_more_new">Add more</button>
+										</div>
+										<div class="col-lg-6">
+											<button class="submit_new btn" style="width:485px;background-color:#BB2734;color:white" data-toggle="modal" data-target="#myModal_">Submit</button>
+										</div>
+									</div>
+
 									<div class="mr-t-10" style="margin-top: 20px; text-align: right;">
-										<button style="background-color:#BB2734;color:white" class="btn remodal-add add_more_new">Add more</button>
-										<button class="submit_new btn" style="width:485px;background-color:#BB2734;color:white" data-toggle="modal" data-target="#myModal_">Submit</button>
+
 									</div>
 								<!-- </div> -->
 
@@ -485,8 +504,8 @@ button:focus {outline:0;}
 						</div>
 						<div class="mr-t-10" style="margin-top: 20px;">
 							<!-- <button class="btn btn-primary backclass" style="float:left;">Previous</button> -->
-							<button type="submit" class="btn btn-primary fadeInDown backclass" title="Next" tooltip="Next"style="color: #fff;border:none;float: left;background-color: transparent !Important;"><img src="assets/images/left.svg" style="width:30px;"><span>Previous </span></button>
-							<button type="submit" class="btn btn-primary fadeInDown next_" title="Next" tooltip="Next"style="color: #fff;border:none;float: right;background-color: transparent !Important;"><span>Next </span><img src="assets/images/right.svg" style="width:30px;"></button>
+							<button type="submit" class="btn btn-primary fadeInDown backclass" title="Next" tooltip="Next"style="color: #F07144;border:none;float: left;background-color: transparent !Important;"><span>PREVIOUS </span></button>
+							<button type="submit" class="btn btn-primary fadeInDown next_" title="Next" tooltip="Next"style="color: #F07144;border:none;float: right;background-color: transparent !Important;"><span>NEXT </span></button>
 
 						</div>
 

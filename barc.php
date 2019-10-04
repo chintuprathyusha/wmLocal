@@ -109,6 +109,9 @@ $(document).ready(function() {
 .select2{
 	width: 100% !important;
 }
+.cprp_submit{
+	width: 100%;
+}
 </style>
 <body>
 	<?php include 'header.php';?>
@@ -215,18 +218,29 @@ $(document).ready(function() {
 
 							</fieldset>
 							<!-- <hr> -->
-							<div class="" style="float:right">
-								<button type="submit" class="btn btn-primary cprp_submit edit_barc" style="background: #4caf50;">Edit <i class="icon-paperplane ml-2"></i></button>
-								<button type="submit" class="btn btn-primary cprp_submit confirm_barc" style="background: #4caf50;">Confirm <i class="icon-paperplane ml-2"></i></button>
+							<div class="row">
+								<div class="col-lg-3">
+									<button type="submit" class="btn btn-primary cprp_submit edit_barc" style="background: #F07144 !important;">Edit <i class="icon-paperplane ml-2"></i></button>
 
+								</div>
+								<div class="col-lg-3">
+									<button type="submit" class="btn btn-primary cprp_submit confirm_barc" style="background: #F07144 !important;">Confirm <i class="icon-paperplane ml-2"></i></button>
 
+								</div>
+								<div class="col-lg-6">
+									<button type="submit" class="btn btn-primary cprp_submit submit_barc" style="background-color: #BB2734 !important;color:#fff">Submit <i class="icon-paperplane ml-2"></i></button>
+
+								</div>
+							</div>
+							<!-- <div class="" style="float:right">
 							</div>
 							<div class="" style="text-align:center;margin-top: 80px;">
-								<button type="submit" class="btn btn-primary cprp_submit submit_barc" style="background: #4caf50;">Submit <i class="icon-paperplane ml-2"></i></button>
-							</div>
+							</div> -->
 						</div>
 						<div class="mr-t-10" style="margin-top: 20px;">
-							<button class="btn btn-primary backclass" title="Previous" tooltip="Previous"style="color: #fff;border:none;float: left;background-color: transparent !Important;"><span>Previous </span><img src="assets/images/left.svg" style="width:30px;"></button>
+							<!-- <button class="btn btn-primary backclass" title="Previous" tooltip="Previous"style="color: #fff;border:none;float: left;background-color: transparent !Important;"><span>Previous </span><img src="assets/images/left.svg" style="width:30px;"></button> -->
+							<button class="btn btn-primary backclass" title="Previous" tooltip="Previous"style="color: #F07144;border:none;float: left;background-color: transparent !Important;"><span>PREVIOUS </span></button>
+
 
 						</div>
 					</div>

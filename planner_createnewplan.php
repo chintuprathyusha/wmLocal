@@ -301,7 +301,7 @@ p{
 								</div>
 								<div class="mb-12">
 
-									<button type="submit" class="btn form-control cprp_submit create_plan" style="background: #4b6584 !important;color: #fff;">Create <i class="icon-paperplane ml-2"></i></button>
+									<button type="submit" class="btn form-control cprp_submit create_plan" style="background: #F07144 !important;color: #fff;">Create <i class="icon-paperplane ml-2"></i></button>
 								</div>
 							</div>
 							<div class="card fadeInDown texttodisplay" style="background: #d1d8e0;">
@@ -318,7 +318,7 @@ p{
 					<div class="col-md-6"></div>
 					<div class="col-md-6">
 
-						<button type="submit" class="btn btn-primary fadeInDown next_btn" title="Next" tooltip="Next"style="color: #fff;border:none;float: right;background-color: transparent !Important;"><span>Next </span><img src="assets/images/right.svg" style="width:30px;"></button>
+						<button type="submit" class="btn btn-primary fadeInDown next_btn" title="Next" tooltip="Next"style="color: #F07144;border:none;float: right;background-color: transparent !Important;"><span>NEXT </span></button>
 
 					</div>
 				</div>
