@@ -116,4 +116,8 @@ $('body').on('click', '.sidebar-main-toggle', function(){
     if (dataTable___) {
         recreateTable()
     }
+
+    $("body").on("click", ".logoCLick", function(){
+        window.location.href="planner_ongoing_dashboard.php"
+    })
 })

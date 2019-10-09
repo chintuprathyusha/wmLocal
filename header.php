@@ -36,7 +36,7 @@ $(document).ready(function () {
 <div class="navbar navbar-expand-md" style="background-color:#1F2022">
     <div class="navbar-brand">
         <!-- <a href="" class="d-inline-block" style=""> -->
-        <img src="assets/images/2nd Folder/whitelogo2.png" alt="" style="height: 35px;margin-top: 9px;">
+        <img src="assets/images/2nd Folder/whitelogo2.png" alt="" class="logoCLick" style="height: 35px;margin-top: 9px;">
         <!-- </a> -->
     </div>
     <div class="d-md-none">
