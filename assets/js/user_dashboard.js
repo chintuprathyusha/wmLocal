@@ -42,8 +42,16 @@ $(document).ready(function () {
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
             console.log(msg);
-            allData = msg;
-            displaytable(msg);
+            if(msg.Status == "fail"){
+                $.alert({
+                    title: 'Error',
+                    content: 'Oops ! something went wrong, try again'
+                });
+            }
+            else {
+                allData = msg;
+                displaytable(msg);
+            }
             // dataTableMultiSort()
 
         })
@@ -76,7 +84,15 @@ $(document).ready(function () {
                 $.ajax(settings11).done(function (msg) {
                     msg = JSON.parse(msg);
                     console.log(msg);
-                    displaytable(msg);
+                    if(msg.Status == "fail"){
+                        $.alert({
+                            title: 'Error',
+                            content: 'Oops ! something went wrong, try again'
+                        });
+                    }
+                    else {
+                        displaytable(msg);
+                    }
                     // dataTableMultiSort()
                     // planid = msg[Id];
                     // console.log(planid);
@@ -84,7 +100,7 @@ $(document).ready(function () {
                 })
             }
             else {
-                $.confirm({
+                $.alert({
                     title: 'Invalid Dates',
                     // content: 'Oops ! something went wrong',
                     animation: 'scale',
@@ -101,7 +117,7 @@ $(document).ready(function () {
             }
         }
         else {
-            $.confirm({
+            $.alert({
                 title: 'Invalid Dates',
                 // content: 'Oops ! something went wrong',
                 animation: 'scale',
@@ -214,9 +230,16 @@ $(document).ready(function () {
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
             console.log(msg);
-            updatedplanid = msg.planid;
-
-            window.location.href = 'buyingbasket.php?planid='+updatedplanid;
+            if(msg.Status == "fail"){
+                $.alert({
+                    title: 'Error',
+                    content: 'Oops ! something went wrong, try again'
+                });
+            }
+            else {
+                updatedplanid = msg.planid;
+                window.location.href = 'buyingbasket.php?planid='+updatedplanid;
+            }
 
         })
 
@@ -246,12 +269,17 @@ $(document).ready(function () {
         };
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
-            updatedplanid = msg.planid
-            sessionStorage.setItem("create_plan_id", updatedplanid)
-            // alert(updatedplanid)
-            // window.location.href = 'buyingbasket.php';
-
-            window.location.href = 'planner_accelerator.php?planid='+updatedplanid;
+            if(msg.Status == "fail"){
+                $.alert({
+                    title: 'Error',
+                    content: 'Oops ! something went wrong, try again'
+                });
+            }
+            else {
+                updatedplanid = msg.planid
+                sessionStorage.setItem("create_plan_id", updatedplanid)
+                window.location.href = 'planner_accelerator.php?planid='+updatedplanid;
+            }
 
         })
 
@@ -283,27 +311,36 @@ $(document).ready(function () {
             "data": form
         };
         $.ajax(settings11).done(function (msg) {
-            filesData = JSON.parse(msg);
-            console.log(msg);
-            console.log(filesData);
-            console.log(jQuery.isEmptyObject(filesData));
 
-            if (jQuery.isEmptyObject(filesData)) {
-                $('.row_body').empty()
-                $('.row_body').append('<h5 class="sendpath" ><p>No files to Download</p></5>');
+            if(msg.Status == "fail"){
+                $.alert({
+                    title: 'Error',
+                    content: 'Oops ! something went wrong, try again'
+                });
             }
             else {
-                $('.pathslinks').empty()
-                keys = Object.keys(filesData);
-                var val = Object.values(filesData)
+                filesData = JSON.parse(msg);
+                console.log(msg);
+                console.log(filesData);
+                console.log(jQuery.isEmptyObject(filesData));
 
-                $('.row_body').html('')
-                console.log(val.length);
-                console.log(keys.length);
-                all_files_ = val;
-                for (var i = 0; i < keys.length; i++) {
-                    console.log(keys[i]);
-                    $('.row_body').append('<div class="col-sm-3"><div class="fileClick pointer" file_camid="'+global_campId+'" title="'+keys[i]+'"><span>'+keys[i]+'</span></div></div>');
+                if (jQuery.isEmptyObject(filesData)) {
+                    $('.row_body').empty()
+                    $('.row_body').append('<h5 class="sendpath" ><p>No files to Download</p></5>');
+                }
+                else {
+                    $('.pathslinks').empty()
+                    keys = Object.keys(filesData);
+                    var val = Object.values(filesData)
+
+                    $('.row_body').html('')
+                    console.log(val.length);
+                    console.log(keys.length);
+                    all_files_ = val;
+                    for (var i = 0; i < keys.length; i++) {
+                        console.log(keys[i]);
+                        $('.row_body').append('<div class="col-sm-3"><div class="fileClick pointer" file_camid="'+global_campId+'" title="'+keys[i]+'"><span>'+keys[i]+'</span></div></div>');
+                    }
                 }
             }
         })
@@ -642,8 +679,16 @@ $(document).ready(function () {
                 $.ajax(settings11).done(function (msg) {
                     msg = JSON.parse(msg);
                     console.log(msg);
-                    allData = msg;
-                    displaytable(msg);
+                    if(msg.Status == "fail"){
+                        $.alert({
+                            title: 'Error',
+                            content: 'Oops ! something went wrong, try again'
+                        });
+                    }
+                    else {
+                        allData = msg;
+                        displaytable(msg);
+                    }
 
                 })
             }

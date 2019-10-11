@@ -91,7 +91,7 @@ $(document).ready(function () {
             $('.loading').hide();
             console.log(msg);
             if (msg.message == "fail") {
-                $.confirm({
+                $.alert({
                     title: 'Alert',
                     content: 'Oops ! something went wrong',
                     animation: 'scale',
@@ -169,7 +169,7 @@ $(document).ready(function () {
             $('.loading').hide();
             console.log(msg);
             if (msg.message == "fail") {
-                $.confirm({
+                $.alert({
                     title: 'Alert',
                     content: 'Oops ! something went wrong',
                     animation: 'scale',
@@ -230,7 +230,7 @@ $(document).ready(function () {
             console.log(msg);
             $(".loading").hide();
             if(msg.message == "fail"){
-                $.confirm({
+                $.alert({
                     title: 'Alert',
                     content: 'Oops ! something went wrong',
                     animation: 'scale',
@@ -307,28 +307,15 @@ $(document).ready(function () {
 
             setInterval(function(){
                 $('.loading').hide(); }, 1000);
-
-
                 console.log(msg);
                 if (msg.message=="fail") {
-                    $.confirm({
+                    $.alert({
                         title: 'Alert',
-                        content: 'Oops ! something went wrong',
-                        animation: 'scale',
-                        closeAnimation: 'scale',
-                        opacity: 0.5,
-                        buttons: {
-                            okay: {
-                                text: 'Okay',
-                                btnClass: 'btn-primary'
-                            }
-                        }
+                        content: 'Oops ! something went wrong'
                     });
                 }
                 else {
-
                     if (role=='ClientLead') {
-
                         for(key in msg){
                             sel = ''
                             if (freezeClient == msg[key]) {
@@ -392,18 +379,9 @@ $(document).ready(function () {
 
                     console.log(msg);
                     if (msg.message=="fail") {
-                        $.confirm({
+                        $.alert({
                             title: 'Alert',
-                            content: 'Oops ! something went wrong',
-                            animation: 'scale',
-                            closeAnimation: 'scale',
-                            opacity: 0.5,
-                            buttons: {
-                                okay: {
-                                    text: 'Okay',
-                                    btnClass: 'btn-primary'
-                                }
-                            }
+                            content: 'Oops ! something went wrong'
                         });
                     }
                     else {
@@ -468,7 +446,7 @@ $(document).ready(function () {
                     setInterval(function(){
                         $('.loading').hide(); }, 1000);
                         if (msg.message=="fail") {
-                            $.confirm({
+                            $.alert({
                                 title: 'Alert',
                                 content: 'Oops ! something went wrong',
                                 animation: 'scale',
@@ -530,7 +508,7 @@ $(document).ready(function () {
                         setInterval(function(){
                             $('.loading').hide(); }, 1000);
                             if (msg.message=="fail") {
-                                $.confirm({
+                                $.alert({
                                     title: 'Alert',
                                     content: 'Oops ! something went wrong',
                                     animation: 'scale',
@@ -573,7 +551,7 @@ $(document).ready(function () {
                         }
                         if(role=="Planner"){
                             if (location_key == '' || val_new == '') {
-                                $.confirm({
+                                $.alert({
                                     title: 'Alert',
                                     content: 'Oops ! something went wrong',
                                     animation: 'scale',
@@ -613,7 +591,7 @@ $(document).ready(function () {
                                     setInterval(function(){
                                         $('.loading').hide(); }, 1000);
                                         if (msg.message == "fail") {
-                                            $.confirm({
+                                            $.alert({
                                                 title: 'Alert',
                                                 content: 'Oops ! something went wrong',
                                                 animation: 'scale',
@@ -628,7 +606,7 @@ $(document).ready(function () {
                                             });
                                         }
                                         else {
-                                            $.confirm({
+                                            $.alert({
                                                 title: 'Alert',
                                                 content: 'Profile Succesfully Created',
                                                 animation: 'scale',
@@ -697,7 +675,7 @@ $(document).ready(function () {
                                         setInterval(function(){
                                             $('.loading').hide(); }, 1000);
                                             if (msg.message == "fail") {
-                                                $.confirm({
+                                                $.alert({
                                                     title: 'Alert',
                                                     content: 'Oops ! something went wrong',
                                                     animation: 'scale',
@@ -712,7 +690,7 @@ $(document).ready(function () {
                                                 });
                                             }
                                             else {
-                                                $.confirm({
+                                                $.alert({
                                                     title: 'Alert',
                                                     content: 'Succesfully Created',
                                                     animation: 'scale',

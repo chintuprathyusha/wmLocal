@@ -94,7 +94,10 @@ if (authContext.isCallback(window.location.hash)) {
                                 }
                             }
                             else {
-                                swal("Invalid username/password")
+                                $.alert({
+                                    title: 'Error',
+                                    content: 'Invalid username/password'
+                                });
                             }
 
                             $.ajax({

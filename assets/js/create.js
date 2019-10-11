@@ -106,7 +106,7 @@ $(document).ready(function () {
             console.log(msg);
             $(".loading").hide();
             if(msg.message == "fail"){
-                $.confirm({
+                $.alert({
                     title: 'Alert',
                     content: 'Oops ! something went wrong',
                     animation: 'scale',
@@ -121,59 +121,59 @@ $(document).ready(function () {
                 });
             }
             else {
-            base_tg = msg.Base_Tg;
-            console.log(base_tg);
-            primary_tg = msg.Primary_Tg;
-            campign_markets = msg.Campaign_Market;
-            console.log(Object.values(campign_markets));
-            campign_markets = Object.values(campign_markets);
-            // campign_markets = Object.Values(msg.Campaign_Market);
-            campign_markets = campign_markets.sort();
-            end_week = msg.End_Week;
-            data = msg.Client;
-            // console.log(data);
+                base_tg = msg.Base_Tg;
+                console.log(base_tg);
+                primary_tg = msg.Primary_Tg;
+                campign_markets = msg.Campaign_Market;
+                console.log(Object.values(campign_markets));
+                campign_markets = Object.values(campign_markets);
+                // campign_markets = Object.Values(msg.Campaign_Market);
+                campign_markets = campign_markets.sort();
+                end_week = msg.End_Week;
+                data = msg.Client;
+                // console.log(data);
 
-            $.each(data ,function(key,i){
-                $('#select').append('<option value='+key+'>'+key+'</option>')
-            })
-
-            var $dropdown = $('#select');
-            console.log($dropdown);
-            $dropdown.on('change', function() {
-                console.log($dropdown);
-                $('#select0').empty();
-                // var a=data[$dropdown.val()];
-                var a=data[$.trim($dropdown[0].selectedOptions[0].text)];
-                $.each(a,function(j){
-                    console.log(a[j]);
-                    $('#select0').append('<option value='+a[j]+'>'+a[j]+'</option>')
+                $.each(data ,function(key,i){
+                    $('#select').append('<option value='+key+'>'+key+'</option>')
                 })
-            });
 
-            $dropdown.trigger('change');
+                var $dropdown = $('#select');
+                console.log($dropdown);
+                $dropdown.on('change', function() {
+                    console.log($dropdown);
+                    $('#select0').empty();
+                    // var a=data[$dropdown.val()];
+                    var a=data[$.trim($dropdown[0].selectedOptions[0].text)];
+                    $.each(a,function(j){
+                        console.log(a[j]);
+                        $('#select0').append('<option value='+a[j]+'>'+a[j]+'</option>')
+                    })
+                });
 
-            for(key in base_tg){
-                console.log();
-                $(".base_tg").append('<option value='+base_tg[key]+' class="get_base_tg-'+count+'" key='+key+'>'+base_tg[key]+'</option>');
-                count++
+                $dropdown.trigger('change');
+
+                for(key in base_tg){
+                    console.log();
+                    $(".base_tg").append('<option value='+base_tg[key]+' class="get_base_tg-'+count+'" key='+key+'>'+base_tg[key]+'</option>');
+                    count++
+                }
+
+
+                for(key in campign_markets){
+                    $(".campign_markets").append('<option value='+campign_markets[key]+' class="get_campign_markets-'+count+'" key='+key+'>'+campign_markets[key]+'</option>');
+                    count++
+                }
+
+                for(key in primary_tg){
+                    $(".primary_tg").append('<option value='+primary_tg[key]+' class="get_primary_tg-'+count+'" key='+key+'>'+primary_tg[key]+'</option>');
+                    count++
+                }
+
+                for(key in end_week){
+                    $(".end_week").append('<option value='+end_week[key]+' class="get_end_week-'+count+'" key='+key+'>'+end_week[key]+'</option>');
+                    count++
+                }
             }
-
-
-            for(key in campign_markets){
-                $(".campign_markets").append('<option value='+campign_markets[key]+' class="get_campign_markets-'+count+'" key='+key+'>'+campign_markets[key]+'</option>');
-                count++
-            }
-
-            for(key in primary_tg){
-                $(".primary_tg").append('<option value='+primary_tg[key]+' class="get_primary_tg-'+count+'" key='+key+'>'+primary_tg[key]+'</option>');
-                count++
-            }
-
-            for(key in end_week){
-                $(".end_week").append('<option value='+end_week[key]+' class="get_end_week-'+count+'" key='+key+'>'+end_week[key]+'</option>');
-                count++
-            }
-        }
         })
     }
     $("body").on("click", ".create_plan", function(){
@@ -215,7 +215,7 @@ $(document).ready(function () {
         var key_end_week = $(".end_week").find("option:selected").attr('key');
         console.log(camp_markets, campign_id, primary_tg, base_tg,campign_name,brand,client, end_week);
         if (client == '' || campign_name  == '' || primary_tg == 'undefined' || base_tg == '' || end_week == '' || selectedValues == '') {
-            $.confirm({
+            $.alert({
                 title: 'Alert',
                 content: 'All fields are required',
                 animation: 'scale',
@@ -259,9 +259,9 @@ $(document).ready(function () {
 
                 console.log(msg);
                 if(msg.message == "fail"){
-                    $.confirm({
-                        title: 'Plan has been not created, try again',
-                        // content: 'Oops ! something went wrong',
+                    $.alert({
+                        title: 'Alert',
+                        content: 'Plan has been not created, try again',
                         animation: 'scale',
                         closeAnimation: 'scale',
                         opacity: 0.5,
@@ -274,8 +274,8 @@ $(document).ready(function () {
                     });
                 }
                 else {
-                    $.confirm({
-                        title: 'Alert',
+                    $.alert({
+                        title: 'Success',
                         content: 'Plan created succesfully',
                         animation: 'scale',
                         closeAnimation: 'scale',
@@ -342,7 +342,7 @@ $(document).ready(function () {
             console.log(msg);
             $('.loading').hide();
             if(msg.message == "fail"){
-                $.confirm({
+                $.alert({
                     title: 'Alert',
                     content: 'Oops ! something went wrong',
                     animation: 'scale',
@@ -357,66 +357,66 @@ $(document).ready(function () {
                 });
             }
             else {
-            markascompleted = msg.IsMarkAsCompleted;
-            var channel = msg.ischannelselectioncompleted;
-            var planProcessed = msg.planProcessed;
-            var acceleratedFilePath =msg.AcceleratedFilePath;
+                markascompleted = msg.IsMarkAsCompleted;
+                var channel = msg.ischannelselectioncompleted;
+                var planProcessed = msg.planProcessed;
+                var acceleratedFilePath =msg.AcceleratedFilePath;
 
 
-            // if (channel == "true" && paramgoback == null) {
-            //     window.location.href="buyingbasket.php";
-            // }
+                // if (channel == "true" && paramgoback == null) {
+                //     window.location.href="buyingbasket.php";
+                // }
 
-            $('.next_btn').hide();
+                $('.next_btn').hide();
 
-            $(".bg").css("background-color", "#d6d6d6");
-            $(".getClass").addClass('bg')
-            $(".select2").addClass('hide');
-            $(".text-muted").removeClass('d-block');
-            $(".text-muted").addClass('hide');
-            $(".clientleadClass").hide();
-            $("clientleadClass").addClass('hide');
+                $(".bg").css("background-color", "#d6d6d6");
+                $(".getClass").addClass('bg')
+                $(".select2").addClass('hide');
+                $(".text-muted").removeClass('d-block');
+                $(".text-muted").addClass('hide');
+                $(".clientleadClass").hide();
+                $("clientleadClass").addClass('hide');
 
-            base_tg_ =  msg.BaseTGId;
-            brand_ = msg.Brand;
-            campaignId_ = msg.CampaignId;
-            campaignMarketId_ = msg.CampaignMarketId;
-            campaignName_ = msg.CampaignName;
+                base_tg_ =  msg.BaseTGId;
+                brand_ = msg.Brand;
+                campaignId_ = msg.CampaignId;
+                campaignMarketId_ = msg.CampaignMarketId;
+                campaignName_ = msg.CampaignName;
 
 
-            clientId_ = msg.ClientId;
-            endWeekId_ = msg.EndWeek;
-            primaryTGTd_ = msg.PrimaryTGTd;
-            userId_ = msg.user_id;
-            client_name = msg.Client;
+                clientId_ = msg.ClientId;
+                endWeekId_ = msg.EndWeek;
+                primaryTGTd_ = msg.PrimaryTGTd;
+                userId_ = msg.user_id;
+                client_name = msg.Client;
 
-            console.log(ischannelselectioncompleted);
-            if (channel == "true") {
-                $('.next_btn').show();
-                $('texttodisplay').hide();
+                console.log(ischannelselectioncompleted);
+                if (channel == "true") {
+                    $('.next_btn').show();
+                    $('texttodisplay').hide();
+                }
+                else {
+                    $('.texttodisplay').show();
+                }
+                $(".bg").css("background-color", "#d6d6d6");
+                $(".getClass").addClass('bg')
+                $(".create_plan").attr("disabled", true);
+                $(".select2").addClass('hide');
+                $("#select").hide();
+                $(".select2").hide();
+                for (var i = 0; i < campaignMarketId_.length; i++) {
+                    $(".select_markets").append('<p class="multiclient form-control getClass" value='+campaignMarketId_[i]+' readonly style="background-color:#d6d6d6;">'+campaignMarketId_[i]+'</p>')
+
+                }
+
+                $(".freezebrand").append('<p type="text"  value='+brand_+' class="multiclient form-control getClass  get_clientlead-'+count+'" readonly style="background-color:#d6d6d6;margin-top:10px;">'+brand_+'</p>')
+                $(".client_freezeclass").append('<p type="text" value='+client_name+' class="multiclient form-control" readonly style="background-color:#d6d6d6;">'+client_name+'</p>')
+                $(".capm_name_class").append('<p type="text" value='+campaignName_+' class="multiclient form-control" readonly style="background-color:#d6d6d6;">'+campaignName_+'</p>')
+                $(".camp_id").append('<p type="text" value='+campaignId_+' class="multiclient form-control" readonly style="background-color:#d6d6d6;">'+campaignId_+'</p>')
+                $(".primary_freeze").append('<p type="text" value='+primaryTGTd_+' class="form-control" readonly style="background-color:#d6d6d6;">'+primaryTGTd_+'</p>')
+                $(".base_freeze").append('<p type="text" value='+base_tg_+' class="form-control" readonly style="background-color:#d6d6d6;">'+base_tg_+'</p>')
+                $('.endfreeze').append('<p type="text" value='+endWeekId_+' class="form-control" readonly style="background-color:#d6d6d6;">'+endWeekId_+'</p>')
             }
-            else {
-                $('.texttodisplay').show();
-            }
-            $(".bg").css("background-color", "#d6d6d6");
-            $(".getClass").addClass('bg')
-            $(".create_plan").attr("disabled", true);
-            $(".select2").addClass('hide');
-            $("#select").hide();
-            $(".select2").hide();
-            for (var i = 0; i < campaignMarketId_.length; i++) {
-             $(".select_markets").append('<p class="multiclient form-control getClass" value='+campaignMarketId_[i]+' readonly style="background-color:#d6d6d6;">'+campaignMarketId_[i]+'</p>')
-
-            }
-
-            $(".freezebrand").append('<p type="text"  value='+brand_+' class="multiclient form-control getClass  get_clientlead-'+count+'" readonly style="background-color:#d6d6d6;margin-top:10px;">'+brand_+'</p>')
-            $(".client_freezeclass").append('<p type="text" value='+client_name+' class="multiclient form-control" readonly style="background-color:#d6d6d6;">'+client_name+'</p>')
-            $(".capm_name_class").append('<p type="text" value='+campaignName_+' class="multiclient form-control" readonly style="background-color:#d6d6d6;">'+campaignName_+'</p>')
-            $(".camp_id").append('<p type="text" value='+campaignId_+' class="multiclient form-control" readonly style="background-color:#d6d6d6;">'+campaignId_+'</p>')
-            $(".primary_freeze").append('<p type="text" value='+primaryTGTd_+' class="form-control" readonly style="background-color:#d6d6d6;">'+primaryTGTd_+'</p>')
-            $(".base_freeze").append('<p type="text" value='+base_tg_+' class="form-control" readonly style="background-color:#d6d6d6;">'+base_tg_+'</p>')
-            $('.endfreeze').append('<p type="text" value='+endWeekId_+' class="form-control" readonly style="background-color:#d6d6d6;">'+endWeekId_+'</p>')
-        }
         })
     }
 
@@ -443,8 +443,16 @@ $(document).ready(function () {
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
             console.log(msg);
-            for(key in msg ){
-                $('.modal-body').append('<h5 class="sendpath" title="'+msg[key]+'" file_name="'+key+'"><a href="#"  style="cursor:pointer">'+key+'</a></5>');
+            if(msg.Status == "fail"){
+                $.alert({
+                    title: 'Error',
+                    content: 'Oops ! something went wrong, try again'
+                });
+            }
+            else {
+                for(key in msg ){
+                    $('.modal-body').append('<h5 class="sendpath" title="'+msg[key]+'" file_name="'+key+'"><a href="#"  style="cursor:pointer">'+key+'</a></5>');
+                }
             }
         })
     })
@@ -470,8 +478,8 @@ $(document).ready(function () {
         $.ajax(settings11).done(function (msg) {
             console.log(msg);
             if(msg.message == "fail"){
-                $.confirm({
-                    title: 'Alert',
+                $.alert({
+                    title: 'Error',
                     content: 'Oops ! something went wrong',
                     animation: 'scale',
                     closeAnimation: 'scale',
@@ -485,39 +493,39 @@ $(document).ready(function () {
                 });
             }
             else {
-            msg_obj = msg;
-            var bin = atob(msg_obj);
-            var ab = s2ab(bin); // from example above
-            var blob = new Blob([ab], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;' });
+                msg_obj = msg;
+                var bin = atob(msg_obj);
+                var ab = s2ab(bin); // from example above
+                var blob = new Blob([ab], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;' });
 
-            var link = document.createElement('a');
-            link.href = window.URL.createObjectURL(blob);
-            link.download = file_Name;
-            document.body.appendChild(link);
+                var link = document.createElement('a');
+                link.href = window.URL.createObjectURL(blob);
+                link.download = file_Name;
+                document.body.appendChild(link);
 
-            link.click();
+                link.click();
 
-            document.body.removeChild(link);
+                document.body.removeChild(link);
 
-            if(msg.message == "fail"){
-                $.confirm({
-                    title: 'Alert',
-                    content: 'File successfully upload',
-                    animation: 'scale',
-                    closeAnimation: 'scale',
-                    opacity: 0.5,
-                    buttons: {
-                        okay: {
-                            text: 'Okay',
-                            btnClass: 'btn-primary'
+                if(msg.message == "fail"){
+                    $.alert({
+                        title: 'Success',
+                        content: 'File successfully upload',
+                        animation: 'scale',
+                        closeAnimation: 'scale',
+                        opacity: 0.5,
+                        buttons: {
+                            okay: {
+                                text: 'Okay',
+                                btnClass: 'btn-primary'
+                            }
                         }
-                    }
-                });
+                    });
+                }
+                setTimeout(function(){
+                    location.reload();
+                }, 3000)
             }
-            setTimeout(function(){
-                location.reload();
-            }, 3000)
-        }
         })
     })
 

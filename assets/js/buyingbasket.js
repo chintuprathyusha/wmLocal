@@ -270,7 +270,7 @@ $( document ).ready(function() {
                         }
                     }
                     // if (msg.message == "fail") {
-                    //     $.confirm({
+                    //     $.alert({
                     //         title: 'Oops ! something went wrong',
                     //         // content: 'Oops ! something went wrong',
                     //         animation: 'scale',
@@ -1398,7 +1398,7 @@ $( document ).ready(function() {
                         $('.red_color').hide();
                         $('.texttodisplayspill').append('<h5 style="color:#000">Genre Level Budget Allocation Sheet is successfully uploaded</h5>')
                         $('.next_').prop('disabled', false)
-                        $.confirm({
+                        $.alert({
                             title: 'File succesfully uploaded',
                             animation: 'scale',
                             closeAnimation: 'scale',
@@ -1418,7 +1418,7 @@ $( document ).ready(function() {
                         $('.file-input').show();
                         $('.red_color').show();
                         $('.next_').prop('disabled', true)
-                        $.confirm({
+                        $.alert({
                             title: 'Oops ! Seems you are uploading an incorrect file',
                             // content: 'Oops ! something went wrong',
                             animation: 'scale',
@@ -1476,7 +1476,7 @@ $( document ).ready(function() {
                         $('.texttodisplayspill').append('<h5 style="color:#000">Genre Level Budget Allocation Sheet  successfully uploaded</h5>')
 
 
-                        $.confirm({
+                        $.({
                             title: 'File succesfully uploaded',
                             // content: 'Oops ! something went wrong',
                             animation: 'scale',
@@ -1496,7 +1496,7 @@ $( document ).ready(function() {
                         $('#upl-btn__').show();
                         $('.file-input').show();
                         $('.red_color').show();
-                        $.confirm({
+                        $.alert({
                             title: 'Oops ! Seems you are uploading an incorrect file',
                             // content: 'Oops ! something went wrong',
                             animation: 'scale',

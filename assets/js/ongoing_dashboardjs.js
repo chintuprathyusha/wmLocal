@@ -43,28 +43,36 @@ $("document").ready(function () {
 
             msg = JSON.parse(msg);
             console.log(msg);
+            if(msg.Status == "fail"){
+                $.alert({
+                    title: 'Error',
+                    content: 'Oops ! something went wrong, try again'
+                });
+            }
+            else {
+                data = msg.Client
+                recordss = msg.records
+                console.log(recordss);
+                displaytable(recordss);
 
-            data = msg.Client
-            recordss = msg.records
-            console.log(recordss);
-            displaytable(recordss);
-
-            $.each(data ,function(key,i){
-                $('#clientt').append('<option value='+key+'>'+key+'</option>')
-            })
-            var $dropdown = $('#clientt');
-            console.log($dropdown);
-            $dropdown.on('change', function() {
-                console.log($dropdown);
-                $('#brandd').empty();
-                // var a=data[$dropdown.val()];
-                var a=data[$.trim($dropdown[0].selectedOptions[0].text)];
-                $.each(a,function(j){
-                    console.log(a[j]);
-                    $('#brandd').append('<option value='+a[j]+'>'+a[j]+'</option>')
+                $.each(data ,function(key,i){
+                    $('#clientt').append('<option value='+key+'>'+key+'</option>')
                 })
-            });
-            $dropdown.trigger('change');
+                var $dropdown = $('#clientt');
+                console.log($dropdown);
+                $dropdown.on('change', function() {
+                    console.log($dropdown);
+                    $('#brandd').empty();
+                    // var a=data[$dropdown.val()];
+                    var a=data[$.trim($dropdown[0].selectedOptions[0].text)];
+                    $.each(a,function(j){
+                        console.log(a[j]);
+                        $('#brandd').append('<option value='+a[j]+'>'+a[j]+'</option>')
+                    })
+                });
+                $dropdown.trigger('change');
+
+            }
 
         })
     }
@@ -100,17 +108,32 @@ $("document").ready(function () {
                 };
                 $.ajax(settings11).done(function (msg) {
                     msg = JSON.parse(msg);
-                    console.log(msg);
-                    displaytable(msg);
+                    if(msg.Status == "fail"){
+                        $.alert({
+                            title: 'Error',
+                            content: 'Oops ! something went wrong, try again'
+                        });
+                    }
+                    else {
+                        displaytable(msg);
+                        console.log(msg);
+
+                    }
                 })
 
             }
             else {
-                swal("Please enter valid Dates")
+                $.alert({
+                    title: 'Error',
+                    content: 'Please enter the valid dates'
+                });
             }
         }
         else {
-            swal("please select anyone value for search")
+            $.alert({
+                title: 'Error',
+                content: 'please select anyone value for search'
+            });
         }
 
 
@@ -224,8 +247,19 @@ $("document").ready(function () {
                 $.ajax(settings11).done(function (msg) {
                     msg = JSON.parse(msg);
                     console.log(msg);
-                    swal("Success", "Updated succesfully!", "success");
-                    displaytable(msg);
+                    if(msg.Status == "fail"){
+                        $.alert({
+                            title: 'Error',
+                            content: 'Oops ! something went wrong, try again'
+                        });
+                    }
+                    else {
+                        $.alert({
+                            title: 'Success',
+                            content: 'Updated Succesfully'
+                        });
+                        displaytable(msg);
+                    }
                 })
             }
         });
@@ -265,9 +299,21 @@ $("document").ready(function () {
                 };
                 $.ajax(settings11).done(function (msg) {
                     msg = JSON.parse(msg);
-                    console.log(msg);
-                    swal("Success", "Updated succesfully!", "success");
-                    displaytable(msg);
+                    if(msg.Status == "fail"){
+                        $.alert({
+                            title: 'Error',
+                            content: 'Oops ! something went wrong, try again'
+                        });
+                    }
+                    else {
+                        console.log(msg);
+                        $.alert({
+                            title: 'Success',
+                            content: 'Updated Succesfully'
+                        });
+                        displaytable(msg);
+
+                    }
                 })
             }
         });
@@ -303,8 +349,13 @@ $("document").ready(function () {
             console.log(msg);
             console.log(filesData);
             console.log(jQuery.isEmptyObject(filesData));
-
-            if (jQuery.isEmptyObject(filesData)) {
+            if(filesData.Status="fail"){
+                $.alert({
+                    title: 'Error',
+                    content: 'Oops ! something went wrong, try again'
+                });
+            }
+            else if (jQuery.isEmptyObject(filesData)) {
                 $('.row_body').empty()
                 $('.row_body').append('<h5 class="sendpath" ><p>No files to Download</p></5>');
             }
@@ -322,6 +373,7 @@ $("document").ready(function () {
                     $('.row_body').append('<div class="col-sm-3"><div class="fileClick pointer" file_camid="'+global_campId+'" title="'+keys[i]+'"><span>'+keys[i]+'</span></div></div>');
                 }
             }
+
         })
 
     })
@@ -384,19 +436,29 @@ $("document").ready(function () {
             $.ajax(settings11).done(function (msg) {
                 result = result+'.xlsx'
                 console.log(msg);
-                // console.log(JSON.parse(msg))
-                msg_obj = msg
-                var blob = new Blob([s2ab(atob(encodeURI(msg_obj)))], {
-                    type: 'octet/stream'
-                });
+                if(msg.Status == "fail"){
+                    $.alert({
+                        title: 'Error',
+                        content: 'Oops ! something went wrong, try again'
+                    });
+                }else {
+                    // console.log(JSON.parse(msg))
+                    msg_obj = msg
+                    var blob = new Blob([s2ab(atob(encodeURI(msg_obj)))], {
+                        type: 'octet/stream'
+                    });
 
-                href = URL.createObjectURL(blob);
-                var a = document.createElement("a");
-                a.href = href;
-                a.download = result;
-                document.body.appendChild(a);
-                a.click();
-                success_notify(result+ " Excel sheet downloaded Successfully")
+                    href = URL.createObjectURL(blob);
+                    var a = document.createElement("a");
+                    a.href = href;
+                    a.download = result;
+                    document.body.appendChild(a);
+                    a.click();
+                    $.alert({
+                        title: 'Success',
+                        content: 'Excel sheet downloaded Successfully'
+                    });
+                }
                 // setInterval(function () {
                 //     location.reload();
                 // }, 1000);
@@ -419,25 +481,34 @@ $("document").ready(function () {
             };
             $.ajax(settings11).done(function (msg) {
                 console.log(msg);
-                result = result+'.zip'
-                // file_name = msg.file_name;
-                var bin = atob(msg);
-                var ab = s2ab(bin); // from example above
-                var blob = new Blob([ab], { type: 'octet/stream' });
+                if(msg.Status == "fail"){
+                    $.alert({
+                        title: 'Error',
+                        content: 'Oops ! something went wrong, try again'
+                    });
+                }
+                else {
+                    result = result+'.zip'
+                    // file_name = msg.file_name;
+                    var bin = atob(msg);
+                    var ab = s2ab(bin); // from example above
+                    var blob = new Blob([ab], { type: 'octet/stream' });
 
-                var link = document.createElement('a');
-                link.href = window.URL.createObjectURL(blob);
-                link.download = result
-                ;
-                // link.download = 'file_name';
+                    var link = document.createElement('a');
+                    link.href = window.URL.createObjectURL(blob);
+                    link.download = result
+                    ;
+                    // link.download = 'file_name';
 
-                document.body.appendChild(link);
+                    document.body.appendChild(link);
 
-                link.click();
+                    link.click();
 
-                resetSelect()
+                    resetSelect()
 
-                document.body.removeChild(link);
+                    document.body.removeChild(link);
+
+                }
             });
         }
     });
@@ -477,24 +548,33 @@ $("document").ready(function () {
         };
         $.ajax(settings11).done(function (msg) {
             console.log(msg);
+            if(msg.Status == "fail"){
+                $.alert({
+                    title: 'Error',
+                    content: 'Oops ! something went wrong, try again'
+                });
+            }
+            else {
+
+                // file_name = msg.file_name;
+                var bin = atob(msg);
+                var ab = s2ab(bin); // from example above
+                var blob = new Blob([ab], { type: 'octet/stream' });
+
+                var link = document.createElement('a');
+                link.href = window.URL.createObjectURL(blob);
+                link.download = result;
+                // link.download = 'file_name';
+
+                document.body.appendChild(link);
+
+                link.click();
+
+                resetSelect()
+
+                document.body.removeChild(link);
+            }
             result = result+'.zip'
-            // file_name = msg.file_name;
-            var bin = atob(msg);
-            var ab = s2ab(bin); // from example above
-            var blob = new Blob([ab], { type: 'octet/stream' });
-
-            var link = document.createElement('a');
-            link.href = window.URL.createObjectURL(blob);
-            link.download = result;
-            // link.download = 'file_name';
-
-            document.body.appendChild(link);
-
-            link.click();
-
-            resetSelect()
-
-            document.body.removeChild(link);
         });
     });
 
@@ -535,30 +615,41 @@ $("document").ready(function () {
         $.ajax(settings11).done(function (msg) {
             // msg = JSON.parse(msg);
             console.log(msg);
+            if(msg.Status == "fail"){
+                $.alert({
+                    title: 'Error',
+                    content: 'Oops ! something went wrong, try again'
+                });
+            }
+            else {
+                // console.log(JSON.parse(msg))
+                msg_obj = msg;
+                // file_name = msg.file_name;
+                var bin = atob(msg_obj);
+                var ab = s2ab(bin); // from example above
+                var blob = new Blob([ab], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;' });
 
-            // console.log(JSON.parse(msg))
-            msg_obj = msg;
-            // file_name = msg.file_name;
-            var bin = atob(msg_obj);
-            var ab = s2ab(bin); // from example above
-            var blob = new Blob([ab], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;' });
+                var link = document.createElement('a');
+                link.href = window.URL.createObjectURL(blob);
+                link.download = file_Name;
+                // link.download = 'file_name';
 
-            var link = document.createElement('a');
-            link.href = window.URL.createObjectURL(blob);
-            link.download = file_Name;
-            // link.download = 'file_name';
+                document.body.appendChild(link);
 
-            document.body.appendChild(link);
+                link.click();
 
-            link.click();
+                document.body.removeChild(link);
 
-            document.body.removeChild(link);
+                $.alert({
+                    title: 'Success',
+                    content: 'Uploaded succesfully'
+                });
 
-            swal('downloaded successfully');
+                setTimeout(function(){
+                    location.reload();
+                }, 3000)
 
-            setTimeout(function(){
-                location.reload();
-            }, 3000)
+            }
 
         })
     })

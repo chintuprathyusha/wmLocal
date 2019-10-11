@@ -21,10 +21,17 @@ $("body").on("click", ".logoutbtn", function () {
     $.ajax(settings11).done(function (msg) {
         msg = JSON.parse(msg);
         console.log(msg);
+
         if (msg == "logoutdone") {
             window.location.href="index.php";
             sessionStorage.clear();
             localStorage.clear();
+        }
+        else if(msg.Status == "fail"){
+            $.alert({
+                title: 'Error',
+                content: 'Oops ! something went wrong, try again'
+            });
         }
     })
 })
@@ -54,6 +61,12 @@ $("body").on("click", ".logutAD", function () {
         console.log(msg);
         if (msg == "logoutdone") {
             authContext.logOut();
+        }
+        else if(msg.Status == "fail"){
+            $.alert({
+                title: 'Error',
+                content: 'Oops ! something went wrong, try again'
+            });
         }
     })
 })

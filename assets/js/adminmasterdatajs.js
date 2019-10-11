@@ -27,6 +27,13 @@ $(document).ready(function(){
     };
     $.ajax(settings11).done(function (msg) {
         msg = JSON.parse(msg)
+        if(msg.Status == "fail"){
+            $.alert({
+                title: 'Error',
+                content: 'Oops ! something went wrong, try again'
+            });
+        }
+        else {
         console.log(msg);
         $('.loading').hide();
         masterstamp = msg.master_data;
@@ -52,7 +59,7 @@ $(document).ready(function(){
 
             }
         }
-
+    }
     });
 }
 
@@ -157,15 +164,23 @@ $("body").on("click", ".downloadall", function() {
     };
     $.ajax(settings11).done(function (msg) {
         console.log(msg);
-        var bin = atob(msg);
-        var ab = s2ab(bin);
-        var blob = new Blob([ab], { type: 'octet/stream' });
-        var link = document.createElement('a');
-        link.href = window.URL.createObjectURL(blob);
-        link.download = "results.zip";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        if(msg.Status == "fail"){
+            $.alert({
+                title: 'Error',
+                content: 'Oops ! something went wrong, try again'
+            });
+        }
+        else {
+            var bin = atob(msg);
+            var ab = s2ab(bin);
+            var blob = new Blob([ab], { type: 'octet/stream' });
+            var link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.download = "results.zip";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
     })
 })
 function s2ab(s) {
@@ -193,20 +208,37 @@ function s2ab(s) {
         };
         $.ajax(settings11).done(function (msg) {
             console.log(msg);
-            // msg = JSON.parse(msg);
-            console.log(msg);
             console.log(jQuery.isEmptyObject( JSON.parse(msg)));
             $('.loading').hide();
-            if (jQuery.isEmptyObject(JSON.parse(msg))) {
-                swal("Uploaded successfully")
+            //
+            // else {
+            //     swal("error in" +msg)
+            // }
+            if(msg.Status == "fail"){
+                $.alert({
+                    title: 'Error',
+                    content: 'Oops ! something went wrong, try again' +msg
+                });
             }
-            else {
-                swal("error in" +msg)
+            else if (jQuery.isEmptyObject(JSON.parse(msg))) {
+                    $.alert({
+                        title: 'Success',
+                        content: 'Uploaded Succesfully',
+                        animation: 'scale',
+                        closeAnimation: 'scale',
+                        opacity: 0.5,
+                        buttons: {
+                            okay: {
+                                text: 'Okay',
+                                btnClass: 'btn-primary'
+                            }
+                        }
+                    });
+                    $('#locationuploadbtn').prop('disabled', true);
+                    $('.masterdata_').hide();
+                    $('.masterdata_new').show();
+                    $('.masterdata_new').append('<h5>'+file_name_+'</h5>');
             }
-            $('#locationuploadbtn').prop('disabled', true);
-            $('.masterdata_').hide();
-            $('.masterdata_new').show();
-            $('.masterdata_new').append('<h5>'+file_name_+'</h5>');
         });
     })
 
@@ -297,10 +329,30 @@ function s2ab(s) {
         $.ajax(settings11).done(function (msg) {
                 $('.loading').hide();
             console.log(msg);
-            swal("Uploaded successfully");
-            $('#channelgenrebtn').prop('disabled', true);
-            $('#channelgenre').hide();
-            $('.channel_').append('<h5>'+file_name_+'</h5>')
+            if(msg.Status == "fail"){
+                $.alert({
+                    title: 'Error',
+                    content: 'Oops ! something went wrong, try again'
+                });
+            }
+            else {
+                $.alert({
+                    title: 'Success',
+                    content: 'Uploaded Succesfully',
+                    animation: 'scale',
+                    closeAnimation: 'scale',
+                    opacity: 0.5,
+                    buttons: {
+                        okay: {
+                            text: 'Okay',
+                            btnClass: 'btn-primary'
+                        }
+                    }
+                });
+                $('#channelgenrebtn').prop('disabled', true);
+                $('#channelgenre').hide();
+                $('.channel_').append('<h5>'+file_name_+'</h5>')
+            }
         });
     })
 

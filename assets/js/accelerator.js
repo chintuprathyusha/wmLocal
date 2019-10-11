@@ -58,18 +58,10 @@ $(document).ready(function(){
             setTimeout(function(){
                 // $('.loading').hide();
             }, 10000)
-            if (msg.message == "fail") {
-                $.confirm({
-                    title: 'Oops ! something went wrong, try again',
-                    animation: 'scale',
-                    closeAnimation: 'scale',
-                    opacity: 0.5,
-                    buttons: {
-                        okay: {
-                            text: 'Okay',
-                            btnClass: 'btn-primary'
-                        }
-                    }
+            if(msg.Status == "fail"){
+                $.alert({
+                    title: 'Error',
+                    content: 'Oops ! something went wrong, try again'
                 });
             }
             else {
@@ -180,9 +172,8 @@ barcData()
                 // $('.texttodisplay').append('<h5>'+file_name_+' is successfully uploaded</h5>')
                 $('.texttodisplay').append('<h5>Accelerator Output file successfully uploaded</h5>')
 
-                $.confirm({
+                $.alert({
                     title: 'File succesfully uploaded',
-                    // content: 'Oops ! something went wrong',
                     animation: 'scale',
                     closeAnimation: 'scale',
                     opacity: 0.5,
@@ -199,19 +190,12 @@ barcData()
                 $('.file-input').show();
                 $('.red_color').show();
                 $('.texttodisplay').hide();
-                $.confirm({
-                    title: 'Oops ! something went wrong, try again',
-                    // content: 'Oops ! something went wrong',
-                    animation: 'scale',
-                    closeAnimation: 'scale',
-                    opacity: 0.5,
-                    buttons: {
-                        okay: {
-                            text: 'Okay',
-                            btnClass: 'btn-primary'
-                        }
-                    }
-                });
+                if(msg.Status == "fail"){
+                    $.alert({
+                        title: 'Error',
+                        content: 'Oops ! something went wrong, try again'
+                    });
+                }
             }
 
         });

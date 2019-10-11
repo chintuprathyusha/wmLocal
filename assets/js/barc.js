@@ -34,10 +34,18 @@ $(document).ready(function () {
         };
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
-            console.log(msg);
-            campaign_id = msg.CampaignId;
-            version = msg.Version;
-            campaignName = msg.CampaignName;
+            if(msg.Status == "fail"){
+                $.alert({
+                    title: 'Error',
+                    content: 'Oops ! something went wrong, try again'
+                });
+            }
+            else {
+                console.log(msg);
+                campaign_id = msg.CampaignId;
+                version = msg.Version;
+                campaignName = msg.CampaignName;
+            }
         })
     }
     var file_name_;
@@ -298,59 +306,69 @@ $(document).ready(function () {
         };
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
+
             setTimeout(function(){
                 $('.loading').hide();
             }, 7000)
             console.log(msg);
-            $('.select2').show();
-            $(".campaign_markets").prop("disabled", true);
-            $('.Primary_Tg_dt').prop("disabled", true);
-            $('.base_tg').prop("disabled", true);
-            $('.End_Week_dt').prop("disabled", true);
-
-            var Base_Tg_dt = msg.Base_Tg_dt;
-            var Campaign_Market_dt = msg.Campaign_Market_dt;
-            Campaign_Market_dt = Object.values(Campaign_Market_dt);
-            Campaign_Market_dt = Campaign_Market_dt.sort()
-            console.log(Campaign_Market_dt);
-            var End_Week_dt = msg.End_Week_dt;
-            var Primary_Tg_dt= msg.Primary_Tg_dt;
-
-            for(key in Base_Tg_dt){
-                console.log();
-                sel = ''
-                if (base_tg_ == Base_Tg_dt[key] ) {
-                    sel='selected="selected"'
-                }
-                $(".base_tg").append('<option '+sel+' value='+Base_Tg_dt[key]+' class="get_Base_Tg_dt-'+count+'" key='+key+'>'+Base_Tg_dt[key]+'</option>');
-                count++
+            if(msg.Status == "fail"){
+                $.alert({
+                    title: 'Error',
+                    content: 'Oops ! something went wrong, try again'
+                });
             }
-            console.log(campaignMarkets);
-            for(key in Campaign_Market_dt){
-                sel = ''
-                if (campaignMarkets.indexOf(Campaign_Market_dt[key]) > -1) {
-                    sel='selected="selected"'
-                }
-                $(".campaign_markets").append('<option '+sel+' value='+Campaign_Market_dt[key]+' class="get_Campaign_Market_dt-'+count+'" key='+key+'>'+Campaign_Market_dt[key]+'</option>');
-                count++
-            }
+            else {
+                $('.select2').show();
+                $(".campaign_markets").prop("disabled", true);
+                $('.Primary_Tg_dt').prop("disabled", true);
+                $('.base_tg').prop("disabled", true);
+                $('.End_Week_dt').prop("disabled", true);
 
-            for(key in Primary_Tg_dt){
-                sel = ''
-                if (primaryTGTd_ == Primary_Tg_dt[key] ) {
-                    sel='selected="selected"'
-                }
-                $(".Primary_Tg_dt").append('<option '+sel+' value='+Primary_Tg_dt[key]+' class="get_Primary_Tg_dt-'+count+'" key='+key+'>'+Primary_Tg_dt[key]+'</option>');
-                count++
-            }
+                var Base_Tg_dt = msg.Base_Tg_dt;
+                var Campaign_Market_dt = msg.Campaign_Market_dt;
+                Campaign_Market_dt = Object.values(Campaign_Market_dt);
+                Campaign_Market_dt = Campaign_Market_dt.sort()
+                console.log(Campaign_Market_dt);
+                var End_Week_dt = msg.End_Week_dt;
+                var Primary_Tg_dt= msg.Primary_Tg_dt;
 
-            for(key in End_Week_dt){
-                sel = ''
-                if (endWeekId_ == End_Week_dt[key] ) {
-                    sel='selected="selected"'
+                for(key in Base_Tg_dt){
+                    console.log();
+                    sel = ''
+                    if (base_tg_ == Base_Tg_dt[key] ) {
+                        sel='selected="selected"'
+                    }
+                    $(".base_tg").append('<option '+sel+' value='+Base_Tg_dt[key]+' class="get_Base_Tg_dt-'+count+'" key='+key+'>'+Base_Tg_dt[key]+'</option>');
+                    count++
                 }
-                $(".End_Week_dt").append('<option '+sel+' value='+End_Week_dt[key]+' class="get_End_Week_dt-'+count+'" key='+key+'>'+End_Week_dt[key]+'</option>');
-                count++
+                console.log(campaignMarkets);
+                for(key in Campaign_Market_dt){
+                    sel = ''
+                    if (campaignMarkets.indexOf(Campaign_Market_dt[key]) > -1) {
+                        sel='selected="selected"'
+                    }
+                    $(".campaign_markets").append('<option '+sel+' value='+Campaign_Market_dt[key]+' class="get_Campaign_Market_dt-'+count+'" key='+key+'>'+Campaign_Market_dt[key]+'</option>');
+                    count++
+                }
+
+                for(key in Primary_Tg_dt){
+                    sel = ''
+                    if (primaryTGTd_ == Primary_Tg_dt[key] ) {
+                        sel='selected="selected"'
+                    }
+                    $(".Primary_Tg_dt").append('<option '+sel+' value='+Primary_Tg_dt[key]+' class="get_Primary_Tg_dt-'+count+'" key='+key+'>'+Primary_Tg_dt[key]+'</option>');
+                    count++
+                }
+
+                for(key in End_Week_dt){
+                    sel = ''
+                    if (endWeekId_ == End_Week_dt[key] ) {
+                        sel='selected="selected"'
+                    }
+                    $(".End_Week_dt").append('<option '+sel+' value='+End_Week_dt[key]+' class="get_End_Week_dt-'+count+'" key='+key+'>'+End_Week_dt[key]+'</option>');
+                    count++
+                }
+
             }
 
         })
@@ -362,7 +380,7 @@ $(document).ready(function () {
         $(this).attr('disabled', 'disabled')
         $('.edit_barc').removeAttr('disabled')
         $.alert({
-            title: "Alert",
+            title: "Success",
             content: "Modified successfully"
         });
         $('select').prop('disabled', true);

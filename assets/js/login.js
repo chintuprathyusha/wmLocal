@@ -79,9 +79,11 @@ $(document).ready(function () {
                 }
             }
             else {
-                swal("Invalid username/password")
+                $.alert({
+                    title: 'Error',
+                    content: 'Invalid username/password'
+                });
             }
-
 
             $.ajax({
                 url: 'assets/backgrounds/session_create.php',

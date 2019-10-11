@@ -19,23 +19,31 @@ $(document).ready(function () {
         };
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
-            console.log(msg);
-            allemails = msg.emails
-            allclients = msg.clients
-            $(".allemailsvalues").html('')
-            $(".allemailsvalues").append("<option value='0'>Select Email</option>")
 
-            for (var i = 0; i < allemails.length; i++) {
-                $('.allemailsvalues').append('<option value='+allemails[i]+'>'+allemails[i]+'</option>')
+            if(msg.Status == "fail"){
+                $.alert({
+                    title: 'Error',
+                    content: 'Oops ! something went wrong, try again'
+                });
             }
-            $(".allclientnames").html('')
-            $(".allclientnames").append("<option value='0'>---Select ClientName--</option>")
+            else {
+                console.log(msg);
+                allemails = msg.emails
+                allclients = msg.clients
+                $(".allemailsvalues").html('')
+                $(".allemailsvalues").append("<option value='0'>Select Email</option>")
 
-            $.each(allclients ,function(key,val){
-                $('.allclientnames').append('<option class="clientoptionclass" keyy='+key+' value='+val+'>'+val+'</option>')
-            })
+                for (var i = 0; i < allemails.length; i++) {
+                    $('.allemailsvalues').append('<option value='+allemails[i]+'>'+allemails[i]+'</option>')
+                }
+                $(".allclientnames").html('')
+                $(".allclientnames").append("<option value='0'>---Select ClientName--</option>")
 
+                $.each(allclients ,function(key,val){
+                    $('.allclientnames').append('<option class="clientoptionclass" keyy='+key+' value='+val+'>'+val+'</option>')
+                })
 
+            }
 
         })
     }
@@ -73,10 +81,18 @@ $(document).ready(function () {
         };
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
-            console.log(msg);
-            if (msg = "updated") {
-                swal('updated succesfully');
-                setInterval(function(){  location.reload(); }, 1500);
+            if(msg.Status == "fail"){
+                $.alert({
+                    title: 'Error',
+                    content: 'Oops ! something went wrong, try again'
+                });
+            }
+            else {
+                console.log(msg);
+                if (msg = "updated") {
+                    swal('updated succesfully');
+                    setInterval(function(){  location.reload(); }, 1500);
+                }
             }
 
         })
@@ -105,32 +121,37 @@ $(document).ready(function () {
         };
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
-            debugger;
-            console.log(msg);
+            if(msg.Status == "fail"){
+                $.alert({
+                    title: 'Error',
+                    content: 'Oops ! something went wrong, try again'
+                });
+            }
+            else {
+                console.log(msg);
 
-            data = msg;
-            // console.log(data);
+                data = msg;
+                // console.log(data);
 
-            $.each(data ,function(key,i){
-                $('#select').append('<option value='+key+'>'+key+'</option>')
-            })
-
-            var $dropdown = $('#select');
-            console.log($dropdown);
-            $dropdown.on('change', function() {
-                console.log($dropdown);
-                $('#select0').empty();
-                // var a=data[$dropdown.val()];
-                var a=data[$.trim($dropdown[0].selectedOptions[0].text)];
-                $.each(a,function(j){
-                    console.log(a[j]);
-                    $('#select0').append('<option value='+a[j]+'>'+a[j]+'</option>')
+                $.each(data ,function(key,i){
+                    $('#select').append('<option value='+key+'>'+key+'</option>')
                 })
-            });
 
-            $dropdown.trigger('change');
+                var $dropdown = $('#select');
+                console.log($dropdown);
+                $dropdown.on('change', function() {
+                    console.log($dropdown);
+                    $('#select0').empty();
+                    // var a=data[$dropdown.val()];
+                    var a=data[$.trim($dropdown[0].selectedOptions[0].text)];
+                    $.each(a,function(j){
+                        console.log(a[j]);
+                        $('#select0').append('<option value='+a[j]+'>'+a[j]+'</option>')
+                    })
+                });
 
-
+                $dropdown.trigger('change');
+            }
         })
     }
 
@@ -168,9 +189,20 @@ $(document).ready(function () {
         };
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
-            console.log(msg);
-            swal("Removed succesfully!!..")
-            setInterval(function(){  location.reload(); }, 1500);
+            if(msg.Status == "fail"){
+                $.alert({
+                    title: 'Error',
+                    content: 'Oops ! something went wrong, try again'
+                });
+            }
+            else {
+                console.log(msg);
+                $.alert({
+                    title: 'Success',
+                    content: 'Removed Succesfully'
+                });
+                setInterval(function(){  location.reload(); }, 1500);
+            }
 
         })
 
