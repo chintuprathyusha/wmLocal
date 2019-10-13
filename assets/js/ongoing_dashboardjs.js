@@ -43,10 +43,22 @@ $("document").ready(function () {
 
             msg = JSON.parse(msg);
             console.log(msg);
-            if(msg.Status == "fail"){
+            if(msg.message == "fail"){
                 $.alert({
                     title: 'Error',
                     content: 'Oops ! something went wrong, try again'
+                    // animation: 'scale',
+                    // closeAnimation: 'scale',
+                    // opacity: 0.5,
+                    // buttons: {
+                    //     okay: {
+                    //         text: 'Okay',
+                    //         btnClass: 'btn-primary',
+                    //         action: function(){
+                    //             window.location.href="error.php"
+                    //         }
+                    //     }
+                    // }
                 });
             }
             else {
@@ -108,10 +120,22 @@ $("document").ready(function () {
                 };
                 $.ajax(settings11).done(function (msg) {
                     msg = JSON.parse(msg);
-                    if(msg.Status == "fail"){
+                    if(msg.message == "fail"){
                         $.alert({
                             title: 'Error',
                             content: 'Oops ! something went wrong, try again'
+                            // animation: 'scale',
+                            // closeAnimation: 'scale',
+                            // opacity: 0.5,
+                            // buttons: {
+                            //     okay: {
+                            //         text: 'Okay',
+                            //         btnClass: 'btn-primary',
+                            //         action: function(){
+                            //             window.location.href="error.php"
+                            //         }
+                            //     }
+                            // }
                         });
                     }
                     else {
@@ -153,7 +177,7 @@ $("document").ready(function () {
             block = msg[i];
             row += '<tr>';
             row += '<td>'+(i+1)+'</td>'
-            row += '<td class="nr"><a key="'+i+'" style="text-decoration:underline; cursor:pointer;" plainidattr="'+block.PlanId+'" id="camp_idhyperlink_">'+block.CampaignId+'</a></td>';
+            row += '<td class="nr"><a key="'+i+'" style="text-decoration:underline; cursor:pointer;" plainidattr="'+block.PlanId+'" id="camp_idhyperlink_"  status= "'+block.PlanStatus+'">'+block.CampaignId+'</a></td>';
             row += '<td>'+block.BrandName+' </td>';
             row += '<td>'+block.ClientName+'</td>';
             row += '<td>'+block.PlannerName+'</td>';
@@ -208,6 +232,17 @@ $("document").ready(function () {
         sessionStorage.setItem('create_plan_id', plainiddd);
         // alert(plainiddd)
         window.location.href = 'planner_createnewplan.php?planid='+plainiddd;
+
+        newstatus = $(this).attr('status');
+        if (newstatus == 1) {
+            window.location.href = 'planner_createnewplan.php?planid='+plainiddd;
+        }
+        else if (newstatus == 2) {
+            window.location.href = 'buyingbasket.php?planid='+plainiddd;
+        }
+        else {
+            window.location.href = 'barc.php?planid='+plainiddd;
+        }
     });
 
 
@@ -247,10 +282,22 @@ $("document").ready(function () {
                 $.ajax(settings11).done(function (msg) {
                     msg = JSON.parse(msg);
                     console.log(msg);
-                    if(msg.Status == "fail"){
+                    if(msg.message == "fail"){
                         $.alert({
                             title: 'Error',
                             content: 'Oops ! something went wrong, try again'
+                            // animation: 'scale',
+                            // closeAnimation: 'scale',
+                            // opacity: 0.5,
+                            // buttons: {
+                            //     okay: {
+                            //         text: 'Okay',
+                            //         btnClass: 'btn-primary',
+                            //         action: function(){
+                            //             window.location.href="error.php"
+                            //         }
+                            //     }
+                            // }
                         });
                     }
                     else {
@@ -299,10 +346,22 @@ $("document").ready(function () {
                 };
                 $.ajax(settings11).done(function (msg) {
                     msg = JSON.parse(msg);
-                    if(msg.Status == "fail"){
+                    if(msg.message == "fail"){
                         $.alert({
                             title: 'Error',
                             content: 'Oops ! something went wrong, try again'
+                            // animation: 'scale',
+                            // closeAnimation: 'scale',
+                            // opacity: 0.5,
+                            // buttons: {
+                            //     okay: {
+                            //         text: 'Okay',
+                            //         btnClass: 'btn-primary',
+                            //         action: function(){
+                            //             window.location.href="error.php"
+                            //         }
+                            //     }
+                            // }
                         });
                     }
                     else {
@@ -353,6 +412,18 @@ $("document").ready(function () {
                 $.alert({
                     title: 'Error',
                     content: 'Oops ! something went wrong, try again'
+                    // animation: 'scale',
+                    // closeAnimation: 'scale',
+                    // opacity: 0.5,
+                    // buttons: {
+                    //     okay: {
+                    //         text: 'Okay',
+                    //         btnClass: 'btn-primary',
+                    //         action: function(){
+                    //             window.location.href="error.php"
+                    //         }
+                    //     }
+                    // }
                 });
             }
             else if (jQuery.isEmptyObject(filesData)) {
@@ -436,7 +507,7 @@ $("document").ready(function () {
             $.ajax(settings11).done(function (msg) {
                 result = result+'.xlsx'
                 console.log(msg);
-                if(msg.Status == "fail"){
+                if(msg.message == "fail"){
                     $.alert({
                         title: 'Error',
                         content: 'Oops ! something went wrong, try again'
@@ -481,7 +552,7 @@ $("document").ready(function () {
             };
             $.ajax(settings11).done(function (msg) {
                 console.log(msg);
-                if(msg.Status == "fail"){
+                if(msg.message == "fail"){
                     $.alert({
                         title: 'Error',
                         content: 'Oops ! something went wrong, try again'
@@ -548,7 +619,7 @@ $("document").ready(function () {
         };
         $.ajax(settings11).done(function (msg) {
             console.log(msg);
-            if(msg.Status == "fail"){
+            if(msg.message == "fail"){
                 $.alert({
                     title: 'Error',
                     content: 'Oops ! something went wrong, try again'
@@ -615,7 +686,7 @@ $("document").ready(function () {
         $.ajax(settings11).done(function (msg) {
             // msg = JSON.parse(msg);
             console.log(msg);
-            if(msg.Status == "fail"){
+            if(msg.message == "fail"){
                 $.alert({
                     title: 'Error',
                     content: 'Oops ! something went wrong, try again'

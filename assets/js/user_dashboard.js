@@ -42,10 +42,22 @@ $(document).ready(function () {
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
             console.log(msg);
-            if(msg.Status == "fail"){
+            if(msg.message == "fail"){
                 $.alert({
                     title: 'Error',
                     content: 'Oops ! something went wrong, try again'
+                    // animation: 'scale',
+                    // closeAnimation: 'scale',
+                    // opacity: 0.5,
+                    // buttons: {
+                    //     okay: {
+                    //         text: 'Okay',
+                    //         btnClass: 'btn-primary',
+                    //         action: function(){
+                    //             window.location.href="error.php"
+                    //         }
+                    //     }
+                    // }
                 });
             }
             else {
@@ -84,10 +96,22 @@ $(document).ready(function () {
                 $.ajax(settings11).done(function (msg) {
                     msg = JSON.parse(msg);
                     console.log(msg);
-                    if(msg.Status == "fail"){
+                    if(msg.message == "fail"){
                         $.alert({
                             title: 'Error',
                             content: 'Oops ! something went wrong, try again'
+                            // animation: 'scale',
+                            // closeAnimation: 'scale',
+                            // opacity: 0.5,
+                            // buttons: {
+                            //     okay: {
+                            //         text: 'Okay',
+                            //         btnClass: 'btn-primary',
+                            //         action: function(){
+                            //             window.location.href="error.php"
+                            //         }
+                            //     }
+                            // }
                         });
                     }
                     else {
@@ -234,6 +258,18 @@ $(document).ready(function () {
                 $.alert({
                     title: 'Error',
                     content: 'Oops ! something went wrong, try again'
+                    // animation: 'scale',
+                    // closeAnimation: 'scale',
+                    // opacity: 0.5,
+                    // buttons: {
+                    //     okay: {
+                    //         text: 'Okay',
+                    //         btnClass: 'btn-primary',
+                    //         action: function(){
+                    //             window.location.href="error.php"
+                    //         }
+                    //     }
+                    // }
                 });
             }
             else {
@@ -273,6 +309,18 @@ $(document).ready(function () {
                 $.alert({
                     title: 'Error',
                     content: 'Oops ! something went wrong, try again'
+                    // animation: 'scale',
+                    // closeAnimation: 'scale',
+                    // opacity: 0.5,
+                    // buttons: {
+                    //     okay: {
+                    //         text: 'Okay',
+                    //         btnClass: 'btn-primary',
+                    //         action: function(){
+                    //             window.location.href="error.php"
+                    //         }
+                    //     }
+                    // }
                 });
             }
             else {
@@ -316,6 +364,18 @@ $(document).ready(function () {
                 $.alert({
                     title: 'Error',
                     content: 'Oops ! something went wrong, try again'
+                    // animation: 'scale',
+                    // closeAnimation: 'scale',
+                    // opacity: 0.5,
+                    // buttons: {
+                    //     okay: {
+                    //         text: 'Okay',
+                    //         btnClass: 'btn-primary',
+                    //         action: function(){
+                    //             window.location.href="error.php"
+                    //         }
+                    //     }
+                    // }
                 });
             }
             else {
@@ -404,9 +464,29 @@ $(document).ready(function () {
                 "data": form
             };
             $.ajax(settings11).done(function (msg) {
-                result = result+'.xlsx'
+
                 console.log(msg);
-                // console.log(JSON.parse(msg))
+
+                if(msg.message == "fail"){
+                    $.alert({
+                        title: 'Error',
+                        content: 'Oops ! something went wrong, try again'
+                        // animation: 'scale',
+                        // closeAnimation: 'scale',
+                        // opacity: 0.5,
+                        // buttons: {
+                        //     okay: {
+                        //         text: 'Okay',
+                        //         btnClass: 'btn-primary',
+                        //         action: function(){
+                        //             window.location.href="error.php"
+                        //         }
+                        //     }
+                        // }
+                    });
+                }
+                else{
+                result = result+'.xlsx'
                 msg_obj = msg
                 $('.loading').hide()
                 var blob = new Blob([s2ab(atob(encodeURI(msg_obj)))], {
@@ -423,7 +503,7 @@ $(document).ready(function () {
                 // setInterval(function () {
                 //     location.reload();
                 // }, 1000);
-
+             }
             })
         }
         else{
@@ -442,6 +522,25 @@ $(document).ready(function () {
             };
             $.ajax(settings11).done(function (msg) {
                 console.log(msg);
+                if(msg.message == "fail"){
+                    $.alert({
+                        title: 'Error',
+                        content: 'Oops ! something went wrong, try again'
+                        // animation: 'scale',
+                        // closeAnimation: 'scale',
+                        // opacity: 0.5,
+                        // buttons: {
+                        //     okay: {
+                        //         text: 'Okay',
+                        //         btnClass: 'btn-primary',
+                        //         action: function(){
+                        //             window.location.href="error.php"
+                        //         }
+                        //     }
+                        // }
+                    });
+                }
+                else{
                 result = result+'.zip'
                 // file_name = msg.file_name;
                 var bin = atob(msg);
@@ -450,8 +549,7 @@ $(document).ready(function () {
 
                 var link = document.createElement('a');
                 link.href = window.URL.createObjectURL(blob);
-                link.download = result
-                ;
+                link.download = result;
                 // link.download = 'file_name';
 
                 document.body.appendChild(link);
@@ -461,6 +559,7 @@ $(document).ready(function () {
                 resetSelect()
 
                 document.body.removeChild(link);
+                }
             });
         }
     });
@@ -500,8 +599,27 @@ $(document).ready(function () {
             "data": form
         };
         $.ajax(settings11).done(function (msg) {
-            console.log(msg);
             $('.loading').hide()
+            console.log(msg);
+            if(msg.message == "fail"){
+                $.alert({
+                    title: 'Error',
+                    content: 'Oops ! something went wrong, try again'
+                    // animation: 'scale',
+                    // closeAnimation: 'scale',
+                    // opacity: 0.5,
+                    // buttons: {
+                    //     okay: {
+                    //         text: 'Okay',
+                    //         btnClass: 'btn-primary',
+                    //         action: function(){
+                    //             window.location.href="error.php"
+                    //         }
+                    //     }
+                    // }
+                });
+            }
+            else{
             result = result+'.zip'
             // file_name = msg.file_name;
             var bin = atob(msg);
@@ -520,6 +638,7 @@ $(document).ready(function () {
             resetSelect()
 
             document.body.removeChild(link);
+            }
         });
     });
 
@@ -560,7 +679,25 @@ $(document).ready(function () {
         $.ajax(settings11).done(function (msg) {
             // msg = JSON.parse(msg);
             console.log(msg);
-
+            if(msg.message == "fail"){
+                $.alert({
+                    title: 'Error',
+                    content: 'Oops ! something went wrong, try again'
+                    // animation: 'scale',
+                    // closeAnimation: 'scale',
+                    // opacity: 0.5,
+                    // buttons: {
+                    //     okay: {
+                    //         text: 'Okay',
+                    //         btnClass: 'btn-primary',
+                    //         action: function(){
+                    //             window.location.href="error.php"
+                    //         }
+                    //     }
+                    // }
+                });
+            }
+            else{
             // console.log(JSON.parse(msg))
             msg_obj = msg;
             // file_name = msg.file_name;
@@ -584,7 +721,7 @@ $(document).ready(function () {
             setTimeout(function(){
                 location.reload();
             }, 3000)
-
+            }
         })
     })
 
@@ -679,10 +816,22 @@ $(document).ready(function () {
                 $.ajax(settings11).done(function (msg) {
                     msg = JSON.parse(msg);
                     console.log(msg);
-                    if(msg.Status == "fail"){
+                    if(msg.message == "fail"){
                         $.alert({
                             title: 'Error',
                             content: 'Oops ! something went wrong, try again'
+                            // animation: 'scale',
+                            // closeAnimation: 'scale',
+                            // opacity: 0.5,
+                            // buttons: {
+                            //     okay: {
+                            //         text: 'Okay',
+                            //         btnClass: 'btn-primary',
+                            //         action: function(){
+                            //             window.location.href="error.php"
+                            //         }
+                            //     }
+                            // }
                         });
                     }
                     else {

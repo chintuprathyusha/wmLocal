@@ -31,7 +31,7 @@ function pageonloadhit() {
         msg = JSON.parse(msg);
         console.log(msg);
         $(".loading").hide();
-        if(msg.Status == "fail"){
+        if(msg.message == "fail"){
             $.alert({
                 title: 'Error',
                 content: 'Oops ! something went wrong, try again'
@@ -68,6 +68,16 @@ function pageonloadhit() {
 $("body").on("click", "#camp_idhyperlink_", function(){
     plainiddd =  $(this).attr('plainidattr');
     sessionStorage.setItem('create_plan_id', plainiddd);
+    newstatus = $(this).attr('status');
+    if (newstatus == 1) {
+        window.location.href = 'planner_createnewplan.php?planid='+plainiddd;
+    }
+    else if (newstatus == 2) {
+        window.location.href = 'buyingbasket.php?planid='+plainiddd;
+    }
+    else {
+        window.location.href = 'barc.php?planid='+plainiddd;
+    }
 });
 
 
@@ -105,10 +115,22 @@ $("body").on("click", ".gobtn", function(){
             $.ajax(settings11).done(function (msg) {
                 msg = JSON.parse(msg);
                 console.log(msg);
-                if(msg.Status == "fail"){
+                if(msg.message == "fail"){
                     $.alert({
                         title: 'Error',
                         content: 'Oops ! something went wrong, try again'
+                        // animation: 'scale',
+                        // closeAnimation: 'scale',
+                        // opacity: 0.5,
+                        // buttons: {
+                        //     okay: {
+                        //         text: 'Okay',
+                        //         btnClass: 'btn-primary',
+                        //         action: function(){
+                        //             window.location.href="error.php"
+                        //         }
+                        //     }
+                        // }
                     });
                 }
                 else {
@@ -180,19 +202,18 @@ $("body").on("click", ".replanmodal", function(){
     $('#replanmodall').modal();
 })
 
-$('body').on('click', '.statusCheck', function(){
-    var redirectStatus = $(this).attr('status');
-    if (redirectStatus == "1") {
-        window.location.href="planner_createnewplan.php"
-    }
-    else if(redirectStatus == "2"){
-        window.location.href="buyingbasket.php"
-    }
-    else {
-        window.location.href="barc.php"
-    }
-
-})
+// $('body').on('click', '.statusCheck', function(){
+//     var redirectStatus = $(this).attr('status');
+//     if (redirectStatus == "1") {
+//         window.location.href="planner_createnewplan.php"
+//     }
+//     else if(redirectStatus == "2"){
+//         window.location.href="buyingbasket.php"
+//     }
+//     else {
+//         window.location.href="barc.php"
+//     }
+// })
 function dataTableMultiSort() {
 
     setTimeout(function () {
@@ -242,6 +263,18 @@ $("body").on("click", ".buyingbasketbtn", function(){
             $.alert({
                 title: 'Error',
                 content: 'Oops ! something went wrong, try again'
+                // animation: 'scale',
+                // closeAnimation: 'scale',
+                // opacity: 0.5,
+                // buttons: {
+                //     okay: {
+                //         text: 'Okay',
+                //         btnClass: 'btn-primary'
+                //         action: function(){
+                //             window.location.href="error.php"
+                //         }
+                //     }
+                // }
             });
         }
         else {
@@ -286,6 +319,18 @@ $("body").on("click", ".acceleratorbtn", function(){
             $.alert({
                 title: 'Error',
                 content: 'Oops ! something went wrong, try again'
+                // animation: 'scale',
+                // closeAnimation: 'scale',
+                // opacity: 0.5,
+                // buttons: {
+                //     okay: {
+                //         text: 'Okay',
+                //         btnClass: 'btn-primary'
+                //         action: function(){
+                //             window.location.href="error.php"
+                //         }
+                //     }
+                // }
             });
         }
         else {
@@ -331,6 +376,18 @@ $("body").on("click", ".Prioritizebtn", function(){
             $.alert({
                 title: 'Error',
                 content: 'Oops ! something went wrong, try again'
+                // animation: 'scale',
+                // closeAnimation: 'scale',
+                // opacity: 0.5,
+                // buttons: {
+                //     okay: {
+                //         text: 'Okay',
+                //         btnClass: 'btn-primary'
+                //         action: function(){
+                //             window.location.href="error.php"
+                //         }
+                //     }
+                // }
             });
         }
         else {
@@ -471,7 +528,7 @@ $('body').on('click', '.downloadAll', function(){
         $.ajax(settings11).done(function (msg) {
             result = result+'.xlsx'
             console.log(msg);
-            if(msg.Status == "fail"){
+            if(msg.message == "fail"){
                 $.alert({
                     title: 'Error',
                     content: 'Oops ! something went wrong, try again'
@@ -516,7 +573,7 @@ $('body').on('click', '.downloadAll', function(){
         };
         $.ajax(settings11).done(function (msg) {
             console.log(msg);
-            if(msg.Status == "fail"){
+            if(msg.message == "fail"){
                 $.alert({
                     title: 'Error',
                     content: 'Oops ! something went wrong, try again'
@@ -648,7 +705,7 @@ $("body").on("click", ".sendpath", function(){
     $.ajax(settings11).done(function (msg) {
         // msg = JSON.parse(msg);
         console.log(msg);
-        if(msg.Status == "fail"){
+        if(msg.message == "fail"){
             $.alert({
                 title: 'Error',
                 content: 'Oops ! something went wrong, try again'
