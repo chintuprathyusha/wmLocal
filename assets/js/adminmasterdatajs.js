@@ -27,25 +27,25 @@ $(document).ready(function(){
         };
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg)
-            if(msg.message == "fail"){
-                $.alert({
-                    title: 'Error',
-                    content: 'Oops ! something went wrong, try again',
-                    animation: 'scale',
-                    closeAnimation: 'scale',
-                    opacity: 0.5,
-                    buttons: {
-                        okay: {
-                            text: 'Okay',
-                            btnClass: 'btn-primary',
-                            action: function(){
-                                window.location.href="error.php"
-                            }
-                        }
-                    }
-                });
-            }
-            else {
+            // if(msg.message == "fail"){
+            //     $.alert({
+            //         title: 'Error',
+            //         content: 'Oops ! something went wrong, try again',
+            //         animation: 'scale',
+            //         closeAnimation: 'scale',
+            //         opacity: 0.5,
+            //         buttons: {
+            //             okay: {
+            //                 text: 'Okay',
+            //                 btnClass: 'btn-primary',
+            //                 action: function(){
+            //                     window.location.href="error.php"
+            //                 }
+            //             }
+            //         }
+            //     });
+            // }
+            // else {
                 console.log(msg);
                 $('.loading').hide();
                 masterstamp = msg.master_data;
@@ -71,7 +71,7 @@ $(document).ready(function(){
 
                     }
                 }
-            }
+            // }
         });
     }
 
