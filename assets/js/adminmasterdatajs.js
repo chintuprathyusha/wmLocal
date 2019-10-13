@@ -1,5 +1,5 @@
 $(document).ready(function(){
-// $('.loading').show();
+    // $('.loading').show();
     $('.texttodisplay').hide();
     var plan_id = sessionStorage.getItem('create_plan_id');
     var user_id = sessionStorage.getItem('userid');
@@ -12,56 +12,68 @@ $(document).ready(function(){
     var channelstamp;
     function onLoad(){
         sendObj ={}
-    // console.log(sendObj);
-    var form = new FormData();
-    form.append("file", JSON.stringify(sendObj));
-    var settings11 = {
-        "async": true,
-        "crossDomain": true,
-        "url":aws_url+'master_mapping_files_time_stamps',
-        "method": "POST",
-        "processData": false,
-        "contentType": false,
-        "mimeType": "multipart/form-data",
-        "data": form
-    };
-    $.ajax(settings11).done(function (msg) {
-        msg = JSON.parse(msg)
-        if(msg.Status == "fail"){
-            $.alert({
-                title: 'Error',
-                content: 'Oops ! something went wrong, try again'
-            });
-        }
-        else {
-        console.log(msg);
-        $('.loading').hide();
-        masterstamp = msg.master_data;
-        channelstamp = msg.ChannelGenreMappingSheet;
-        if (jQuery.isEmptyObject(channelstamp) == true) {
-            $('.channelstamp').show();
-            $('.channelstamp').append('<p>Channel Genre Mapping Sheet not uploaded</p>')
-        }
-        else {
-            $('.channelstamp').show();
-            for( key in channelstamp ){
-                $('.channelstamp').append('<p>'+key+' - '+channelstamp[key]+'</p>')
+        // console.log(sendObj);
+        var form = new FormData();
+        form.append("file", JSON.stringify(sendObj));
+        var settings11 = {
+            "async": true,
+            "crossDomain": true,
+            "url":aws_url+'master_mapping_files_time_stamps',
+            "method": "POST",
+            "processData": false,
+            "contentType": false,
+            "mimeType": "multipart/form-data",
+            "data": form
+        };
+        $.ajax(settings11).done(function (msg) {
+            msg = JSON.parse(msg)
+            if(msg.message == "fail"){
+                $.alert({
+                    title: 'Error',
+                    content: 'Oops ! something went wrong, try again',
+                    animation: 'scale',
+                    closeAnimation: 'scale',
+                    opacity: 0.5,
+                    buttons: {
+                        okay: {
+                            text: 'Okay',
+                            btnClass: 'btn-primary',
+                            action: function(){
+                                window.location.href="error.php"
+                            }
+                        }
+                    }
+                });
             }
-        }
-        if (jQuery.isEmptyObject(masterstamp) == true) {
-            $('.masterdatastamp').show();
-            $('.masterdatastamp').append('<p>Master data file Sheet not uploaded</p>')
-        }
-        else {
-            $('.masterdatastamp').show();
-            for( key in masterstamp ){
-                $('.masterdatastamp').append('<p>'+key+' - '+masterstamp[key]+'</p>')
+            else {
+                console.log(msg);
+                $('.loading').hide();
+                masterstamp = msg.master_data;
+                channelstamp = msg.ChannelGenreMappingSheet;
+                if (jQuery.isEmptyObject(channelstamp) == true) {
+                    $('.channelstamp').show();
+                    $('.channelstamp').append('<p>Channel Genre Mapping Sheet not uploaded</p>')
+                }
+                else {
+                    $('.channelstamp').show();
+                    for( key in channelstamp ){
+                        $('.channelstamp').append('<p>'+key+' - '+channelstamp[key]+'</p>')
+                    }
+                }
+                if (jQuery.isEmptyObject(masterstamp) == true) {
+                    $('.masterdatastamp').show();
+                    $('.masterdatastamp').append('<p>Master data file Sheet not uploaded</p>')
+                }
+                else {
+                    $('.masterdatastamp').show();
+                    for( key in masterstamp ){
+                        $('.masterdatastamp').append('<p>'+key+' - '+masterstamp[key]+'</p>')
 
+                    }
+                }
             }
-        }
+        });
     }
-    });
-}
 
 
     var file_name_;
@@ -149,46 +161,58 @@ $(document).ready(function(){
             //console.log(error);
         });
     }
-$("body").on("click", ".downloadall", function() {
-    var form = new FormData();
-    form.append("file", JSON.stringify(fileobj));
-    var settings11 = {
-        "async": true,
-        "crossDomain": true,
-        "url":aws_url+'download_master_mapping_files',
-        "method": "POST",
-        "processData": false,
-        "contentType": false,
-        "mimeType": "multipart/form-data",
-        "data": form
-    };
-    $.ajax(settings11).done(function (msg) {
-        console.log(msg);
-        if(msg.Status == "fail"){
-            $.alert({
-                title: 'Error',
-                content: 'Oops ! something went wrong, try again'
-            });
-        }
-        else {
-            var bin = atob(msg);
-            var ab = s2ab(bin);
-            var blob = new Blob([ab], { type: 'octet/stream' });
-            var link = document.createElement('a');
-            link.href = window.URL.createObjectURL(blob);
-            link.download = "results.zip";
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
+    $("body").on("click", ".downloadall", function() {
+        var form = new FormData();
+        form.append("file", JSON.stringify(fileobj));
+        var settings11 = {
+            "async": true,
+            "crossDomain": true,
+            "url":aws_url+'download_master_mapping_files',
+            "method": "POST",
+            "processData": false,
+            "contentType": false,
+            "mimeType": "multipart/form-data",
+            "data": form
+        };
+        $.ajax(settings11).done(function (msg) {
+            console.log(msg);
+            if(msg.message == "fail"){
+                $.alert({
+                    title: 'Error',
+                    content: 'Oops ! something went wrong, try again',
+                    animation: 'scale',
+                    closeAnimation: 'scale',
+                    opacity: 0.5,
+                    buttons: {
+                        okay: {
+                            text: 'Okay',
+                            btnClass: 'btn-primary',
+                            action: function(){
+                                window.location.href="error.php"
+                            }
+                        }
+                    }
+                });
+            }
+            else {
+                var bin = atob(msg);
+                var ab = s2ab(bin);
+                var blob = new Blob([ab], { type: 'octet/stream' });
+                var link = document.createElement('a');
+                link.href = window.URL.createObjectURL(blob);
+                link.download = "results.zip";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+        })
     })
-})
-function s2ab(s) {
-    var buf = new ArrayBuffer(s.length);
-    var view = new Uint8Array(buf);
-    for (var i=0; i!=s.length; ++i) view[i] = s.charCodeAt(i) & 0xFF;
-    return buf;
-}
+    function s2ab(s) {
+        var buf = new ArrayBuffer(s.length);
+        var view = new Uint8Array(buf);
+        for (var i=0; i!=s.length; ++i) view[i] = s.charCodeAt(i) & 0xFF;
+        return buf;
+    }
 
     $("body").on("click", "#locationuploadbtn", function(){
         $('.loading').show();
@@ -214,30 +238,42 @@ function s2ab(s) {
             // else {
             //     swal("error in" +msg)
             // }
-            if(msg.Status == "fail"){
+            if(msg.message == "fail"){
                 $.alert({
                     title: 'Error',
-                    content: 'Oops ! something went wrong, try again' +msg
+                    content: 'Oops ! something went wrong, try again',
+                    animation: 'scale',
+                    closeAnimation: 'scale',
+                    opacity: 0.5,
+                    buttons: {
+                        okay: {
+                            text: 'Okay',
+                            btnClass: 'btn-primary',
+                            action: function(){
+                                window.location.href="error.php"
+                            }
+                        }
+                    }
                 });
             }
             else if (jQuery.isEmptyObject(JSON.parse(msg))) {
-                    $.alert({
-                        title: 'Success',
-                        content: 'Uploaded Succesfully',
-                        animation: 'scale',
-                        closeAnimation: 'scale',
-                        opacity: 0.5,
-                        buttons: {
-                            okay: {
-                                text: 'Okay',
-                                btnClass: 'btn-primary'
-                            }
+                $.alert({
+                    title: 'Success',
+                    content: 'Uploaded Succesfully',
+                    animation: 'scale',
+                    closeAnimation: 'scale',
+                    opacity: 0.5,
+                    buttons: {
+                        okay: {
+                            text: 'Okay',
+                            btnClass: 'btn-primary'
                         }
-                    });
-                    $('#locationuploadbtn').prop('disabled', true);
-                    $('.masterdata_').hide();
-                    $('.masterdata_new').show();
-                    $('.masterdata_new').append('<h5>'+file_name_+'</h5>');
+                    }
+                });
+                $('#locationuploadbtn').prop('disabled', true);
+                $('.masterdata_').hide();
+                $('.masterdata_new').show();
+                $('.masterdata_new').append('<h5>'+file_name_+'</h5>');
             }
         });
     })
@@ -311,7 +347,7 @@ function s2ab(s) {
     }
 
     $("body").on("click", "#channelgenrebtn", function(){
-            $('.loading').show();
+        $('.loading').show();
         // //debuggers
         console.log(fileobj_new);
         var form = new FormData();
@@ -327,7 +363,7 @@ function s2ab(s) {
             "data": form
         };
         $.ajax(settings11).done(function (msg) {
-                $('.loading').hide();
+            $('.loading').hide();
             console.log(msg);
             if(msg.Status == "fail"){
                 $.alert({

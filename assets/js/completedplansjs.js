@@ -118,19 +118,19 @@ $("body").on("click", ".gobtn", function(){
                 if(msg.message == "fail"){
                     $.alert({
                         title: 'Error',
-                        content: 'Oops ! something went wrong, try again'
-                        // animation: 'scale',
-                        // closeAnimation: 'scale',
-                        // opacity: 0.5,
-                        // buttons: {
-                        //     okay: {
-                        //         text: 'Okay',
-                        //         btnClass: 'btn-primary',
-                        //         action: function(){
-                        //             window.location.href="error.php"
-                        //         }
-                        //     }
-                        // }
+                        content: 'Oops ! something went wrong, try again',
+                        animation: 'scale',
+                        closeAnimation: 'scale',
+                        opacity: 0.5,
+                        buttons: {
+                            okay: {
+                                text: 'Okay',
+                                btnClass: 'btn-primary',
+                                action: function(){
+                                    window.location.href="error.php"
+                                }
+                            }
+                        }
                     });
                 }
                 else {
@@ -202,18 +202,19 @@ $("body").on("click", ".replanmodal", function(){
     $('#replanmodall').modal();
 })
 
-// $('body').on('click', '.statusCheck', function(){
-//     var redirectStatus = $(this).attr('status');
-//     if (redirectStatus == "1") {
-//         window.location.href="planner_createnewplan.php"
-//     }
-//     else if(redirectStatus == "2"){
-//         window.location.href="buyingbasket.php"
-//     }
-//     else {
-//         window.location.href="barc.php"
-//     }
-// })
+$('body').on('click', '.statusCheck', function(){
+    var redirectStatus = $(this).attr('status');
+    if (redirectStatus == "1") {
+        window.location.href="planner_createnewplan.php"
+    }
+    else if(redirectStatus == "2"){
+        window.location.href="buyingbasket.php"
+    }
+    else {
+        window.location.href="barc.php"
+    }
+
+})
 function dataTableMultiSort() {
 
     setTimeout(function () {
@@ -262,19 +263,19 @@ $("body").on("click", ".buyingbasketbtn", function(){
         if(msg.Status == "fail"){
             $.alert({
                 title: 'Error',
-                content: 'Oops ! something went wrong, try again'
-                // animation: 'scale',
-                // closeAnimation: 'scale',
-                // opacity: 0.5,
-                // buttons: {
-                //     okay: {
-                //         text: 'Okay',
-                //         btnClass: 'btn-primary'
-                //         action: function(){
-                //             window.location.href="error.php"
-                //         }
-                //     }
-                // }
+                content: 'Oops ! something went wrong, try again',
+                animation: 'scale',
+                closeAnimation: 'scale',
+                opacity: 0.5,
+                buttons: {
+                    okay: {
+                        text: 'Okay',
+                        btnClass: 'btn-primary',
+                        action: function(){
+                            window.location.href="error.php"
+                        }
+                    }
+                }
             });
         }
         else {
@@ -318,19 +319,19 @@ $("body").on("click", ".acceleratorbtn", function(){
         if(msg.Status == "fail"){
             $.alert({
                 title: 'Error',
-                content: 'Oops ! something went wrong, try again'
-                // animation: 'scale',
-                // closeAnimation: 'scale',
-                // opacity: 0.5,
-                // buttons: {
-                //     okay: {
-                //         text: 'Okay',
-                //         btnClass: 'btn-primary'
-                //         action: function(){
-                //             window.location.href="error.php"
-                //         }
-                //     }
-                // }
+                content: 'Oops ! something went wrong, try again',
+                animation: 'scale',
+                closeAnimation: 'scale',
+                opacity: 0.5,
+                buttons: {
+                    okay: {
+                        text: 'Okay',
+                        btnClass: 'btn-primary',
+                        action: function(){
+                            window.location.href="error.php"
+                        }
+                    }
+                }
             });
         }
         else {
@@ -375,19 +376,19 @@ $("body").on("click", ".Prioritizebtn", function(){
         if(msg.Status == "fail"){
             $.alert({
                 title: 'Error',
-                content: 'Oops ! something went wrong, try again'
-                // animation: 'scale',
-                // closeAnimation: 'scale',
-                // opacity: 0.5,
-                // buttons: {
-                //     okay: {
-                //         text: 'Okay',
-                //         btnClass: 'btn-primary'
-                //         action: function(){
-                //             window.location.href="error.php"
-                //         }
-                //     }
-                // }
+                content: 'Oops ! something went wrong, try again',
+                animation: 'scale',
+                closeAnimation: 'scale',
+                opacity: 0.5,
+                buttons: {
+                    okay: {
+                        text: 'Okay',
+                        btnClass: 'btn-primary',
+                        action: function(){
+                            window.location.href="error.php"
+                        }
+                    }
+                }
             });
         }
         else {

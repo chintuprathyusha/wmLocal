@@ -20,10 +20,22 @@ $(document).ready(function () {
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
 
-            if(msg.Status == "fail"){
+            if(msg.message == "fail"){
                 $.alert({
                     title: 'Error',
-                    content: 'Oops ! something went wrong, try again'
+                    content: 'Oops ! something went wrong, try again',
+                    animation: 'scale',
+                    closeAnimation: 'scale',
+                    opacity: 0.5,
+                    buttons: {
+                        okay: {
+                            text: 'Okay',
+                            btnClass: 'btn-primary',
+                            action: function(){
+                                window.location.href="error.php"
+                            }
+                        }
+                    }
                 });
             }
             else {
@@ -81,17 +93,41 @@ $(document).ready(function () {
         };
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
-            if(msg.Status == "fail"){
+            console.log(msg)
+            if(msg.message == "fail"){
                 $.alert({
                     title: 'Error',
-                    content: 'Oops ! something went wrong, try again'
+                    content: 'Oops ! something went wrong, try again',
+                    animation: 'scale',
+                    closeAnimation: 'scale',
+                    opacity: 0.5,
+                    buttons: {
+                        okay: {
+                            text: 'Okay',
+                            btnClass: 'btn-primary',
+                            action: function(){
+                                window.location.href="error.php"
+                            }
+                        }
+                    }
                 });
             }
             else {
                 console.log(msg);
-                if (msg = "updated") {
-                    swal('updated succesfully');
+                if (msg == "updated") {
+                    $.alert({
+                        title: 'Success',
+                        content: 'Updated Successfully'
+
+                    });
                     setInterval(function(){  location.reload(); }, 1500);
+                }
+                else if(msg == "notupdated"){
+                    $.alert({
+                        title: 'Alert',
+                        content: 'Please try again'
+
+                    });
                 }
             }
 
@@ -121,10 +157,22 @@ $(document).ready(function () {
         };
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
-            if(msg.Status == "fail"){
+            if(msg.message == "fail"){
                 $.alert({
                     title: 'Error',
-                    content: 'Oops ! something went wrong, try again'
+                    content: 'Oops ! something went wrong, try again',
+                    animation: 'scale',
+                    closeAnimation: 'scale',
+                    opacity: 0.5,
+                    buttons: {
+                        okay: {
+                            text: 'Okay',
+                            btnClass: 'btn-primary',
+                            action: function(){
+                                window.location.href="error.php"
+                            }
+                        }
+                    }
                 });
             }
             else {
@@ -189,10 +237,22 @@ $(document).ready(function () {
         };
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
-            if(msg.Status == "fail"){
+            if(msg.message == "fail"){
                 $.alert({
                     title: 'Error',
-                    content: 'Oops ! something went wrong, try again'
+                    content: 'Oops ! something went wrong, try again',
+                    animation: 'scale',
+                    closeAnimation: 'scale',
+                    opacity: 0.5,
+                    buttons: {
+                        okay: {
+                            text: 'Okay',
+                            btnClass: 'btn-primary',
+                            action: function(){
+                                window.location.href="error.php"
+                            }
+                        }
+                    }
                 });
             }
             else {

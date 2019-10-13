@@ -13,7 +13,6 @@ $( document ).ready(function() {
     $(".cprp_main").css("background-color", "#F07144");
     $('.radio_class').hide();
     $('.changediv').hide();
-    debugger
     var planid = $.urlParam('planid');
     var userid = sessionStorage.getItem('userid');
     $('.spillovertexttodisplay').hide()
@@ -109,7 +108,6 @@ $( document ).ready(function() {
 
 
             function getData(){
-                debugger
                 sendObj = {}
                 sendObj.planid = planid;
                 console.log(sendObj);
@@ -269,21 +267,27 @@ $( document ).ready(function() {
                             }
                         }
                     }
-                    // if (msg.message == "fail") {
-                    //     $.alert({
-                    //         title: 'Oops ! something went wrong',
-                    //         // content: 'Oops ! something went wrong',
-                    //         animation: 'scale',
-                    //         closeAnimation: 'scale',
-                    //         opacity: 0.5,
-                    //         buttons: {
-                    //             okay: {
-                    //                 text: 'Okay',
-                    //                 btnClass: 'btn-primary'
-                    //             }
-                    //         }
-                    //     });
-                    // }
+                    if (msg.message == "fail") {
+                        $.alert({
+                            title: 'Error',
+                            content: 'Oops ! something went wrong',
+                            animation: 'scale',
+                            closeAnimation: 'scale',
+                            opacity: 0.5,
+                            buttons: {
+                                okay: {
+                                    text: 'Okay',
+                                    btnClass: 'btn-primary',
+                                    action: function(){
+                                        window.location.href="error.php"
+                                    }
+                                }
+                            }
+                        });
+                        $('.buying_basket').hide();
+                        $('.backclass').hide();
+                        $('.next_').hide();
+                    }
                     else {
                         console.log(msg.BuyingBasketFilePath);
                         if (msg.BuyingBasketFilePath=='' || msg.BuyingBasketFilePath== null) {
@@ -898,7 +902,7 @@ $( document ).ready(function() {
                         console.log(msg);
                         $('.loading').hide();
 
-                        if (msg.Status == "Fail") {
+                        if (msg.message == "fail") {
                             $.alert({
                                 title: 'Error',
                                 content: 'Oops ! something went wrong, try again',
@@ -1078,10 +1082,22 @@ $( document ).ready(function() {
                         msg = JSON.parse(msg);
                         console.log(msg);
                         $('.loading').hide();
-                        if(msg.Status == "Fail"){
+                        if(msg.message == "fail"){
                             $.alert({
                                 title: 'Error',
-                                content: 'Oops ! something went wrong, try again'
+                                content: 'Oops ! something went wrong, try again',
+                                animation: 'scale',
+                                closeAnimation: 'scale',
+                                opacity: 0.5,
+                                buttons: {
+                                    okay: {
+                                        text: 'Okay',
+                                        btnClass: 'btn-primary',
+                                        action: function(){
+                                            window.location.href="error.php"
+                                        }
+                                    }
+                                }
                             });
                         }
                         else {
@@ -1257,7 +1273,16 @@ $( document ).ready(function() {
                         $('.file-input').show();
                         $('.red_color').show();
                         $.alert({
-                            title: 'Oops ! Seems you are uploading an incorrect file'
+                            title: 'Oops ! Seems you are uploading an incorrect file',
+                            animation: 'scale',
+                            closeAnimation: 'scale',
+                            opacity: 0.5,
+                            buttons: {
+                                okay: {
+                                    text: 'Okay',
+                                    btnClass: 'btn-primary'
+                                }
+                            }
                         });
 
                     }
@@ -1476,7 +1501,7 @@ $( document ).ready(function() {
                         $('.texttodisplayspill').append('<h5 style="color:#000">Genre Level Budget Allocation Sheet  successfully uploaded</h5>')
 
 
-                        $.({
+                        $.alert({
                             title: 'File succesfully uploaded',
                             // content: 'Oops ! something went wrong',
                             animation: 'scale',

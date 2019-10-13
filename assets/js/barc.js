@@ -34,10 +34,22 @@ $(document).ready(function () {
         };
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
-            if(msg.Status == "fail"){
+            if(msg.message == "fail"){
                 $.alert({
                     title: 'Error',
-                    content: 'Oops ! something went wrong, try again'
+                    content: 'Oops ! something went wrong, try again',
+                    animation: 'scale',
+                    closeAnimation: 'scale',
+                    opacity: 0.5,
+                    buttons: {
+                        okay: {
+                            text: 'Okay',
+                            btnClass: 'btn-primary',
+                            action: function(){
+                                window.location.href="error.php"
+                            }
+                        }
+                    }
                 });
             }
             else {
@@ -167,17 +179,16 @@ $(document).ready(function () {
 
                 $.alert({
                     title: 'Error',
-                    Content: 'Oops ! something went wrong, try again'
-                    //
-                    // animation: 'scale',
-                    // closeAnimation: 'scale',
-                    // opacity: 0.5,
-                    // buttons: {
-                    //     okay: {
-                    //         text: 'Okay',
-                    //         btnClass: 'btn-primary'
-                    //     }
-                    // }
+                    Content: 'Oops ! something went wrong, try again',
+                    animation: 'scale',
+                    closeAnimation: 'scale',
+                    opacity: 0.5,
+                    buttons: {
+                        okay: {
+                            text: 'Okay',
+                            btnClass: 'btn-primary'
+                        }
+                    }
                 });
 
             }
@@ -232,16 +243,19 @@ $(document).ready(function () {
             if (msg.message == "fail") {
                 $.alert({
                     title: 'Error',
-                    content: 'Oops ! something went wrong, try again'
-                    // animation: 'scale',
-                    // closeAnimation: 'scale',
-                    // opacity: 0.5,
-                    // buttons: {
-                    //     okay: {
-                    //         text: 'Okay',
-                    //         btnClass: 'btn-primary'
-                    //     }
-                    // }
+                    content: 'Oops ! something went wrong, try again',
+                    animation: 'scale',
+                    closeAnimation: 'scale',
+                    opacity: 0.5,
+                    buttons: {
+                        okay: {
+                            text: 'Okay',
+                            btnClass: 'btn-primary',
+                            action: function(){
+                                window.location.href="error.php"
+                            }
+                        }
+                    }
                 });
 
             }
@@ -311,10 +325,22 @@ $(document).ready(function () {
                 $('.loading').hide();
             }, 7000)
             console.log(msg);
-            if(msg.Status == "fail"){
+            if(msg.message == "fail"){
                 $.alert({
                     title: 'Error',
-                    content: 'Oops ! something went wrong, try again'
+                    content: 'Oops ! something went wrong, try again',
+                    animation: 'scale',
+                    closeAnimation: 'scale',
+                    opacity: 0.5,
+                    buttons: {
+                        okay: {
+                            text: 'Okay',
+                            btnClass: 'btn-primary',
+                            action: function(){
+                                window.location.href="error.php"
+                            }
+                        }
+                    }
                 });
             }
             else {
@@ -422,9 +448,7 @@ $(document).ready(function () {
         };
         $.ajax(settings11).done(function (msg) {
             console.log(msg);
-
             $('.loading').hide();
-            debugger;
             if (msg == "updated") {
                 $.alert({
                     title: 'Success',
@@ -439,7 +463,19 @@ $(document).ready(function () {
             else {
                 $.alert({
                     title: 'Error',
-                    content: 'Oops ! something went wrong, try again'
+                    content: 'Oops ! something went wrong, try again',
+                    animation: 'scale',
+                    closeAnimation: 'scale',
+                    opacity: 0.5,
+                    buttons: {
+                        okay: {
+                            text: 'Okay',
+                            btnClass: 'btn-primary',
+                            action: function(){
+                                window.location.href="error.php"
+                            }
+                        }
+                    }
                 });
             }
         })

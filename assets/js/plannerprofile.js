@@ -102,7 +102,7 @@ $(document).ready(function () {
                             text: 'Okay',
                             btnClass: 'btn-primary',
                             action: function () {
-                                window.location.href="userprofile.php"
+                                window.location.href="error.php"
                             }
                         }
                     }
@@ -180,7 +180,7 @@ $(document).ready(function () {
                             text: 'Okay',
                             btnClass: 'btn-primary',
                             action: function () {
-                                window.location.href="userprofile.php"
+                                window.location.href="error.php"
                             }
                         }
                     }
@@ -239,7 +239,10 @@ $(document).ready(function () {
                     buttons: {
                         okay: {
                             text: 'Okay',
-                            btnClass: 'btn-primary'
+                            btnClass: 'btn-primary',
+                            action: function(){
+                                window.location.href="error.php"
+                            }
                         }
                     }
                 });
@@ -311,7 +314,19 @@ $(document).ready(function () {
                 if (msg.message=="fail") {
                     $.alert({
                         title: 'Alert',
-                        content: 'Oops ! something went wrong'
+                        content: 'Oops ! something went wrong',
+                        animation: 'scale',
+                        closeAnimation: 'scale',
+                        opacity: 0.5,
+                        buttons: {
+                            okay: {
+                                text: 'Okay',
+                                btnClass: 'btn-primary',
+                                action: function(){
+                                    window.location.href="error.php"
+                                }
+                            }
+                        }
                     });
                 }
                 else {
@@ -381,7 +396,19 @@ $(document).ready(function () {
                     if (msg.message=="fail") {
                         $.alert({
                             title: 'Alert',
-                            content: 'Oops ! something went wrong'
+                            content: 'Oops ! something went wrong',
+                            animation: 'scale',
+                            closeAnimation: 'scale',
+                            opacity: 0.5,
+                            buttons: {
+                                okay: {
+                                    text: 'Okay',
+                                    btnClass: 'btn-primary',
+                                    action: function(){
+                                        window.location.href="error.php"
+                                    }
+                                }
+                            }
                         });
                     }
                     else {
@@ -448,14 +475,16 @@ $(document).ready(function () {
                         if (msg.message=="fail") {
                             $.alert({
                                 title: 'Alert',
-                                content: 'Oops ! something went wrong',
-                                animation: 'scale',
+                                content: 'Oops ! something went wrong',animation: 'scale',
                                 closeAnimation: 'scale',
                                 opacity: 0.5,
                                 buttons: {
                                     okay: {
                                         text: 'Okay',
-                                        btnClass: 'btn-primary'
+                                        btnClass: 'btn-primary',
+                                        action: function(){
+                                            window.location.href="error.php"
+                                        }
                                     }
                                 }
                             });
@@ -517,7 +546,10 @@ $(document).ready(function () {
                                     buttons: {
                                         okay: {
                                             text: 'Okay',
-                                            btnClass: 'btn-primary'
+                                            btnClass: 'btn-primary',
+                                            action: function(){
+                                                window.location.href="error.php"
+                                            }
                                         }
                                     }
                                 });
@@ -560,7 +592,10 @@ $(document).ready(function () {
                                     buttons: {
                                         okay: {
                                             text: 'Okay',
-                                            btnClass: 'btn-primary'
+                                            btnClass: 'btn-primary',
+                                            action: function(){
+                                                window.location.href="error.php"
+                                            }
                                         }
                                     }
                                 });
@@ -600,7 +635,10 @@ $(document).ready(function () {
                                                 buttons: {
                                                     okay: {
                                                         text: 'Okay',
-                                                        btnClass: 'btn-primary'
+                                                        btnClass: 'btn-primary',
+                                                        action: function(){
+                                                            window.location.href="error.php"
+                                                        }
                                                     }
                                                 }
                                             });
@@ -684,7 +722,10 @@ $(document).ready(function () {
                                                     buttons: {
                                                         okay: {
                                                             text: 'Okay',
-                                                            btnClass: 'btn-primary'
+                                                            btnClass: 'btn-primary',
+                                                            action: function(){
+                                                                window.location.href="error.php"
+                                                            }
                                                         }
                                                     }
                                                 });

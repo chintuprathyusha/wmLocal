@@ -26,10 +26,23 @@ $(document).ready(function(){
         };
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
-            console.log(msg);
-            $('.loading').hide();
-            campaign_id = msg.CampaignId;
-            version = msg.Version;
+            if(msg.message == "fail"){
+                $.alert({
+                    title: 'Error',
+                    content: 'Oops ! something went wrong, try again',
+                    buttons: {
+                        action: function(){
+                            window.location.href="error.php"
+                        }
+                    }
+                });
+            }
+            else {
+                console.log(msg);
+                $('.loading').hide();
+                campaign_id = msg.CampaignId;
+                version = msg.Version;
+            }
         })
     }
 
@@ -58,10 +71,22 @@ $(document).ready(function(){
             setTimeout(function(){
                 // $('.loading').hide();
             }, 10000)
-            if(msg.Status == "fail"){
+            if(msg.message == "fail"){
                 $.alert({
                     title: 'Error',
-                    content: 'Oops ! something went wrong, try again'
+                    content: 'Oops ! something went wrong, try again',
+                    animation: 'scale',
+                    closeAnimation: 'scale',
+                    opacity: 0.5,
+                    buttons: {
+                        okay: {
+                            text: 'Okay',
+                            btnClass: 'btn-primary',
+                            action: function(){
+                                window.location.href="error.php"
+                            }
+                        }
+                    }
                 });
             }
             else {
@@ -79,7 +104,7 @@ $(document).ready(function(){
         })
     }
 
-barcData()
+    barcData()
 
     var file_name_;
     var main_output;
@@ -190,10 +215,10 @@ barcData()
                 $('.file-input').show();
                 $('.red_color').show();
                 $('.texttodisplay').hide();
-                if(msg.Status == "fail"){
+                if(msg.message == "fail"){
                     $.alert({
                         title: 'Error',
-                        content: 'Oops ! something went wrong, try again'
+                        content: 'Oops ! Seems you are uploading an incorrect file, please try again'
                     });
                 }
             }
