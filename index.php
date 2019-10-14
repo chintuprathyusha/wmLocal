@@ -86,7 +86,7 @@ session_start();
 		<img src="assets/images/loading.gif" alt="">
 	</div>
 	<!-- /page content -->
-
+	<script src="assets/js/common.js" charset="utf-8"></script>
 	<script type="text/javascript">
 		$(".loading").hide();
 	// #1: Set up ADAL
@@ -130,7 +130,7 @@ session_start();
 							console.log(xhr.responseText);
 							var response_fromAD = xhr.responseText
 							console.log(response_fromAD);
-							currentdate = new Date().toLocaleString();
+							currentdate = generateDateTime();
 							sendObj = {};
 							sendObj.responsefromad = response_fromAD;
 							sendObj.currentdate = currentdate;
