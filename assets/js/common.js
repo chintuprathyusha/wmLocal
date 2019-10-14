@@ -89,7 +89,7 @@ function generateDateTime() {
     minutes = datetime.getMinutes().toString().length > 1 ? datetime.getMinutes() : '0'+datetime.getMinutes()
     seconds = datetime.getSeconds().toString().length > 1 ? datetime.getSeconds() : '0'+datetime.getSeconds()
 
-    return month + '/' + date + '/' + year + ', ' + hour +':' + minutes + ':' + seconds + ' ' + ampm
+    // return month + '/' + date + '/' + year + ', ' + hour +':' + minutes + ':' + seconds + ' ' + ampm
 
     return toString(date + '/' + month + '/' + year + ', ' + hour +':' + minutes + ':' + seconds + ' ' + ampm)
 
