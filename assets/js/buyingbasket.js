@@ -116,7 +116,7 @@ $( document ).ready(function() {
                 var settings11 = {
                     "async": true,
                     "crossDomain": true,
-                    "url": aws_url+'buying_basket_freeze',
+                    "url": aws_url+'buying_basket_freeze_1',
                     "method": "POST",
                     "processData": false,
                     "contentType": false,
