@@ -56,9 +56,7 @@ $(document).ready(function(){
                 }
                 else {
                     $('.channelstamp').show();
-                    for( key in channelstamp ){
-                        $('.channelstamp').append('<p>'+key+' - '+channelstamp[key]+'</p>')
-                    }
+                        $('.channelstamp').append('<ul><li>'+channelstamp+'</ul></li>')
                 }
                 if (jQuery.isEmptyObject(masterstamp) == true) {
                     $('.masterdatastamp').show();
@@ -66,10 +64,8 @@ $(document).ready(function(){
                 }
                 else {
                     $('.masterdatastamp').show();
-                    for( key in masterstamp ){
-                        $('.masterdatastamp').append('<p>'+key+' - '+masterstamp[key]+'</p>')
+                        $('.masterdatastamp').append('<ul><li>'+masterstamp+'</ul></li>')
 
-                    }
                 }
             // }
         });

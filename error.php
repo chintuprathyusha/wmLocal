@@ -105,6 +105,11 @@ body {
 }
 
 </style>
+
+
+<?php include 'assets/includes/common_scripts.php';?>
+
+<script src="assets/js/error.js"></script>
 <body>
 
 	<div id="notfound">
@@ -113,7 +118,7 @@ body {
 				<h1>4<span>0</span>4</h1>
 			</div>
 			<p>Server is down, please try again</p>
-			<a href="userprofile.php">Home page</a>
+			<a href="userprofile.php" class="gobackbtn">Go Back</a>
 		</div>
 	</div>
 

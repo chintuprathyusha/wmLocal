@@ -159,8 +159,11 @@ $(document).ready(function () {
     })
 
 
+    var completeArray;
+    var incompleteArray;
 
     function displaytable(msg) {
+
         $(".loading").hide();
         if (dataTable___ != undefined) {
             dataTable___.clear();
@@ -185,6 +188,7 @@ $(document).ready(function () {
                 $(".displayincompletedplans").html(ap1);
 
                 dataTableMultiSort()
+
 
             }
             else {
