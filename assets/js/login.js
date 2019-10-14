@@ -1,11 +1,11 @@
 $(document).ready(function () {
     $("body").on("click", ".login_btn", function () {
-        debugger;
-        currentdate = new Date().toLocaleString();
+        currentdate = generateDateTime();
         username = $('.useridclass').val();
         password = $('.passwordclass').val();
 
-        console.log(username+"...."+password);
+        console.log(username+"...."+password+"-------------"+currentdate);
+        debugger
         login(username, password, currentdate)
     })
 

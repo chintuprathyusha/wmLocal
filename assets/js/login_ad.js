@@ -40,7 +40,7 @@ if (authContext.isCallback(window.location.hash)) {
                         console.log(xhr.responseText);
                         var response_fromAD = xhr.responseText
                         console.log(response_fromAD);
-                        currentdate = new Date().toLocaleString();
+                        currentdate = generateDateTime();
                         sendObj = {};
                         sendObj.responsefromad = response_fromAD;
                         sendObj.currentdate = currentdate;
