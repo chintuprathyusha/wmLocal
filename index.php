@@ -134,6 +134,7 @@ session_start();
 							sendObj = {};
 							sendObj.responsefromad = response_fromAD;
 							sendObj.currentdate = currentdate;
+							debugger
 							console.log(sendObj);
 							var form = new FormData();
 							form.append("file", JSON.stringify(sendObj));
