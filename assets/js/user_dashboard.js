@@ -254,7 +254,7 @@ $(document).ready(function () {
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
             console.log(msg);
-            if(msg.Status == "fail"){
+            if(msg.message == "fail"){
                 $.alert({
                     title: 'Error',
                     content: 'Oops ! something went wrong, try again',
@@ -305,7 +305,7 @@ $(document).ready(function () {
         };
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
-            if(msg.Status == "fail"){
+            if(msg.message == "fail"){
                 $.alert({
                     title: 'Error',
                     content: 'Oops ! something went wrong, try again',
@@ -360,7 +360,7 @@ $(document).ready(function () {
         };
         $.ajax(settings11).done(function (msg) {
 
-            if(msg.Status == "fail"){
+            if(msg.message == "fail"){
                 $.alert({
                     title: 'Error',
                     content: 'Oops ! something went wrong, try again',

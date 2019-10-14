@@ -260,7 +260,7 @@ $("body").on("click", ".buyingbasketbtn", function(){
     };
     $.ajax(settings11).done(function (msg) {
         msg = JSON.parse(msg);
-        if(msg.Status == "fail"){
+        if(msg.message == "fail"){
             $.alert({
                 title: 'Error',
                 content: 'Oops ! something went wrong, try again',
@@ -316,7 +316,7 @@ $("body").on("click", ".acceleratorbtn", function(){
     $.ajax(settings11).done(function (msg) {
         msg = JSON.parse(msg);
 
-        if(msg.Status == "fail"){
+        if(msg.message == "fail"){
             $.alert({
                 title: 'Error',
                 content: 'Oops ! something went wrong, try again',
@@ -373,7 +373,7 @@ $("body").on("click", ".Prioritizebtn", function(){
     $.ajax(settings11).done(function (msg) {
         msg = JSON.parse(msg);
         console.log(msg);
-        if(msg.Status == "fail"){
+        if(msg.message == "fail"){
             $.alert({
                 title: 'Error',
                 content: 'Oops ! something went wrong, try again',
@@ -640,7 +640,7 @@ $('body').on('click', '.DownloadAllfiles', function(){
     };
     $.ajax(settings11).done(function (msg) {
         console.log(msg);
-        if(msg.Status == "fail"){
+        if(msg.message == "fail"){
             $.alert({
                 title: 'Error',
                 content: 'Oops ! something went wrong, try again'

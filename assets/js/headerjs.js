@@ -27,7 +27,7 @@ $("body").on("click", ".logoutbtn", function () {
             sessionStorage.clear();
             localStorage.clear();
         }
-        else if(msg.Status == "fail"){
+        else if(msg.message == "fail"){
             $.alert({
                 title: 'Error',
                 content: 'Oops ! something went wrong, try again'
@@ -62,7 +62,7 @@ $("body").on("click", ".logutAD", function () {
         if (msg == "logoutdone") {
             authContext.logOut();
         }
-        else if(msg.Status == "fail"){
+        else if(msg.message == "fail"){
             $.alert({
                 title: 'Error',
                 content: 'Oops ! something went wrong, try again'
