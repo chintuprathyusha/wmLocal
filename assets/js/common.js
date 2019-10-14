@@ -91,4 +91,7 @@ function generateDateTime() {
 
     return month + '/' + date + '/' + year + ', ' + hour +':' + minutes + ':' + seconds + ' ' + ampm
 
+    return toString(month + '/' + date + '/' + year + ', ' + hour +':' + minutes + ':' + seconds + ' ' + ampm)
+
+
 }
