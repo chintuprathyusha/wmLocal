@@ -86,5 +86,5 @@ $(document).ready(function () {
 
     </div>
 </div>
-
+<script src="assets/js/common.js"></script>
 <script src="assets/js/headerjs.js"></script>

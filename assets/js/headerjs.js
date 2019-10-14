@@ -38,7 +38,7 @@ $("body").on("click", ".logoutbtn", function () {
 
 $("body").on("click", ".logutAD", function () {
     var sessionidddd = sessionStorage.getItem("sessionidd");
-    var currentdate = new Date().toLocaleString();
+    var currentdate = generateDateTime();
     obj = {}
     obj.sessionid = sessionidddd
     obj.loggedoutdatetime = currentdate
