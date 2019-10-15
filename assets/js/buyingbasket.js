@@ -303,13 +303,13 @@ $( document ).ready(function() {
                             $('#upl-btn').hide();
                             $('.texttodisplay').show()
 
-                            $('.texttodisplay').append('<h5>Buying Basket file is succesfully uploaded</h5>')
+                            $('.texttodisplay').html('<h5>Buying Basket file is succesfully uploaded</h5>')
                             $('.radio_class').show();
                             $('.next_').prop('disabled', true)
                         }
                         newcampaign_id = msg.CampaignId;
                         campaignName = msg.CampaignName;
-                        $(".camp_id_").append('<input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:#ccc";color:#000/>')
+                        $(".camp_id_").html('<input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:#ccc";color:#000/>')
                     }
                 })
             }
@@ -377,7 +377,7 @@ $( document ).ready(function() {
                 }
                 $('.radio_class').show()
                 $('.cprp_div').show()
-                $(".camp_id_").append('<label>Campaign Name</label><input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:black;color:#fff;"/>')
+                $(".camp_id_").html('<label>Campaign Name</label><input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:black;color:#fff;"/>')
                 // $(".camp_id_").append('<p style="color:orange;font-style:13px;">Campaign Name :-</p><span style="color:#fff;">'+campaignName+'</span>')
 
                 if (buyingbasket_filename=='' || buyingbasket_filename== "NULL") {
@@ -393,7 +393,7 @@ $( document ).ready(function() {
                     $('#upl-btn').hide();
                     $('.texttodisplay').show()
                     // $('.texttodisplay').append('<h5 style="color:#000">'+buyingbasket_filename+' is successfully uploaded</h5>')
-                    $('.texttodisplay').append('<h5 style="color:#000">Buying Basket file is succesfully uploaded</h5>')
+                    $('.texttodisplay').html('<h5 style="color:#000">Buying Basket file is succesfully uploaded</h5>')
                 }
 
                 // alert(buyingbasket_filename)
@@ -502,7 +502,7 @@ $( document ).ready(function() {
                 //debugger
                 $('.radio_class').show()
                 $('.cprp_div').show()
-                $(".camp_id_").append('<input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:#ccc;color:#000"/>')
+                $(".camp_id_").html('<input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:#ccc;color:#000"/>')
                 $('.texttodisplayspill').hide();
 
                 if (buyingbasket_filename=='' || buyingbasket_filename== "NULL") {
@@ -516,7 +516,7 @@ $( document ).ready(function() {
                         $('#upl-btn').hide();
                         $('.texttodisplay').show()
                         // $('.texttodisplay').append('<h5 style="color:#000">'+buyingbasket_filename+' is successfully uploaded</h5>')
-                        $('.texttodisplay').append('<h5 style="color:#000">Buying Basket file is succesfully uploaded</h5>')
+                        $('.texttodisplay').html('<h5 style="color:#000">Buying Basket file is succesfully uploaded</h5>')
 
                     }
                 }
