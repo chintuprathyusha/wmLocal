@@ -9,8 +9,11 @@ $(document).ready(function () {
 
 
     var prev =  JSON.parse(localStorage.getItem("allprevialges"))
-    var edituserprofilee = prev.createuserprofile;
+    var edituserprofilee = prev.hasOwnProperty('edituserprofile');
+    // alert(prev.hasOwnProperty('edituserprofile'))
     alert(edituserprofilee)
+    // alert(edituserprofilee)
+
 
 
 
@@ -108,7 +111,6 @@ $(document).ready(function () {
 
     })
     function get_freezeDetails(){
-        debugger
         $('.CLemId').hide();
         $('.select_').hide();
         sendObj = {};
