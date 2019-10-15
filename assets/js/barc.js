@@ -452,7 +452,7 @@ $(document).ready(function () {
             if (msg == "updated") {
                 $.alert({
                     title: 'Success',
-                    content: 'Submitted Succesfully'
+                    content: 'Eval submitted successfully'
                 });
                 $('select').prop('disabled', true);
                 $('.submit_barc').prop('disabled', true);
