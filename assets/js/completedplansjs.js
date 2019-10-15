@@ -410,10 +410,6 @@ function format_date(date_string) {
     hrs = date.getHours().toString().length < 2 ? '0'+date.getHours() : date.getHours()
     mins = date.getMinutes().toString().length < 2 ? '0'+date.getMinutes() : date.getMinutes()
     return date.getDate()+'-'+months[date.getMonth()]+'-'+date.getFullYear()+' &nbsp&nbsp'+hrs+':'+mins;
-    if(Number.isNaN(date.getMonth())) {
-          let arr = fullDate.split(/[- :]/);
-          date = new Date(arr[0], arr[1]-1, arr[2], arr[3], arr[4], arr[5]);
-        }
 }
 
 var all_files_;
