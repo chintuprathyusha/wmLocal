@@ -6,12 +6,22 @@ $(document).ready(function () {
     var role = sessionStorage.getItem('role');
     var userid = sessionStorage.getItem('userid');
     var isprofile = sessionStorage.getItem('isprofile');
-
+    var clinet_planner_flag = true;
 
     var prev =  JSON.parse(localStorage.getItem("allprevialges"))
-    var edituserprofilee = prev.hasOwnProperty('edituserprofile');
+    var edituserprofile_new  = prev.hasOwnProperty('edituserprofile');
+    // var edituserprofile_new = 'edituserprofile' in prev;
+    console.log(edituserprofile_new)
+    if (edituserprofile_new == false) {
+        clinet_planner_flag = false;
+    }
+    else {
+        clinet_planner_flag = true;
+    }
+
+
     // alert(prev.hasOwnProperty('edituserprofile'))
-    alert(edituserprofilee)
+    // alert(edituserprofilee)
     // alert(edituserprofilee)
 
 
@@ -67,7 +77,7 @@ $(document).ready(function () {
     // }
 
     if (isnewuser == "false") {
-        if (edituserprofilee == "true") {
+        if (clinet_planner_flag == "true") {
             if (isprofile == "true") {
                 freezeforclientlead();
             }
@@ -78,7 +88,7 @@ $(document).ready(function () {
             }
             // $('.select_').hide();
         }
-        if(edituserprofilee == "false") {
+        if(clinet_planner_flag == "false") {
             if (isprofile == "true") {
                 get_freezeDetails();
             }
