@@ -6,23 +6,23 @@ $(document).ready(function () {
     var role = sessionStorage.getItem('role');
     var userid = sessionStorage.getItem('userid');
     var isprofile = sessionStorage.getItem('isprofile');
-    var clinet_planner_flag = true;
+    var clinet_planner_flag = "true";
 
     var prev =  JSON.parse(localStorage.getItem("allprevialges"))
     var edituserprofile_new  = prev.hasOwnProperty('edituserprofile');
     // var edituserprofile_new = 'edituserprofile' in prev;
     console.log(edituserprofile_new)
     if (edituserprofile_new == false) {
-        clinet_planner_flag = false;
+        clinet_planner_flag = "false";
     }
     else {
-        clinet_planner_flag = true;
+        clinet_planner_flag = "true";
     }
 
 
     // alert(prev.hasOwnProperty('edituserprofile'))
-    // alert(edituserprofilee)
-    // alert(edituserprofilee)
+    // alert(edituserprofile_new)
+    // alert(edituserprofile_new)
 
 
 
@@ -88,7 +88,8 @@ $(document).ready(function () {
             }
             // $('.select_').hide();
         }
-        if(clinet_planner_flag == "false") {
+        // if(edituserprofile_new == "false") {
+        else {
             if (isprofile == "true") {
                 get_freezeDetails();
             }
@@ -186,7 +187,7 @@ $(document).ready(function () {
     }
     $('body').on('change', '.locationClass', function(){
         $('.select_').show();
-        if (edituserprofilee == "true") {
+        if (clinet_planner_flag == "true") {
             $('.CLemId').hide();
             $('.freezeClientLead').hide()
         }
@@ -256,7 +257,7 @@ $(document).ready(function () {
     var location_key, client_key, get_userclientId;
     count = 0;
     function onpageloadhit(isnew) {
-        if (edituserprofilee == "false") {
+        if (clinet_planner_flag == "false") {
             $('.clientClass__').select2().next().show();
             $('.clientClass').select2().next().hide();
         }
@@ -300,7 +301,7 @@ $(document).ready(function () {
                 });
             }
             else {
-                if (edituserprofilee == "true") {
+                if (clinet_planner_flag == "true") {
                     for(key in msg){
                         sel = ''
                         if (freezeLoc == msg[key]) {
@@ -382,7 +383,7 @@ $(document).ready(function () {
                     });
                 }
                 else {
-                    if (edituserprofilee == "true") {
+                    if (clinet_planner_flag == "true") {
                         for(key in msg){
                             sel = ''
                             if (freezeClient == msg[key]) {
@@ -411,7 +412,7 @@ $(document).ready(function () {
             $(".clientClass").empty();
             $('.clientClass__').empty();
             $(".clientleadClass").empty();
-            if(edituserprofilee == "false"){
+            if(clinet_planner_flag == "false"){
                 $(".clientClass__").select().next().show();
             }
             else{
@@ -464,7 +465,7 @@ $(document).ready(function () {
                         });
                     }
                     else {
-                        if(edituserprofilee == "false"){
+                        if(clinet_planner_flag == "false"){
                             $(".clientClass__").empty();
                             optionn = '<option value="">Select Client</option>'
                             for( key in msg){
@@ -494,8 +495,10 @@ $(document).ready(function () {
             var selectedValues_;
             $(".clientClass").empty();
             $("body").on("change", ".clientClass", function(){
+                debugger
                 $('.freezeClientLead').hide();
                 $('.loading').show();
+
                 client_key = $(this).find("option:selected").attr('key');
                 client__ = []
                 selectedValues_ = $(".clientClass").select2('data');
@@ -617,6 +620,7 @@ $(document).ready(function () {
                     })
                     var selectedValues__new_;
                     $("body").on("click", ".create_plan", function(){
+                        $('.loading').show();
 
                         val = []
                         selectedValues = $(".clientClass").select2('data');
@@ -633,7 +637,7 @@ $(document).ready(function () {
                             val_new.push(selectedValues__new_[i].text);
 
                         }
-                        if(edituserprofilee == "false"){
+                        if(clinet_planner_flag == "false"){
                             if (location_key == '' || val_new == '') {
                                 $.alert({
                                     title: 'Alert',
