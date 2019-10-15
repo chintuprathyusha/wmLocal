@@ -137,7 +137,7 @@ $( document ).ready(function() {
                         acd_dispersion = msg.acd_dispersion;
                         weightage = msg.CPRPWeightage;
                         acceleratedFilePath = msg.AcceleratedFilePath;
-                        spilloversheet_filename= msg.SpillOverSheetFilePath;
+                        spilloversheet_filename= msg.SpillOverSheetFilePathByRPA;
                         budgetallocation_filename = msg.BudgetAllocationFilePath;
                         markascompleted = msg.IsMarkAsComplete;
                         channel_cprp = msg.cprp_channel;
