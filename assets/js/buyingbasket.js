@@ -146,30 +146,15 @@ $( document ).ready(function() {
                         campaignName = msg.CampaignName;
                         acceleratedFilePathByRPA = msg.AcceleratedFilePathByRPA;
                         PlanProcessed = msg.planProcessed;
-                        // BudgetAllocationFilePath = msg.BudgetAllocationFilePath;
-                        // if (paramgoback == null && markascompleted =="true" && parangonext == null) {
-                        //     window.location.href="barc.php";
-                        // }
-                        //
-                        // if (path_selection == 1) {
-                        //     alert(firstpath)
-                        //
-                        // }
-                        // else {
-                        //     alert(secondpath)
-                        // }
-
+                        isFilePrepCompleted = msg.isFilePrepCompleted;
                         if (version > 1) {
                             replan = true;
                             $('.bb_files').show();
                             $('.bb_txt').show();
                             $('#upl-btn').show();
-
                         }
-                        isFilePrepCompleted = msg.isFilePrepCompleted;
                         $('cprp_div').show();
                         if(path_selection == 1) {
-                            // $('.forfirstpathtext').show()
                             $('.changediv').html('<h6 class="font-weight-semibold textforchange">Upload spillover sheet</h6>')
                             $('.spanClass').css('color', '#0de6f1');
                             $(".spanClass").css('font-weight', '700')
@@ -178,7 +163,6 @@ $( document ).ready(function() {
                             $('.spanClass_').css('font-size', '14px')
                         }
                         else {
-                            // $('.forfirstpathtext').hide()
                             $('.spanClass_').css('color', '#0de6f1');
                             $(".spanClass_").css('font-weight', '700')
                             $(".spanClass_").css('font-size', '22px')
@@ -186,22 +170,18 @@ $( document ).ready(function() {
                             $('.spanClass').css('font-size', '14px')
                             $('.changediv').html('<h6 class="font-weight-semibold textforchange">Upload Budget File</h6>')
                         }
-
                         if (PlanProcessed == 1) {
                             unfreezebuyinginfo();
                         }
                         else if (PlanProcessed == 2) {
-                            //debugger
                             $('.acceleratorfiletext').hide();
                             freezebuyinginfo();
-
                             $(".next_").prop('disabled', true);
                             $('.add_more').prop('disabled', true);
                             $('.submit_').prop('disabled', true);
                             $('.cprp_main').prop('disabled', true);
                             $('.budget_main').prop('disabled', true);
                             if (isFilePrepCompleted == "false") {
-                                //debugger
                                 $(".next_").prop('disabled', false);
                                 $('.spillover').hide();
                                 $('.changediv').show();
@@ -245,7 +225,6 @@ $( document ).ready(function() {
                         }
                         else {
                             freezebuyinginfo();
-                            debugger
                             if (path_selection == 1) {
                                 if (acceleratedFilePathByRPA == null) {
                                     $(".next_").prop('disabled', true);
@@ -302,10 +281,9 @@ $( document ).ready(function() {
                             $('.bb_files').hide();
                             $('#upl-btn').hide();
                             $('.texttodisplay').show()
-
                             $('.texttodisplay').html('<h5>Buying Basket file is succesfully uploaded</h5>')
                             $('.radio_class').show();
-                            $('.next_').prop('disabled', true)
+                            $('.next_').prop('disabled', false)
                         }
                         newcampaign_id = msg.CampaignId;
                         campaignName = msg.CampaignName;
@@ -343,60 +321,34 @@ $( document ).ready(function() {
                             $(".next_").prop('disabled', true);
                         }
                         else {
-                            // $('.forfirstpathtext').show();
-                            // $('.forsecoundpathtext').show();
                             $('.budgetdivnew').show();
                             $('.budget_files').hide();
                             $('.budget_text').show();
                             $('.budget__').hide();
                             $('.submit_btn2').hide();
-                            // alert(budgetallocation_filename)
-                            // alert("pks")
-                            // $('.budget_text').append('<h5 class="texttodisplayspill" style="color:#000">'+budgetallocation_filename+'</h5>')
                             $('.budget_text').append('<h5 class="texttodisplayspill" style="color:#000">Channel Level Budget Allocation Sheet is successfully uploaded</h5>')
                             $(".next_").removeAttr('disabled');
                         }
                     }
                     else {
-                        // $('.forsecoundpathtext').hide();
                         $('.budget_files').hide();
                         $('.spillover').show();
-                        // if (spilloversheet_filename == '' || spilloversheet_filename == null ) {
-                        //     $('.spillover').show();
-                        //     $('.budegtdivnew').hide();
-                        //     $('.changediv').hide();
-                        //     $('.channelbeing').hide();
-                        // }
-                        // else {
-                        //     $('.spillll').hide();
-                        //     $('.spillovertexttodisplay').show();
-                        //     $('.spillovertexttodisplay').append('<h5>'+spilloversheet_filename+'</h5>')
-                        //     $(".next_").prop('disabled', true);
-                        // }
                     }
                 }
                 $('.radio_class').show()
                 $('.cprp_div').show()
                 $(".camp_id_").html('<label>Campaign Name</label><input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:black;color:#fff;"/>')
-                // $(".camp_id_").append('<p style="color:orange;font-style:13px;">Campaign Name :-</p><span style="color:#fff;">'+campaignName+'</span>')
-
                 if (buyingbasket_filename=='' || buyingbasket_filename== "NULL") {
-
                     $('.bb_files').show();
                     $('.bb_txt').show();
                     $('#upl-btn').show();
-
                 }
                 else {
                     $('.bb_files').hide();
-
                     $('#upl-btn').hide();
                     $('.texttodisplay').show()
-                    // $('.texttodisplay').append('<h5 style="color:#000">'+buyingbasket_filename+' is successfully uploaded</h5>')
                     $('.texttodisplay').html('<h5 style="color:#000">Buying Basket file is succesfully uploaded</h5>')
                 }
-
-                // alert(buyingbasket_filename)
                 if(path_selection==2){
                     debugger
                     $('.add_more_new').prop('disabled', true);
@@ -430,12 +382,6 @@ $( document ).ready(function() {
 
                         })
                     })
-
-                    // $.each(acd_dispersion, function(key, value){
-                    //     console.log(key);
-                    //     acd_data.push(key)
-                    //     acd_value.push(value)
-                    // })
                     $('.name_Class_new').val(acd_data.join(","))
                     $('.path_Class_new').val(acd_value.join(","))
 
@@ -461,8 +407,6 @@ $( document ).ready(function() {
                         $(".cprp_val").val(key);
                         $(".reach_val").val(weightage[key])
                     }
-
-                    console.log(acd_dispersion);
                     acd_data = []
                     acd_value = []
                     $.each(acd_dispersion, function( key, value ) {
@@ -473,15 +417,6 @@ $( document ).ready(function() {
 
                         })
                     })
-
-
-
-                    // $.each(acd_dispersion, function(key, value){
-                    //     console.log(key);
-                    //     alert("DSsssssssss")
-                    //     acd_data.push(key)
-                    //     acd_value.push(value)
-                    // })
                     $('.name_Class').val(acd_data.join(","))
                     $('.path_Class').val(acd_value.join(","))
                 }
@@ -515,7 +450,6 @@ $( document ).ready(function() {
                         $('.bb_files').hide();
                         $('#upl-btn').hide();
                         $('.texttodisplay').show()
-                        // $('.texttodisplay').append('<h5 style="color:#000">'+buyingbasket_filename+' is successfully uploaded</h5>')
                         $('.texttodisplay').html('<h5 style="color:#000">Buying Basket file is succesfully uploaded</h5>')
 
                     }
@@ -553,42 +487,10 @@ $( document ).ready(function() {
                             budget_allowcation += '</div>'
                             $(".main_new").append(budget_allowcation)
                         })
-
-
                     })
                     $('.submit_new').prop('disabled', false);
                     $('.add_more_new').prop('disabled', false);
-
                 }
-
-                // var data = { 0: [ { "56":"44"}], 1: [{ "67":"56"} ] };
-                //         $.each(data.key, function (i) {
-                //             $.each(data.key[i], function (key, val) {
-                //                 alert(key);
-                //                 alert(val)
-                //             });
-                //         });
-
-                //     for (var i = 0; i < obj_keyss.length; i++) {
-                //         budget_allowcation = '<div class="sub_div_new" style="width:100%">'
-                //         budget_allowcation += '<div class="row keyword_new">'
-                //         budget_allowcation += '<div class="col-md-6">'
-                //         budget_allowcation += '<input type="number" class="form-control mods_inputs name_Class_new ' + i + '" value="'+obj_keyss[i]+'" placeholder="Enter keyword">'
-                //         budget_allowcation += '</div>'
-                //         budget_allowcation += '<div class="col-lg-6">'
-                //         budget_allowcation += '<input type="number" class="form-control mods_inputs path_Class path_Class_new ' + i + '" value="'+acd_dispersion[obj_keyss[i]]+'" placeholder="Enter negative keyword">'
-                //         budget_allowcation += '<span>'
-                //         budget_allowcation += '<img src="assets/images/delete.svg" style="width:20px;" class="remove_new">'
-                //         budget_allowcation += '</span>'
-                //         budget_allowcation += '</div>'
-                //         budget_allowcation += '</div>'
-                //         budget_allowcation += '</div>'
-                //         $(".main_new").append(budget_allowcation)
-                //     }
-                //     $('.submit_new').prop('disabled', false);
-                //     $('.add_more_new').prop('disabled', false);
-                // }
-
                 else if(path_selection == 1){
                     $(".budget_main").css("background-color", "#292828");
                     $(".cprp_main").css("background-color", "#F07144");
@@ -601,19 +503,8 @@ $( document ).ready(function() {
                         $(".cprp_val").val(key);
                         $(".reach_val").val(weightage[key])
                     }
-                    debugger
-
                     obj_keys__ = {};
-                    // obj_keys = acd_dispersion;
-                    // obj_keys = Object.values(acd_dispersion);
-
-                    obj_keys = acd_dispersion
-
-
-
-
-                    // values = obj_keys__.push(obj_keys);
-                    // values = obj_keys.push(obj_keys)
+                    obj_keys = acd_dispersion;
                     $(".main .sub_div").remove()
                     for (var i = 0; i < obj_keys.length; i++) {
                         var key=Object.keys(obj_keys[i]).pop()
@@ -633,8 +524,6 @@ $( document ).ready(function() {
                         ok += '</div>'
                         $(".main").append(ok)
                     }
-
-
                     $('.submit_').prop('disabled', false);
                     $('.add_more').prop('disabled', false);
                 }
@@ -651,7 +540,6 @@ $( document ).ready(function() {
 
 
             $('body').on('click', '.cprp_main', function(){
-                // $(".cprp_main").css('border', 'red')
                 $(".spanClass").css('color', 'rgb(13, 230, 241)')
                 $(".spanClass").css('font-weight', '700')
                 $(".spanClass").css('font-size', '22px')
@@ -806,30 +694,6 @@ $( document ).ready(function() {
                 val_check_this = 0;
                 val_check_this_ = 0;
                 empty = 0 ;
-
-                // subDivs = $(".sub_div_new");
-
-                // obj_subdivs = {}
-                // for (var sd = 0; sd < subDivs.length; sd++) {
-                //
-                //     kw = subDivs[sd].children[0].children[0].children[0].value
-                //     vl = subDivs[sd].children[0].children[1].children[0].value
-                //     obj_subdivs[kw] = vl;
-                // }
-                // console.log(obj_subdivs);
-                // array_val = []
-                // $.each(obj_subdivs, function(key, value){
-                //     array_val.push(value);
-                // })
-                //
-                // console.log(array_val);
-                // sum = 0;
-                // $.each(array_val,function(){
-                //     sum+=parseFloat(this) || 0;
-                // });
-                // console.log(sum);
-
-                // acdobj_new = {}
                 subDivs = $(".sub_div_new");
                 debugger
                 obj_subdivs = []
@@ -994,33 +858,6 @@ $( document ).ready(function() {
                 val_check_this_ = 0;
                 empty = 0 ;
                 subDivs = $(".sub_div");
-                // obj_subdivs = {}
-                // for (var sd = 0; sd < subDivs.length; sd++) {
-                //
-                //     kw = subDivs[sd].children[0].children[0].children[0].value
-                //     vl = subDivs[sd].children[0].children[1].children[0].value
-                //
-                //
-                //     obj_subdivs[kw] = vl;
-                //
-                //
-                // }
-                // array_val = []
-                // console.log(obj_subdivs);
-                // $.each(obj_subdivs, function(key, value){
-                //     array_val.push(value);
-                // })
-                //
-                // console.log(array_val);
-                // sum = 0;
-                // $.each(array_val,function(){
-                //     sum+=parseFloat(this) || 0;
-                // });
-                // console.log(sum);
-
-
-                subDivs = $(".sub_div");
-                // debugger
                 obj_subdivs = []
                 sum = 0;
                 for (var sd = 0; sd < subDivs.length; sd++) {
@@ -1032,10 +869,7 @@ $( document ).ready(function() {
                     obj_subdivs.push(acdobj)
 
                 }
-                // array_val = []
                 console.log(obj_subdivs);
-
-
                 if (campaign_days == '' || cprp_weitage == '' || reach_weitage == '') {
 
                     $.alert({
@@ -1045,12 +879,10 @@ $( document ).ready(function() {
 
                 }
                 else if (sum < 100 || sum>100) {
-                    // if(msg.message == "fail"){
                     $.alert({
                         title: 'Alert',
                         content: 'Dispersion should be 100'
                     });
-                    // }
                 }
                 else {
                     $('.loading').show();
@@ -1101,7 +933,6 @@ $( document ).ready(function() {
                             });
                         }
                         else {
-                            // $('input[type=text]').css("color", "black");
                             $('.mods_inputs').css("color", "#fff");
                             $('.mods_inputs').css("background", "rgba(41, 40, 40, 0.91)");
                             $('input[type=text]').css("color", "#fff");
@@ -1157,8 +988,6 @@ $( document ).ready(function() {
             $("body").on("click", ".next_", function(){
                 window.location.href = "barc.php?planid="+planid
             })
-
-            //budget upload file //
 
             var plan_id = sessionStorage.getItem('create_plan_id');
             var user_id = sessionStorage.getItem('userid');

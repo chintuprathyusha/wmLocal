@@ -19,7 +19,7 @@ $(document).ready(function () {
     function onLoad(){
         sendObj ={}
         sendObj.planid = plan_id;
-        console.log(sendObj);
+        //console.log(sendObj);
         var form = new FormData();
         form.append("file", JSON.stringify(sendObj));
         var settings11 = {
@@ -75,7 +75,7 @@ $(document).ready(function () {
             fileobj.blob = blob___;
             fileobj.plan_id = plan_id;
             fileobj.user_id = user_id;
-            console.log(fileobj);
+            //console.log(fileobj);
             file_name_ = file_name_;
             $('#upl-btn').prop('disabled', false);
 
@@ -118,7 +118,7 @@ $(document).ready(function () {
             };
             go();
         }, function(error){
-            //console.log(error);
+            ////console.log(error);
         });
     }
 
@@ -127,7 +127,7 @@ $(document).ready(function () {
         $(".loading").show();
         fileobj.fromReplan = false;
         fileobj.category = "acceleratedfile";
-        console.log(file_name_);
+        //console.log(file_name_);
 
         var form = new FormData();
         form.append("file", JSON.stringify(fileobj));
@@ -212,7 +212,7 @@ $(document).ready(function () {
         $('.loading').show()
         sendObj = {};
         sendObj.planId = plan_id;
-        console.log(sendObj);
+        //console.log(sendObj);
         var form = new FormData();
         form.append("file", JSON.stringify(sendObj));
         var settings11 = {
@@ -235,7 +235,7 @@ $(document).ready(function () {
             base_tg_ =  msg.BaseTGId;
             campaignId_ = msg.CampaignId;
             campaignMarkets = msg.CampaignMarketId;
-            console.log(campaignMarkets);
+            //console.log(campaignMarkets);
             endWeekId_ = msg.EndWeek;
             primaryTGTd_ = msg.PrimaryTGTd;
             pathSelection = msg.PathSelection;
@@ -354,12 +354,12 @@ $(document).ready(function () {
                 var Campaign_Market_dt = msg.Campaign_Market_dt;
                 Campaign_Market_dt = Object.values(Campaign_Market_dt);
                 Campaign_Market_dt = Campaign_Market_dt.sort()
-                console.log(Campaign_Market_dt);
+                //console.log(Campaign_Market_dt);
                 var End_Week_dt = msg.End_Week_dt;
                 var Primary_Tg_dt= msg.Primary_Tg_dt;
 
                 for(key in Base_Tg_dt){
-                    console.log();
+                    //console.log();
                     sel = ''
                     if (base_tg_ == Base_Tg_dt[key] ) {
                         sel='selected="selected"'
@@ -367,7 +367,7 @@ $(document).ready(function () {
                     $(".base_tg").append('<option '+sel+' value='+Base_Tg_dt[key]+' class="get_Base_Tg_dt-'+count+'" key='+key+'>'+Base_Tg_dt[key]+'</option>');
                     count++
                 }
-                console.log(campaignMarkets);
+                //console.log(campaignMarkets);
                 for(key in Campaign_Market_dt){
                     sel = ''
                     if (campaignMarkets.indexOf(Campaign_Market_dt[key]) > -1) {
@@ -432,7 +432,7 @@ $(document).ready(function () {
         obj.BaseTGId = key_base_tg;
         obj.EndWeekId = key_end_week;
         obj.CampaignMarketId = $.unique(camp_markets);
-        console.log(obj);
+        //console.log(obj);
 
         var form = new FormData();
         form.append("file", JSON.stringify(obj));

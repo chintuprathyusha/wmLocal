@@ -216,5 +216,7 @@ session_start();
 		}
 	}
 	</script>
-
+	<div class="loading">
+		<img src="assets/images/loading.gif" alt="">
+	</div>
 </body>

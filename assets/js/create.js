@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    $('.create_plan').prop('disabled', true);
     var urlType = getUrlParameter('type');
     $(".loading").show();
     $('.file_download').hide();
@@ -43,7 +44,7 @@ $(document).ready(function () {
         plan_id = $.urlParam('planid');
     }
 
-    console.log(plan_id);
+    //console.log(plan_id);
     function js_yyyy_mm_dd_hh_mm_ss () {
         now = new Date();
         year = "" + now.getFullYear().toString().substr(2,2);
@@ -67,8 +68,8 @@ $(document).ready(function () {
 
     isnewuser = sessionStorage.getItem('isnewuser');
 
-    console.log(isnewuser)
-    console.log(plan_id);
+    //console.log(isnewuser)
+    //console.log(plan_id);
     if (plan_id != "0" && urlType != 'new') {
         get_freezeDetails();
     }
@@ -87,7 +88,7 @@ $(document).ready(function () {
     function createPlan() {
         sendObj = {};
         sendObj.user_id = sessionStorage.getItem('userid');
-        console.log(sendObj);
+        //console.log(sendObj);
         var form = new FormData();
         form.append("file", JSON.stringify(sendObj));
         var settings11 = {
@@ -101,9 +102,9 @@ $(document).ready(function () {
             "data": form
         };
         $.ajax(settings11).done(function (msg) {
-            console.log(msg);
+            //console.log(msg);
             msg = JSON.parse(msg);
-            console.log(msg);
+            //console.log(msg);
             $(".loading").hide();
             if(msg.message == "fail"){
                 $.alert({
@@ -125,30 +126,30 @@ $(document).ready(function () {
             }
             else {
                 base_tg = msg.Base_Tg;
-                console.log(base_tg);
+                //console.log(base_tg);
                 primary_tg = msg.Primary_Tg;
                 campign_markets = msg.Campaign_Market;
-                console.log(Object.values(campign_markets));
+                //console.log(Object.values(campign_markets));
                 campign_markets = Object.values(campign_markets);
                 // campign_markets = Object.Values(msg.Campaign_Market);
                 campign_markets = campign_markets.sort();
                 end_week = msg.End_Week;
                 data = msg.Client;
-                // console.log(data);
+                // //console.log(data);
 
                 $.each(data ,function(key,i){
                     $('#select').append('<option value='+key+'>'+key+'</option>')
                 })
 
                 var $dropdown = $('#select');
-                console.log($dropdown);
+                //console.log($dropdown);
                 $dropdown.on('change', function() {
-                    console.log($dropdown);
+                    //console.log($dropdown);
                     $('#select0').empty();
                     // var a=data[$dropdown.val()];
                     var a=data[$.trim($dropdown[0].selectedOptions[0].text)];
                     $.each(a,function(j){
-                        console.log(a[j]);
+                        //console.log(a[j]);
                         $('#select0').append('<option value='+a[j]+'>'+a[j]+'</option>')
                     })
                 });
@@ -156,7 +157,7 @@ $(document).ready(function () {
                 $dropdown.trigger('change');
 
                 for(key in base_tg){
-                    console.log();
+                    //console.log();
                     $(".base_tg").append('<option value='+base_tg[key]+' class="get_base_tg-'+count+'" key='+key+'>'+base_tg[key]+'</option>');
                     count++
                 }
@@ -216,7 +217,7 @@ $(document).ready(function () {
         var client = $.unique(cclinet);
         var end_week = $(".end_week").val();
         var key_end_week = $(".end_week").find("option:selected").attr('key');
-        console.log(camp_markets, campign_id, primary_tg, base_tg,campign_name,brand,client, end_week);
+        //console.log(camp_markets, campign_id, primary_tg, base_tg,campign_name,brand,client, end_week);
         if (client == '' || campign_name  == '' || primary_tg == 'undefined' || base_tg == '' || end_week == '' || selectedValues == '') {
             $.alert({
                 title: 'Alert',
@@ -243,7 +244,7 @@ $(document).ready(function () {
             obj.BaseTGId = parseInt(key_base_tg);
             obj.EndWeekId = parseInt(key_end_week);
             obj.user_id = userid;
-            console.log(obj);
+            //console.log(obj);
             var form = new FormData();
             form.append("file", JSON.stringify(obj));
             var settings11 = {
@@ -315,6 +316,10 @@ $(document).ready(function () {
 
     })
 
+    $('body').on('change', '.campign_markets', function(){
+        $('.create_plan').prop('disabled', false);
+    })
+
     function get_freezeDetails(){
         $('.next_btn').show();
         $('.client_freezeclass').show();
@@ -330,7 +335,7 @@ $(document).ready(function () {
 
         sendObj = {};
         sendObj.createplanid = plan_id;
-        console.log(sendObj);
+        //console.log(sendObj);
         var form = new FormData();
         form.append("file", JSON.stringify(sendObj));
         var settings11 = {
@@ -345,7 +350,7 @@ $(document).ready(function () {
         };
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
-            console.log(msg);
+            //console.log(msg);
             $('.loading').hide();
             if(msg.message == "fail"){
                 $.alert({
@@ -399,7 +404,7 @@ $(document).ready(function () {
                 userId_ = msg.user_id;
                 client_name = msg.Client;
 
-                console.log(ischannelselectioncompleted);
+                //console.log(ischannelselectioncompleted);
                 if (channel == "true") {
                     $('.next_btn').show();
                     $('texttodisplay').hide();
@@ -436,7 +441,7 @@ $(document).ready(function () {
 
         sendObj = {};
         sendObj.plan_id = plan_id;
-        console.log(sendObj);
+        //console.log(sendObj);
         var form = new FormData();
         form.append("file", JSON.stringify(sendObj));
         var settings11 = {
@@ -451,7 +456,7 @@ $(document).ready(function () {
         };
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
-            console.log(msg);
+            //console.log(msg);
             if(msg.message == "fail"){
                 $.alert({
                     title: 'Error',
@@ -483,7 +488,7 @@ $(document).ready(function () {
         file_Name = $(this).attr('file_name');
         sendObj = {};
         sendObj.file_path = send_path;
-        console.log(sendObj);
+        //console.log(sendObj);
         var form = new FormData();
         form.append("file", JSON.stringify(sendObj));
         var settings11 = {
@@ -497,7 +502,7 @@ $(document).ready(function () {
             "data": form
         };
         $.ajax(settings11).done(function (msg) {
-            console.log(msg);
+            //console.log(msg);
             if(msg.message == "fail"){
                 $.alert({
                     title: 'Error',

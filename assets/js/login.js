@@ -1,5 +1,7 @@
 $(document).ready(function () {
+$('.loading').hide();
     $("body").on("click", ".login_btn", function () {
+        $('.loading').show();
         currentdate = generateDateTime();
         username = $('.useridclass').val();
         password = $('.passwordclass').val();
@@ -44,6 +46,7 @@ $(document).ready(function () {
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
             console.log(msg);
+            $('.loading').hide();
             localStorage.setItem("allprevialges",JSON.stringify(msg.privilegers))
             sessionStorage.setItem("isnewuser",msg.isnewuser)
             sessionStorage.setItem("role",msg.role)
