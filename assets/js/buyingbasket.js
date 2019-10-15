@@ -103,10 +103,6 @@ $( document ).ready(function() {
                     }
                 }, )
             })
-
-
-
-
             function getData(){
                 sendObj = {}
                 sendObj.planid = planid;
@@ -137,7 +133,7 @@ $( document ).ready(function() {
                         acd_dispersion = msg.acd_dispersion;
                         weightage = msg.CPRPWeightage;
                         acceleratedFilePath = msg.AcceleratedFilePath;
-                        spilloversheet_filename= msg.SpillOverSheetFilePathByRPA;
+                        spilloversheet_filename = msg.SpillOverSheetFilePath;
                         budgetallocation_filename = msg.BudgetAllocationFilePath;
                         markascompleted = msg.IsMarkAsComplete;
                         channel_cprp = msg.cprp_channel;
@@ -190,7 +186,6 @@ $( document ).ready(function() {
                             else {
                                 $('.channelbeing').hide();
                                 if (path_selection == 1) {
-
                                     if (spilloversheet_filename == '' || spilloversheet_filename == null ) {
                                         $('.spillover').show();
                                         $('.budegtdivnew').hide();
@@ -200,8 +195,7 @@ $( document ).ready(function() {
                                     else {
                                         $('.spillll').hide();
                                         $('.spillovertexttodisplay').show();
-                                        // alert(spilloversheet_filename)
-                                        $('.spillovertexttodisplay').append('<h5>'+spilloversheet_filename+'</h5>')
+                                        $('.spillovertexttodisplay').append('<h5>Genre Level Budget Allocation Sheet is successfully uploaded</h5>')
                                         $(".next_").prop('disabled', true);
                                     }
                                 }
@@ -212,6 +206,7 @@ $( document ).ready(function() {
                                         $('.changediv__').hide();
                                         $('.channelbeing').hide();
                                         $('.budget_text').hide();
+
                                     }
                                     else {
                                         $('.budget_text').show();
@@ -221,7 +216,6 @@ $( document ).ready(function() {
                                     }
                                 }
                             }
-
                         }
                         else {
                             freezebuyinginfo();
@@ -367,13 +361,9 @@ $( document ).ready(function() {
                     $('input[type="number"]').css('background', '#292828');
                     $('input[type="text"]').css('background', '#292828');
                     $('.campaign_days_new').val(campaign_days);
-
-
                     console.log(acd_dispersion);
                     acd_data = []
                     acd_value = []
-
-
                     $.each(acd_dispersion, function( key, value ) {
                         $.each(value, function( keyy, valuee ) {
 
@@ -384,11 +374,8 @@ $( document ).ready(function() {
                     })
                     $('.name_Class_new').val(acd_data.join(","))
                     $('.path_Class_new').val(acd_value.join(","))
-
-
                 }
                 else if(path_selection == 1){
-
                     $(".cprp_main").prop("checked", true);
                     $(".budget_main").prop("checked", false);
                     $(".budget_main").prop("disabled", true);
@@ -432,7 +419,6 @@ $( document ).ready(function() {
                     $('.reach_val').val(weightage[key])
                 })
             }
-
             function unfreezebuyinginfo() {
                 //debugger
                 $('.radio_class').show()
@@ -465,10 +451,7 @@ $( document ).ready(function() {
                     $(".budget_main").prop("checked", true);
                     console.log(campaign_days);
                     $('.campaign_days_new').val(campaign_days);
-
                     obj_keyss = acd_dispersion;
-
-
                     $(".main_new .sub_div_new").remove()
                     $.each(obj_keyss, function( i, val ) {
                         $.each(val, function( ii, vall ) {
@@ -537,8 +520,6 @@ $( document ).ready(function() {
                     $('.reach_val').val(weightage[key])
                 })
             }
-
-
             $('body').on('click', '.cprp_main', function(){
                 $(".spanClass").css('color', 'rgb(13, 230, 241)')
                 $(".spanClass").css('font-weight', '700')
@@ -552,8 +533,6 @@ $( document ).ready(function() {
                 $(".spanClass_").css('font-weight', '400')
                 $(".spanClass_").css('font-size', '14px')
             })
-
-
             $('body').on('click', '.budget_main', function(){
                 $(".cprp_main").css('background-color', '#211d1dbf')
                 $(".cprp_main").css('color', '#ccc6c6')
@@ -606,25 +585,16 @@ $( document ).ready(function() {
 
                     swal("Acd and Dispersion should not be empty");
                 }
-
-
                 else {
-
                     console.log(i);
-
                     $(".main").append('<div class="sub_div" style="width:100%"><div class="row keyword"><div class="col-md-6"><input type="number" class="inputboxstyle form-control mods_inputs name_Class ' + i + '" placeholder="Enter keyword"></div><div class="col-lg-6"><input type="number" class="inputboxstyle form-control mods_inputs path_Class path_Class ' + i + '" placeholder="Enter negative keyword"><span><img src="assets/images/delete.svg" style="width:20px;" class="remove"></span></div></div></div>')
                     $(".hide_").show();
 
                 }
             })
 
-
-
             $("body").on("click", ".add_more_new", function(){
-
-                //debugger
                 var x=0;
-
                 thiss = $(this)
                 val = $(this).html();
                 children = $(".sub_div_new").children();
@@ -641,18 +611,12 @@ $( document ).ready(function() {
 
                     swal("Acd and Dispersion should not be empty");
                 }
-
-
                 else {
-
                     console.log(i);
                     $(".main_new").append('<div class="sub_div_new" style="width:100%"><div class="row keyword_new"><div class="col-md-6"><input type="number" class="form-control mods_inputs name_Class_new ' + i + '" placeholder="Enter keyword" style="background-color:#303134;border:none;color:#fff;"></div><div class="col-lg-6"><input type="number" class="form-control mods_inputs path_Class_new path_Class_new ' + i + '" placeholder="Enter negative keyword" style="background-color:#303134;border:none;color:#fff;"><span><img src="assets/images/delete.svg" style="width:20px;" class="remove_new"></span></div></div></div>')
                     $(".hide_").show();
-                    // $('.submit_new').prop('disbale', true);
                 }
             })
-
-
 
             $("body").on("click", ".remove_new", function(){
                 $(this).closest('.sub_div_new').remove();
@@ -669,13 +633,11 @@ $( document ).ready(function() {
             var path_selection ='';
             var budget_text;
             var div_weitage;
-
             $("body").on("click", ".submit_new", function(){
                 path_selection_ = $(this).closest('.common_class').find('.budget_main').attr('key');
-
                 var campaign_days = $('.campaign_days_new').val();
                 var userid = sessionStorage.getItem('userid');
-                var plan_id = sessionStorage.getItem('create_plan_id');
+                var plan_id = planid;
                 var err=0;
                 var arr_check = [];
                 children = $(".sub_div_new").children();
@@ -707,10 +669,7 @@ $( document ).ready(function() {
                     obj_subdivs.push(obj)
 
                 }
-                // array_val = []
                 console.log(obj_subdivs);
-
-
                 if (campaign_days == '') {
                     $.alert({
                         title: 'Filed should not be empty',
@@ -725,13 +684,11 @@ $( document ).ready(function() {
                             }
                         }
                     });
-
                 }
                 else if (sum!==100 || sum>100) {
 
                     $.alert({
                         title: 'Dispersion should be 100',
-                        // content: 'Oops ! something went wrong',
                         animation: 'scale',
                         closeAnimation: 'scale',
                         opacity: 0.5,
@@ -742,7 +699,6 @@ $( document ).ready(function() {
                             }
                         }
                     });
-
                 }
                 else {
                     $('.loading').show();
@@ -790,12 +746,8 @@ $( document ).ready(function() {
                             $('.channelbeing').show();
                             $('.forsecoundpathtext').show();
                             $('#upl-btn1').hide();
-                            //
-                            // $('input[type=text]').css("background", "#ccc");
                             $('.mods_inputs').css("background", "rgba(41, 40, 40, 0.91)");
                             $('.mods_inputs').css("color", "#fff");
-
-
                             $('input[type=text]').prop('readonly', true);
                             $('input[type=number]').prop('readonly', true);
                             $.alert({
@@ -813,18 +765,14 @@ $( document ).ready(function() {
                             });
                             $('.add_more').prop('disbale', true);
                             $('.submit_').prop('disbale', true);
-                            // $('.submit_new').prop('disbale', true);
                             $('.loading').hide();
                             $('.cprp_main').prop('disabled', true);
-
                             sessionStorage.getItem('create_plan_id', 0);
                         }
                     })
                 }
 
             })
-
-
 
             $("body").on("click", ".submit_", function(){
                 path_selection = $(this).closest('.common_class').find('.cprp_main').attr('key');
@@ -835,7 +783,7 @@ $( document ).ready(function() {
                 var frequency_channel = div_weitage.find('.frequency_channel').val();
                 var campaign_days = div_weitage.find('.campaign_days').val();
                 var userid = sessionStorage.getItem('userid');
-                var plan_id = sessionStorage.getItem('create_plan_id');
+                var plan_id = planid;
                 var err=0;
                 var arr_check = [];
                 children = $(".sub_div").children();
@@ -895,9 +843,7 @@ $( document ).ready(function() {
                     sendObj2.acd_dispersion = obj_subdivs;
                     sendObj2.weightage = sendObj;
                     console.log(sendObj2);
-
                     console.log(JSON.stringify(sendObj2));
-
                     var form = new FormData();
                     form.append("file", JSON.stringify(sendObj2));
                     var settings11 = {
