@@ -6,6 +6,14 @@ $(document).ready(function () {
     var role = sessionStorage.getItem('role');
     var userid = sessionStorage.getItem('userid');
     var isprofile = sessionStorage.getItem('isprofile');
+
+
+    var prev =  JSON.parse(localStorage.getItem("allprevialges"))
+    var edituserprofilee = prev.createuserprofile;
+    alert(edituserprofilee)
+
+
+
     var selectedValues;
     $(".CLemId").show();
     $('.select2-search').select2().next().hide();
@@ -25,8 +33,38 @@ $(document).ready(function () {
         get_freezeDetails();
     }
 
+    // if (isnewuser == "false") {
+    //     if (role=="ClientLead") {
+    //         if (isprofile == "true") {
+    //             freezeforclientlead();
+    //         }
+    //         else {
+    //             onpageloadhit(isnewuser);
+    //             $('.clientClass').select2().next().show();
+    //             $('.clientClass').show();
+    //         }
+    //         // $('.select_').hide();
+    //     }
+    //     if(role  == "Planner") {
+    //         if (isprofile == "true") {
+    //             get_freezeDetails();
+    //         }
+    //         else {
+    //             $('.clientClass__').show();
+    //             $('.clientClass__').select2().next().show();
+    //             // $('.clientClass').hide();
+    //             onpageloadhit(isnewuser);
+    //         }
+    //
+    //     }
+    // }
+    // else {
+    //     onpageloadhit(isnewuser);
+    //
+    // }
+
     if (isnewuser == "false") {
-        if (role=="ClientLead") {
+        if (edituserprofilee == "true") {
             if (isprofile == "true") {
                 freezeforclientlead();
             }
@@ -37,7 +75,7 @@ $(document).ready(function () {
             }
             // $('.select_').hide();
         }
-        if(role  == "Planner") {
+        if(edituserprofilee == "false") {
             if (isprofile == "true") {
                 get_freezeDetails();
             }
@@ -54,6 +92,7 @@ $(document).ready(function () {
         onpageloadhit(isnewuser);
 
     }
+
 
 
     $("body").on("click", ".edit_createprofile", function(){
