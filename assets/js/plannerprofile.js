@@ -173,7 +173,7 @@ $(document).ready(function () {
     }
     $('body').on('change', '.locationClass', function(){
         $('.select_').show();
-        if (role=="ClientLead") {
+        if (edituserprofilee == "true") {
             $('.CLemId').hide();
             $('.freezeClientLead').hide()
         }
@@ -243,7 +243,7 @@ $(document).ready(function () {
     var location_key, client_key, get_userclientId;
     count = 0;
     function onpageloadhit(isnew) {
-        if (role == "Planner") {
+        if (edituserprofilee == "false") {
             $('.clientClass__').select2().next().show();
             $('.clientClass').select2().next().hide();
         }
@@ -287,7 +287,7 @@ $(document).ready(function () {
                 });
             }
             else {
-                if (role=='ClientLead') {
+                if (edituserprofilee == "true") {
                     for(key in msg){
                         sel = ''
                         if (freezeLoc == msg[key]) {
@@ -369,7 +369,7 @@ $(document).ready(function () {
                     });
                 }
                 else {
-                    if (role=='ClientLead') {
+                    if (edituserprofilee == "true") {
                         for(key in msg){
                             sel = ''
                             if (freezeClient == msg[key]) {
@@ -398,7 +398,7 @@ $(document).ready(function () {
             $(".clientClass").empty();
             $('.clientClass__').empty();
             $(".clientleadClass").empty();
-            if(role=="Planner"){
+            if(edituserprofilee == "false"){
                 $(".clientClass__").select().next().show();
             }
             else{
@@ -451,7 +451,7 @@ $(document).ready(function () {
                         });
                     }
                     else {
-                        if(role== "Planner"){
+                        if(edituserprofilee == "false"){
                             $(".clientClass__").empty();
                             optionn = '<option value="">Select Client</option>'
                             for( key in msg){
@@ -620,7 +620,7 @@ $(document).ready(function () {
                             val_new.push(selectedValues__new_[i].text);
 
                         }
-                        if(role=="Planner"){
+                        if(edituserprofilee == "false"){
                             if (location_key == '' || val_new == '') {
                                 $.alert({
                                     title: 'Alert',
