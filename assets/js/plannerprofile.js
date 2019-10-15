@@ -108,6 +108,7 @@ $(document).ready(function () {
 
     })
     function get_freezeDetails(){
+        debugger
         $('.CLemId').hide();
         $('.select_').hide();
         sendObj = {};
