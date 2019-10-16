@@ -70,20 +70,20 @@ $(document).ready(function(){
                 channelstamp = msg.ChannelGenreMappingSheet;
                 if (jQuery.isEmptyObject(channelstamp) == true) {
                     $('.channelstamp').show();
-                    $('.channelstamp').append('<p>Channel Genre Mapping Sheet not uploaded</p>')
+                    $('.channelstamp').html('<p>Channel Genre Mapping Sheet not uploaded</p>')
 
                 }
                 else {
                     $('.channelstamp').show();
-                        $('.channelstamp').append('<ul><li>'+channelstamp+'</ul></li>')
+                        $('.channelstamp').html('<ul><li>'+channelstamp+'</ul></li>')
                 }
                 if (jQuery.isEmptyObject(masterstamp) == true) {
                     $('.masterdatastamp').show();
-                    $('.masterdatastamp').append('<p>Master data file Sheet not uploaded</p>')
+                    $('.masterdatastamp').html('<p>Master data file Sheet not uploaded</p>')
                 }
                 else {
                     $('.masterdatastamp').show();
-                        $('.masterdatastamp').append('<ul><li>'+masterstamp+'</ul></li>')
+                        $('.masterdatastamp').html('<ul><li>'+masterstamp+'</ul></li>')
                 }
             }
         });
