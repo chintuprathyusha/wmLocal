@@ -248,29 +248,23 @@ $(document).ready(function(){
             console.log(msg);
             console.log(jQuery.isEmptyObject(JSON.parse(msg)));
             $('.loading').hide();
-            //
-            // else {
-            //     swal("error in" +msg)
-            // }
-            if(msg.message == "fail"){
+
+             if(msg.hasOwnProperty('Error')) {
+                 var error_msg = msg.error;
                 $.alert({
-                    title: 'Error',
-                    content: 'Oops ! something went wrong, try again',
-                    animation: 'scale',
-                    closeAnimation: 'scale',
-                    opacity: 0.5,
-                    buttons: {
-                        okay: {
-                            text: 'Okay',
-                            btnClass: 'btn-primary',
-                            action: function(){
-                                window.location.href="error.php"
-                            }
-                        }
+                title: 'Error',
+                content: error_msg,
+                animation: 'scale',
+                closeAnimation: 'scale',
+                opacity: 0.5,
+                buttons: {
+                    okay: {
+                        text: 'Okay',
+                        btnClass: 'btn-primary'
                     }
-                });
+                }
+            });
             }
-            // else if (jQuery.isEmptyObject(JSON.parse(msg))) {
             else {
                     $.alert({
                     title: 'Success',
