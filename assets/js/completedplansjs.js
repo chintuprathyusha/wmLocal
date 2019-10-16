@@ -77,7 +77,7 @@ $("body").on("click", "#camp_idhyperlink_", function(){
         window.location.href = 'buyingbasket.php?planid='+plainiddd;
     }
     else {
-        window.location.href = 'barc.php?planid='+plainiddd;
+        window.location.href = 'barc.php?planid='+"hi";
     }
 });
 
