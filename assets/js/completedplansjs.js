@@ -65,10 +65,11 @@ function pageonloadhit() {
 }
 
 
-
 $("body").on("click", "#camp_idhyperlink_", function(){
     plainiddd =  $(this).attr('plainidattr');
+    // alert(plainiddd)
     sessionStorage.setItem('create_plan_id', plainiddd);
+    // window.location.href = 'planner_createnewplan.php';
     newstatus = $(this).attr('status');
     if (newstatus == 1) {
         window.location.href = 'planner_createnewplan.php?planid='+plainiddd;
@@ -77,7 +78,7 @@ $("body").on("click", "#camp_idhyperlink_", function(){
         window.location.href = 'buyingbasket.php?planid='+plainiddd;
     }
     else {
-        window.location.href = 'barc.php?planid='+"hi";
+        window.location.href = 'barc.php?planid='+plainiddd;
     }
 });
 
