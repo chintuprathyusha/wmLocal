@@ -158,7 +158,7 @@ if ($_SESSION['usernamee'] == '') {
 							<div class="cprp new_plan">
                                 <div class="step-content">
                             		<div style="width: 100%;">
-                            			<div class="row acce_div">
+                            			<div class="acce_div">
                             				<h6 class="font-weight-semibold">Upload Accelerator File</h6>
                             				<div class="col-lg-10">
 												<div class="texttodisplay"></div>
