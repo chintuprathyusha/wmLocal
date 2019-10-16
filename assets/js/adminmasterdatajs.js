@@ -259,6 +259,9 @@ $(document).ready(function(){
                     okay: {
                         text: 'Okay',
                         btnClass: 'btn-primary'
+                        // action:  function(){
+                        //     window.location.reload();
+                        // }
                     }
                 }
             });
@@ -273,7 +276,10 @@ $(document).ready(function(){
                     buttons: {
                         okay: {
                             text: 'Okay',
-                            btnClass: 'btn-primary'
+                            btnClass: 'btn-primary',
+                            action:  function(){
+                                window.location.reload();
+                            }
                         }
                     }
                 });
