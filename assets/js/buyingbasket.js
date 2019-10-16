@@ -178,7 +178,6 @@ $( document ).ready(function() {
                             $('.cprp_main').prop('disabled', true);
                             $('.budget_main').prop('disabled', true);
                             if (isFilePrepCompleted == "false") {
-                                $(".next_").prop('disabled', false);
                                 $('.spillover').hide();
                                 $('.changediv').show();
                                 $(".next_").prop('disabled', true);
