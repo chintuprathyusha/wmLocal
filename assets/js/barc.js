@@ -287,12 +287,9 @@ $(document).ready(function () {
                 else if(pathSelection == 2) {
                     $('.acce_div').hide();
                     $('.edit_barc').removeAttr('disabled');
-                    // if (planProcess>3) {
-                    //     $('.edit_barc').prop('disabled', true);
-                    // }
-                    // else if(planProcess == 3){
-                    //     $('.edit_barc').prop('disabled', false);
-                    // }
+                    if (planProcess>3) {
+                        $('.edit_barc').prop('disabled', true);
+                    }
                 }
             }
         })
