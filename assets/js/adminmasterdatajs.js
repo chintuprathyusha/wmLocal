@@ -301,7 +301,7 @@ $(document).ready(function(){
         $('#channelgenre').on('change', function () {
             // //debugger
             main_output_new = ''
-            var file = $('#locationclass')[0].files[0];
+            var file = $('#channelgenre')[0].files[0];
             filename_new = file.name;
             var fileReader = new FileReader();
             fileReader.onloadend = function (e) {
