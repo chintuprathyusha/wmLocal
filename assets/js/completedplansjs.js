@@ -166,7 +166,7 @@ function displaytable(msg) {
         block = msg[i];
         row += '<tr>';
         row += '<td  style="text-align:center;">'+(i+1)+'</td>'
-        row += '<td  style="width:132px;" class="nr"><a key="'+i+'" style="text-decoration:underline; cursor:pointer;" id="camp_idhyperlink_" status="'+block.PlanStatus+'" class="statusCheck">'+block.CampaignId+'</a></td>';
+        row += '<td  style="width:132px;" class="nr"><a key="'+i+'" style="text-decoration:underline; cursor:pointer;" id="camp_idhyperlink_"  plainidattr="'+block.PlanId+'" status="'+block.PlanStatus+'" class="statusCheck">'+block.CampaignId+'</a></td>';
         row += '<td>'+block.BrandName+' </td>';
         row += '<td>'+block.ClientName+'</td>';
         row += '<td style="width:139px;">'+block.PlannerName+'</td>';
