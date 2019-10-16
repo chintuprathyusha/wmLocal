@@ -276,10 +276,10 @@ $(document).ready(function () {
                         // $('.edit_barc').prop('disabled', true);
                     }
                     if (planProcess>3) {
-                        $('.edit_barc').prop('disabled', true);
+                        $('.edit_barc').prop('disabled', false);
                     }
                     else if(planProcess == 3){
-                        $('.edit_barc').prop('disabled', false);
+                        $('.edit_barc').prop('disabled', true);
                     }
                 }
                 else if(pathSelection == 2) {
