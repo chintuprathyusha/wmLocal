@@ -7,7 +7,6 @@ $(document).ready(function () {
     var selectedFiles = [];
     var enddate;
     var useridd = sessionStorage.getItem("userid");
-    var useridd = sessionStorage.getItem("userid");
     var data_table_;
     pageonloadhit()
 
@@ -329,7 +328,6 @@ $(document).ready(function () {
             }
             else {
                 updatedplanid = msg.planid
-                sessionStorage.setItem("create_plan_id", updatedplanid)
                 window.location.href = 'planner_accelerator.php?planid='+updatedplanid;
             }
 
