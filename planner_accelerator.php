@@ -14,6 +14,15 @@ if ($_SESSION['usernamee'] == '') {
 	<title>Wavemaker - WM FLOW</title>
 	<?php include 'assets/includes/common_css.php'; ?>
 	<?php include 'assets/includes/common_scripts.php';?>
+
+	<script src="global_assets/js/demo_pages/uploader_bootstrap.js"></script>
+
+
+	<script src="global_assets/js/plugins/uploaders/fileinput/plugins/purify.min.js"></script>
+	<script src="global_assets/js/plugins/uploaders/fileinput/plugins/sortable.min.js"></script>
+	<script src="global_assets/js/plugins/uploaders/fileinput/fileinput.min.js"></script>
+
+	
 	<script src="assets/js/accelerator.js"></script>
 	<script>
 	$(document).ready(function () {
