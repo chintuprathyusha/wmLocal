@@ -74,7 +74,7 @@ $(document).ready(function(){
                 }
                 else {
                     $('.channelstamp').show();
-                        $('.channelstamp').append('<ul><li>'+channelstamp+'</ul></li>')
+                        $('.channelstamp').html('<ul><li>'+channelstamp+'</ul></li>')
                 }
                 if (jQuery.isEmptyObject(masterstamp) == true) {
                     $('.masterdatastamp').show();
@@ -82,7 +82,7 @@ $(document).ready(function(){
                 }
                 else {
                     $('.masterdatastamp').show();
-                        $('.masterdatastamp').append('<ul><li>'+masterstamp+'</ul></li>')
+                        $('.masterdatastamp').html('<ul><li>'+masterstamp+'</ul></li>')
                 }
             }
         });
