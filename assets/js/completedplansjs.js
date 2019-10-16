@@ -204,19 +204,7 @@ $("body").on("click", ".replanmodal", function(){
     $('#replanmodall').modal();
 })
 
-$('body').on('click', '.statusCheck', function(){
-    var redirectStatus = $(this).attr('status');
-    if (redirectStatus == "1") {
-        window.location.href="planner_createnewplan.php"
-    }
-    else if(redirectStatus == "2"){
-        window.location.href="buyingbasket.php"
-    }
-    else {
-        window.location.href="barc.php"
-    }
 
-})
 function dataTableMultiSort() {
 
     setTimeout(function () {
