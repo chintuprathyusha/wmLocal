@@ -103,8 +103,6 @@ $(document).ready(function(){
         })
     }
 
-    barcData()
-
     var file_name_;
     var main_output;
     fileobj = {};
