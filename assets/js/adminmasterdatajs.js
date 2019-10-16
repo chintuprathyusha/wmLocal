@@ -228,7 +228,7 @@ $(document).ready(function(){
         };
         $.ajax(settings11).done(function (msg) {
             console.log(msg);
-            console.log(jQuery.isEmptyObject( JSON.parse(msg)));
+            console.log(jQuery.isEmptyObject(JSON.parse(msg)));
             $('.loading').hide();
             //
             // else {
@@ -252,10 +252,11 @@ $(document).ready(function(){
                     }
                 });
             }
-            else if (jQuery.isEmptyObject(JSON.parse(msg))) {
-                $.alert({
+            // else if (jQuery.isEmptyObject(JSON.parse(msg))) {
+            else {
+                    $.alert({
                     title: 'Success',
-                    content: 'Uploaded Succesfully',
+                    content: 'Uploaded Succesfully' +msg,
                     animation: 'scale',
                     closeAnimation: 'scale',
                     opacity: 0.5,
