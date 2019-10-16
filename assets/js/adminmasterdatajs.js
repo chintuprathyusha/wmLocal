@@ -71,10 +71,11 @@ $(document).ready(function(){
                 if (jQuery.isEmptyObject(channelstamp) == true) {
                     $('.channelstamp').show();
                     $('.channelstamp').append('<p>Channel Genre Mapping Sheet not uploaded</p>')
+
                 }
                 else {
                     $('.channelstamp').show();
-                        $('.channelstamp').html('<ul><li>'+channelstamp+'</ul></li>')
+                        $('.channelstamp').append('<ul><li>'+channelstamp+'</ul></li>')
                 }
                 if (jQuery.isEmptyObject(masterstamp) == true) {
                     $('.masterdatastamp').show();
@@ -82,13 +83,13 @@ $(document).ready(function(){
                 }
                 else {
                     $('.masterdatastamp').show();
-                        $('.masterdatastamp').html('<ul><li>'+masterstamp+'</ul></li>')
+                        $('.masterdatastamp').append('<ul><li>'+masterstamp+'</ul></li>')
                 }
             }
         });
     }
 
-// push
+
     var file_name_;
     var main_output;
     fileobj = {};
