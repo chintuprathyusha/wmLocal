@@ -275,12 +275,16 @@ $(document).ready(function () {
                         $('.acce_File_').append('<h5>Accelerator Output file is successfully uploaded</h5>');
                         // $('.edit_barc').prop('disabled', true);
                     }
-                    if (planProcess>3) {
+                    if (planProcess == 4) {
                         $('.edit_barc').prop('disabled', false);
                     }
                     else if(planProcess == 3){
                         $('.edit_barc').prop('disabled', true);
                     }
+                    else {
+                            $('.edit_barc').prop('disabled', true);
+                    }
+
                 }
                 else if(pathSelection == 2) {
                     $('.acce_div').hide();
