@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $('.loading').show();
     $('.texttodisplay').hide();
-    var plan_id = sessionStorage.getItem('create_plan_id');
+    var plan_id = $.urlParam('planid');
     var user_id = sessionStorage.getItem('userid');
     barcData()
     onLoad();
@@ -47,7 +47,6 @@ $(document).ready(function(){
     }
 
     function barcData() {
-        plan_id = sessionStorage.getItem('create_plan_id');
         sendObj = {};
         sendObj.planId = plan_id;
         console.log(sendObj);
