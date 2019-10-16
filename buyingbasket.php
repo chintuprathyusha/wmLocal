@@ -303,10 +303,10 @@ button:focus {outline:0;}
 							</div>
 							<div class="radio_class">
 								<!-- <button type="submit" value="Genre Level Budget Allocation"  key='1' class="common_main cprp_main">Genre Level Budget Allocation</button> -->
-								<button type="submit" value="Genre Level Budget Allocation" key="1" class="common_main cprp_main" style="border: 2px solid #1f2022;color: #fff;padding: 12px;margin-left: -1px;width: 489px;">Genre Level Budget Allocation</button>
+								<button type="submit" value="Genre Level Budget Allocation" key="1" class="common_main cprp_main" style="border: 2px solid #1f2022;color: #fff;padding: 12px;margin-left: -1px;width: 50%;">Genre Level Budget Allocation</button>
 								<!-- <input type="radio" name="gender" value="Genre Level Budget Allocation"  key='1' class="common_main cprp_main"><span class="spanClass">Genre Level Budget Allocation</span> -->
 								<!-- <button  type="submit"  value="Channel Level Budget Allocation" key='2' class="common_main budget_main">Channel Level Budget Allocation</button> -->
-								<button type="submit" style="padding: 12px;width: 494px;border: 2px solid #1f2022;color: white;float: right;margin-top: -54px;" value="Channel Level Budget Allocation" key="2" class="common_main budget_main">Channel Level Budget Allocation</button>
+								<button type="submit" style="padding: 12px;width: 50%;border: 2px solid #1f2022;color: white;float: right;margin-top: -54px;" value="Channel Level Budget Allocation" key="2" class="common_main budget_main">Channel Level Budget Allocation</button>
 								<!-- <input type="radio" name="gender" value="Channel Level Budget Allocation" key='2' class="common_main budget_main"><span class="spanClass_">Channel Level Budget Allocation</span><br> -->
 							</div>
 							<div class="cprp_div close_" >
