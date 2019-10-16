@@ -228,7 +228,9 @@ $(document).ready(function () {
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
             console.log(msg);
-            $('.loading').hide()
+            setTimeout(function(){
+                $('.loading').hide();
+            }, 5000)
             planProcess = msg.planProcess;
             acce_file_name = msg.AcceleratedFilePath;
             $(".select2").addClass('hide');
@@ -239,6 +241,7 @@ $(document).ready(function () {
             endWeekId_ = msg.EndWeek;
             primaryTGTd_ = msg.PrimaryTGTd;
             pathSelection = msg.PathSelection;
+
             $('.loading').hide();
             if (msg.message == "fail") {
                 $.alert({
@@ -270,24 +273,24 @@ $(document).ready(function () {
                         $('.acce_div').hide();
                         $('.acce_File_').show();
                         $('.acce_File_').append('<h5>Accelerator Output file is successfully uploaded</h5>');
-                        $('.edit_barc').prop('disabled', true);
+                        // $('.edit_barc').prop('disabled', true);
                     }
-                    if (planProcess == 3) {
-                        $('.edit_barc').prop('disabled', false);
-                    }
-                    else {
-                        $('.edit_barc').prop('disabled', true);
-                    }
-                }
-                else if(pathSelection == 2) {
-                    $('.acce_div').hide();
-                    $('.edit_barc').removeAttr('disabled');
                     if (planProcess>3) {
                         $('.edit_barc').prop('disabled', true);
                     }
                     else if(planProcess == 3){
                         $('.edit_barc').prop('disabled', false);
                     }
+                }
+                else if(pathSelection == 2) {
+                    $('.acce_div').hide();
+                    $('.edit_barc').removeAttr('disabled');
+                    // if (planProcess>3) {
+                    //     $('.edit_barc').prop('disabled', true);
+                    // }
+                    // else if(planProcess == 3){
+                    //     $('.edit_barc').prop('disabled', false);
+                    // }
                 }
             }
         })
@@ -321,9 +324,7 @@ $(document).ready(function () {
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
 
-            setTimeout(function(){
-                $('.loading').hide();
-            }, 7000)
+
             console.log(msg);
             if(msg.message == "fail"){
                 $.alert({
@@ -396,6 +397,9 @@ $(document).ready(function () {
                 }
 
             }
+            setTimeout(function(){
+                $('.loading').hide();
+            }, 7000)
 
         })
     }
