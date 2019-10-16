@@ -83,7 +83,6 @@ $(document).ready(function(){
                 else {
                     $('.masterdatastamp').show();
                         $('.masterdatastamp').append('<ul><li>'+masterstamp+'</ul></li>')
-
                 }
             }
         });
