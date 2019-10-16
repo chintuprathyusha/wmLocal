@@ -246,9 +246,7 @@ $(document).ready(function(){
         };
         $.ajax(settings11).done(function (msg) {
             console.log(msg);
-            console.log(jQuery.isEmptyObject(JSON.parse(msg)));
             $('.loading').hide();
-
              if(msg.hasOwnProperty('Error')) {
                  var error_msg = msg.error;
                 $.alert({
