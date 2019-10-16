@@ -266,7 +266,7 @@ $( document ).ready(function() {
                             $('.bb_files').show();
                             $('.bb_txt').show();
                             $('#upl-btn').show();
-                            $('.next_').prop('disabled', true)
+                            // $('.next_').prop('disabled', true)
                             $('.cprp_div').hide();
                             $('.radio_class').hide();
                         }
@@ -276,7 +276,7 @@ $( document ).ready(function() {
                             $('.texttodisplay').show()
                             $('.texttodisplay').html('<h5>Buying Basket file is succesfully uploaded</h5>')
                             $('.radio_class').show();
-                            $('.next_').prop('disabled', false)
+                            // $('.next_').prop('disabled', false)
                         }
                         newcampaign_id = msg.CampaignId;
                         campaignName = msg.CampaignName;
