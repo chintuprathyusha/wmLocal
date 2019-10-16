@@ -1,6 +1,7 @@
 $(document).ready(function(){
 $(".loading").show();
 var useridd = sessionStorage.getItem("userid");
+var planid = $.urlParam('planid');
 var dataTable___;
 $(".displaytoptextboxes").slideToggle('hidden');
 $(".btn3").click(function(){
@@ -280,9 +281,8 @@ $("body").on("click", ".buyingbasketbtn", function(){
         }
         else {
             updatedplanid = msg.planid
-            sessionStorage.setItem("create_plan_id",updatedplanid)
             // alert(updatedplanid)
-            window.location.href = 'buyingbasket.php';
+            window.location.href = 'buyingbasket.php?planid='+updatedplanid
             }
 
     })
@@ -336,11 +336,7 @@ $("body").on("click", ".acceleratorbtn", function(){
         }
         else {
             updatedplanid = msg.planid
-            sessionStorage.setItem("create_plan_id",updatedplanid)
-            // alert(updatedplanid)
-            // window.location.href = 'buyingbasket.php';
-
-            window.location.href = 'planner_accelerator.php';
+            window.location.href = 'planner_accelerator.php?planid='+updatedplanid;
         }
 
     })
