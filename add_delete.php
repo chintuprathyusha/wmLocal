@@ -51,7 +51,7 @@ if ($_SESSION['usernamee'] == '') {
     display: none;
 }
 .nav-tabs .nav-link.active {
-    background-color: #cccccc87;
+    background-color: #f07144 !important;
 }
 .file-preview {
     display: none;
