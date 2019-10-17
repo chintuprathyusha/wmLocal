@@ -343,6 +343,7 @@ $( document ).ready(function() {
                     $('.texttodisplay').html('<h5 style="color:#000">Buying Basket file is succesfully uploaded</h5>')
                 }
                 if(path_selection==2){
+                    debugger
                     $('.add_more_new').prop('disabled', true);
                     $('.submit_new').prop('disabled', true);
                     $(".cprp_main").prop("disabled", true);
@@ -418,13 +419,13 @@ $( document ).ready(function() {
                 })
             }
             function unfreezebuyinginfo() {
-                //debugger
+                debugger
                 $('.radio_class').show()
                 $('.cprp_div').show()
                 $(".camp_id_").html('<input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:#ccc;color:#000"/>')
                 $('.texttodisplayspill').hide();
 
-                if (buyingbasket_filename=='' || buyingbasket_filename== "NULL" || replan== true) {
+                if (buyingbasket_filename=='' || buyingbasket_filename== "NULL" || replan == true) {
                     $('.bb_files').show();
                     $('.bb_txt').show();
                     $('#upl-btn').show();
