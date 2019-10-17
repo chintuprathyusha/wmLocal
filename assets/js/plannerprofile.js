@@ -623,7 +623,8 @@ $(document).ready(function () {
                         debugger
                         $('.loading').show();
                             var locationClass = $(".locationClass").val();
-                            var clientClass__ = $(".clientClass__").val();
+                            // var clientClass__ = $(".clientClass__").val();
+                            var clientClass__  =  $(".clientClass__").find("option:selected").attr('key')
                             // var CLemId = $(".CLemId").val();
                             if (locationClass == '' || clientClass__  == '' || clientClass__  == null ) {
                                 $.alert({
