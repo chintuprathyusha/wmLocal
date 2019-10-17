@@ -331,7 +331,7 @@ $( document ).ready(function() {
                 $('.radio_class').show()
                 $('.cprp_div').show()
                 $(".camp_id_").html('<label>Campaign Name</label><input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:black;color:#fff;"/>')
-                if (buyingbasket_filename=='' || buyingbasket_filename== "NULL") {
+                if (buyingbasket_filename=='' || buyingbasket_filename== "NULL" || replan == true) {
                     $('.bb_files').show();
                     $('.bb_txt').show();
                     $('#upl-btn').show();
