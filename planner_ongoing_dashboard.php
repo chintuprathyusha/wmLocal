@@ -233,7 +233,7 @@ if ($_SESSION['usernamee'] == '') {
 					</div>
 
 					<div class="form-group form-group-feedback form-group-feedback-right">
-						<button class="form-control acceleratorbtn"style="background-color: #192124;color: white;" ><a href="planner_accelerator.php" style="color:#fff">Re-plan by Uploading Revised Accelerator Plan</a></button>
+						<button class="form-control acceleratorbtn"style="background-color: #192124;color: white;" >Re-plan by Uploading Revised Accelerator Plan</button>
 					</div>
 				</div>
 			</div>

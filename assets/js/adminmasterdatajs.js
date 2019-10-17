@@ -70,7 +70,8 @@ $(document).ready(function(){
                 channelstamp = msg.ChannelGenreMappingSheet;
                 if (jQuery.isEmptyObject(channelstamp) == true) {
                     $('.channelstamp').show();
-                    $('.channelstamp').append('<p>Channel Genre Mapping Sheet not uploaded</p>')
+                    $('.channelstamp').html('<p>Channel Genre Mapping Sheet not uploaded</p>')
+
                 }
                 else {
                     $('.channelstamp').show();
@@ -78,7 +79,7 @@ $(document).ready(function(){
                 }
                 if (jQuery.isEmptyObject(masterstamp) == true) {
                     $('.masterdatastamp').show();
-                    $('.masterdatastamp').append('<p>Master data file Sheet not uploaded</p>')
+                    $('.masterdatastamp').html('<p>Master data file Sheet not uploaded</p>')
                 }
                 else {
                     $('.masterdatastamp').show();
@@ -88,7 +89,7 @@ $(document).ready(function(){
         });
     }
 
-// push
+
     var file_name_;
     var main_output;
     fileobj = {};
@@ -245,31 +246,26 @@ $(document).ready(function(){
         };
         $.ajax(settings11).done(function (msg) {
             console.log(msg);
-            console.log(jQuery.isEmptyObject(JSON.parse(msg)));
             $('.loading').hide();
-            //
-            // else {
-            //     swal("error in" +msg)
-            // }
-            if(msg.message == "fail"){
+             if(msg.hasOwnProperty('Error')) {
+                 var error_msg = msg.error;
                 $.alert({
-                    title: 'Error',
-                    content: 'Oops ! something went wrong, try again',
-                    animation: 'scale',
-                    closeAnimation: 'scale',
-                    opacity: 0.5,
-                    buttons: {
-                        okay: {
-                            text: 'Okay',
-                            btnClass: 'btn-primary',
-                            action: function(){
-                                window.location.href="error.php"
-                            }
-                        }
+                title: 'Error',
+                content: error_msg,
+                animation: 'scale',
+                closeAnimation: 'scale',
+                opacity: 0.5,
+                buttons: {
+                    okay: {
+                        text: 'Okay',
+                        btnClass: 'btn-primary'
+                        // action:  function(){
+                        //     window.location.reload();
+                        // }
                     }
-                });
+                }
+            });
             }
-            // else if (jQuery.isEmptyObject(JSON.parse(msg))) {
             else {
                     $.alert({
                     title: 'Success',
@@ -280,7 +276,10 @@ $(document).ready(function(){
                     buttons: {
                         okay: {
                             text: 'Okay',
-                            btnClass: 'btn-primary'
+                            btnClass: 'btn-primary',
+                            action:  function(){
+                                window.location.reload();
+                            }
                         }
                     }
                 });

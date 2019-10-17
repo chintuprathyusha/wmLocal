@@ -65,10 +65,11 @@ function pageonloadhit() {
 }
 
 
-
 $("body").on("click", "#camp_idhyperlink_", function(){
     plainiddd =  $(this).attr('plainidattr');
+    // alert(plainiddd)
     sessionStorage.setItem('create_plan_id', plainiddd);
+    // window.location.href = 'planner_createnewplan.php';
     newstatus = $(this).attr('status');
     if (newstatus == 1) {
         window.location.href = 'planner_createnewplan.php?planid='+plainiddd;
@@ -203,19 +204,7 @@ $("body").on("click", ".replanmodal", function(){
     $('#replanmodall').modal();
 })
 
-$('body').on('click', '.statusCheck', function(){
-    var redirectStatus = $(this).attr('status');
-    if (redirectStatus == "1") {
-        window.location.href="planner_createnewplan.php"
-    }
-    else if(redirectStatus == "2"){
-        window.location.href="buyingbasket.php"
-    }
-    else {
-        window.location.href="barc.php"
-    }
 
-})
 function dataTableMultiSort() {
 
     setTimeout(function () {
