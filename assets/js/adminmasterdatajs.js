@@ -45,7 +45,7 @@ $(document).ready(function(){
                     }
                 });
             }
-            else if(msg == "Incorrect header format in Client Leads"){
+            else if(msg.hasOwnProperty('Error')){
                 $.alert({
                     title: 'Error',
                     content: 'Incorrect header format in Client Leads',
