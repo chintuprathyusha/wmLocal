@@ -22,7 +22,7 @@ var sessionidddd = sessionStorage.getItem("sessionidd");
 function checkSessionTime() {
   secountsCounter++;
   // console.log(secountsCounter);
-  if(secountsCounter==15){
+  if(secountsCounter==300){
     obj = {}
     obj.sessionid = sessionidddd
     obj.loggedoutdatetime = currentdate
@@ -43,9 +43,9 @@ function checkSessionTime() {
     $.ajax(settings11).done(function (msg) {
       msg = JSON.parse(msg);
       console.log(msg);
-// if (msg == "logoutsuccess") {
-// window.location.href="index.php";
-// }
+            if (msg == "logoutdone") {
+            window.location.href="index.php";
+        }
 
   })
 

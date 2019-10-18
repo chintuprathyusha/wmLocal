@@ -620,16 +620,27 @@ $(document).ready(function () {
                     })
                     var selectedValues__new_;
                     $("body").on("click", ".create_plan", function(){
-                        debugger
-                        $('.loading').show();
-                            var locationClass = $(".locationClass").val();
-                            // var clientClass__ = $(".clientClass__").val();
-                            var clientClass__  =  $(".clientClass__").find("option:selected").attr('key')
-                            // var CLemId = $(".CLemId").val();
-                            if (locationClass == '' || clientClass__  == '' || clientClass__  == null ) {
+
+                        val = []
+                        selectedValues = $(".clientClass").select2('data');
+
+                        for (var i = 0; i < selectedValues.length; i++) {
+                            val.push(selectedValues[i].text);
+
+                        }
+
+                        val_new = []
+                        selectedValues__new_ = $(".clientClass__").select2('data');
+
+                        for (var i = 0; i < selectedValues__new_.length; i++) {
+                            val_new.push(selectedValues__new_[i].text);
+
+                        }
+                        if(clinet_planner_flag=="false"){
+                            if (location_key == '' || val_new.legnth == 0) {
                                 $.alert({
                                     title: 'Alert',
-                                    content: 'All fields are required',
+                                    content: 'Oops ! something went wrong',
                                     animation: 'scale',
                                     closeAnimation: 'scale',
                                     opacity: 0.5,
@@ -640,27 +651,117 @@ $(document).ready(function () {
                                         }
                                     }
                                 });
-                                $('.loading').hide();
                             }
-                              else {
+                            else {
+                                sendObj = {};
+                                sendObj.CreatedBy = userid;
+                                sendObj.location_key = location_array;
+                                sendObj.UserClientId = userid;
+                                sendObj.ClientId = val_new;
+                                console.log(sendObj);
 
-                                        val = []
-                                        selectedValues = $(".clientClass").select2('data');
-
-                                        for (var i = 0; i < selectedValues.length; i++) {
-                                            val.push(selectedValues[i].text);
+                                var form = new FormData();
+                                form.append("file", JSON.stringify(sendObj));
+                                var settings11 = {
+                                    "async": true,
+                                    "crossDomain": true,
+                                    "url": aws_url+'Create_Profile',
+                                    "method": "POST",
+                                    "processData": false,
+                                    "contentType": false,
+                                    "mimeType": "multipart/form-data",
+                                    "data": form
+                                };
+                                $.ajax(settings11).done(function (msg) {
+                                    msg = JSON.parse(msg);
+                                    console.log(msg);
+                                    setInterval(function(){
+                                        $('.loading').hide(); }, 1000);
+                                        if (msg.message == "fail") {
+                                            $.alert({
+                                                title: 'Alert',
+                                                content: 'Oops ! something went wrong',
+                                                animation: 'scale',
+                                                closeAnimation: 'scale',
+                                                opacity: 0.5,
+                                                buttons: {
+                                                    okay: {
+                                                        text: 'Okay',
+                                                        btnClass: 'btn-primary'
+                                                    }
+                                                }
+                                            });
+                                        }
+                                        else {
+                                            $.alert({
+                                                title: 'Alert',
+                                                content: 'Profile Succesfully Created',
+                                                animation: 'scale',
+                                                closeAnimation: 'scale',
+                                                opacity: 0.5,
+                                                buttons: {
+                                                    okay: {
+                                                        text: 'Okay',
+                                                        btnClass: 'btn-primary'
+                                                    }
+                                                }
+                                            });
+                                            sessionStorage.setItem('isnewuser', false);
+                                            $('input[type=email]').prop('readonly', true);
+                                            $("#email").prop('readonly', true);
+                                            $("#email").css('background', '#ccc');
+                                            $('.select2').prop('disabled', true);
+                                            $(".select2-selection--multiple").css('background', '#ccc');
+                                            $(".select2-selection--multiple").prop('disabled', true);
+                                            $('.select2-selection').prop('readonly', true);
+                                            $('.select2-selection').css('background', '#ccc');
+                                            $('.select2-hidden-accessible').prop('disabaled', true);
+                                            $('#select2-select2-bj-container').prop('readonly', true);
+                                            $('input[type=text]').attr('readonly','readonly');
+                                            $('.clientleadClass textarea').css('background', '#ccc');
+                                            $('select').prop('disabled', true);
+                                            $(".create_plan").prop("disabled", true);
+                                            $('.clientleadClass textarea').attr('readonly','readonly');
+                                            $('.select2-selection__rendered').css('color', '#000')
+                                            sessionStorage.setItem('isprofile', true);
 
                                         }
+                                    })
+                                }
+                            }
+                            else{
 
-                                        val_new = []
-                                        selectedValues__new_ = $(".clientClass__").select2('data');
+                                if (location_key == '' || val.length == 0) {
+                                    // error_notify("All fields are required");
+                                }
+                                else {
 
-                                        for (var i = 0; i < selectedValues__new_.length; i++) {
-                                            val_new.push(selectedValues__new_[i].text);
+                                    sendObj = {};
+                                    sendObj.CreatedBy = userid;
+                                    sendObj.location_key = location_array;
+                                    sendObj.UserClientId = userid;
+                                    sendObj.ClientId = val;
+                                    console.log(sendObj);
 
-                                        }
-                                        if(clinet_planner_flag == "false"){
-                                            if (location_key == '' || val_new == '') {
+                                    var form = new FormData();
+                                    form.append("file", JSON.stringify(sendObj));
+                                    var settings11 = {
+                                        "async": true,
+                                        "crossDomain": true,
+                                        "url": aws_url+'Create_Profile',
+                                        "method": "POST",
+                                        "processData": false,
+                                        "contentType": false,
+                                        "mimeType": "multipart/form-data",
+                                        "data": form
+                                    };
+                                    $.ajax(settings11).done(function (msg) {
+                                        msg = JSON.parse(msg);
+                                        console.log(msg);
+
+                                        setInterval(function(){
+                                            $('.loading').hide(); }, 1000);
+                                            if (msg.message == "fail") {
                                                 $.alert({
                                                     title: 'Alert',
                                                     content: 'Oops ! something went wrong',
@@ -670,185 +771,50 @@ $(document).ready(function () {
                                                     buttons: {
                                                         okay: {
                                                             text: 'Okay',
-                                                            btnClass: 'btn-primary',
-                                                            action: function(){
-                                                                window.location.href="error.php"
-                                                            }
+                                                            btnClass: 'btn-primary'
                                                         }
                                                     }
                                                 });
                                             }
                                             else {
-                                                sendObj = {};
-                                                sendObj.CreatedBy = userid;
-                                                sendObj.location_key = location_array;
-                                                sendObj.UserClientId = userid;
-                                                sendObj.ClientId = val_new;
-                                                console.log(sendObj);
-
-                                                var form = new FormData();
-                                                form.append("file", JSON.stringify(sendObj));
-                                                var settings11 = {
-                                                    "async": true,
-                                                    "crossDomain": true,
-                                                    "url": aws_url+'Create_Profile',
-                                                    "method": "POST",
-                                                    "processData": false,
-                                                    "contentType": false,
-                                                    "mimeType": "multipart/form-data",
-                                                    "data": form
-                                                };
-                                                $.ajax(settings11).done(function (msg) {
-                                                    msg = JSON.parse(msg);
-                                                    console.log(msg);
-                                                    setInterval(function(){
-                                                        $('.loading').hide(); }, 1000);
-                                                        if (msg.message == "fail") {
-                                                            $.alert({
-                                                                title: 'Alert',
-                                                                content: 'Oops ! something went wrong',
-                                                                animation: 'scale',
-                                                                closeAnimation: 'scale',
-                                                                opacity: 0.5,
-                                                                buttons: {
-                                                                    okay: {
-                                                                        text: 'Okay',
-                                                                        btnClass: 'btn-primary',
-                                                                        action: function(){
-                                                                            window.location.href="error.php"
-                                                                        }
-                                                                    }
-                                                                }
-                                                            });
+                                                $.alert({
+                                                    title: 'Alert',
+                                                    content: 'Succesfully Created',
+                                                    animation: 'scale',
+                                                    closeAnimation: 'scale',
+                                                    opacity: 0.5,
+                                                    buttons: {
+                                                        okay: {
+                                                            text: 'Okay',
+                                                            btnClass: 'btn-primary'
                                                         }
-                                                        else {
-                                                            $.alert({
-                                                                title: 'Alert',
-                                                                content: 'Profile Succesfully Created',
-                                                                animation: 'scale',
-                                                                closeAnimation: 'scale',
-                                                                opacity: 0.5,
-                                                                buttons: {
-                                                                    okay: {
-                                                                        text: 'Okay',
-                                                                        btnClass: 'btn-primary'
-                                                                    }
-                                                                }
-                                                            });
-                                                            sessionStorage.setItem('isnewuser', false);
-                                                            $('input[type=email]').prop('readonly', true);
-                                                            $("#email").prop('readonly', true);
-                                                            $("#email").css('background', '#ccc');
-                                                            $('.select2').prop('disabled', true);
-                                                            $(".select2-selection--multiple").css('background', '#ccc');
-                                                            $(".select2-selection--multiple").prop('disabled', true);
-                                                            $('.select2-selection').prop('readonly', true);
-                                                            $('.select2-selection').css('background', '#ccc');
-                                                            $('.select2-hidden-accessible').prop('disabaled', true);
-                                                            $('#select2-select2-bj-container').prop('readonly', true);
-                                                            $('input[type=text]').attr('readonly','readonly');
-                                                            $('.clientleadClass textarea').css('background', '#ccc');
-                                                            $('select').prop('disabled', true);
-                                                            $(".create_plan").prop("disabled", true);
-                                                            $('.clientleadClass textarea').attr('readonly','readonly');
-                                                            $('.select2-selection__rendered').css('color', '#000')
-                                                            sessionStorage.setItem('isprofile', true);
-
-                                                        }
-                                                    })
-                                                }
-                                            }
-                                            else{
-
-                                                if (location_key == '' || val == '') {
-                                                    // error_notify("All fields are required");
-                                                }
-                                                else {
-
-                                                    sendObj = {};
-                                                    sendObj.CreatedBy = userid;
-                                                    sendObj.location_key = location_array;
-                                                    sendObj.UserClientId = userid;
-                                                    sendObj.ClientId = val;
-                                                    console.log(sendObj);
-
-                                                    var form = new FormData();
-                                                    form.append("file", JSON.stringify(sendObj));
-                                                    var settings11 = {
-                                                        "async": true,
-                                                        "crossDomain": true,
-                                                        "url": aws_url+'Create_Profile',
-                                                        "method": "POST",
-                                                        "processData": false,
-                                                        "contentType": false,
-                                                        "mimeType": "multipart/form-data",
-                                                        "data": form
-                                                    };
-                                                    $.ajax(settings11).done(function (msg) {
-                                                        msg = JSON.parse(msg);
-                                                        console.log(msg);
-
-                                                        setInterval(function(){
-                                                            $('.loading').hide(); }, 1000);
-                                                            if (msg.message == "fail") {
-                                                                $.alert({
-                                                                    title: 'Alert',
-                                                                    content: 'Oops ! something went wrong',
-                                                                    animation: 'scale',
-                                                                    closeAnimation: 'scale',
-                                                                    opacity: 0.5,
-                                                                    buttons: {
-                                                                        okay: {
-                                                                            text: 'Okay',
-                                                                            btnClass: 'btn-primary',
-                                                                            action: function(){
-                                                                                window.location.href="error.php"
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                });
-                                                            }
-                                                            else {
-                                                                $.alert({
-                                                                    title: 'Alert',
-                                                                    content: 'Succesfully Created',
-                                                                    animation: 'scale',
-                                                                    closeAnimation: 'scale',
-                                                                    opacity: 0.5,
-                                                                    buttons: {
-                                                                        okay: {
-                                                                            text: 'Okay',
-                                                                            btnClass: 'btn-primary'
-                                                                        }
-                                                                    }
-                                                                });
-
-                                                                sessionStorage.setItem('isnewuser', false);
-
-                                                                $('input[type=email]').prop('readonly', true);
-                                                                $("#email").prop('readonly', true);
-                                                                $("#email").css('background', '#ccc');
-                                                                $('.select2').prop('disabled', true);
-                                                                $(".select2-selection--multiple").css('background', '#ccc');
-                                                                $(".select2-selection--multiple").prop('disabled', true);
-                                                                $('.select2-selection').prop('readonly', true);
-                                                                $('.select2-selection').css('background', '#ccc');
-                                                                $('.select2-hidden-accessible').prop('disabaled', true);
-                                                                $('#select2-select2-bj-container').prop('readonly', true);
-                                                                $('input[type=text]').attr('readonly','readonly');
-                                                                $('.clientleadClass textarea').css('background', '#ccc');
-                                                                $('select').prop('disabled', true);
-                                                                $(".create_plan").prop("disabled", true);
-                                                                $('.clientleadClass textarea').attr('readonly','readonly');
-                                                                $('.select2-selection__rendered').css('color', '#000')
-                                                                sessionStorage.setItem('isprofile', true);
-                                                            }
-                                                        })
                                                     }
-                                                }
+                                                });
 
+                                                sessionStorage.setItem('isnewuser', false);
+
+                                                $('input[type=email]').prop('readonly', true);
+                                                $("#email").prop('readonly', true);
+                                                $("#email").css('background', '#ccc');
+                                                $('.select2').prop('disabled', true);
+                                                $(".select2-selection--multiple").css('background', '#ccc');
+                                                $(".select2-selection--multiple").prop('disabled', true);
+                                                $('.select2-selection').prop('readonly', true);
+                                                $('.select2-selection').css('background', '#ccc');
+                                                $('.select2-hidden-accessible').prop('disabaled', true);
+                                                $('#select2-select2-bj-container').prop('readonly', true);
+                                                $('input[type=text]').attr('readonly','readonly');
+                                                $('.clientleadClass textarea').css('background', '#ccc');
+                                                $('select').prop('disabled', true);
+                                                $(".create_plan").prop("disabled", true);
+                                                $('.clientleadClass textarea').attr('readonly','readonly');
+                                                $('.select2-selection__rendered').css('color', '#000')
+                                                sessionStorage.setItem('isprofile', true);
                                             }
+                                        })
+                                    }
+                                }
 
-                        })
-
+                            })
+    
                         })
