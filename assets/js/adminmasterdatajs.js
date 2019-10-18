@@ -209,7 +209,7 @@ $(document).ready(function(){
              if(msg.hasOwnProperty('Error')){
                 $.alert({
                     title: 'Error',
-                    content: 'Incorrect header format in Client Leads',
+                    content: msg.Error,
                     animation: 'scale',
                     closeAnimation: 'scale',
                     opacity: 0.5,
@@ -356,7 +356,7 @@ $(document).ready(function(){
             else if(msg.hasOwnProperty('Error')){
                 $.alert({
                     title: 'Error',
-                    content: 'Incorrect header format in Client Leads',
+                    content: msg.Error,
                     animation: 'scale',
                     closeAnimation: 'scale',
                     opacity: 0.5,
