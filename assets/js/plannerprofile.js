@@ -177,8 +177,10 @@ $(document).ready(function () {
                 freezeClient = msg.Client;
                 freezeClientLead = msg.Client_Lead;
                 $(".freezeLoc").append('<p key='+freezeLoc+' value='+freezeLoc+' class="getClass form-control" readonly style="background-color:#d6d6d6;margin-top:10px;">'+freezeLoc+'</p>')
-
-                $(".freezeclient").append('<input key='+freezeClient+' value='+freezeClient+' class="getClass form-control" readonly style="background-color:#d6d6d6;margin-top:10px;">')
+                for (var i = 0; i < freezeClient.length; i++) {
+                    $(".freezeclient").append('<textarea key='+freezeClient[i]+' value='+freezeClient[i]+' class="getClass form-control" readonly style="background-color:#d6d6d6;margin-top:10px;">'+freezeClient[i]+'</textarea>')
+                }
+                // $(".freezeclient").append('<input key='+freezeClient+' value='+freezeClient+' class="getClass form-control" readonly style="background-color:#d6d6d6;margin-top:10px;">')
                 for (var i = 0; i < freezeClientLead.length; i++) {
                     $(".freezeClientLead").append('<textarea key='+freezeClientLead[i]+' value='+freezeClientLead[i]+' class="getClass form-control" readonly style="background-color:#d6d6d6;margin-top:10px;">'+freezeClientLead[i]+'</textarea>')
                 }
@@ -408,6 +410,7 @@ $(document).ready(function () {
         })
 
         $("body").on("change", ".locationClass", function(){
+            debugger
             location_array = [];
             $(".clientClass").empty();
             $('.clientClass__').empty();
@@ -618,9 +621,11 @@ $(document).ready(function () {
                             }
                         })
                     })
+
+
                     var selectedValues__new_;
                     $("body").on("click", ".create_plan", function(){
-
+                        debugger
                         val = []
                         selectedValues = $(".clientClass").select2('data');
 
@@ -631,16 +636,18 @@ $(document).ready(function () {
 
                         val_new = []
                         selectedValues__new_ = $(".clientClass__").select2('data');
+                        selectedValues__new_1 = $(".clientClass__").val();
 
                         for (var i = 0; i < selectedValues__new_.length; i++) {
                             val_new.push(selectedValues__new_[i].text);
 
                         }
                         if(clinet_planner_flag=="false"){
-                            if (location_key == '' || val_new.legnth == 0) {
+                            // if (location_array.length == 0 || val_new.length == 0) {
+                            if (location_array.length == 0 || selectedValues__new_1 == '') {
                                 $.alert({
                                     title: 'Alert',
-                                    content: 'Oops ! something went wrong',
+                                    content: 'Fields should not ne empty',
                                     animation: 'scale',
                                     closeAnimation: 'scale',
                                     opacity: 0.5,
@@ -730,9 +737,21 @@ $(document).ready(function () {
                                 }
                             }
                             else{
-
-                                if (location_key == '' || val.length == 0) {
-                                    // error_notify("All fields are required");
+                                debugger
+                                if (location_array.length == 0 || val.length == 0) {
+                                    $.alert({
+                                        title: 'Alert',
+                                        content: 'Fields should not be empty',
+                                        animation: 'scale',
+                                        closeAnimation: 'scale',
+                                        opacity: 0.5,
+                                        buttons: {
+                                            okay: {
+                                                text: 'Okay',
+                                                btnClass: 'btn-primary'
+                                            }
+                                        }
+                                    });
                                 }
                                 else {
 
@@ -816,5 +835,5 @@ $(document).ready(function () {
                                 }
 
                             })
-    
+
                         })
