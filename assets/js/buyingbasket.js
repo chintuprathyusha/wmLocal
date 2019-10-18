@@ -143,6 +143,9 @@ $( document ).ready(function() {
                         acceleratedFilePathByRPA = msg.AcceleratedFilePathByRPA;
                         PlanProcessed = msg.planProcessed;
                         isFilePrepCompleted = msg.isFilePrepCompleted;
+                        newcampaign_id = msg.CampaignId;
+                        campaignName = msg.CampaignName;
+                        $(".camp_id_").html('<input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:#ccc";color:#000/>')
                         if (version > 1) {
                             replan = true;
                             $('.bb_files').show();
@@ -239,49 +242,49 @@ $( document ).ready(function() {
                             }
                         }
                     }
-                    if (msg.message == "fail") {
-                        $.alert({
-                            title: 'Error',
-                            content: 'Oops ! something went wrong',
-                            animation: 'scale',
-                            closeAnimation: 'scale',
-                            opacity: 0.5,
-                            buttons: {
-                                okay: {
-                                    text: 'Okay',
-                                    btnClass: 'btn-primary',
-                                    action: function(){
-                                        window.location.href="error.php"
+                    if (replan == false){
+                        if (msg.message == "fail") {
+                            $.alert({
+                                title: 'Error',
+                                content: 'Oops ! something went wrong',
+                                animation: 'scale',
+                                closeAnimation: 'scale',
+                                opacity: 0.5,
+                                buttons: {
+                                    okay: {
+                                        text: 'Okay',
+                                        btnClass: 'btn-primary',
+                                        action: function(){
+                                            window.location.href="error.php"
+                                        }
                                     }
                                 }
-                            }
-                        });
-                        $('.buying_basket').hide();
-                        $('.backclass').hide();
-                        $('.next_').hide();
-                    }
-                    else {
-                        console.log(msg.BuyingBasketFilePath);
-                        if (msg.BuyingBasketFilePath=='' || msg.BuyingBasketFilePath== null) {
-                            $('.bb_files').show();
-                            $('.bb_txt').show();
-                            $('#upl-btn').show();
-                            // $('.next_').prop('disabled', true)
-                            $('.cprp_div').hide();
-                            $('.radio_class').hide();
+                            });
+                            $('.buying_basket').hide();
+                            $('.backclass').hide();
+                            $('.next_').hide();
                         }
                         else {
-                            $('.bb_files').hide();
-                            $('#upl-btn').hide();
-                            $('.texttodisplay').show()
-                            $('.texttodisplay').html('<h5>Buying Basket file is succesfully uploaded</h5>')
-                            $('.radio_class').show();
-                            // $('.next_').prop('disabled', false)
+                            console.log(msg.BuyingBasketFilePath);
+                            if (msg.BuyingBasketFilePath=='' || msg.BuyingBasketFilePath== null) {
+                                $('.bb_files').show();
+                                $('.bb_txt').show();
+                                $('#upl-btn').show();
+                                // $('.next_').prop('disabled', true)
+                                $('.cprp_div').hide();
+                                $('.radio_class').hide();
+                            }
+                            else {
+                                $('.bb_files').hide();
+                                $('#upl-btn').hide();
+                                $('.texttodisplay').show()
+                                $('.texttodisplay').html('<h5>Buying Basket file is succesfully uploaded</h5>')
+                                $('.radio_class').show();
+                                // $('.next_').prop('disabled', false)
+                            }
                         }
-                        newcampaign_id = msg.CampaignId;
-                        campaignName = msg.CampaignName;
-                        $(".camp_id_").html('<input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:#ccc";color:#000/>')
                     }
+
                 })
             }
 
@@ -343,6 +346,7 @@ $( document ).ready(function() {
                     $('.texttodisplay').html('<h5 style="color:#000">Buying Basket file is succesfully uploaded</h5>')
                 }
                 if(path_selection==2){
+                    debugger
                     $('.add_more_new').prop('disabled', true);
                     $('.submit_new').prop('disabled', true);
                     $(".cprp_main").prop("disabled", true);
@@ -418,13 +422,13 @@ $( document ).ready(function() {
                 })
             }
             function unfreezebuyinginfo() {
-                //debugger
+                debugger
                 $('.radio_class').show()
                 $('.cprp_div').show()
                 $(".camp_id_").html('<input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:#ccc;color:#000"/>')
                 $('.texttodisplayspill').hide();
 
-                if (buyingbasket_filename=='' || buyingbasket_filename== "NULL" || replan== true) {
+                if (buyingbasket_filename=='' || buyingbasket_filename== "NULL" || replan == true) {
                     $('.bb_files').show();
                     $('.bb_txt').show();
                     $('#upl-btn').show();
