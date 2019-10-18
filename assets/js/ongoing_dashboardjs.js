@@ -408,7 +408,7 @@ $("document").ready(function () {
             console.log(msg);
             console.log(filesData);
             console.log(jQuery.isEmptyObject(filesData));
-            if(filesData.Status="fail"){
+            if(filesData.message=="fail"){
                 $.alert({
                     title: 'Error',
                     content: 'Oops ! something went wrong, try again',
