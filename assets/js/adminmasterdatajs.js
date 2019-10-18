@@ -45,24 +45,6 @@ $(document).ready(function(){
                     }
                 });
             }
-            else if(msg.hasOwnProperty('Error')){
-                $.alert({
-                    title: 'Error',
-                    content: 'Incorrect header format in Client Leads',
-                    animation: 'scale',
-                    closeAnimation: 'scale',
-                    opacity: 0.5,
-                    buttons: {
-                        okay: {
-                            text: 'Okay',
-                            btnClass: 'btn-primary',
-                            action: function(){
-                                window.location.reload();
-                            }
-                        }
-                    }
-                });
-            }
             else {
                 console.log(msg);
                 $('.loading').hide();
@@ -247,24 +229,23 @@ $(document).ready(function(){
         $.ajax(settings11).done(function (msg) {
             console.log(msg);
             $('.loading').hide();
-             if(msg.hasOwnProperty('Error')) {
-                 var error_msg = msg.error;
+             if(msg.hasOwnProperty('Error')){
                 $.alert({
-                title: 'Error',
-                content: error_msg,
-                animation: 'scale',
-                closeAnimation: 'scale',
-                opacity: 0.5,
-                buttons: {
-                    okay: {
-                        text: 'Okay',
-                        btnClass: 'btn-primary'
-                        // action:  function(){
-                        //     window.location.reload();
-                        // }
+                    title: 'Error',
+                    content: 'Incorrect header format in Client Leads',
+                    animation: 'scale',
+                    closeAnimation: 'scale',
+                    opacity: 0.5,
+                    buttons: {
+                        okay: {
+                            text: 'Okay',
+                            btnClass: 'btn-primary',
+                            action: function(){
+                                window.location.reload();
+                            }
+                        }
                     }
-                }
-            });
+                });
             }
             else {
                     $.alert({
@@ -396,10 +377,28 @@ $(document).ready(function(){
                     }
                 });
             }
+            else if(msg.hasOwnProperty('Error')){
+                $.alert({
+                    title: 'Error',
+                    content: 'Incorrect header format in Client Leads',
+                    animation: 'scale',
+                    closeAnimation: 'scale',
+                    opacity: 0.5,
+                    buttons: {
+                        okay: {
+                            text: 'Okay',
+                            btnClass: 'btn-primary',
+                            action: function(){
+                                window.location.reload();
+                            }
+                        }
+                    }
+                });
+            }
             else {
                 $.alert({
                     title: 'Success',
-                    content: 'Uploaded Succesfully',
+                    content: 'Uploaded Succesfully' +msg,
                     animation: 'scale',
                     closeAnimation: 'scale',
                     opacity: 0.5,
