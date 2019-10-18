@@ -185,7 +185,7 @@ $(document).ready(function(){
         $.ajax(settings11).done(function (msg) {
             console.log(msg);
             $('.loading').hide();
-            if (msg == "Headers did not match!") {
+            if (msg == "Headers did not match for AcceleratedFile") {
                 $.alert({
                     title: 'Headers did not match for AcceleratedFile',
                     animation: 'scale',
