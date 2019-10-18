@@ -204,6 +204,7 @@ $(document).ready(function(){
         };
         $.ajax(settings11).done(function (msg) {
             console.log(msg);
+            msg = JSON.parse(msg);
             $('.loading').hide();
              if(msg.hasOwnProperty('Error')){
                 $.alert({
@@ -333,6 +334,7 @@ $(document).ready(function(){
         $.ajax(settings11).done(function (msg) {
             $('.loading').hide();
             console.log(msg);
+            msg = JSON.parse(msg);
             if(msg.message == "fail"){
                 $.alert({
                     title: 'Error',
