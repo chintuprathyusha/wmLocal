@@ -1,10 +1,8 @@
 $(document).ready(function(){
-    // $('.loading').show();
     $('.texttodisplay').hide();
     var plan_id = sessionStorage.getItem('create_plan_id');
     var user_id = sessionStorage.getItem('userid');
     $('.camp_id').append('<input class="form-control" value="'+plan_id+'" type="text"/ readonly>')
-    // $('#upl-btn').attr('disabled', 'true');
     $('#locationuploadbtn').prop('disabled', true);
     $('#channelgenrebtn').prop('disabled', true);
     onLoad();
@@ -12,7 +10,6 @@ $(document).ready(function(){
     var channelstamp;
     function onLoad(){
         sendObj ={}
-        // console.log(sendObj);
         var form = new FormData();
         form.append("file", JSON.stringify(sendObj));
         var settings11 = {
@@ -75,13 +72,8 @@ $(document).ready(function(){
     var file_name_;
     var main_output;
     fileobj = {};
-    (function ($) {
-        // $('#upl-btn').attr('disabled', 'false');
-        // $("#upl-btn").click(function () {
-        //   $('#load-file').click();
-        // })
         $('#locationclass').on('change', function () {
-            // //debugger
+            debugger
             main_output = ''
             var file = $('#locationclass')[0].files[0];
             filename = file.name;
@@ -97,27 +89,11 @@ $(document).ready(function(){
                 console.log(fileobj);
                 file_name_ = filename;
                 $('#locationuploadbtn').prop('disabled', false)
-                // var form = new FormData();
-                // form.append("file", JSON.stringify(fileobj));
-                // var settings11 = {
-                //   "async": true,
-                //   "crossDomain": true,
-                //   "url":"http://192.168.0.117:6767/download_excel",
-                //   "method": "POST",
-                //   "processData": false,
-                //   "contentType": false,
-                //   "mimeType": "multipart/form-data",
-                //   "data": form
-                // };
-                // $.ajax(settings11).done(function (msg) {
-                //   console.log(msg);
-                //
-                // });
             };
 
             fileReader.readAsDataURL(file);
         });
-    })(jQuery);
+
 
 
     var counting = 0;
@@ -211,8 +187,8 @@ $(document).ready(function(){
     }
 
     $("body").on("click", "#locationuploadbtn", function(){
+        debugger
         $('.loading').show();
-        // //debugger
         console.log(fileobj);
         var form = new FormData();
         form.append("file", JSON.stringify(fileobj));
@@ -277,9 +253,8 @@ $(document).ready(function(){
     var file_name_new;
     var main_output_new;
     fileobj_new = {};
-    (function ($) {
         $('#channelgenre').on('change', function () {
-            // //debugger
+            debugger
             main_output_new = ''
             var file = $('#channelgenre')[0].files[0];
             filename_new = file.name;
@@ -299,7 +274,6 @@ $(document).ready(function(){
 
             fileReader.readAsDataURL(file);
         });
-    })(jQuery);
 
 
     var counting = 0;
