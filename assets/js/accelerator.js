@@ -185,8 +185,20 @@ $(document).ready(function(){
         $.ajax(settings11).done(function (msg) {
             console.log(msg);
             $('.loading').hide();
-
-            if (msg == "Path inserted Succesfully") {
+            if (msg == "Headers did not match for AcceleratedFile") {
+                $.alert({
+                    title: 'Headers did not match for AcceleratedFile',
+                    animation: 'scale',
+                    closeAnimation: 'scale',
+                    opacity: 0.5,
+                    buttons: {
+                        okay: {
+                            text: 'Okay',
+                            btnClass: 'btn-primary'
+                        }
+                    }
+                });
+            }else if (msg == "Path inserted Succesfully") {
                 $('#upl-btn').hide();
                 $('.file-input').hide();
                 $('.red_color').hide();
