@@ -1,7 +1,7 @@
 $("body").on("click", ".logoutbtn", function () {
     var sessionidddd = sessionStorage.getItem("sessionidd");
     var currentdate = new Date().toLocaleString();
-    alert(currentdate)
+    // alert(currentdate)
     obj = {}
     obj.sessionid = sessionidddd
     obj.loggedoutdatetime = currentdate
@@ -42,13 +42,13 @@ $("body").on("click", ".logutAD", function () {
     var sessionidddd = sessionStorage.getItem("sessionidd");
     // var currentdate = new Date().toLocaleString();
     var currentdate = generateDateTime();
-    alert(currentdate)
+    // alert(currentdate)
     obj = {}
     obj.sessionid = sessionidddd
     obj.loggedoutdatetime = currentdate
     obj.issessiontimedout = "false"
     console.log(obj);
-    alert(obj)
+    // alert(obj)
     var form = new FormData();
     form.append("file", JSON.stringify(obj));
     var settings11 = {
