@@ -55,7 +55,8 @@ body{
     display: block;
 }
 .fileClick.active{
-    background: #c9c9c9;
+    background: #F07144;
+    color: white;
 }
 .pointer{
     cursor: pointer !important;
@@ -152,25 +153,75 @@ body{
 
 
 
-
-
-::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.3);
-	background-color: #211e1eb3;
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-::-webkit-scrollbar
-{
-	width: 16px;
-	background-color: #211e1eb3;
-
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 0px;
 }
 
-::-webkit-scrollbar-thumb
-{
-	background-color: #1f2022;
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #F07144;
+  border-radius: 0px;
 }
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000;
+}
+
+
+
+
+
+
+.scrollbar
+{
+	margin-left: 30px;
+	float: left;
+	height: 300px;
+	width: 30px;
+	background: #F5F5F9;
+	overflow-y: scroll;
+	margin-bottom: 25px;
+}
+
+.force-overflow
+{
+	min-height: 10px;
+}
+
+
+
+
+
+.content-wrapper::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #1F2022;
+}
+
+.content-wrapper::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #1F2022;
+}
+.content-wrapper::-webkit-scrollbar-thumb
+{
+	background-color: #F07144;
+}
+
+/*
+ *  STYLE 4
+ */
+
+
+
 
 #logoutbtnid:hover{
     color:#000 !important;
@@ -269,12 +320,13 @@ body{
 .content-wrapper {
     overflow: auto;
     position: relative;
-    left: 21px;
+    /* left: 21px; */
     overflow-y: auto;
     overflow-x: hidden;
 }
 .page-content{
     overflow-x: hidden;
+    /* overflow-y: scroll; */
 }
 .sidebar{
     width: 200px;
@@ -364,4 +416,20 @@ body{
     margin-top: 8px;
     color:#F07144;
     margin-left: 5px;
+}
+.swal-overlay--show-modal .swal-modal{
+    background-color: #19191a !important;
+    border: 1px solid #F07144 !important;
+}
+.swal-icon{
+    display: none !important;
+
+}
+.swal-title:not(:last-child) {
+    color: white !important;
+}
+.swal-button{
+    background-color: #BB2734 !important;
+    color:white;
+    border-radius: 0px!important;
 }
