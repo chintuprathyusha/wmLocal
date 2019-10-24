@@ -429,6 +429,10 @@ $( document ).ready(function() {
                 $('.texttodisplayspill').hide();
 
                 if (buyingbasket_filename=='' || buyingbasket_filename== "NULL" || replan == true) {
+
+                  $('.radio_class').hide();
+                  $('.cprp_div').hide();
+                  $('.budget_div_').hide();
                     $('.bb_files').show();
                     $('.bb_txt').show();
                     $('#upl-btn').show();
@@ -1028,8 +1032,11 @@ $( document ).ready(function() {
                     "data": form
                 };
                 $.ajax(settings11).done(function (msg) {
+                  msg = JSON.parse(msg)
                     console.log(msg);
+                      $('.loading').hide();
                     if(msg == "Path inserted Succesfully"){
+                      $('.radio_class').show();
                         $('.texttodisplay').show();
                         $('.file-input').hide();
                         $('.red_color').hide();
@@ -1045,6 +1052,7 @@ $( document ).ready(function() {
 
                     }
                     else{
+                      $('.radio_class').hide();
                         $('#upl-btn').show();
                         $('.texttodisplay').hide();
                         $('.file-input').show();
@@ -1063,8 +1071,8 @@ $( document ).ready(function() {
                         });
 
                     }
-                    $('.loading').hide();
-                    $('.radio_class').show();
+
+
                 });
             })
 
@@ -1170,6 +1178,15 @@ $( document ).ready(function() {
                     //console.log(error);
                 });
             }
+
+            //remove btn click
+
+                $("body").on("click", ".fileinput-remove-button", function(){
+
+                  $('#upl-btn').prop('disabled', 'disabled')
+
+
+                })
 
             $("body").on("click", "#upl-btn1", function(){
                 //debugger
