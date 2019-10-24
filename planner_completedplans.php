@@ -246,37 +246,6 @@ margin-top: 45px;
 
 </div>
 
-
-<!-- <div id="downloadicon" class="modal fade" tabindex="-1"  data-backdrop="static" data-keyboard="false">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content" style="margin-top: 255px;">
-            <div class="modal-header">
-                <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-                <button type="button" class="close closeModal closeClass" data-dismiss="modal">&times;</button>
-            </div>
-            <!-- Form -->
-            <!-- <div class="modal-body" style="padding-top: 0px;">
-                <div class="row" style="display:block">
-                    <div class="row_header">
-                        <button type="button" class="selectAll">Select All</button>
-                        <button type="button" class="downloadAll">Download </button>
-                    </div>
-                    <div class="row row_body">
-
-                    </div>
-                </div>
-            </div> -->
-
-
-
-        </div>
-        <!-- /form -->
-
-    </div>
-</div>
-
-<!-- /page content -->
-
 <div id="replanmodall" class="modal fade" tabindex="-1">
     <div class="modal-dialog modal-sm">
         <div class="modal-content" style="margin-top: 255px;">
