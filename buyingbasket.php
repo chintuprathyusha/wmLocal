@@ -342,7 +342,7 @@ button:focus {outline:0;}
 								<!-- <button data-remodal-action="close" type="button" class="remodal-close" aria-label="Close"></button> -->
 								<div class="row">
 									<div class="col-lg-6">
-										<h6 class="font-weight-semibold" style="margin-top:20px">Average Commercial Duration <span class="appendaveragecommer"></span></h6>
+										<h6 class="font-weight-semibold" style="margin-top:20px">Edit <span class="appendaveragecommer"></span></h6>
 									</div>
 									<div class="col-lg-6">
 										<h6 class="font-weight-semibold" style="margin-top:20px">Dispersion <span class="appenddispers"></span></h6>
@@ -395,7 +395,7 @@ button:focus {outline:0;}
 								</div>
 								<div class="row">
 									<div class="col-lg-6">
-										<h6 class="font-weight-semibold" style="margin-top:20px">Average Commercial Duration<span class="appedacd"></span></h6>
+										<h6 class="font-weight-semibold" style="margin-top:20px">Edit<span class="appedacd"></span></h6>
 									</div>
 									<div class="col-lg-6">
 										<h6 class="font-weight-semibold" style="margin-top:20px">Dispersion<span class="appenddispersion"></span></h6>
