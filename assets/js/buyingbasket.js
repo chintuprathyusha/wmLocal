@@ -1032,7 +1032,7 @@ $( document ).ready(function() {
                     "data": form
                 };
                 $.ajax(settings11).done(function (msg) {
-                  msg = JSON.parse(msg)
+                //   msg = JSON.parse(msg)
                     console.log(msg);
                       $('.loading').hide();
                     if(msg == "Path inserted Succesfully"){
