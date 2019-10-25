@@ -13,6 +13,7 @@ $( document ).ready(function() {
     $(".cprp_main").css("background-color", "#F07144");
     $('.radio_class').hide();
     $('.changediv').hide();
+    debugger
     var planid = $.urlParam('planid');
     var userid = sessionStorage.getItem('userid');
     $('.spillovertexttodisplay').hide()
@@ -682,6 +683,7 @@ $( document ).ready(function() {
                         content: 'Oops ! something went wrong',
                         animation: 'scale',
                         closeAnimation: 'scale',
+                        className: "alert-class",
                         opacity: 0.5,
                         buttons: {
                             okay: {
@@ -941,7 +943,7 @@ $( document ).ready(function() {
                 window.location.href = "barc.php?planid="+planid
             })
 
-            var plan_id = sessionStorage.getItem('create_plan_id');
+            var plan_id = planid;
             var user_id = sessionStorage.getItem('userid');
             $('.camp_id').append('<input class="form-control" value="'+plan_id+'" type="text"/ readonly>')
             $('.radio_class').hide();
@@ -1032,7 +1034,7 @@ $( document ).ready(function() {
                     "data": form
                 };
                 $.ajax(settings11).done(function (msg) {
-                //   msg = JSON.parse(msg)
+                  // msg = JSON.parse(msg)
                     console.log(msg);
                       $('.loading').hide();
                     if(msg == "Path inserted Succesfully"){
