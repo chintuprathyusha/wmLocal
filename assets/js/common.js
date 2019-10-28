@@ -34,7 +34,7 @@ var getUrlParameter = function getUrlParameter(sParam) {
 
         //  return 'http://192.168.0.101:6767/'
          // return 'http://192.168.0.110:6767/'
-            return 'http://192.168.0.107:6767/'
+            // return 'http://192.168.0.107:6767/'
          return 'https://cin-appsvplan-indtvauto-api-dev-03.azurewebsites.net/'
 
  }
