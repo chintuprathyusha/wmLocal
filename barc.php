@@ -112,6 +112,12 @@ $(document).ready(function() {
 .cprp_submit{
 	width: 100%;
 }
+.commonstyle{
+	margin: auto;
+	/* background: #f3713c; */
+	padding: 30px;
+	width: 600px;
+}
 </style>
 <body>
 	<?php include 'header.php';?>
@@ -242,6 +248,9 @@ $(document).ready(function() {
 							<button class="btn btn-primary backclass" title="Previous" tooltip="Previous"style="color: #F07144;border:none;float: left;background-color: transparent !Important;"><span>PREVIOUS </span></button>
 
 
+						</div>
+						<div class="commonstyle barcmsg" style="margin-top:50px;background-color:#d1d8e0;">
+							<!-- <h5 style="color:#000">Genre Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox1232kavya.</h5> -->
 						</div>
 					</div>
 				</div>

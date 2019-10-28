@@ -175,6 +175,22 @@ body{
   background: #b30000;
 }
 
+.jconfirm-box{
+  background-color: #19191a !important;
+  border: 1px solid #F07144 !important;
+}
+.jconfirm-title{
+  color: #fff !important;
+}
+.jconfirm-content{
+  color: #fff !important;
+}
+.jconfirm-buttons.button{
+  background-color: #BB2734 !important;
+  color:white;
+  border-radius: 0px!important;
+
+}
 
 
 

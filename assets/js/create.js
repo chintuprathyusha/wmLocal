@@ -262,6 +262,7 @@ $(document).ready(function () {
                 $('.loading').hide();
 
                 console.log(msg);
+                process1ETA  =  msg.Process1ETA
                 if(msg.message == "fail"){
                     $.alert({
                         title: 'Alert',
@@ -294,6 +295,19 @@ $(document).ready(function () {
                             }
                         }
                     });
+
+                   $('.texttodisplay').append('');
+
+                    if (process1ETA == "None" ) {
+                      alert(process1ETA)
+                      $('.texttodisplay').append('Channel Selection Sheet being created. Once complete you will receive it in your inbox');
+                    }
+                    else {
+                      $('.texttodisplay').append('Channel Selection Sheet being created. Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : '+format_date(process1ETA)+'');
+                    }
+
+
+                    // $('.texttodisplay').append('Channel Selection Sheet being created. Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : '+format_date(process1ETA)+'');
                     createplanid = parseInt(msg.createplanid);
                     $('.campign_name').prop('disabled', true);
                     $('.campign_id').prop('disabled', true);
@@ -350,7 +364,10 @@ $(document).ready(function () {
         };
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
-            //console.log(msg);
+            console.log(msg);
+            process1ETA = msg.Process1ETA
+            alert(process1ETA);
+
             $('.loading').hide();
             if(msg.message == "fail"){
                 $.alert({
@@ -375,11 +392,6 @@ $(document).ready(function () {
                 var channel = msg.ischannelselectioncompleted;
                 var planProcessed = msg.planProcessed;
                 var acceleratedFilePath =msg.AcceleratedFilePath;
-
-
-                // if (channel == "true" && paramgoback == null) {
-                //     window.location.href="buyingbasket.php";
-                // }
 
                 $('.next_btn').hide();
 
@@ -423,6 +435,21 @@ $(document).ready(function () {
 
                 }
 
+
+
+                if (process1ETA == "None" ) {
+                  alert(process1ETA)
+                  $('.texttodisplay').append('Channel Selection Sheet being created. Once complete you will receive it in your inbox');
+                }
+                else {
+                  $('.texttodisplay').append('Channel Selection Sheet being created. Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : '+format_date(process1ETA)+'');
+                }
+
+
+
+
+
+
                 $(".freezebrand").append('<p type="text"  value='+brand_+' class="multiclient form-control getClass  get_clientlead-'+count+'" readonly style="background-color:#d6d6d6;margin-top:10px;">'+brand_+'</p>')
                 $(".client_freezeclass").append('<p type="text" value='+client_name+' class="multiclient form-control" readonly style="background-color:#d6d6d6;">'+client_name+'</p>')
                 $(".capm_name_class").append('<p type="text" value='+campaignName_+' class="multiclient form-control" readonly style="background-color:#d6d6d6;">'+campaignName_+'</p>')
@@ -438,7 +465,6 @@ $(document).ready(function () {
     var global_path;
     $("body").on("click", ".file_download", function(){
         $('#myModal').modal();
-
         sendObj = {};
         sendObj.plan_id = plan_id;
         //console.log(sendObj);
@@ -562,8 +588,20 @@ $(document).ready(function () {
         for (var i=0; i!=s.length; ++i) view[i] = s.charCodeAt(i) & 0xFF;
         return buf;
     }
+
+    function format_date(date_string) {
+        date = new Date(date_string)
+        months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
+        weeks_ = ["Mon", "Tue", "Wed", "Thr", "Fri", "Sat", "Sun"];
+        hours_mian = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"];
+        hrs = date.getHours().toString().length < 2 ? '0'+date.getHours() : date.getHours()
+        mins = date.getMinutes().toString().length < 2 ? '0'+date.getMinutes() : date.getMinutes()
+        return date.getDate()+'/'+months[date.getMonth()]+'/'+date.getFullYear()+hrs+':'+mins;
+    }
+
     $("body").on("click", ".next_btn", function(){
         window.location.href = "buyingbasket.php?planid="+plan_id
     })
+
 
 })

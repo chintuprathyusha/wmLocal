@@ -6,6 +6,7 @@ $(document).ready(function () {
     $('.edit_barc').prop('disabled', true);
     $('.confirm_barc').prop('disabled', true);
     $('.submit_barc').prop('disabled', true);
+    $('.barcmsg').hide();
     var acce_file_name;
     $('.acce_div').hide();
     var plan_id = $.urlParam('planid');
@@ -228,6 +229,7 @@ $(document).ready(function () {
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
             console.log(msg);
+
             setTimeout(function(){
                 $('.loading').hide();
             }, 5000)
@@ -241,6 +243,8 @@ $(document).ready(function () {
             endWeekId_ = msg.EndWeek;
             primaryTGTd_ = msg.PrimaryTGTd;
             pathSelection = msg.PathSelection;
+            process4ETA = msg.Process4ETA;
+            $(".barcmsg").append('<h5 style="color:#000">Final Plan with  Eval is being created.Once complete you will receive it in your indox - Expected Time of Arrival (ETA) is :'+process4ETA+'</h5>')
 
             $('.loading').hide();
             if (msg.message == "fail") {
@@ -322,8 +326,7 @@ $(document).ready(function () {
         };
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
-
-
+            $('.barcmsg').hide();
             console.log(msg);
             if(msg.message == "fail"){
                 $.alert({
@@ -419,6 +422,7 @@ $(document).ready(function () {
 
 
     $('body').on('click', '.submit_barc', function(){
+      $(".barcmsg").empty();
         obj = {}
         camp_markets = []
         selectedValues = $(".campaign_markets").select2('data');
@@ -450,9 +454,14 @@ $(document).ready(function () {
             "data": form
         };
         $.ajax(settings11).done(function (msg) {
+            msg = JSON.parse(msg);
             console.log(msg);
             $('.loading').hide();
-            if (msg == "updated") {
+            debugger;
+            status = msg.Status;
+            process4ETA = msg.Process4ETA;
+
+            if (status == "updated") {
                 $.alert({
                     title: 'Success',
                     content: 'Eval submitted successfully'
@@ -462,6 +471,8 @@ $(document).ready(function () {
 
                 $('.confirm_barc').prop('disabled', true);
                 $('.edit_barc').prop('disabled', true);
+                $('.barcmsg').show();
+                $(".barcmsg").append('<h5 style="color:#000"> Final Plan with  Eval is being created.Once complete you will receive it in your indox - Expected Time of Arrival (ETA) is :'+process4ETA+'</h5>')
             }
             else {
                 $.alert({

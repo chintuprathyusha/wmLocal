@@ -237,6 +237,9 @@ button:focus {outline:0;}
 				border: none;
 				color: white;
 			}
+			.kv-file-zoom {
+				display:none;
+			}
 			</style>
 
 			<!-- <script type="text/javascript">
@@ -440,11 +443,11 @@ button:focus {outline:0;}
 							<!-- <div class="channelbeing" style="margin-top:50px;background-color:#d1d8e0;">
 								<h5 style="color:#000">Genre Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox.</h5>
 							</div> -->
-							<div class="commonstyle forfirstpathtext" style="margin-top:50px;background-color:#d1d8e0;">
-								<h5 style="color:#000">Genre Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox.</h5>
+							<div class="commonstyle forfirstpathtext" style="margin-top:50px;background-color:#d1d8e0;color:black">
+								<!-- <h5 style="color:#000">Genre Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox.</h5> -->
 							</div>
-							<div class="commonstyle forsecoundpathtext" style="margin-top:50px;background-color:#d1d8e0;">
-								<h5 style="color:#000">Channel Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox.</h5>
+							<div class="commonstyle forsecoundpathtext" style="margin-top:50px;background-color:#d1d8e0;color:black;">
+								<!-- <h5 style="color:#000">Channel Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox.</h5> -->
 							</div>
 
 							<div style="width: 100%;padding:50px;" class="spillover">

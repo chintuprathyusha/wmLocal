@@ -125,6 +125,7 @@ $( document ).ready(function() {
                     msg =JSON.parse(msg)
                     newcampaign_id=""
                     console.log(msg);
+                    process2ETA = msg.Process2ETA
                     $('.loading').hide();
                     if (msg.data == "true") {
                         newcampaign_id = msg.CampaignId;
@@ -146,6 +147,11 @@ $( document ).ready(function() {
                         isFilePrepCompleted = msg.isFilePrepCompleted;
                         newcampaign_id = msg.CampaignId;
                         campaignName = msg.CampaignName;
+                        process2ETA = msg.Process2ETA;
+                        process3ETA = msg.Process3ETA;
+
+                        $('.forsecoundpathtext').append('Channel Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox.- Expected Time of Arrival (ETA) is : '+process2ETA+'');
+
                         $(".camp_id_").html('<input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:#ccc";color:#000/>')
                         if (version > 1) {
                             replan = true;
@@ -226,7 +232,7 @@ $( document ).ready(function() {
                                 if (acceleratedFilePathByRPA == null) {
                                     $(".next_").prop('disabled', true);
                                     $('.acceleratorfiletext').show();
-                                    $('.acceleratorfiletext').append('<h5> Accelerator Output Sheet being created. Once complete you will receive it in your inbox. </h5>')
+                                    $('.acceleratorfiletext').append('<h5> Accelerator Output Sheet being created. Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : '+process3ETA+' </h5>')
                                 }
                                 else {
                                     $(".next_").prop('disabled', false);
@@ -242,6 +248,7 @@ $( document ).ready(function() {
                                 $('.spillovertexttodisplay').append('<h5>Genre Level Budget Allocation Sheet is successfully uploaded</h5>')
                             }
                         }
+                        $('.forfirstpathtext').append('Genre Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : '+process2ETA+'');
                     }
                     if (replan == false){
                         if (msg.message == "fail") {
@@ -304,6 +311,7 @@ $( document ).ready(function() {
                 }
                 else {
                     if (path_selection == 2) {
+                       $('.cprp_div').hide();
                         $('.forfirstpathtext').hide();
                         $('.forsecoundpathtext').hide();
                         $('.spillover').hide();
@@ -333,7 +341,7 @@ $( document ).ready(function() {
                     }
                 }
                 $('.radio_class').show()
-                $('.cprp_div').show()
+                // $('.cprp_div').show()
                 $(".camp_id_").html('<label>Campaign Name</label><input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:black;color:#fff;"/>')
                 if (buyingbasket_filename=='' || buyingbasket_filename== "NULL") {
                     $('.bb_files').show();
@@ -347,6 +355,7 @@ $( document ).ready(function() {
                     $('.texttodisplay').html('<h5 style="color:#000">Buying Basket file is succesfully uploaded</h5>')
                 }
                 if(path_selection==2){
+                   $('.cprp_div').hide();
                     debugger
                     $('.add_more_new').prop('disabled', true);
                     $('.submit_new').prop('disabled', true);
@@ -640,7 +649,9 @@ $( document ).ready(function() {
             var path_selection ='';
             var budget_text;
             var div_weitage;
+
             $("body").on("click", ".submit_new", function(){
+              $('.forsecoundpathtext').empty();
                 path_selection_ = $(this).closest('.common_class').find('.budget_main').attr('key');
                 var campaign_days = $('.campaign_days_new').val();
                 var userid = sessionStorage.getItem('userid');
@@ -729,7 +740,7 @@ $( document ).ready(function() {
                         msg = JSON.parse(msg);
                         console.log(msg);
                         $('.loading').hide();
-
+                     process2ETA = msg.Process2ETA
                         if (msg.message == "fail") {
                             $.alert({
                                 title: 'Error',
@@ -746,6 +757,7 @@ $( document ).ready(function() {
                             });
                         }
                         else {
+                          $('.forsecoundpathtext').append('Channel Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : '+process2ETA+'');
                             $('.add_more_new').prop('disabled', true);
                             $('.submit_new').prop('disabled', true);
                             $(this).prop('disabled', true);
@@ -783,6 +795,7 @@ $( document ).ready(function() {
             })
 
             $("body").on("click", ".submit_", function(){
+                $('.forfirstpathtext').empty()
                 path_selection = $(this).closest('.common_class').find('.cprp_main').attr('key');
                 div_weitage = $(this).closest('.common_class').find('.cprp_div');
                 var cprp_weitage = div_weitage.find('.cprp_val').val();
@@ -867,8 +880,14 @@ $( document ).ready(function() {
                     $.ajax(settings11).done(function (msg) {
                         msg = JSON.parse(msg);
                         console.log(msg);
+
+
+                        process2ETA = msg.Process2ETA
+                        process3ETA = msg.Process3ETA
+                        msg = msg.Status
+
                         $('.loading').hide();
-                        if(msg.message == "fail"){
+                        if(msg == "fail"){
                             $.alert({
                                 title: 'Error',
                                 content: 'Oops ! something went wrong, try again',
@@ -887,6 +906,8 @@ $( document ).ready(function() {
                             });
                         }
                         else {
+                          $('.forfirstpathtext').append('Genre Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox. - Expected Time of Arrival (ETA) is : '+process2ETA+'');
+
                             $('.mods_inputs').css("color", "#fff");
                             $('.mods_inputs').css("background", "rgba(41, 40, 40, 0.91)");
                             $('input[type=text]').css("color", "#fff");
@@ -1035,6 +1056,7 @@ $( document ).ready(function() {
                 };
                 $.ajax(settings11).done(function (msg) {
                   // msg = JSON.parse(msg)
+                  debugger;
                     console.log(msg);
                       $('.loading').hide();
                     if(msg == "Path inserted Succesfully"){
@@ -1043,6 +1065,7 @@ $( document ).ready(function() {
                         $('.file-input').hide();
                         $('.red_color').hide();
                         $('#upl-btn').hide();
+                          $('.cprp_div').show();
                         // alert(file_name_new)
                         // alert("kkk")
                         $('.texttodisplay').append('<h5 style="color:#000">Buying Basket file successfully uploaded</h5>')
@@ -1073,8 +1096,10 @@ $( document ).ready(function() {
                         });
 
                     }
-
-
+                  $('.loading').hide();
+                  $('.radio_class').show();
+                  $('#upl-btn').hide();
+                  $('.cprp_div').hide();
                 });
             })
 
@@ -1275,12 +1300,16 @@ $( document ).ready(function() {
                     "data": form
                 };
                 $.ajax(settings11).done(function (msg) {
-                    console.log(msg);
-                    $(".loading").hide();
-                    if(msg == "Path inserted Succesfully"){
+                  $(".loading").hide();
+                  msgwithoutparse = msg;
+                  msgwithparse = JSON.parse(msg);
+                    console.log(msgwithparse);
+                    msg1  =   msgwithparse.Status
+                    process3ETA = msgwithparse.Process3ETA;
+                    if(msg1 == "Path inserted Succesfully"){
                         if (path_selection == 1) {
                             $('.acceleratorfiletext').show();
-                            $('.acceleratorfiletext').html('<h5>Accelerator Output Sheet being created. Once complete youwill receive it in your inbox. </h5>')
+                            $('.acceleratorfiletext').html('<h5>Accelerator Output Sheet being created. Once complete youwill receive it in your inbox - Expected Time of Arrival (ETA) is : '+process3ETA+' </h5>')
                         }
                         else {
                             $('.acceleratorfiletext').hide();
@@ -1294,7 +1323,7 @@ $( document ).ready(function() {
                         $('.file-input').hide();
                         $('.red_color').hide();
                         // $('.texttodisplayspill').append('<h5 style="color:#000">'+file_name_2+' is successfully uploaded</h5>')
-                        $('.texttodisplayspill').append('<h5 style="color:#000">Genre Level Budget Allocation Sheet  successfully uploaded</h5>')
+                        $('.texttodisplayspill').append('<h5 style="color:#000">Genre Level Budget Allocation Sheet  successfully uploaded - Expected Time of Arrival (ETA) is : '+process3ETA+'</h5>')
 
 
                         $.alert({
@@ -1311,25 +1340,25 @@ $( document ).ready(function() {
                             }
                         });
                     }
-                    else{
-                        $('.texttodisplay').hide();
-                        $('.texttodisplayspill').hide();
-                        $('#upl-btn__').show();
-                        $('.file-input').show();
-                        $('.red_color').show();
-                        $.alert({
-                            title: 'Oops ! Seems you are uploading an incorrect file',
-                            // content: 'Oops ! something went wrong',
-                            animation: 'scale',
-                            closeAnimation: 'scale',
-                            opacity: 0.5,
-                            buttons: {
-                                okay: {
-                                    text: 'Okay',
-                                    btnClass: 'btn-primary'
-                                }
-                            }
-                        });
+                    if(msgwithoutparse == "Header format did not match!") {
+                          $('.texttodisplay').hide();
+                          $('.texttodisplayspill').hide();
+                          $('#upl-btn__').show();
+                          $('.file-input').show();
+                          $('.red_color').show();
+                          $.alert({
+                              title: 'Oops ! Seems you are uploading an incorrect file',
+                              // content: 'Oops ! something went wrong',
+                              animation: 'scale',
+                              closeAnimation: 'scale',
+                              opacity: 0.5,
+                              buttons: {
+                                  okay: {
+                                      text: 'Okay',
+                                      btnClass: 'btn-primary'
+                                  }
+                              }
+                          });
                     }
                     version = 0;
                 });
