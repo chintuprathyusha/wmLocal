@@ -454,26 +454,26 @@ $(document).ready(function () {
             "data": form
         };
         $.ajax(settings11).done(function (msg) {
-            // msgparse = msg
-            // msgwithoutparse =  msg;
-            // if (msgwithoutparse == 'not updated') {
-            //   $.alert({
-            //       title: 'Error',
-            //       content: 'Oops ! something went wrong, try again',
-            //       animation: 'scale',
-            //       closeAnimation: 'scale',
-            //       opacity: 0.5,
-            //       buttons: {
-            //           okay: {
-            //               text: 'Okay',
-            //               btnClass: 'btn-primary',
-            //               action: function(){
-            //                   window.location.href="error.php"
-            //               }
-            //           }
-            //       }
-            //   });
-            // }
+            console.log(msg);
+            msgwithoutparse =  msg;
+            if (msgwithoutparse == 'not updated') {
+              $.alert({
+                  title: 'Error',
+                  content: 'Oops ! something went wrong, try again',
+                  animation: 'scale',
+                  closeAnimation: 'scale',
+                  opacity: 0.5,
+                  buttons: {
+                      okay: {
+                          text: 'Okay',
+                          btnClass: 'btn-primary',
+                          action: function(){
+                              window.location.href="error.php"
+                          }
+                      }
+                  }
+              });
+            }
 
             msg = JSON.parse(msg);
             console.log(msg);
