@@ -456,9 +456,6 @@ $(document).ready(function () {
         $.ajax(settings11).done(function (msg) {
             // msgparse = msg
             msg =  JSON.parse(msg);
-            msg={
-                Status:'updated'
-            }
             if (typeof msg == 'string'){
                   $.alert({
                       title: 'Error',
