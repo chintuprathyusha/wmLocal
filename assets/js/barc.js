@@ -456,11 +456,13 @@ $(document).ready(function () {
         $.ajax(settings11).done(function (msg) {
             // msgparse = msg
             msg =  JSON.parse(msg);
-
+            msg={
+                Status:'updated'
+            }
             if (typeof msg == 'string'){
                   $.alert({
                       title: 'Error',
-                      content: 'Oops ! something went wrong, try again',
+                      content: 'Oops ! NOT updated',
                       animation: 'scale',
                       closeAnimation: 'scale',
                       opacity: 0.5,
