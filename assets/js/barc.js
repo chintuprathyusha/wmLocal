@@ -454,8 +454,9 @@ $(document).ready(function () {
             "data": form
         };
         $.ajax(settings11).done(function (msg) {
-            console.log(msg);
-            msgwithoutparse =  msg;
+            // msgparse = msg
+            msgwithoutparse =  JSON.parse(msg);;
+
             if (msgwithoutparse == 'not updated') {
               $.alert({
                   title: 'Error',
