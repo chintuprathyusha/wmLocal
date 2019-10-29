@@ -299,7 +299,6 @@ $(document).ready(function () {
                    $('.texttodisplay').append('');
 
                     if (process1ETA == "None" ) {
-                      alert(process1ETA)
                       $('.texttodisplay').append('Channel Selection Sheet being created. Once complete you will receive it in your inbox');
                     }
                     else {
@@ -366,8 +365,6 @@ $(document).ready(function () {
             msg = JSON.parse(msg);
             console.log(msg);
             process1ETA = msg.Process1ETA
-            alert(process1ETA);
-
             $('.loading').hide();
             if(msg.message == "fail"){
                 $.alert({
@@ -438,15 +435,11 @@ $(document).ready(function () {
 
 
                 if (process1ETA == "None" ) {
-                  alert(process1ETA)
                   $('.texttodisplay').append('Channel Selection Sheet being created. Once complete you will receive it in your inbox');
                 }
                 else {
                   $('.texttodisplay').append('Channel Selection Sheet being created. Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : '+format_date(process1ETA)+'');
                 }
-
-
-
 
 
 

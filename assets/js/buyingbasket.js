@@ -149,8 +149,14 @@ $( document ).ready(function() {
                         campaignName = msg.CampaignName;
                         process2ETA = msg.Process2ETA;
                         process3ETA = msg.Process3ETA;
+                      if (process2ETA == 'None') {
 
-                        $('.forsecoundpathtext').append('Channel Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox.- Expected Time of Arrival (ETA) is : '+process2ETA+'');
+                        $('.forsecoundpathtext').append('Channel Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox.- Expected Time of Arrival (ETA) is : None');
+                      }
+                      else {
+                        $('.forsecoundpathtext').append('Channel Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox.- Expected Time of Arrival (ETA) is : '+format_date(process2ETA)+'');
+
+                      }
 
                         $(".camp_id_").html('<input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:#ccc";color:#000/>')
                         if (version > 1) {
@@ -232,7 +238,15 @@ $( document ).ready(function() {
                                 if (acceleratedFilePathByRPA == null) {
                                     $(".next_").prop('disabled', true);
                                     $('.acceleratorfiletext').show();
-                                    $('.acceleratorfiletext').append('<h5> Accelerator Output Sheet being created. Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : '+process3ETA+' </h5>')
+
+                                    if (process3ETA == "None") {
+                                      $('.acceleratorfiletext').append('<h5> Accelerator Output Sheet being created. Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : none </h5>')
+                                    }
+                                    else {
+                                      $('.acceleratorfiletext').append('<h5> Accelerator Output Sheet being created. Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : '+format_date(process3ETA)+' </h5>')
+                                    }
+
+
                                 }
                                 else {
                                     $(".next_").prop('disabled', false);
@@ -248,7 +262,17 @@ $( document ).ready(function() {
                                 $('.spillovertexttodisplay').append('<h5>Genre Level Budget Allocation Sheet is successfully uploaded</h5>')
                             }
                         }
-                        $('.forfirstpathtext').append('Genre Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : '+process2ETA+'');
+
+
+                        if (process2ETA == "None") {
+
+                          $('.forfirstpathtext').append('Genre Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is  : none');
+                        }
+                        else {
+
+                          $('.forfirstpathtext').append('Genre Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is  : '+format_date(process2ETA)+'');
+
+                        }
                     }
                     if (replan == false){
                         if (msg.message == "fail") {
@@ -311,7 +335,7 @@ $( document ).ready(function() {
                 }
                 else {
                     if (path_selection == 2) {
-                       $('.cprp_div').hide();
+                       $('.cprp_div').hide()
                         $('.forfirstpathtext').hide();
                         $('.forsecoundpathtext').hide();
                         $('.spillover').hide();
@@ -341,7 +365,7 @@ $( document ).ready(function() {
                     }
                 }
                 $('.radio_class').show()
-                // $('.cprp_div').show()
+                $('.cprp_div').show()
                 $(".camp_id_").html('<label>Campaign Name</label><input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:black;color:#fff;"/>')
                 if (buyingbasket_filename=='' || buyingbasket_filename== "NULL") {
                     $('.bb_files').show();
@@ -431,6 +455,7 @@ $( document ).ready(function() {
                     $('.reach_val').val(weightage[key])
                 })
             }
+
             function unfreezebuyinginfo() {
                 debugger
                 $('.radio_class').show()
@@ -757,7 +782,15 @@ $( document ).ready(function() {
                             });
                         }
                         else {
-                          $('.forsecoundpathtext').append('Channel Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : '+process2ETA+'');
+
+                      if (process2ETA == 'None') {
+
+                        $('.forsecoundpathtext').append('Channel Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is :None');
+                      }
+                      else {
+                        $('.forsecoundpathtext').append('Channel Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : '+process2ETA+'');
+
+                      }
                             $('.add_more_new').prop('disabled', true);
                             $('.submit_new').prop('disabled', true);
                             $(this).prop('disabled', true);
@@ -793,6 +826,21 @@ $( document ).ready(function() {
                 }
 
             })
+
+
+
+            function format_date(date_string) {
+                date = new Date(date_string)
+                months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
+                weeks_ = ["Mon", "Tue", "Wed", "Thr", "Fri", "Sat", "Sun"];
+                hours_mian = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"];
+                hrs = date.getHours().toString().length < 2 ? '0'+date.getHours() : date.getHours()
+                mins = date.getMinutes().toString().length < 2 ? '0'+date.getMinutes() : date.getMinutes()
+                return date.getDate()+'/'+months[date.getMonth()]+'/'+date.getFullYear()+hrs+':'+mins;
+            }
+
+
+
 
             $("body").on("click", ".submit_", function(){
                 $('.forfirstpathtext').empty()
@@ -1099,7 +1147,7 @@ $( document ).ready(function() {
                   $('.loading').hide();
                   $('.radio_class').show();
                   $('#upl-btn').hide();
-                  $('.cprp_div').hide();
+                  $('.cprp_div').show();
                 });
             })
 
@@ -1323,7 +1371,7 @@ $( document ).ready(function() {
                         $('.file-input').hide();
                         $('.red_color').hide();
                         // $('.texttodisplayspill').append('<h5 style="color:#000">'+file_name_2+' is successfully uploaded</h5>')
-                        $('.texttodisplayspill').append('<h5 style="color:#000">Genre Level Budget Allocation Sheet  successfully uploaded - Expected Time of Arrival (ETA) is : '+process3ETA+'</h5>')
+                        $('.texttodisplayspill').append('<h5 style="color:#000">Genre Level Budget Allocation Sheet  successfully uploaded </h5>')
 
 
                         $.alert({
