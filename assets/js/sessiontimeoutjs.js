@@ -54,7 +54,7 @@ function checkSessionTime() {
   if (secountsCounter >= session_TimeOut) {
     window.clearInterval(secountsCounter);
     var dat = new Date();
-  // window.location.href = "index.php";
+  window.location.href = "index.php";
       // authContext.logOut();
 
   secountsCounter = 0;
