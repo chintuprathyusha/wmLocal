@@ -477,46 +477,46 @@ $(document).ready(function () {
             }
             else {
 
-                                  status = msg.Status;
-                                  process4ETA = msg.Process4ETA;
+                      status = msg.Status;
+                      process4ETA = msg.Process4ETA;
 
-                                  if (status == "updated") {
-                                      $.alert({
-                                          title: 'Success',
-                                          content: 'Eval submitted successfully'
-                                      });
-                                      $('select').prop('disabled', true);
-                                      $('.submit_barc').prop('disabled', true);
+                      if (status == "updated") {
+                          $.alert({
+                              title: 'Success',
+                              content: 'Eval submitted successfully'
+                          });
+                          $('select').prop('disabled', true);
+                          $('.submit_barc').prop('disabled', true);
 
-                                      $('.confirm_barc').prop('disabled', true);
-                                      $('.edit_barc').prop('disabled', true);
-                                      $('.barcmsg').show();
-                                      if (process4ETA == 'null') {
-                                        $(".barcmsg").append('<h5 style="color:#000"> Final Plan with  Eval is being created.Once complete you will receive it in your indox - Expected Time of Arrival (ETA) is : None</h5>')
-                                      }
-                                      else {
-                                        $(".barcmsg").append('<h5 style="color:#000"> Final Plan with  Eval is being created.Once complete you will receive it in your indox - Expected Time of Arrival (ETA) is :'+format_date(process4ETA)+'</h5>')
+                          $('.confirm_barc').prop('disabled', true);
+                          $('.edit_barc').prop('disabled', true);
+                          $('.barcmsg').show();
+                          if (process4ETA == 'null') {
+                            $(".barcmsg").append('<h5 style="color:#000"> Final Plan with  Eval is being created.Once complete you will receive it in your indox - Expected Time of Arrival (ETA) is : None</h5>')
+                          }
+                          else {
+                            $(".barcmsg").append('<h5 style="color:#000"> Final Plan with  Eval is being created.Once complete you will receive it in your indox - Expected Time of Arrival (ETA) is :'+format_date(process4ETA)+'</h5>')
 
+                          }
+                      }
+                      else {
+                          $.alert({
+                              title: 'Error',
+                              content: 'Oops ! something went wrong, try again',
+                              animation: 'scale',
+                              closeAnimation: 'scale',
+                              opacity: 0.5,
+                              buttons: {
+                                  okay: {
+                                      text: 'Okay',
+                                      btnClass: 'btn-primary',
+                                      action: function(){
+                                          window.location.href="error.php"
                                       }
                                   }
-                                  else {
-                                      $.alert({
-                                          title: 'Error',
-                                          content: 'Oops ! something went wrong, try again',
-                                          animation: 'scale',
-                                          closeAnimation: 'scale',
-                                          opacity: 0.5,
-                                          buttons: {
-                                              okay: {
-                                                  text: 'Okay',
-                                                  btnClass: 'btn-primary',
-                                                  action: function(){
-                                                      window.location.href="error.php"
-                                                  }
-                                              }
-                                          }
-                                      });
-                                  }
+                              }
+                          });
+                      }
 
 
 
@@ -533,7 +533,7 @@ $(document).ready(function () {
         hours_mian = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"];
         hrs = date.getHours().toString().length < 2 ? '0'+date.getHours() : date.getHours()
         mins = date.getMinutes().toString().length < 2 ? '0'+date.getMinutes() : date.getMinutes()
-        return date.getDate()+'/'+months[date.getMonth()]+'/'+date.getFullYear()+hrs+':'+mins;
+        return date.getDate()+'-'+months[date.getMonth()]+'-'+date.getFullYear()+'&nbsp;&nbsp;'+hrs+':'+mins;
     }
 
 

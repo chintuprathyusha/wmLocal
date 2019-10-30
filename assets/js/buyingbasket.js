@@ -836,7 +836,7 @@ $( document ).ready(function() {
                 hours_mian = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"];
                 hrs = date.getHours().toString().length < 2 ? '0'+date.getHours() : date.getHours()
                 mins = date.getMinutes().toString().length < 2 ? '0'+date.getMinutes() : date.getMinutes()
-                return date.getDate()+'/'+months[date.getMonth()]+'/'+date.getFullYear()+hrs+':'+mins;
+               return date.getDate()+'-'+months[date.getMonth()]+'-'+date.getFullYear()+'&nbsp;&nbsp;'+hrs+':'+mins;
             }
 
 
