@@ -22,7 +22,7 @@ var sessionidddd = sessionStorage.getItem("sessionidd");
 function checkSessionTime() {
   secountsCounter++;
   // console.log(secountsCounter);
-  if(secountsCounter==20){
+  if(secountsCounter==300){
     obj = {}
     obj.sessionid = sessionidddd
     obj.loggedoutdatetime = currentdate
