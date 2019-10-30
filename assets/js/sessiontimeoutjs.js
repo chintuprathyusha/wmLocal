@@ -22,7 +22,7 @@ var sessionidddd = sessionStorage.getItem("sessionidd");
 function checkSessionTime() {
   secountsCounter++;
   // console.log(secountsCounter);
-  if(secountsCounter==300){
+  if(secountsCounter==20){
     obj = {}
     obj.sessionid = sessionidddd
     obj.loggedoutdatetime = currentdate
@@ -44,7 +44,8 @@ function checkSessionTime() {
       msg = JSON.parse(msg);
       console.log(msg);
             if (msg == "logoutdone") {
-            window.location.href="index.php";
+            // window.location.href="index.php";
+            authContext.logOut();
         }
 
   })
@@ -53,21 +54,8 @@ function checkSessionTime() {
   if (secountsCounter >= session_TimeOut) {
     window.clearInterval(secountsCounter);
     var dat = new Date();
-    // var sessionidddd = sessionStorage.getItem("sessionidd");
-    // var currentdate = new Date().toLocaleString();
-//
-
-// sendObj = {};
-// sendObj.session = "true";
-// sendObj.datetime = dat;
-//
-//
-//
-//
-// console.log(dat)
-  // alert("Your session is expired!");
-
-  window.location.href = "index.php";
+  // window.location.href = "index.php";
+      authContext.logOut();
 
   secountsCounter = 0;
   }
