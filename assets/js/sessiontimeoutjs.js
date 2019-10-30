@@ -55,7 +55,7 @@ function checkSessionTime() {
     window.clearInterval(secountsCounter);
     var dat = new Date();
   // window.location.href = "index.php";
-      authContext.logOut();
+      // authContext.logOut();
 
   secountsCounter = 0;
   }
