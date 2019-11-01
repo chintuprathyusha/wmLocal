@@ -260,7 +260,7 @@ p{
 									<!-- <p class="mb-2">Select2 supports ability to add choices automatically as the user is typing into the search field. Try typing in the search field below and entering a space or a comma.</p> -->
 									<div class="row">
 										<div class="col-md-3">
-											<h6  title="<?php echo $_SESSION['tool_tips']['CreateNewPlan_EndWeek'];?>" class="font-weight-semibold">End Week<span class="text-danger">*</span></h6>
+											<h6  title="<?php echo $_SESSION['tool_tips']['CreateNewPlan_EndWeek'];?>" class="font-weight-semibold">Pre-eval End Week<span class="text-danger">*</span></h6>
 										</div>
 										<div class="col-md-4">
 											<select data-placeholder="End week" required class="form-control select end_week" data-fouc>
