@@ -18,11 +18,40 @@ document.onkeypress = function () {
 var data = window.setInterval(checkSessionTime, 1000);
 var currentdate = new Date().toLocaleString();
 var sessionidddd = sessionStorage.getItem("sessionidd");
+var sessionTimeOutvalue;
+var procductonurll;
+
+
+ $.ajax({
+            url: "configfile.json",
+            method: "GET",
+            dataType: 'json',
+            async : false,
+            success: function(data){
+                   msg =  data;
+                   console.log(data);
+                  sessionTimeOutvalue;
+                  procductonurll;
+                  console.log(msg.data[0].sessionTimeOut);
+                  sessionTimeOutvalue = msg.data[0].sessionTimeOut
+                  procductonurll = msg.data[0].productionurl
+                  cliendid = msg.data[0].clientId
+                  console.log(sessionTimeOutvalue);
+                  console.log(procductonurll);
+                  console.log(cliendid);
+                  console.log(typeof procductonurll);
+             },
+             error:function() {
+                 alert("Error")
+             }
+        });
+
 
 function checkSessionTime() {
-  secountsCounter++;
-  // console.log(secountsCounter);
-  if(secountsCounter==300){
+  secountsCounter++
+  // console.log("kkllkllk");
+  // console.log(sessionTimeOutvalue)
+  if(secountsCounter==sessionTimeOutvalue){
     obj = {}
     obj.sessionid = sessionidddd
     obj.loggedoutdatetime = currentdate
@@ -44,12 +73,9 @@ function checkSessionTime() {
       msg = JSON.parse(msg);
       console.log(msg);
             if (msg == "logoutdone") {
-            // window.location.href="index.php";
             authContext.logOut();
         }
-
   })
-
   }
   if (secountsCounter >= session_TimeOut) {
     window.clearInterval(secountsCounter);

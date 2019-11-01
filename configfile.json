@@ -1,0 +1,8 @@
+{
+"data": [{
+    "sessionTimeOut": "300",
+    "clientId" : "39fb1160-df4a-4ece-bb64-67eb14426482",
+    "productionurl" : "https://cin-webapp-indtvautop1-dev-02.azurewebsites.net/index.php"
+}]
+
+}

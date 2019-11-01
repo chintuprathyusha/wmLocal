@@ -56,12 +56,9 @@ $(document).ready(function () {
                 </a>
             </li>
         </ul> -->
-
-
+        <p style="font-size: 14px;color: aqua;">Updates in progress. Kindly check back later<p>
         <ul style="float: right;width: 100%;">
-
             <li class="nav-item dropdown dropdown-user" style="float: right;list-style-type: none;">
-                <!-- <p>help</p> -->
                 <a href="#" class="navbar-nav-link d-flex align-items-center dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 
                     <!-- <span id="displayusername"></span> -->

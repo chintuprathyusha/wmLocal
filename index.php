@@ -43,6 +43,7 @@ session_start();
 						<div class="tab-pane fade show active" id="login-tab1">
 							<div class="card-body" style="width:400px;">
 								<div class="text-center mb-3">
+									<p style="font-size: 14px;color: aqua;">Updates in progress. Kindly check back later<p>
 									<img src="assets/images/2nd Folder/blacklogo.png" alt="" style="width: 200px;height: 100%;">
 								</div>
 
