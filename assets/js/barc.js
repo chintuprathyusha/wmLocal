@@ -281,8 +281,7 @@ $(document).ready(function () {
                         if (acce_file_name!==null && planProcess == 3) {
                             $('.edit_barc').prop('disabled', false);
                         }
-                        $(".barcmsg").append('<h5 style="color:#000">Final Plan with  Eval is being created.Once complete you will receive it in your indox - Expected Time of Arrival (ETA) is :'+process4ETA+'</h5>')
-                        
+
                     }
 
                     if (planProcess>3) {
@@ -295,6 +294,8 @@ $(document).ready(function () {
                     $('.edit_barc').removeAttr('disabled');
                     if (planProcess>3) {
                         $('.edit_barc').prop('disabled', true);
+                        $(".barcmsg").append('<h5 style="color:#000">Final Plan with  Eval is being created.Once complete you will receive it in your indox - Expected Time of Arrival (ETA) is :'+process4ETA+'</h5>')
+                        
                     }
                 }
             }
