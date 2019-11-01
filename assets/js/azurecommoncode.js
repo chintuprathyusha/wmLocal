@@ -1,37 +1,13 @@
 $(document).ready(function () {
-    var sessionTimeOutvalue;
-    var procductonurll;
-    var cliendid;
-    $.ajax({
-               url: "configfile.json",
-               method: "GET",
-               dataType: 'json',
-               async : false,
-               success: function(data){
-                      msg =  data;
-                     sessionTimeOutvalue;
-                     procductonurll;
-                     cliendid;
-                     console.log(msg.data[0].sessionTimeOut);
-                     sessionTimeOutvalue = msg.data[0].sessionTimeOut
-                     procductonurll = msg.data[0].productionurl
-                     cliendid = msg.data[0].clientId
-                     console.log(sessionTimeOutvalue);
-                     console.log(procductonurll);
-                     console.log(cliendid);
-                },
-                error:function() {
-                    alert("Error")
-                }
-           });
+
     // #1: Set up ADAL
     var authContext = new AuthenticationContext({
-        clientId: cliendid,
+        clientId: '39fb1160-df4a-4ece-bb64-67eb14426482',
         postLogoutRedirectUri: window.location
     });
-console.log(typeof(procductonurll));
+
     // #3: Handle redirect after token requests
-    if (authContext.isCallback(procductonurll)) {
+    if (authContext.isCallback('https://cin-webapp-indtvautop1-dev-02.azurewebsites.net/index.php')) {
 
         authContext.handleWindowCallback();
         var err = authContext.getLoginError();
