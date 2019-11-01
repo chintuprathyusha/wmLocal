@@ -23,6 +23,7 @@
 <script src="assets/js/common.js" charset="utf-8"></script>
 <script src="assets/js/sidenavjscode.js"></script>
 <script src="assets/js/sessiontimeoutjs.js"></script>
-<script type="assets/js/configfile.json"></script>
+<!-- 23 -->
+<!-- <script type="assets/js/configfile.json"></script> -->
 
 <script src="global_assets/js/demo_pages/datatables_sorting.js"></script>

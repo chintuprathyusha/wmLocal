@@ -20,6 +20,7 @@ if ($_SESSION['usernamee'] == '') {
 
 	<script src="assets/js/user_dashboard.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Base64/1.0.2/base64.js"></script>
+	<!-- <script type="assets/js/configfile.json"></script> -->
 
 </head>
 
