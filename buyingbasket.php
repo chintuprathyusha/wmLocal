@@ -451,6 +451,8 @@ button:focus {outline:0;}
 							</div>
 
 							<div style="width: 100%;padding:50px;" class="spillover">
+								<p class="uploadtext">Upload Budget Allocation Sheet Here<p>
+	 							<p class="notetoupload"> Note : Fill in the budgets accross channels/genres before upload </p>
 								<hr>
 								<div class="form-group row">
 									<div class="changediv">
@@ -471,6 +473,7 @@ button:focus {outline:0;}
 								</div>
 
 							</div>
+
 
 
 							<div style="width: 100%;padding:50px;" class="budgetdivnew">
