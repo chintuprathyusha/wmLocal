@@ -43,11 +43,11 @@ session_start();
 						<div class="tab-pane fade show active" id="login-tab1">
 							<div class="card-body" style="width:400px;">
 								<div class="text-center mb-3">
-									<p style="font-size: 14px;color: aqua;">Updates in progress. Kindly check back later<p>
-									<img src="assets/images/2nd Folder/blacklogo.png" alt="" style="width: 200px;height: 100%;">
+									<blink style="font-size: 17px;color: red;" class="updatesinprogress">Updates in progress. Kindly check back later </blink>
+									<!-- <img src="assets/images/2nd Folder/blacklogo.png" alt="" style="width: 200px;height: 100%;"> -->
 								</div>
 
-								<div class="form-group form-group-feedback form-group-feedback-left">
+								<!-- <div class="form-group form-group-feedback form-group-feedback-left">
 									<input type="text" class="form-control  login_input useridclass" placeholder="Username">
 									<div class="form-control-feedback">
 										<i class="icon-user text-muted"></i>
@@ -59,12 +59,12 @@ session_start();
 									<div class="form-control-feedback">
 										<i class="icon-lock2 text-muted"></i>
 									</div>
-								</div>
+								</div> -->
 
 								<div class="form-group">
-									<button type="submit"  class="login_btn btn btn-primary btn-block">Login</button>
-									<p class="text-center mr-t-10">(or)</p>
-									<button onclick="authContext.login(); return false;" class="loginbtnn btn btn-primary btn-block" >LOGIN AD</button>
+									<!-- <button type="submit"  class="login_btn btn btn-primary btn-block">Login</button>
+									<p class="text-center mr-t-10">(or)</p> -->
+									<button onclick="authContext.login(); return false;" style="background-color:red;color:white;" class="loginbtnn btn btn-block" >LOGIN</button>
 									<!-- <button  onclick="authContext.logOut(); return false;">Log out AD</button> -->
 								</div>
 							</div>

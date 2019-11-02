@@ -221,7 +221,7 @@ function dataTableMultiSort() {
             }, {
                 orderable: false,
                 width: '100px',
-                targets: [5]
+                targets: [0, 1, 4, 7, 8]
             }]
         });
     }, 0);

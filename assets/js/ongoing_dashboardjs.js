@@ -220,7 +220,7 @@ $("document").ready(function () {
                 }, {
                     orderable: false,
                     width: '100px',
-                    targets: [5]
+                    targets: [0, 1, 4, 6]
                 }]
             });
         }, 0);

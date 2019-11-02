@@ -34,7 +34,7 @@ function dataTableMultiSortt() {
         }, {
             orderable: false,
             width: '100px',
-            targets: [5]
+            targets: [0, 1, 2, 7, 5]
         }]
     });
 }
@@ -54,7 +54,7 @@ function dataTableMultiSort() {
         }, {
             orderable: false,
             width: '100px',
-            targets: [5]
+            targets: [0, 1, 2, 6, 7]
         }],
 
     });
