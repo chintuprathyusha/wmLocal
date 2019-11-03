@@ -304,7 +304,7 @@ p{
 									<button type="submit" class="btn form-control cprp_submit create_plan" style="background: #F07144 !important;color: #fff;">Create <i class="icon-paperplane ml-2"></i></button>
 								</div>
 							</div>
-							<div class="card fadeInDown texttodisplay" style="background: #d1d8e0;color:black;">
+							<div class="card fadeInDown texttodisplay" style="">
 								<!-- <h5 style="color:#000;">Channel Selection Sheet being created. Once complete you will receive it in your inbox. -->
 								</h5>
 							</div>

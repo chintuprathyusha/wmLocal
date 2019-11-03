@@ -166,20 +166,21 @@ button:focus {outline:0;}
 		}
 		.spillovertexttodisplay{
 			margin: auto;
-			background: #d1d8e0;
-			color: #000 !important;
+			background: #f07144;
+			color: #fff !important;
 			padding: 30px;
 		}
 		.texttodisplayspill{
 			margin: auto;
-			background: #d1d8e0;
+			background: #f07144;
 			padding: 30px;
 			width: 600px;
 			margin-top: 30px;
+			color: #fff !important;
 		}
 		.commonstyle{
 			margin: auto;
-			/* background: #f3713c; */
+			background: #f3713c;
 			padding: 30px;
 			width: 600px;
 		}
@@ -209,8 +210,8 @@ button:focus {outline:0;}
 			}
 			.acceleratorfiletext{
 				margin: auto;
-				background: #d1d8e0;
-				color: #000 !important;
+				background: #f07144;
+				color: #fff !important;
 				padding: 30px;
 				margin-top: 50px;
 			}
@@ -443,10 +444,10 @@ button:focus {outline:0;}
 							<!-- <div class="channelbeing" style="margin-top:50px;background-color:#d1d8e0;">
 								<h5 style="color:#000">Genre Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox.</h5>
 							</div> -->
-							<div class="commonstyle forfirstpathtext" style="margin-top:50px;background-color:#d1d8e0;color:black">
+							<div class="commonstyle forfirstpathtext" style="margin-top:50px;">
 								<!-- <h5 style="color:#000">Genre Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox.</h5> -->
 							</div>
-							<div class="commonstyle forsecoundpathtext" style="margin-top:50px;background-color:#d1d8e0;color:black;">
+							<div class="commonstyle forsecoundpathtext" style="margin-top:50px;">
 								<!-- <h5 style="color:#000">Channel Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox.</h5> -->
 							</div>
 

@@ -150,7 +150,6 @@ $( document ).ready(function() {
                         process2ETA = msg.Process2ETA;
                         process3ETA = msg.Process3ETA;
                       if (process2ETA == 'None') {
-
                         $('.forsecoundpathtext').append('Channel Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox.- Expected Time of Arrival (ETA) is : None');
                       }
                       else {
@@ -355,7 +354,7 @@ $( document ).ready(function() {
                             $('.budget_text').show();
                             $('.budget__').hide();
                             $('.submit_btn2').hide();
-                            $('.budget_text').append('<h5 class="texttodisplayspill" style="color:#000">Channel Level Budget Allocation Sheet is successfully uploaded</h5>')
+                            $('.budget_text').append('<h5 class="texttodisplayspill" style="color:#fff">Channel Level Budget Allocation Sheet is successfully uploaded</h5>')
                             $(".next_").removeAttr('disabled');
                         }
                     }
@@ -376,7 +375,7 @@ $( document ).ready(function() {
                     $('.bb_files').hide();
                     $('#upl-btn').hide();
                     $('.texttodisplay').show()
-                    $('.texttodisplay').html('<h5 style="color:#000">Buying Basket file is succesfully uploaded</h5>')
+                    $('.texttodisplay').html('<h5 style="color:#fff">Buying Basket file is succesfully uploaded</h5>')
                 }
                 if(path_selection==2){
                    $('.cprp_div').hide();
@@ -477,7 +476,7 @@ $( document ).ready(function() {
                         $('.bb_files').hide();
                         $('#upl-btn').hide();
                         $('.texttodisplay').show()
-                        $('.texttodisplay').html('<h5 style="color:#000">Buying Basket file is succesfully uploaded</h5>')
+                        $('.texttodisplay').html('<h5 style="color:#fff">Buying Basket file is succesfully uploaded</h5>')
 
                     }
                 }
@@ -788,7 +787,7 @@ $( document ).ready(function() {
                         $('.forsecoundpathtext').append('Channel Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is :None');
                       }
                       else {
-                        $('.forsecoundpathtext').append('Channel Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : '+process2ETA+'');
+                        $('.forsecoundpathtext').append('Channel Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : '+format_date(process2ETA)+'');
 
                       }
                             $('.add_more_new').prop('disabled', true);
@@ -1116,12 +1115,12 @@ $( document ).ready(function() {
                           $('.cprp_div').show();
                         // alert(file_name_new)
                         // alert("kkk")
-                        $('.texttodisplay').append('<h5 style="color:#000">Buying Basket file successfully uploaded</h5>')
+                        $('.texttodisplay').append('<h5 style="color:#fff">Buying Basket file successfully uploaded</h5>')
 
-                        $.alert({
-                            title: 'Success',
-                            content: 'File succesfully uploaded'
-                        });
+                        // $.alert({
+                        //     title: 'Success',
+                        //     content: 'File succesfully uploaded'
+                        // });
 
                     }
                     else{
@@ -1290,20 +1289,20 @@ $( document ).ready(function() {
                         $('.bb_txt').hide();
                         $('.file-input').hide();
                         $('.red_color').hide();
-                        $('.texttodisplayspill').append('<h5 style="color:#000">Genre Level Budget Allocation Sheet is successfully uploaded</h5>')
+                        $('.texttodisplayspill').append('<h5 style="color:#fff">Genre Level Budget Allocation Sheet is successfully uploaded</h5>')
                         $('.next_').prop('disabled', false)
-                        $.alert({
-                            title: 'File succesfully uploaded',
-                            animation: 'scale',
-                            closeAnimation: 'scale',
-                            opacity: 0.5,
-                            buttons: {
-                                okay: {
-                                    text: 'Okay',
-                                    btnClass: 'btn-primary'
-                                }
-                            }
-                        });
+                        // $.alert({
+                        //     title: 'File succesfully uploaded',
+                        //     animation: 'scale',
+                        //     closeAnimation: 'scale',
+                        //     opacity: 0.5,
+                        //     buttons: {
+                        //         okay: {
+                        //             text: 'Okay',
+                        //             btnClass: 'btn-primary'
+                        //         }
+                        //     }
+                        // });
                     }
                     else{
                         $('.texttodisplay').hide();
@@ -1371,7 +1370,7 @@ $( document ).ready(function() {
                         $('.file-input').hide();
                         $('.red_color').hide();
                         // $('.texttodisplayspill').append('<h5 style="color:#000">'+file_name_2+' is successfully uploaded</h5>')
-                        $('.texttodisplayspill').append('<h5 style="color:#000">Genre Level Budget Allocation Sheet  successfully uploaded </h5>')
+                        $('.texttodisplayspill').append('<h5 style="color:#fff">Genre Level Budget Allocation Sheet  successfully uploaded </h5>')
 
 
                         $.alert({

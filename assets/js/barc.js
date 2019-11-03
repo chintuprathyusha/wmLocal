@@ -154,9 +154,9 @@ $(document).ready(function () {
 
                 $('.edit_barc').prop('disabled', false);
 
-                $.alert({
-                    title: 'Success',
-                    content: 'File succesfully uploaded'
+                // $.alert({
+                //     title: 'Success',
+                //     content: 'File succesfully uploaded'
                     //
                     // animation: 'scale',
                     // closeAnimation: 'scale',
@@ -167,7 +167,7 @@ $(document).ready(function () {
                     //         btnClass: 'btn-primary'
                     //     }
                     // }
-                });
+                // });
             }
             else {
                 $('#upl-btn').show();
@@ -287,7 +287,7 @@ $(document).ready(function () {
                     if (planProcess>3) {
                         $('.edit_barc').prop('disabled', true);
                         $(".barcmsg").append('<h5 style="color:#000">Final Plan with  Eval is being created.Once complete you will receive it in your indox - Expected Time of Arrival (ETA) is :'+process4ETA+'</h5>')
-                        
+
                     }
 
                 }
