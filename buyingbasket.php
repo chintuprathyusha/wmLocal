@@ -292,7 +292,7 @@ button:focus {outline:0;}
 								<div class="form-group row">
 									<h6 class="font-weight-semibold bb_txt" style="width:100%">Upload Buying Basket:</h6>
 									<br>
-									<div class="card fadeInDown texttodisplay" style="background: #d1d8e0;">
+									<div class="card fadeInDown texttodisplay" style="background-color:#f07144;color:white;">
 
 									</div>
 									<div class="col-lg-10 bb_files">

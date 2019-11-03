@@ -9,7 +9,7 @@ body{
 .texttodisplay {
     margin: auto;
     background: #ccc;
-    color: #000;
+    color: #fff;
     text-align: center;
     padding: 30px;
     margin-top: 47px;
@@ -127,7 +127,7 @@ body{
     margin-top: 3px !important;
 }
 .texttodisplay h5{
-    color:#000 !important;
+    color:#fff !important;
 }
 .datatable-header{
     display: none !important;
