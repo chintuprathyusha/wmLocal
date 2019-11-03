@@ -117,6 +117,7 @@ $(document).ready(function() {
 	/* background: #f3713c; */
 	padding: 30px;
 	width: 600px;
+	color:white;
 }
 </style>
 <body>
@@ -249,7 +250,7 @@ $(document).ready(function() {
 
 
 						</div>
-						<div class="commonstyle barcmsg" style="margin-top:50px;background-color:#d1d8e0;">
+						<div class="commonstyle barcmsg" style="margin-top:50px;background-color:rgb(240, 113, 68);">
 							<!-- <h5 style="color:#000">Genre Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox1232kavya.</h5> -->
 						</div>
 					</div>
