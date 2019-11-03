@@ -157,7 +157,7 @@ $( document ).ready(function() {
 
                       }
 
-                        $(".camp_id_").html('<input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:#ccc";color:#000/>')
+                        $(".camp_id_").html('<input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:orange";color:#fff/>')
                         if (version > 1) {
                             replan = true;
                             $('.bb_files').show();
@@ -459,7 +459,7 @@ $( document ).ready(function() {
                 debugger
                 $('.radio_class').show()
                 $('.cprp_div').show()
-                $(".camp_id_").html('<input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:#ccc;color:#000"/>')
+                $(".camp_id_").html('<input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:orange;color:#fff"/>')
                 $('.texttodisplayspill').hide();
 
                 if (buyingbasket_filename=='' || buyingbasket_filename== "NULL" || replan == true) {
@@ -953,7 +953,7 @@ $( document ).ready(function() {
                             });
                         }
                         else {
-                          $('.forfirstpathtext').append('Genre Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox. - Expected Time of Arrival (ETA) is : '+process2ETA+'');
+                          $('.forfirstpathtext').append('Genre Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox. - Expected Time of Arrival (ETA) is : '+format_date(process2ETA)+'');
 
                             $('.mods_inputs').css("color", "#fff");
                             $('.mods_inputs').css("background", "rgba(41, 40, 40, 0.91)");
