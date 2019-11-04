@@ -64,7 +64,7 @@ session_start();
 								<div class="form-group">
 									<!-- <button type="submit"  class="login_btn btn btn-primary btn-block">Login</button>
 									<p class="text-center mr-t-10">(or)</p> -->
-									<button onclick="authContext.login(); return false;" style="background-color:red;" class="loginbtnn btn btn-block" >LOGIN</button>
+									<button onclick="authContext.login(); return false;" style="background-color:red;color:white;" class="loginbtnn btn btn-block" >LOGIN</button>
 									<!-- <button  onclick="authContext.logOut(); return false;">Log out AD</button> -->
 								</div>
 							</div>
