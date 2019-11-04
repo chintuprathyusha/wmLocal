@@ -157,7 +157,7 @@ $( document ).ready(function() {
 
                       }
 
-                        $(".camp_id_").html('<input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:orange";color:#fff/>')
+                        $(".camp_id_").html('<input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:#f07144";border:none;color:#fff/>')
                         if (version > 1) {
                             replan = true;
                             $('.bb_files').show();
@@ -459,7 +459,7 @@ $( document ).ready(function() {
                 debugger
                 $('.radio_class').show()
                 $('.cprp_div').show()
-                $(".camp_id_").html('<input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:orange;color:#fff"/>')
+                $(".camp_id_").html('<input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:#f07144;border:none;color:#fff"/>')
                 $('.texttodisplayspill').hide();
 
                 if (buyingbasket_filename=='' || buyingbasket_filename== "NULL" || replan == true) {
@@ -1349,12 +1349,12 @@ $( document ).ready(function() {
                 };
                 $.ajax(settings11).done(function (msg) {
                   $(".loading").hide();
-                  msgwithoutparse = msg;
-                  msgwithparse = JSON.parse(msg);
-                    console.log(msgwithparse);
-                    msg1  =   msgwithparse.Status
-                    process3ETA = msgwithparse.Process3ETA;
-                    if(msg1 == "Path inserted Succesfully"){
+                  msg1 = msg;
+                  msg = JSON.parse(msg1);
+                    console.log(msg);
+                    status  =   msg.Status
+                    process3ETA = msg.Process3ETA;
+                    if(status == "Path inserted Succesfully"){
                         if (path_selection == 1) {
                             $('.acceleratorfiletext').show();
                             $('.acceleratorfiletext').html('<h5>Accelerator Output Sheet being created. Once complete youwill receive it in your inbox - Expected Time of Arrival (ETA) is : '+process3ETA+' </h5>')
@@ -1388,7 +1388,7 @@ $( document ).ready(function() {
                             }
                         });
                     }
-                    if(msgwithoutparse == "Header format did not match!") {
+                    if(status == "Header format did not match!") {
                           $('.texttodisplay').hide();
                           $('.texttodisplayspill').hide();
                           $('#upl-btn__').show();

@@ -166,23 +166,26 @@ button:focus {outline:0;}
 		}
 		.spillovertexttodisplay{
 			margin: auto;
-			background: #f07144;
+			background: #323335;
+		    border: 1px solid #f07144!important;
 			color: #fff !important;
 			padding: 30px;
 		}
 		.texttodisplayspill{
 			margin: auto;
-			background: #f07144;
+			background: #323335;
 			padding: 30px;
 			width: 600px;
 			margin-top: 30px;
 			color: #fff !important;
+			border: 1px solid #f07144!important;
 		}
 		.commonstyle{
 			margin: auto;
-			background: #f3713c;
 			padding: 30px;
 			width: 600px;
+			background: #323335;
+		    border: 1px solid #f07144!important;
 		}
 		/* .spillover{
 		display: none !important;
@@ -210,7 +213,8 @@ button:focus {outline:0;}
 			}
 			.acceleratorfiletext{
 				margin: auto;
-				background: #f07144;
+				background: #323335;
+			    border: 1px solid #f07144!important;
 				color: #fff !important;
 				padding: 30px;
 				margin-top: 50px;
@@ -292,7 +296,7 @@ button:focus {outline:0;}
 								<div class="form-group row">
 									<h6 class="font-weight-semibold bb_txt" style="width:100%">Upload Buying Basket:</h6>
 									<br>
-									<div class="card fadeInDown texttodisplay" style="background-color:#f07144;color:white;">
+									<div class="card fadeInDown texttodisplay" style="background-color:#323335;color:#fff;border:1px solid #f07144!important;">
 
 									</div>
 									<div class="col-lg-10 bb_files">
