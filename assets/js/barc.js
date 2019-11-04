@@ -244,7 +244,7 @@ $(document).ready(function () {
             primaryTGTd_ = msg.PrimaryTGTd;
             pathSelection = msg.PathSelection;
             process4ETA = msg.Process4ETA;
-            $(".barcmsg").append('<h5 style="color:#000">Final Plan with  Eval is being created.Once complete you will receive it in your indox - Expected Time of Arrival (ETA) is :'+process4ETA+'</h5>')
+            // $(".barcmsg").append('<h5 style="color:#000">Final Plan with  Eval is being created.Once complete you will receive it in your indox - Expected Time of Arrival (ETA) is :'+process4ETA+'</h5>')
 
             $('.loading').hide();
             if (msg.message == "fail") {
@@ -331,7 +331,7 @@ $(document).ready(function () {
         };
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
-            $('.barcmsg').hide();
+            $('.barcmsg').show();
             console.log(msg);
             if(msg.message == "fail"){
                 $.alert({
@@ -481,7 +481,6 @@ $(document).ready(function () {
 
             }
             else {
-
                       status = msg.Status;
                       process4ETA = msg.Process4ETA;
 
