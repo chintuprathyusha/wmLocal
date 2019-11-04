@@ -1036,6 +1036,7 @@ $( document ).ready(function() {
                         fileobj_new.plan_id = plan_id;
                         fileobj_new.user_id = user_id;
                         console.log(fileobj_new);
+                        $('#upl-btn').show();
                         $('#upl-btn').prop('disabled', false);
                     };
 
@@ -1123,7 +1124,7 @@ $( document ).ready(function() {
                         // });
 
                     }
-                    else{
+                    else if(msg=="Headers did not match for BuyingBasketFile"){
                       $('.radio_class').hide();
                         $('#upl-btn').show();
                         $('.texttodisplay').hide();
