@@ -119,6 +119,9 @@ $(document).ready(function() {
 	width: 600px;
 	color:white;
 }
+.kv-file-upload {
+	display: none;
+}
 </style>
 <body>
 	<?php include 'header.php';?>
