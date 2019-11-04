@@ -485,9 +485,9 @@ $( document ).ready(function() {
                 if(path_selection==2){
                     $(".cprp_main").css("background-color", "#292828");
                     $(".budget_main").css("background-color", "#F07144");
-                    $('.radio_class').show();
-                    $('.cprp_div').hide();
-                    $('.budget_div_').show()
+                    // $('.radio_class').show();
+                    // $('.cprp_div').hide();
+                    // $('.budget_div_').show()
                     $(".budget_main").prop("checked", true);
                     console.log(campaign_days);
                     $('.campaign_days_new').val(campaign_days);
