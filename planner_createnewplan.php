@@ -92,12 +92,17 @@
 	background-color: #1f2022;
 	/* background-size: cover; */
 }
+
+
 .texttodisplay {
-	margin: auto;
-	background: #f3713c;
-	padding: 30px;
-	margin-top: 47px;
+    margin: auto;
+    background: #323335;
+    padding: 30px;
+    margin-top: 47px;
+    border: 1px solid oramge;
+    border: 1px solid #f07144!important;
 }
+
 p{
 	height: auto;
 }
