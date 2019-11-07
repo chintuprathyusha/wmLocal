@@ -35,7 +35,7 @@ var getUrlParameter = function getUrlParameter(sParam) {
         //  return 'http://192.168.0.101:6767/'
          // return 'http://192.168.0.110:6767/'
             // return 'http://192.168.0.107:6767/'
-         return 'https://cin-appsvplan-indtvauto-api-stg.azurewebsites.net'
+         return 'https://cin-appsvplan-indtvauto-api-stg.azurewebsites.net/'
 
  }
  function url1() {
@@ -45,7 +45,7 @@ var getUrlParameter = function getUrlParameter(sParam) {
         // 192.168.0.116
 
          // return 'http://192.168.0.107:6767/'
-        return 'https://cin-appsvplan-indtvauto-api-stg.azurewebsites.net'
+        return 'https://cin-appsvplan-indtvauto-api-stg.azurewebsites.net/'
 
         // return 'http://192.168.1.2:6767/'
  }
@@ -55,7 +55,7 @@ var getUrlParameter = function getUrlParameter(sParam) {
         // return 'http://192.168.0.116:6767/'
         // return 'http://192.168.0.110:6767/'
            // return 'http://192.168.0.107:6767/'
-        return 'https://cin-appsvplan-indtvauto-api-stg.azurewebsites.net'
+        return 'https://cin-appsvplan-indtvauto-api-stg.azurewebsites.net/'
         // return 'http://192.168.1.2:6767/'
  }
 
