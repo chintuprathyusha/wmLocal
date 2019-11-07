@@ -28,7 +28,7 @@ if ($_SESSION['usernamee'] == '') {
 	$(document).ready(function () {
 	  $(".displaytoptextboxes").hide();
 	  var authContext = new AuthenticationContext({
-		 clientId: '39fb1160-df4a-4ece-bb64-67eb14426482',
+		 clientId: 'd3cc7c04-0c90-44d5-b40b-7f10a5cce951',
 		 postLogoutRedirectUri: window.location
 	 });
 
