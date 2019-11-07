@@ -285,6 +285,7 @@ $(document).ready(function () {
                     }
 
                     if (planProcess>3) {
+                        $('.barcmsg').show();
                         $('.edit_barc').prop('disabled', true);
                         $(".barcmsg").append('<h5 style="color:#fff">Final Plan with  Eval is being created.Once complete you will receive it in your indox - Expected Time of Arrival (ETA) is :'+process4ETA+'</h5>')
 
@@ -292,6 +293,7 @@ $(document).ready(function () {
 
                 }
                 else if(pathSelection == 2) {
+                    $('.barcmsg').show();
                     $('.acce_div').hide();
                     $('.edit_barc').removeAttr('disabled');
                     if (planProcess>3) {
@@ -331,7 +333,7 @@ $(document).ready(function () {
         };
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
-            $('.barcmsg').show();
+
             console.log(msg);
             if(msg.message == "fail"){
                 $.alert({
