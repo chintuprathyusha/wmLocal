@@ -551,7 +551,7 @@ $(document).ready(function () {
                             for(key in msg){
                                 console.log(msg[key], key);
                                 console.log(msg[key]);
-                                $(".clientleadClass").append('<textarea class="form-control" key='+key+' value='+msg[key]+' class="getClass get_clientlead-'+count+'">'+msg[key]+'</textarea>')
+                                $(".clientleadClass").append('<textarea readonly="readonly" class="form-control" key='+key+' value='+msg[key]+' class="getClass get_clientlead-'+count+'">'+msg[key]+'</textarea>')
                                 count++
                             }
                             $(".CLemId").hide();
@@ -614,7 +614,7 @@ $(document).ready(function () {
                             }
                             else {
                                 for(key in msg){
-                                    $(".clientleadClass").append('<textarea class="form-control" key='+key+' value='+msg[key]+' class="getClass get_clientlead-'+count+'">'+msg[key]+'</textarea>')
+                                    $(".clientleadClass").append('<textarea readonly="readonly" class="form-control" readonly key='+key+' value='+msg[key]+' class="getClass get_clientlead-'+count+'">'+msg[key]+'</textarea>')
                                     count++
                                 }
                                 $(".CLemId").hide();
