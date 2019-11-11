@@ -14,6 +14,7 @@ $( document ).ready(function() {
     $('.radio_class').hide();
     $('.changediv').hide();
     debugger
+    var version_downloadfile;
     var planid = $.urlParam('planid');
     var userid = sessionStorage.getItem('userid');
     $('.spillovertexttodisplay').hide()
@@ -104,6 +105,7 @@ $( document ).ready(function() {
                     }
                 }, )
             })
+
             function getData(){
                 sendObj = {}
                 sendObj.planid = planid;
@@ -121,10 +123,10 @@ $( document ).ready(function() {
                     "data": form
                 };
                 $.ajax(settings11).done(function (msg) {
-                    //debugger
                     msg =JSON.parse(msg)
                     newcampaign_id=""
                     console.log(msg);
+                    version_downloadfile = msg.Version
                     process2ETA = msg.Process2ETA
                     $('.loading').hide();
                     if (msg.data == "true") {
@@ -619,7 +621,7 @@ $( document ).ready(function() {
                     x = 0+parseInt(path_cls);
                 }
                 if (x>100) {
-                    alert("error")
+                    swal("Dispersion sholud be 100");
                 }
                 if (name_cls=="" && /^[a-zA-Z-, ]*$/.test(name_cls)) {
 
@@ -1024,7 +1026,7 @@ $( document ).ready(function() {
                     main_output = ''
                     var file = $('#load-file')[0].files[0];
                     file_name_new = file.name;
-                    file_name_new = "Buying Basket.xlsx"
+                    file_name_new = "Buying Basket_"+version_downloadfile+".xlsx"
 
                     var fileReader = new FileReader();
                     fileReader.onloadend = function (e) {
@@ -1086,9 +1088,8 @@ $( document ).ready(function() {
 
 
             $("body").on("click", "#upl-btn", function(){
-                //debugger
                 $(".loading").show();
-                fileobj_new.category = "buyingbasket";
+                fileobj_new.category = "buyingbasket"
                 console.log(file_name_new);
                 var form = new FormData();
                 form.append("file", JSON.stringify(fileobj_new));
@@ -1103,7 +1104,6 @@ $( document ).ready(function() {
                     "data": form
                 };
                 $.ajax(settings11).done(function (msg) {
-                  // msg = JSON.parse(msg)
                   debugger;
                     console.log(msg);
                       $('.loading').hide();
@@ -1290,7 +1290,7 @@ $( document ).ready(function() {
                         $('.bb_txt').hide();
                         $('.file-input').hide();
                         $('.red_color').hide();
-                        $('.texttodisplayspill').append('<h5 style="color:#fff">Genre Level Budget Allocation Sheet is successfully uploaded</h5>')
+                        $('.texttodisplayspill').append('<h5 style="color:#fff">Channel Level Budget Allocation Sheet is successfully uploaded</h5>')
                         $('.next_').prop('disabled', false)
                         // $.alert({
                         //     title: 'File succesfully uploaded',
@@ -1357,7 +1357,7 @@ $( document ).ready(function() {
                     if(status == "Path inserted Succesfully"){
                         if (path_selection == 1) {
                             $('.acceleratorfiletext').show();
-                            $('.acceleratorfiletext').html('<h5>Accelerator Output Sheet being created. Once complete youwill receive it in your inbox - Expected Time of Arrival (ETA) is : '+process3ETA+' </h5>')
+                            $('.acceleratorfiletext').html('<h5>Accelerator Output Sheet being created. Once complete youwill receive it in your inbox - Expected Time of Arrival (ETA) is : '+format_date(process3ETA)+' </h5>')
                         }
                         else {
                             $('.acceleratorfiletext').hide();

@@ -124,7 +124,7 @@ $(document).ready(function () {
     }
 
     $("body").on("click", "#upl-btn", function(){
-        //debugger
+        debugger;
         $(".loading").show();
         fileobj.fromReplan = false;
         fileobj.category = "acceleratedfile";
@@ -244,7 +244,7 @@ $(document).ready(function () {
             primaryTGTd_ = msg.PrimaryTGTd;
             pathSelection = msg.PathSelection;
             process4ETA = msg.Process4ETA;
-            // $(".barcmsg").append('<h5 style="color:#000">Final Plan with  Eval is being created.Once complete you will receive it in your indox - Expected Time of Arrival (ETA) is :'+process4ETA+'</h5>')
+            // $(".barcmsg").append('<h5 style="color:#000">Final Plan with  Eval is being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is :'+process4ETA+'</h5>')
 
             $('.loading').hide();
             if (msg.message == "fail") {
@@ -266,7 +266,6 @@ $(document).ready(function () {
                 });
 
             }
-
             else {
                 if (pathSelection == 1) {
                     if (acce_file_name==null) {
@@ -285,20 +284,38 @@ $(document).ready(function () {
                     }
 
                     if (planProcess>3) {
-                        $('.barcmsg').show();
                         $('.edit_barc').prop('disabled', true);
-                        $(".barcmsg").append('<h5 style="color:#fff">Final Plan with  Eval is being created.Once complete you will receive it in your indox - Expected Time of Arrival (ETA) is :'+process4ETA+'</h5>')
+                        $('.barcmsg').show();
+                        if (process4ETA == '') {
+                          $(".barcmsg").append('<h5 style="color:#fff"> Final Plan with  Eval is being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : None</h5>')
+                        }
+                        else {
+
+                          $(".barcmsg").append('<h5 style="color:#fff"> Final Plan with  Eval is being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is :'+format_date(process4ETA)+'</h5>')
+
+                        }
+
+                        // $(".barcmsg").append('<h5 style="color:#fff">Final Plan with  Eval is being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is :'+format_date(process4ETA)+'</h5>')
 
                     }
 
                 }
                 else if(pathSelection == 2) {
-                    $('.barcmsg').show();
                     $('.acce_div').hide();
                     $('.edit_barc').removeAttr('disabled');
                     if (planProcess>3) {
                         $('.edit_barc').prop('disabled', true);
-                        $(".barcmsg").append('<h5 style="color:#fff">Final Plan with  Eval is being created.Once complete you will receive it in your indox - Expected Time of Arrival (ETA) is :'+process4ETA+'</h5>')
+
+                       $('.barcmsg').show();
+                        if (process4ETA == '') {
+                          $(".barcmsg").append('<h5 style="color:#fff"> Final Plan with  Eval is being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : None</h5>')
+                        }
+                        else {
+                          $(".barcmsg").append('<h5 style="color:#fff"> Final Plan with  Eval is being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is :'+format_date(process4ETA)+'</h5>')
+
+                        }
+
+                        // $(".barcmsg").append('<h5 style="color:#fff">Final Plan with  Eval is being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is :'+format_date(process4ETA)+'</h5>')
 
                     }
                 }
@@ -334,6 +351,7 @@ $(document).ready(function () {
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
 
+            // $('.barcmsg').show();
             console.log(msg);
             if(msg.message == "fail"){
                 $.alert({
@@ -354,6 +372,7 @@ $(document).ready(function () {
                 });
             }
             else {
+
                 $('.select2').show();
                 $(".campaign_markets").prop("disabled", true);
                 $('.Primary_Tg_dt').prop("disabled", true);
@@ -497,11 +516,11 @@ $(document).ready(function () {
                           $('.confirm_barc').prop('disabled', true);
                           $('.edit_barc').prop('disabled', true);
                           $('.barcmsg').show();
-                          if (process4ETA == 'null') {
-                            $(".barcmsg").append('<h5 style="color:#fff"> Final Plan with  Eval is being created.Once complete you will receive it in your indox - Expected Time of Arrival (ETA) is : None</h5>')
+                          if (process4ETA == '') {
+                            $(".barcmsg").append('<h5 style="color:#fff"> Final Plan with  Eval is being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : None</h5>')
                           }
                           else {
-                            $(".barcmsg").append('<h5 style="color:#fff"> Final Plan with  Eval is being created.Once complete you will receive it in your indox - Expected Time of Arrival (ETA) is :'+format_date(process4ETA)+'</h5>')
+                            $(".barcmsg").append('<h5 style="color:#fff"> Final Plan with  Eval is being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is :'+format_date(process4ETA)+'</h5>')
 
                           }
                       }

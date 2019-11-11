@@ -60,14 +60,14 @@
           <a href="planner_ongoing_dashboard.php" class="nav-link" style="color: #fff !important;">
             <img style="width:22px;height:22px;color:white;" src="assets/images/WhiteIcons/MyPlans.png"/>
               <span style="width:20px;"></span>
-             <span>My plans</span></a>
+             <span>My Plans</span></a>
         </li>
 
         <li  id="ongoingdashboard"  class="nav-item nav-item-submenu hidden">
           <a href="planner_dashboard.php" class="nav-link" style="color: #fff !important;">
           <img style="width:22px;height:22px;color:white;" src="assets/images/WhiteIcons/OnGoing Plans.png"/>
             <span style="width:20px;"></span>
-            <span>Ongoing Plans</span></a>
+            <span>Ongoing Team Plans</span></a>
         </li>
 
         <li  id="add_deleteid"  class="nav-item nav-item-submenu hidden">
@@ -82,7 +82,8 @@
           <a href="planner_completedplans.php" class="nav-link" style="color: #fff !important;">
             <img style="width:22px;height:22px;color:white;" src="assets/images/WhiteIcons/completed Plans.png"/>
             <span style="width:20px;"></span>
-            <span>Completed Plans</span>
+            <span>Completed Team Plans</span>
+            <!-- fghjkl;'' -->
             <!-- <span class="badge bg-blue-400 align-self-center ml-auto">2.2</span> -->
           </a>
         </li>
