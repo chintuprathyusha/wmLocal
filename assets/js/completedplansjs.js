@@ -166,16 +166,16 @@ function displaytable(msg) {
     for (var i = 0; i < msg.length; i++) {
         block = msg[i];
         row += '<tr>';
-        row += '<td  style="text-align:center;">'+(i+1)+'</td>'
-        row += '<td  style="width:132px;" class="nr"><a key="'+i+'" style="text-decoration:underline; cursor:pointer;" id="camp_idhyperlink_"  plainidattr="'+block.PlanId+'" status="'+block.PlanStatus+'" class="statusCheck">'+block.CampaignId+'</a></td>';
+        row += '<td  style="">'+(i+1)+'</td>'
+        row += '<td  style="" class="nr"><a key="'+i+'" style="text-decoration:underline; cursor:pointer;" id="camp_idhyperlink_"  plainidattr="'+block.PlanId+'" status="'+block.PlanStatus+'" class="statusCheck">'+block.CampaignId+'</a></td>';
         row += '<td>'+block.BrandName+' </td>';
         row += '<td>'+block.ClientName+'</td>';
-        row += '<td style="width:139px;">'+block.PlannerName+'</td>';
-        row += '<td style="width:144px;">'+format_date(block.StartDate)+'</td>';
-        row += '<td style="width:172px">'+format_date(block.EndDate)+'</td>';
+        row += '<td style="">'+block.PlannerName+'</td>';
+        row += '<td style="">'+format_date(block.StartDate)+'</td>';
+        row += '<td style="">'+format_date(block.EndDate)+'</td>';
         // if (block.IsPrioritized == false) {
         row += '<td><button class="replanmodal" Campaignid='+block.CampaignId+' plainidattr='+block.PlanId+'  style="background-color: #f07144;color: #fff;border: none;padding: 4PX;width: 68px;border-radius: 2px;">Re-Plan</button></td>';
-        row += '<td style="text-align:center"><div class="downloadbtn pointer" campId="'+block.CampaignId+'" plainidattr="'+block.PlanId+'" style=""><img src="assets/images/WhiteIcons/FilesDownload.png" style="width:27px;"></div></td>';
+        row += '<td style=""><div class="downloadbtn pointer" campId="'+block.CampaignId+'" plainidattr="'+block.PlanId+'" style=""><img src="assets/images/WhiteIcons/FilesDownload.png" style="width:27px;"></div></td>';
 
 
         // row += '<td> '+format_date(block.DateValidated)+' </td>';

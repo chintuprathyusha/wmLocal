@@ -44,7 +44,7 @@ session_start();
 							<div class="card-body" style="width:400px;">
 								<div class="text-center mb-3">
 									<blink style="font-size: 17px;color: #f07144;" class="updatesinprogress">Updates in progress. Kindly check back later </blink>
-									<img src="assets/images/2nd Folder/blacklogo.png" alt="" style="width: 200px;height: 100%;">
+									<img src="assets/images/2nd Folder/whitelogo2.png" alt="" style="width: 200px;height: 100%;">
 								</div>
 
 								<div class="form-group form-group-feedback form-group-feedback-left">

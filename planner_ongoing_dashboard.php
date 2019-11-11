@@ -145,7 +145,7 @@ if ($_SESSION['usernamee'] == '') {
 								On-Going Plans
 							</div>
 							<table class="table datatable-multi-sortingg" style="color:white;">
-								<thead style="text-align:center;">
+								<thead style="">
 									<tr>
 										<th>Sl.no</th>
 										<th>Campaign ID</th>

@@ -214,7 +214,7 @@ margin-top: 45px;
                 </div> -->
                 <table class="table datatable-multi-sorting" style="color:white;margin-top:30px">
 
-                    <thead style="text-align:center;">
+                    <thead>
                         <tr>
 							<th>Sl.no</th>
                             <th>Campaign ID</th>
