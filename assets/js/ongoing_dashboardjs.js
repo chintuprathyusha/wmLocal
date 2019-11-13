@@ -248,7 +248,6 @@ $("document").ready(function () {
 
 
     $("body").on("click",".Prioritizebtn",function() {
-        alert()
         plainiddd =  $(this).attr('plainidattr');
         swal({
             title: "Are you sure you want  to Prioritize?",

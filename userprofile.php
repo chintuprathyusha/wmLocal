@@ -190,11 +190,18 @@ visibility: hideen;
 									<select data-placeholder="Select Client" required class="form-control select clientClass__"  data-fouc>
 										<option value=""></option>
 									</select>
-								</div>
-								<div data-placeholder="" class="col-lg-9 freezeclient" data-fouc>
 
+									<div data-placeholder="" class="freezeclient" data-fouc>
+
+									</div>
 								</div>
+<!--
+						<select data-placeholder="Select Client" required class="form-control select clientClass"  multiple  data-fouc>
+							<option value=""></option>
+						</select> -->
+
 							</div>
+
 							<div class="form-group row">
 								<label title="<?php echo $_SESSION['tool_tips']['CreateProfile_ClientLeadEmailId'];?>" class="col-form-label col-lg-3">Client Lead Email Id's<span class="text-danger">*</span></label>
 								<div class="col-lg-9">

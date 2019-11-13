@@ -108,7 +108,6 @@ $(document).ready(function () {
     }
 
 
-
     $("body").on("click", ".edit_createprofile", function(){
         $(".freezeLoc").hide();
         $(".freezeclient").hide();
@@ -119,11 +118,12 @@ $(document).ready(function () {
         $("clientleadClass").removeClass('hide');
         $(".getClass").removeClass('bg')
         onpageloadhit();
-
     })
+
+
     function get_freezeDetails(){
         $('.CLemId').hide();
-        $('.select_').hide();
+        // $('.select_').hide();
         sendObj = {};
         sendObj.user_id = userid;
         console.log(sendObj);
@@ -172,6 +172,7 @@ $(document).ready(function () {
                 $(".clientleadClass").hide();
                 $("clientleadClass").addClass('hide');
                 console.log(msg);
+                $('.select_').show();
                 freezeClientEmail = msg.Email_ID;
                 freezeLoc = msg.Location;
                 freezeClient = msg.Client;
@@ -187,6 +188,7 @@ $(document).ready(function () {
             }
         })
     }
+
     $('body').on('change', '.locationClass', function(){
         $('.select_').show();
         if (clinet_planner_flag == "true") {
@@ -196,14 +198,19 @@ $(document).ready(function () {
         $('.freezeclient').hide();
         $(".create_plan").attr("disabled", false);
     })
+
     function freezeforclientlead(){
         $('.CLemId').hide();
-        $('.select_').css('display', 'none');
+        // $('.select_').css('display', 'none');
         $(".update_btn").show();
         $(".select2").removeClass('hide');
         $(".clientleadClass").show();
         $("clientleadClass").removeClass('hide');
         $(".create_plan").attr("disabled", true);
+        $('.locationClass').prop("disabled", true);
+        $('.create_btn').prop("disabled", false);
+
+        $('.locationClass span').css('background-color', '#d6d6d6');
         sendObj = {};
         sendObj.user_id = userid;
         console.log(sendObj);
@@ -245,9 +252,17 @@ $(document).ready(function () {
                 freezeClientEmail = msg.Email_ID;
                 freezeLoc = msg.Location;
                 freezeClient = msg.Client;
+
+                console.log(freezeClient)
                 freezeClientLead = msg.Client_Lead;
+                allclients = msg.Client_Every;
                 onpageloadhit()
-                $(".freezeclient").append('<p key='+freezeClient+' value='+freezeClient+' class="getClass form-control"  style="background-color:#d6d6d6;margin-top:10px" readonly>'+freezeClient+'</p>')
+                // mycode
+                $(".freezeclient").append('<p key='+freezeClient+' value='+freezeClient+' class="getClass form-control"  style="background-color:#d6d6d6;margin-top:10px">'+freezeClient+'</p>')
+                for (var i = 0; i < allclients.length; i++) {
+                    $(".clientClass").append('<option key='+allclients[i]+' value='+allclients[i]+' style="background-color:#d6d6d6;margin-top:10px" class="getClass form-control">'+allclients[i]+'</option>')
+                }
+
                 for (var i = 0; i < freezeClientLead.length; i++) {
                     $(".freezeClientLead").append('<textarea key='+freezeClientLead[i]+' value='+freezeClientLead[i]+' class="getClass form-control"  style="background-color:#d6d6d6;margin-top:10px" readonly>'+freezeClientLead[i]+'</textarea>')
                 }
@@ -315,12 +330,10 @@ $(document).ready(function () {
                     }
                 }
                 else {
-
                     for( key in msg){
                         console.log(msg[key], key);
                         $(".locationClass").append('<option key='+key+' value='+msg[key]+' class="getClass get_location-'+count+'">'+msg[key]+'</option>')
                         count++
-
                     }
                 }
             }
@@ -410,7 +423,6 @@ $(document).ready(function () {
         })
 
         $("body").on("change", ".locationClass", function(){
-            debugger
             location_array = [];
             $(".clientClass").empty();
             $('.clientClass__').empty();
@@ -473,7 +485,6 @@ $(document).ready(function () {
                             optionn = '<option value="">Select Client</option>'
                             for( key in msg){
                                 console.log(msg[key], key);
-
                                 optionn += '<option key='+key+' value='+msg[key]+' class="getClass get_client-'+count+'">'+msg[key]+'</option>'
                                 count++
                             }
@@ -551,7 +562,7 @@ $(document).ready(function () {
                             for(key in msg){
                                 console.log(msg[key], key);
                                 console.log(msg[key]);
-                                $(".clientleadClass").append('<textarea readonly="readonly" class="form-control" key='+key+' value='+msg[key]+' class="getClass get_clientlead-'+count+'">'+msg[key]+'</textarea>')
+                                $(".clientleadClass").append('<textarea class="form-control"  readonly="readonly"  key='+key+' value='+msg[key]+' class="getClass get_clientlead-'+count+'">'+msg[key]+'</textarea>')
                                 count++
                             }
                             $(".CLemId").hide();
@@ -614,7 +625,7 @@ $(document).ready(function () {
                             }
                             else {
                                 for(key in msg){
-                                    $(".clientleadClass").append('<textarea readonly="readonly" class="form-control" readonly key='+key+' value='+msg[key]+' class="getClass get_clientlead-'+count+'">'+msg[key]+'</textarea>')
+                                    $(".clientleadClass").append('<textarea class="form-control" key='+key+' value='+msg[key]+'  readonly="readonly"  class="getClass get_clientlead-'+count+'">'+msg[key]+'</textarea>')
                                     count++
                                 }
                                 $(".CLemId").hide();
@@ -625,6 +636,12 @@ $(document).ready(function () {
 
                     var selectedValues__new_;
                     $("body").on("click", ".create_plan", function(){
+
+                        locationvalue = []
+                        location_val = $('.locationClass').val()
+                        locationvalue.push(location_val);
+
+
                         debugger
                         val = []
                         selectedValues = $(".clientClass").select2('data');
@@ -647,7 +664,7 @@ $(document).ready(function () {
                             if (location_array.length == 0 || selectedValues__new_1 == '') {
                                 $.alert({
                                     title: 'Alert',
-                                    content: 'Fields should not ne empty',
+                                    content: 'Fields should not be empty',
                                     animation: 'scale',
                                     closeAnimation: 'scale',
                                     opacity: 0.5,
@@ -662,7 +679,7 @@ $(document).ready(function () {
                             else {
                                 sendObj = {};
                                 sendObj.CreatedBy = userid;
-                                sendObj.location_key = location_array;
+                                sendObj.location_key = locationvalue;
                                 sendObj.UserClientId = userid;
                                 sendObj.ClientId = val_new;
                                 console.log(sendObj);
@@ -738,7 +755,7 @@ $(document).ready(function () {
                             }
                             else{
                                 debugger
-                                if (location_array.length == 0 || val.length == 0) {
+                                if (val.length == 0) {
                                     $.alert({
                                         title: 'Alert',
                                         content: 'Fields should not be empty',
@@ -757,7 +774,7 @@ $(document).ready(function () {
 
                                     sendObj = {};
                                     sendObj.CreatedBy = userid;
-                                    sendObj.location_key = location_array;
+                                    sendObj.location_key = locationvalue;
                                     sendObj.UserClientId = userid;
                                     sendObj.ClientId = val;
                                     console.log(sendObj);

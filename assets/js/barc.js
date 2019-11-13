@@ -143,6 +143,7 @@ $(document).ready(function () {
             "data": form
         };
         $.ajax(settings11).done(function (msg) {
+            msg =  msg;
             console.log(msg);
             $('.loading').hide();
             if (msg == "Path inserted Succesfully") {
@@ -154,22 +155,41 @@ $(document).ready(function () {
 
                 $('.edit_barc').prop('disabled', false);
 
-                // $.alert({
-                //     title: 'Success',
-                //     content: 'File succesfully uploaded'
-                    //
-                    // animation: 'scale',
-                    // closeAnimation: 'scale',
-                    // opacity: 0.5,
-                    // buttons: {
-                    //     okay: {
-                    //         text: 'Okay',
-                    //         btnClass: 'btn-primary'
-                    //     }
-                    // }
-                // });
+                $.alert({
+                    title: 'Success',
+                    content: 'File succesfully uploaded',
+                    animation: 'scale',
+                    closeAnimation: 'scale',
+                    opacity: 0.5,
+                    buttons: {
+                        okay: {
+                            text: 'Okay',
+                            btnClass: 'btn-primary'
+                        }
+                    }
+                });
             }
-            else {
+            else if(msg == "Headers did not match!" )
+            {
+                $.alert({
+                    title: 'error',
+                    content: 'Headers did not match!',
+                    animation: 'scale',
+                    closeAnimation: 'scale',
+                    opacity: 0.5,
+                    buttons: {
+                        okay: {
+                            text: 'Okay',
+                            btnClass: 'btn-primary'
+                        }
+                    }
+                });
+
+            }
+
+           else {
+
+
                 $('#upl-btn').show();
                 $('.file-input').show();
                 $('.red_color').show();
