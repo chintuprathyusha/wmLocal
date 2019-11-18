@@ -447,6 +447,7 @@ $("document").ready(function () {
         })
 
     })
+    var key;
     $('.downloadAll').prop('disabled', true)
     $("body").on("click", ".fileClick", function () {
         key = $(this).attr('title');
@@ -504,7 +505,7 @@ $("document").ready(function () {
                 "data": form
             };
             $.ajax(settings11).done(function (msg) {
-                result = result+'.xlsx'
+                result = key
                 console.log(msg);
                 if(msg.message == "fail"){
                     $.alert({

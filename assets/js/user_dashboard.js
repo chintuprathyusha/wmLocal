@@ -361,7 +361,6 @@ $(document).ready(function () {
             "data": form
         };
         $.ajax(settings11).done(function (msg) {
-
             if(msg.message == "fail"){
                 $.alert({
                     title: 'Error',
@@ -401,13 +400,14 @@ $(document).ready(function () {
                     all_files_ = val;
                     for (var i = 0; i < keys.length; i++) {
                         console.log(keys[i]);
-                        $('.row_body').append('<div class="col-sm-3"><div class="fileClick pointer" file_camid="'+global_campId+'" title="'+keys[i]+'"><span>'+keys[i]+'</span></div></div>');
+                        $('.row_body').append('<div class="col-sm-3"><div class="fileClick pointer" filenamewithversions="'+keys[i]+'" file_camid="'+global_campId+'" title="'+keys[i]+'"><span>'+keys[i]+'</span></div></div>');
                     }
                 }
             }
         })
-
     })
+    var key;
+
     $('.downloadAll').prop('disabled', true)
     $("body").on("click", ".fileClick", function () {
         key = $(this).attr('title');
@@ -444,12 +444,15 @@ $(document).ready(function () {
         resetSelect();
         $('.downloadAll').prop('disabled', true)
     })
+
     $('body').on('click', '.downloadAll', function(){
         $('.loading').show()
         sendObj={};
         console.log(selectedFiles.length);
-
         console.log(sendObj);
+
+        filenamewith_versions =  $('.fileClick').attr('filenamewithversions')
+        alert(filenamewith_versions)
         result = $(this).attr('this_campid');
         if(selectedFiles.length==1){
             sendObj.file_path = selectedFiles;
@@ -488,7 +491,7 @@ $(document).ready(function () {
                     });
                 }
                 else{
-                result = result+'.xlsx'
+                result = key
                 msg_obj = msg
                 $('.loading').hide()
                 var blob = new Blob([s2ab(atob(encodeURI(msg_obj)))], {
