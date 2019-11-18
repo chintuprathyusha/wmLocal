@@ -452,7 +452,7 @@ $(document).ready(function () {
         console.log(sendObj);
 
         filenamewith_versions =  $('.fileClick').attr('filenamewithversions')
-        alert(filenamewith_versions)
+        
         result = $(this).attr('this_campid');
         if(selectedFiles.length==1){
             sendObj.file_path = selectedFiles;
