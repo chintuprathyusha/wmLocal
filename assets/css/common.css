@@ -538,3 +538,6 @@ blink {
 .select2-search__field{
     color: black !important;
 }
+.dataTables_filter>label:after{
+    content: '' !important;
+}
