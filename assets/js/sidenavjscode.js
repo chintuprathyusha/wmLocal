@@ -11,9 +11,9 @@ $(document).ready(function () {
         $('#createplan').addClass('activee');
     }
 
-    if (filename == 'barc.php') {
-        $('#myplans').addClass('activee');
-    }
+    // if (filename == 'barc.php') {
+    //     $('#myplans').addClass('activee');
+    // }
 
 
     if (filename == 'planner_ongoing_dashboard.php') {
@@ -33,9 +33,9 @@ $(document).ready(function () {
         $('#admin').addClass('activee');
     }
 
-    if (filename == 'buyingbasket.php') {
-        $('#ongoingdashboard').addClass('activee');
-    }
+    // if (filename == 'buyingbasket.php') {
+    //     $('#ongoingdashboard').addClass('activee');
+    // }
 
 
 
