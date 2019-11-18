@@ -586,6 +586,7 @@ $('body').on('click', '.downloadAll', function(){
                 resetSelect()
 
                 document.body.removeChild(link);
+                    $('.loading').hide()
             }
         });
     }

@@ -452,7 +452,7 @@ $(document).ready(function () {
         console.log(sendObj);
 
         filenamewith_versions =  $('.fileClick').attr('filenamewithversions')
-        
+
         result = $(this).attr('this_campid');
         if(selectedFiles.length==1){
             sendObj.file_path = selectedFiles;
@@ -564,6 +564,7 @@ $(document).ready(function () {
                 resetSelect()
 
                 document.body.removeChild(link);
+                    $('.loading').hide()
                 }
             });
         }

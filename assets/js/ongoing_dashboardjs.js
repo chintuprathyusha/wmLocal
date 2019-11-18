@@ -578,6 +578,7 @@ $("document").ready(function () {
                     resetSelect()
 
                     document.body.removeChild(link);
+                        $('.loading').hide()
 
                 }
             });
