@@ -126,8 +126,19 @@ $(document).ready(function () {
             }
             else {
                 base_tg = msg.Base_Tg;
+
+
+                base_tg = Object.values(base_tg);
+                // campign_markets = Object.Values(msg.Campaign_Market);
+                base_tg = base_tg.sort();
                 //console.log(base_tg);
                 primary_tg = msg.Primary_Tg;
+
+                primary_tg = Object.values(primary_tg);
+                // campign_markets = Object.Values(msg.Campaign_Market);
+                primary_tg = primary_tg.sort();
+
+
                 campign_markets = msg.Campaign_Market;
                 //console.log(Object.values(campign_markets));
                 campign_markets = Object.values(campign_markets);
