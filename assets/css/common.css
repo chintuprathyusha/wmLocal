@@ -457,7 +457,7 @@ body{
 }
 
 .updatesinprogress{
-    display:none;
+    /* display:none; */
 }
 blink {
   -webkit-animation: 2s linear infinite condemned_blink_effect; // for Safari 4.0 - 8.0
@@ -516,11 +516,14 @@ blink {
     padding-bottom: 67px;
 } */
 .swal-button--cancel{
-    width: 358px !important;
+    width: 386px !important;
     background-color: #BB2734 !important;
 }
 .swal-button--confirm {
     background-color: #f07144 !important;
+    margin-left: -31px;
+    width: 90px;
+
 }
 .swal-footer {
     text-align: right;
@@ -533,7 +536,7 @@ blink {
     /* margin-left: -27px; */
     float: left;
     /* margin-left: 23px; */
-    margin-left: -21px;
+    /* margin-left: -21px; */
 }
 .select2-search__field{
     color: black !important;
@@ -541,3 +544,25 @@ blink {
 .dataTables_filter>label:after{
     content: '' !important;
 }
+.dataTable thead .sorting_asc:after{
+    content: '' !important;
+}
+.swal-footer .swal-button-container :first-child{
+    /* margin-left: -16px; */
+}
+.cancelclass{
+    left:-21px;
+}
+.okclass{
+    width:12px;
+}
+.swal-text{
+    font-size: 28px !important;
+    color:#fff;
+}
+.swal-title{
+    font-weight: unset !important;
+}
+/* .swal-button--confirm{
+    margin-left: 5px !important;
+}  */

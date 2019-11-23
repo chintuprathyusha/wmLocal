@@ -176,7 +176,7 @@ $(document).ready(function () {
                     ap1 += '<tr>'
                     ap1 += '<td  style="">'+(i+1)+'</td>'
                     ap1 += '<td  style=""><a style="text-decoration:underline;cursor:pointer;" plainidattr="'+v[i]['PlanId']+'" status = "'+v[i]['PlanStatus']+'" id="camp_idhyperlink">'+v[i]['CampaignId']+'</a></td>'
-                    ap1 += '<td  style="">'+v[i]['CampaignName']+ '</td>'
+                    ap1 += '<td  style="width: 120px;">'+v[i]['CampaignName']+ '</td>'
                     ap1 += '<td  style="">'+v[i]['ClientName']+'</td>'
                     ap1 += '<td  style="">'+v[i]['BrandName']+'</td>'
                     ap1 += '<td  style="">'+format_date(v[i]['StartDate'])+'</td>'
@@ -758,10 +758,9 @@ $(document).ready(function () {
         }
     });
 
+
     $("body").on("click", "#camp_idhyperlink", function(){
         plainiddd =  $(this).attr('plainidattr');
-
-        // alert(plainiddd)
         sessionStorage.setItem('create_plan_id', plainiddd);
         // window.location.href = 'planner_createnewplan.php';
         newstatus = $(this).attr('status');
@@ -792,12 +791,15 @@ $(document).ready(function () {
         Id = plainid
         startdate =   $('.startdateclass').val();
         enddate =   $('.enddateclass').val();
+
         swal({
-            title: "Are you sure to mark as complete?",
+            title: "Are you sure to",
+            text: "mark as complete ?",
             icon: "warning",
             buttons: true,
             dangerMode: true,
         })
+
 
         .then((willDelete) => {
             if (willDelete) {
@@ -848,6 +850,10 @@ $(document).ready(function () {
                 })
             }
         });
+        $('.swal-button--cancel').parent().addClass('cancelclass')
+        $('.swal-button--danger').parent().addClass('okclass')
+
+
 
     })
 

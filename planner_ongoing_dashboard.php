@@ -50,10 +50,6 @@ if ($_SESSION['usernamee'] == '') {
 
 }
 .content {
-	/* background-color: red /* background-image: url(../images/wmflow.png) no-repeat; */
-	/* background-image: url('asserts/images/wmflow.png') */
-	/* background-image: url("assets/images/wmflow.png");
-	background-repeat: no-repeat, repeat; */
 	background-color: #1f2022;
 }
 .createbtn{
@@ -149,7 +145,7 @@ if ($_SESSION['usernamee'] == '') {
 									<tr>
 										<th>Sl.no</th>
 										<th>Campaign ID</th>
-										<th>Campaign Name</th>
+										<th style="width: 104px !important;">Campaign Name</th>
 										<th>Client</th>
 										<th>Brand</th>
 										<th>Start Date</th>
@@ -170,7 +166,7 @@ if ($_SESSION['usernamee'] == '') {
 									<tr>
 										<th>Sl.no</th>
 										<th>Campaign ID</th>
-										<th>Campaign Name</th>
+										<th  style="width: 104px !important;">Campaign Name</th>
 										<th>Client</th>
 										<th>Brand</th>
 										<th>Replan</th>

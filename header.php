@@ -57,7 +57,7 @@ $(document).ready(function () {
             </li>
         </ul> -->
         <!-- <p style="font-size: 14px;color: aqua;" class="updatesinprogress">Updates in progress. Kindly check back later<p> -->
-        <blink style="font-size: 17px;color: red;" class="updatesinprogress">Updates in progress. Kindly check back later </blink>
+        <blink style="font-size: 17px;color: red;width:459px;" class="updatesinprogress">Updates in progress. Kindly check back later </blink>
 
         <ul style="float: right;width: 100%;">
             <li class="nav-item dropdown dropdown-user" style="float: right;list-style-type: none;">

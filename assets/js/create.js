@@ -102,9 +102,8 @@ $(document).ready(function () {
             "data": form
         };
         $.ajax(settings11).done(function (msg) {
-            //console.log(msg);
             msg = JSON.parse(msg);
-            //console.log(msg);
+            console.log(msg);
             $(".loading").hide();
             if(msg.message == "fail"){
                 $.alert({
@@ -146,9 +145,13 @@ $(document).ready(function () {
                 campign_markets = campign_markets.sort();
                 end_week = msg.End_Week;
                 data = msg.Client;
-                // //console.log(data);
+                console.log(data);
+                var ordered = {};
+                    Object.keys(data).sort().forEach(function(key) {
+                      ordered[key] = data[key];
+                    });
 
-                $.each(data ,function(key,i){
+                $.each(ordered ,function(key,i){
                     $('#select').append('<option value='+key+'>'+key+'</option>')
                 })
 
@@ -158,9 +161,14 @@ $(document).ready(function () {
                     //console.log($dropdown);
                     $('#select0').empty();
                     // var a=data[$dropdown.val()];
+
                     var a=data[$.trim($dropdown[0].selectedOptions[0].text)];
+                    if(a!=undefined){
+                            a = a.sort();
+                    }
+
                     $.each(a,function(j){
-                        //console.log(a[j]);
+                        console.log(a[j]);
                         $('#select0').append('<option value='+a[j]+'>'+a[j]+'</option>')
                     })
                 });
