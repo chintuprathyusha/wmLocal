@@ -127,6 +127,7 @@ session_start();
 					xhr.setRequestHeader('Authorization', 'Bearer ' + token);
 					xhr.onreadystatechange = function () {
 						if (xhr.readyState === 4 && xhr.status === 200) {
+							$('.loginbtnn').hide();
 							$(".loading").show();
 							console.log(xhr.responseText);
 							var response_fromAD = xhr.responseText
