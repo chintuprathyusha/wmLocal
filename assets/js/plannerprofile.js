@@ -636,7 +636,6 @@ $(document).ready(function () {
 
                     var selectedValues__new_;
                     $("body").on("click", ".create_plan", function(){
-
                         locationvalue = []
                         location_val = $('.locationClass').val()
                         locationvalue.push(location_val);
@@ -698,7 +697,8 @@ $(document).ready(function () {
                                 };
                                 $.ajax(settings11).done(function (msg) {
                                     msg = JSON.parse(msg);
-                                    console.log(msg);
+                                    createplanid = msg.ProfileId
+                                    alert(userid)
                                     setInterval(function(){
                                         $('.loading').hide(); }, 1000);
                                         if (msg.message == "fail") {
@@ -726,8 +726,11 @@ $(document).ready(function () {
                                                 buttons: {
                                                     okay: {
                                                         text: 'Okay',
-                                                        btnClass: 'btn-primary'
+                                                        btnClass: 'btn-primary',
+                                                        action: function(){
+                                                                window.location.href = 'planner_createnewplan.php?type=new'                                                       }
                                                     }
+
                                                 }
                                             });
                                             sessionStorage.setItem('isnewuser', false);
@@ -815,15 +818,18 @@ $(document).ready(function () {
                                             else {
                                                 $.alert({
                                                     title: 'Alert',
-                                                    content: 'Succesfully Created',
+                                                    content: 'Succesfully Created ',
                                                     animation: 'scale',
                                                     closeAnimation: 'scale',
                                                     opacity: 0.5,
                                                     buttons: {
                                                         okay: {
                                                             text: 'Okay',
-                                                            btnClass: 'btn-primary'
-                                                        }
+                                                            btnClass: 'btn-primary',
+                                                            action: function(){
+                                                                window.location.href = 'planner_createnewplan.php?type=new'                                                       }
+                                                            }
+
                                                     }
                                                 });
 
