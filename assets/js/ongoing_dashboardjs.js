@@ -250,7 +250,8 @@ $("document").ready(function () {
     $("body").on("click",".Prioritizebtn",function() {
         plainiddd =  $(this).attr('plainidattr');
         swal({
-            title: "Are you sure you want  to Prioritize?",
+            title: "Are you sure",
+            text: "you want to Prioritize?",
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -309,6 +310,8 @@ $("document").ready(function () {
                 })
             }
         });
+        $('.swal-button--cancel').parent().addClass('cancelclass')
+        $('.swal-button--danger').parent().addClass('okclass')
     })
 
     $("body").on("click",".Prioritizebtn11",function() {
