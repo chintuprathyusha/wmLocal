@@ -243,7 +243,7 @@ p{
 									<!-- <p class="mb-2">Select2 supports ability to add choices automatically as the user is typing into the search field. Try typing in the search field below and entering a space or a comma.</p> -->
 									<div class="row">
 										<div class="col-md-3">
-											<h6  title="<?php echo $_SESSION['tool_tips']['CreateNewPlan_BaseTGId'];?>" class="font-weight-semibold">Base TG<span class="text-danger">*</span></h6>
+											<h6  title="<?php echo $_SESSION['tool_tips']['CreateNewPlan_BaseTGId'];?>" class="font-weight-semibold">Secondary TG<span class="text-danger">*</span></h6>
 										</div>
 										<div class="col-md-4">
 											<!-- <select data-placeholder="Base Tg" required class="form-control select base_tg" data-fouc>
