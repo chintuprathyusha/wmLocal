@@ -1374,3 +1374,107 @@ $( document ).ready(function() {
                     if(status == "Path inserted Succesfully"){
                         if (path_selection == 1) {
                             $('.acceleratorfiletext').show();
+                            $('.acceleratorfiletext').html('<h5>Accelerator Output Sheet being created. Once complete youwill receive it in your inbox - Expected Time of Arrival (ETA) is : '+format_date(process3ETA)+' </h5>')
+                        }
+                        else {
+                            $('.acceleratorfiletext').hide();
+                            $('.next_').prop('disabled', false)
+                        }
+                        $('.texttodisplay').show();
+                        $('.texttodisplayspill').show();
+                        $('#upl-btn__').hide();
+
+                        $('.bb_txt').hide();
+                        $('.file-input').hide();
+                        $('.red_color').hide();
+                        // $('.texttodisplayspill').append('<h5 style="color:#000">'+file_name_2+' is successfully uploaded</h5>')
+                        $('.texttodisplayspill').append('<h5 style="color:#fff">Genre Level Budget Allocation Sheet  successfully uploaded </h5>')
+
+
+                        $.alert({
+                            title: 'File succesfully uploaded',
+                            // content: 'Oops ! something went wrong',
+                            animation: 'scale',
+                            closeAnimation: 'scale',
+                            opacity: 0.5,
+                            buttons: {
+                                okay: {
+                                    text: 'Okay',
+                                    btnClass: 'btn-primary'
+                                }
+                            }
+                        });
+                    }
+                    if(status == "Header format did not match!") {
+                          $('.texttodisplay').hide();
+                          $('.texttodisplayspill').hide();
+                          $('#upl-btn__').show();
+                          $('.file-input').show();
+                          $('.red_color').show();
+                          $.alert({
+                              title: 'Oops ! Seems you are uploading an incorrect file',
+                              // content: 'Oops ! something went wrong',
+                              animation: 'scale',
+                              closeAnimation: 'scale',
+                              opacity: 0.5,
+                              buttons: {
+                                  okay: {
+                                      text: 'Okay',
+                                      btnClass: 'btn-primary'
+                                  }
+                              }
+                          });
+                    }
+                    version = 0;
+                });
+            })
+
+            $("body").on("change", ".name_Class", function () {
+                tlt = 0
+                if ($(this).hasClass('0')) {
+                    tlt = 100;
+                }
+                else {
+                    vll = $(".path_Class");
+                    x = 0;
+                    for (var pc = 0; pc < vll.length; pc++) {
+                        x += Number(vll[pc].value);
+                    }
+                    y = 100-x;
+                    if (y < 0) {
+                        tlt = 0;
+                    }
+                    else {
+                        tlt = y
+                    }
+                }
+                $(this).closest('.keyword').find('.path_Class').val(tlt);
+            })
+
+            $("body").on("change", ".name_Class_new", function () {
+                tlt = 0
+                if ($(this).hasClass('0')) {
+                    tlt = 100;
+                }
+                else {
+                    vll = $(".path_Class_new");
+                    x = 0;
+                    for (var pc = 0; pc < vll.length; pc++) {
+                        x += Number(vll[pc].value);
+                    }
+                    y = 100-x;
+                    if (y < 0) {
+                        tlt = 0;
+                    }
+                    else {
+                        tlt = y
+                    }
+                }
+                $(this).closest('.keyword_new').find('.path_Class_new').val(tlt);
+            })
+            $('body').on('click', '.backclass', function(){
+                sessionStorage.setItem('backclicked', true);
+            })
+
+
+        })
