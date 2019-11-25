@@ -250,7 +250,7 @@ p{
 												<option value=""></option>
 											</select> -->
 
-											<select  data-placeholder="Base Tg" class="form-control js-example-basic-single  base_tg" name="state">
+											<select  data-placeholder="Secondary TG" class="form-control js-example-basic-single  base_tg" name="state">
 												<option value=""></option>
 
 												</select>
