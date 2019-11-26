@@ -224,7 +224,7 @@ $( document ).ready(function() {
                                         </div>
                                         <div class="row mb-4">
                                             <div class="col-md-2">
-                                                <h6 class="font-weight-semibold">Channel Genre mapping sheet</h6>
+                                                <h6 class="font-weight-semibold">Accelerator Master and Instructions File</h6>
                                             </div>
                                             <div class="col-md-8 channel_">
                                                 <input type="file" class="file-input"  id="channelgenre"  data-fouc>
@@ -268,7 +268,7 @@ $( document ).ready(function() {
                     </div>
                 </div>
                 <div class="mb-4">
-                <h6 class="font-weight-semibold">Channel Genre Mapping Sheet</h6>
+                <h6 class="font-weight-semibold">Accelerator Master and Instructions File</h6>
                 <div class="col-md-8">
                 <input type="file" id="channeluploadbtn" class="file-input" id="channelclass"  data-fouc>
 
@@ -289,7 +289,7 @@ $( document ).ready(function() {
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6">
             <div class="channelstamp">
-                <h5>Channel Genre mapping sheet:</h5>
+                <h5>Accelerator Master and Instructions File:</h5>
             </div>
         </div>
     </div>
