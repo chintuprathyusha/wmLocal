@@ -201,10 +201,10 @@ $(document).ready(function() {
 									</div>
 								</div>
 								<div class="form-group row">
-									<label title="<?php echo $_SESSION['tool_tips']['BARC_BaseTGId'];?>" class="col-form-label col-lg-3">Selected Base TG <span class="text-danger">*</span><span class="appendselectedbasetg"></span></label>
+									<label title="<?php echo $_SESSION['tool_tips']['BARC_BaseTGId'];?>" class="col-form-label col-lg-3">Selected Secondary TG <span class="text-danger">*</span><span class="appendselectedbasetg"></span></label>
 									<div class="col-lg-9">
 
-										<select name="select2" data-placeholder="Selected Base TG" class="form-control js-example-basic-single form-control-select2 base_tg" required data-fouc>
+										<select name="select2" data-placeholder="Selected Secondary TG" class="form-control js-example-basic-single form-control-select2 base_tg" required data-fouc>
 											<option value=""></option>
 
 										</select>
