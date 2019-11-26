@@ -22,6 +22,10 @@ session_start();
 /* background-image: ('assets/images/wmflow.png') */
 /* background-image: url('assets/images/wmflow.png');
 } */
+.pleasewaitforlogin{
+	color:red;
+	font-size: 20px;
+}
 </style>
 
 
@@ -66,6 +70,7 @@ session_start();
 									<p class="text-center mr-t-10">(or)</p>
 									<button onclick="authContext.login(); return false;" style="background:#f07144;color:white;" class="loginbtnn btn btn-block" >LOGIN</button>
 									<!-- <button  onclick="authContext.logOut(); return false;">Log out AD</button> -->
+									<p class="pleasewaitforlogin">Please Wait we are signing in you</p>
 								</div>
 							</div>
 						</div>
@@ -90,6 +95,7 @@ session_start();
 	<script src="assets/js/common.js" charset="utf-8"></script>
 	<script type="text/javascript">
 		$(".loading").hide();
+		$('.pleasewaitforlogin').hide();
 	// #1: Set up ADAL
 	var authContext = new AuthenticationContext({
 		clientId: 'd3cc7c04-0c90-44d5-b40b-7f10a5cce951',
@@ -112,6 +118,7 @@ session_start();
 		var user = authContext.getCachedUser();
 		if (user) {
 			$('.loginbtnn').hide()
+			$('.pleasewaitforlogin').show();
 
 			console.log('Signed in as: ' + user.userName);
 
