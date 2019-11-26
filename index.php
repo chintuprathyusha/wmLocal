@@ -95,6 +95,7 @@ session_start();
 		clientId: 'd3cc7c04-0c90-44d5-b40b-7f10a5cce951',
 		postLogoutRedirectUri: window.location
 	});
+	$('.loginbtnn').hide()
 
 	// #3: Handle redirect after token requests
 	if (authContext.isCallback(window.location.hash)) {
@@ -128,7 +129,7 @@ session_start();
 					xhr.onreadystatechange = function () {
 						if (xhr.readyState === 4 && xhr.status === 200) {
 							$(".loading").show();
-							$('.loginbtnn').hide()
+
 							console.log(xhr.responseText);
 							var response_fromAD = xhr.responseText
 							console.log(response_fromAD);
