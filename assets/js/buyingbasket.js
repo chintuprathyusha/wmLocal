@@ -1149,7 +1149,6 @@ $( document ).ready(function() {
                     console.log(msg);
                       $('.loading').hide();
                     if(msg == "Path inserted Succesfully"){
-                        alert(path_selection)
                         if (path_selection == 2) {
                             $('.cprp_div').hide();
                              $('.budget_div_').show();
