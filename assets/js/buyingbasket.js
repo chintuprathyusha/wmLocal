@@ -344,7 +344,9 @@ $( document ).ready(function() {
                 }
                 else {
                     if (path_selection == 2) {
+                        debugger;
                        $('.cprp_div').hide()
+
                         $('.forfirstpathtext').hide();
                         $('.forsecoundpathtext').hide();
                         $('.spillover').hide();
@@ -504,6 +506,8 @@ $( document ).ready(function() {
                 if(path_selection==2){
                     $(".cprp_main").css("background-color", "#292828");
                     $(".budget_main").css("background-color", "#F07144");
+                    $('.cprp_div').hide();
+                     $('.budget_div_').show();
                     // $('.radio_class').show();
                     // $('.cprp_div').hide();
                     // $('.budget_div_').show()
@@ -635,7 +639,9 @@ $( document ).ready(function() {
 
                 for (var i = 0; i < children.length; i++) {
                     var path_cls =  $(children[0]).find('.path_Class').val();
+                    // alert(path_cls);
                     x = 0+parseInt(path_cls);
+
                 }
                 if (x>100) {
                     swal("Dispersion sholud be 100");
@@ -653,6 +659,7 @@ $( document ).ready(function() {
             })
 
             $("body").on("click", ".add_more_new", function(){
+                debugger;
                 var x=0;
                 thiss = $(this)
                 val = $(this).html();
@@ -661,7 +668,9 @@ $( document ).ready(function() {
                 var name_cls = $(children[0]).find(".name_Class_new").val()
                 for (var i = 0; i < children.length; i++) {
                     var path_cls =  $(children[0]).find('.path_Class_new').val();
+
                     x = 0+parseInt(path_cls);
+
                 }
                 if (x>100) {
                     alert("error")
@@ -1374,7 +1383,7 @@ $( document ).ready(function() {
                     if(status == "Path inserted Succesfully"){
                         if (path_selection == 1) {
                             $('.acceleratorfiletext').show();
-                            $('.acceleratorfiletext').html('<h5>Accelerator Output Sheet being created. Once complete youwill receive it in your inbox - Expected Time of Arrival (ETA) is : '+format_date(process3ETA)+' </h5>')
+                            $('.acceleratorfiletext').html('<h5>Accelerator Output Sheet being created. Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : '+format_date(process3ETA)+' </h5>')
                         }
                         else {
                             $('.acceleratorfiletext').hide();
@@ -1388,7 +1397,7 @@ $( document ).ready(function() {
                         $('.file-input').hide();
                         $('.red_color').hide();
                         // $('.texttodisplayspill').append('<h5 style="color:#000">'+file_name_2+' is successfully uploaded</h5>')
-                        $('.texttodisplayspill').append('<h5 style="color:#fff">Genre Level Budget Allocation Sheet  successfully uploaded </h5>')
+                        $('.texttodisplayspill').append('<h5 style="color:#fff;">Genre Level Budget Allocation Sheet  successfully uploaded </h5>')
 
 
                         $.alert({
@@ -1429,49 +1438,51 @@ $( document ).ready(function() {
                 });
             })
 
-            $("body").on("change", ".name_Class", function () {
-                tlt = 0
-                if ($(this).hasClass('0')) {
-                    tlt = 100;
-                }
-                else {
-                    vll = $(".path_Class");
-                    x = 0;
-                    for (var pc = 0; pc < vll.length; pc++) {
-                        x += Number(vll[pc].value);
-                    }
-                    y = 100-x;
-                    if (y < 0) {
-                        tlt = 0;
-                    }
-                    else {
-                        tlt = y
-                    }
-                }
-                $(this).closest('.keyword').find('.path_Class').val(tlt);
-            })
+            // $("body").on("change", ".name_Class", function () {
+            //     debugger
+            //     tlt = 0
+            //     if ($(this).hasClass('0')) {
+            //         tlt = 100;
+            //     }
+            //     else {
+            //         vll = $(".path_Class");
+            //         x = 0;
+            //         for (var pc = 0; pc < vll.length; pc++) {
+            //             x += Number(vll[pc].value);
+            //         }
+            //         y = 100-x;
+            //         if (y < 0) {
+            //             tlt = 0;
+            //         }
+            //         else {
+            //             tlt = y
+            //         }
+            //     }
+            //     $(this).closest('.keyword').find('.path_Class').val(tlt);
+            // })
 
-            $("body").on("change", ".name_Class_new", function () {
-                tlt = 0
-                if ($(this).hasClass('0')) {
-                    tlt = 100;
-                }
-                else {
-                    vll = $(".path_Class_new");
-                    x = 0;
-                    for (var pc = 0; pc < vll.length; pc++) {
-                        x += Number(vll[pc].value);
-                    }
-                    y = 100-x;
-                    if (y < 0) {
-                        tlt = 0;
-                    }
-                    else {
-                        tlt = y
-                    }
-                }
-                $(this).closest('.keyword_new').find('.path_Class_new').val(tlt);
-            })
+            // $("body").on("change", ".name_Class_new", function () {
+            //     tlt = 0
+            //     if ($(this).hasClass('0')) {
+            //         tlt = 100;
+            //     }
+            //     else {
+            //         vll = $(".path_Class_new");
+            //         x = 0;
+            //         for (var pc = 0; pc < vll.length; pc++) {
+            //             x += Number(vll[pc].value);
+            //         }
+            //         y = 100-x;
+            //         if (y < 0) {
+            //             tlt = 0;
+            //         }
+            //         else {
+            //             tlt = y
+            //         }
+            //     }
+            //     $(this).closest('.keyword_new').find('.path_Class_new').val(tlt);
+            // })
+
             $('body').on('click', '.backclass', function(){
                 sessionStorage.setItem('backclicked', true);
             })

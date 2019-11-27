@@ -566,3 +566,8 @@ blink {
 /* .swal-button--confirm{
     margin-left: 5px !important;
 }  */
+
+.swal-button--cancel {
+box-shadow:  none !important;
+-moz-box-shadow:  none !important;
+}

@@ -265,7 +265,7 @@ $(document).ready(function () {
             pathSelection = msg.PathSelection;
             process4ETA = msg.Process4ETA;
             plancompleted=msg.IsPlanCompleted;
-            
+
             // $(".barcmsg").append('<h5 style="color:#000">Final Plan with  Eval is being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is :'+process4ETA+'</h5>')
 
             $('.loading').hide();
@@ -309,11 +309,11 @@ $(document).ready(function () {
                         $('.edit_barc').prop('disabled', true);
                         $('.barcmsg').show();
                         if (process4ETA == '') {
-                          $(".barcmsg").append('<h5 style="color:#fff"> Final Plan with  Eval is being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : None</h5>')
+                          $(".barcmsg").append('<h5 style="color:#fff"> Final Plan with  Eval is being created. Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : None</h5>')
                         }
                         else {
                             if (plancompleted == false){
-                                $(".barcmsg").append('<h5 style="color:#fff"> Final Plan with  Eval is being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is :'+format_date(process4ETA)+'</h5>')
+                                $(".barcmsg").append('<h5 style="color:#fff"> Final Plan with  Eval is being created. Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : '+format_date(process4ETA)+'</h5>')
                             }
                             else{
                                 $('.barcmsg').hide();
@@ -336,11 +336,11 @@ $(document).ready(function () {
 
                        $('.barcmsg').show();
                         if (process4ETA == '') {
-                          $(".barcmsg").append('<h5 style="color:#fff"> Final Plan with  Eval is being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : None</h5>')
+                          $(".barcmsg").append('<h5 style="color:#fff"> Final Plan with  Eval is being created. Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : None</h5>')
                         }
                         else {
                             if (plancompleted == false){
-                                $(".barcmsg").append('<h5 style="color:#fff"> Final Plan with  Eval is being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is :'+format_date(process4ETA)+'</h5>')
+                                $(".barcmsg").append('<h5 style="color:#fff"> Final Plan with  Eval is being created. Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : '+format_date(process4ETA)+'</h5>')
                             }
                             else{
                                 $('.barcmsg').hide();
@@ -550,11 +550,11 @@ $(document).ready(function () {
                           $('.edit_barc').prop('disabled', true);
                           $('.barcmsg').show();
                           if (process4ETA == '') {
-                            $(".barcmsg").append('<h5 style="color:#fff"> Final Plan with  Eval is being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : None</h5>')
+                            $(".barcmsg").append('<h5 style="color:#fff"> Final Plan with  Eval is being created. Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : None</h5>')
                           }
                           else {
                             if (plancompleted == false){
-                                $(".barcmsg").append('<h5 style="color:#fff"> Final Plan with  Eval is being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is :'+format_date(process4ETA)+'</h5>')
+                                $(".barcmsg").append('<h5 style="color:#fff"> Final Plan with  Eval is being created. Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : '+format_date(process4ETA)+'</h5>')
                             }
                             else{
                                 $('.barcmsg').hide();

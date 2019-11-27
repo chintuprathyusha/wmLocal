@@ -179,6 +179,7 @@ button:focus {outline:0;}
 			margin-top: 30px;
 			color: #fff !important;
 			border: 1px solid #f07144!important;
+			text-align: center;
 		}
 		.commonstyle{
 			margin: auto;
