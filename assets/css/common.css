@@ -551,7 +551,7 @@ blink {
     /* margin-left: -16px; */
 }
 .cancelclass{
-    left:-21px;
+    left: -23px;
 }
 .okclass{
     width:12px;
@@ -570,4 +570,5 @@ blink {
 .swal-button--cancel {
 box-shadow:  none !important;
 -moz-box-shadow:  none !important;
+    text-align: end;
 }

@@ -796,7 +796,7 @@ $(document).ready(function () {
             title: "Are you sure to",
             text: "mark as complete ?",
             icon: "warning",
-            buttons: true,
+            buttons: ["CANCEL", "OK"],
             dangerMode: true,
         })
 

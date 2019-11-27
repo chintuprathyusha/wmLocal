@@ -253,7 +253,7 @@ $("document").ready(function () {
             title: "Are you sure",
             text: "you want to Prioritize?",
             icon: "warning",
-            buttons: true,
+             buttons: ["CANCEL", "OK"],
             dangerMode: true,
         })
         .then((willDelete) => {
