@@ -468,8 +468,6 @@ $( document ).ready(function() {
             }
 
             function unfreezebuyinginfo() {
-                debugger
-                alert(path_selection)
                 if (path_selection == 2) {
                     $('.cprp_div').hide();
                      $('.budget_div_').show();
