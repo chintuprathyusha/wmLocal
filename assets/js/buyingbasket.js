@@ -469,8 +469,19 @@ $( document ).ready(function() {
 
             function unfreezebuyinginfo() {
                 debugger
-                $('.radio_class').show()
-                $('.cprp_div').show()
+                alert(path_selection)
+                if (path_selection == 2) {
+                    $('.cprp_div').hide();
+                     $('.budget_div_').show();
+                    $('.radio_class').show();
+                }
+                else {
+                    $('.cprp_div').show();
+                     $('.budget_div_').hide();
+                    $('.radio_class').show();
+                }
+                // $('.radio_class').show()
+                // $('.cprp_div').show()
                 $(".camp_id_").html('<input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:#f07144;border:none;color:#fff"/>')
                 $('.texttodisplayspill').hide();
 
@@ -506,8 +517,9 @@ $( document ).ready(function() {
                 if(path_selection==2){
                     $(".cprp_main").css("background-color", "#292828");
                     $(".budget_main").css("background-color", "#F07144");
-                    $('.cprp_div').hide();
-                     $('.budget_div_').show();
+                    // $('.cprp_div').hide();
+                    //  $('.budget_div_').show();
+                    //
                     // $('.radio_class').show();
                     // $('.cprp_div').hide();
                     // $('.budget_div_').show()
@@ -532,8 +544,13 @@ $( document ).ready(function() {
                             budget_allowcation += '</div>'
                             budget_allowcation += '</div>'
                             $(".main_new").append(budget_allowcation)
+                            // $('.cprp_div').hide();
+                            //  $('.budget_div_').show();
+                            //
+                            // $('.radio_class').show();
                         })
                     })
+
                     $('.submit_new').prop('disabled', false);
                     $('.add_more_new').prop('disabled', false);
                 }
@@ -1134,21 +1151,25 @@ $( document ).ready(function() {
                     console.log(msg);
                       $('.loading').hide();
                     if(msg == "Path inserted Succesfully"){
-                      $('.radio_class').show();
+                        alert(path_selection)
+                        if (path_selection == 2) {
+                            $('.cprp_div').hide();
+                             $('.budget_div_').show();
+                            $('.radio_class').show();
+                        }
+                        else {
+                            $('.cprp_div').show();
+                             $('.budget_div_').hide();
+                            $('.radio_class').show();
+                        }
+                        $('.radio_class').show();
                         $('.texttodisplay').show();
                         $('.file-input').hide();
                         $('.red_color').hide();
                         $('#upl-btn').hide();
-                          $('.cprp_div').show();
-                        // alert(file_name_new)
-                        // alert("kkk")
+                        // $('.cprp_div').show();
+
                         $('.texttodisplay').append('<h5 style="color:#fff">Buying Basket file successfully uploaded</h5>')
-
-                        // $.alert({
-                        //     title: 'Success',
-                        //     content: 'File succesfully uploaded'
-                        // });
-
                     }
                     else if(msg=="Headers did not match for BuyingBasketFile"){
                       $('.radio_class').hide();
@@ -1173,7 +1194,7 @@ $( document ).ready(function() {
                   $('.loading').hide();
                   $('.radio_class').show();
                   $('#upl-btn').hide();
-                  $('.cprp_div').show();
+                  // $('.cprp_div').show();
                 });
             })
 
