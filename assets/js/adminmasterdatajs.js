@@ -227,7 +227,7 @@ $(document).ready(function(){
             else {
                     $.alert({
                     title: 'Success',
-                    content: 'Uploaded Succesfully, these are the empty fields' +msg,
+                    content: 'Uploaded Successfully',
                     animation: 'scale',
                     closeAnimation: 'scale',
                     opacity: 0.5,
@@ -374,7 +374,7 @@ $(document).ready(function(){
             else {
                 $.alert({
                     title: 'Success',
-                    content: 'Uploaded Succesfully' +msg,
+                    content: 'Uploaded Succesfully',
                     animation: 'scale',
                     closeAnimation: 'scale',
                     opacity: 0.5,
