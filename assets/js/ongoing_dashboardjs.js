@@ -192,7 +192,7 @@ $("document").ready(function () {
                     row += '<td  style="color:#2ed573;font-weight:600" plainidattr="'+block.PlanId+'">Prioritized</td>';
                 }
             }
-            row += '<td style="text-align:center"><div class="downloadbtn pointer"  campId="'+block.CampaignId+'" plainidattr="'+block.PlanId+'" style=""><img src="assets/images/WhiteIcons/FilesDownload.png" style="width:27px;"></button></td>';
+            row += '<td style=""><div class="downloadbtn pointer"  campId="'+block.CampaignId+'" plainidattr="'+block.PlanId+'" style=""><img src="assets/images/WhiteIcons/FilesDownload.png" style="width:27px;"></button></td>';
 
             row += '</tr>';
         }
