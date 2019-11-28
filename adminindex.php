@@ -197,7 +197,7 @@ $( document ).ready(function() {
                         <!-- <form> -->
                         <ul class="nav nav-tabs nav-justified alpha-grey mb-0">
                             <li class="nav-item"><a href="#login-tab1" class="nav-link border-y-0 border-left-0 active" data-toggle="tab"><h5 class="my-1">Master Data Settings</h5></a></li>
-                            <li class="nav-item"><a href="#login-tab2" class="nav-link border-y-0 border-right-0" data-toggle="tab"><h5 class="my-1">User Privilegess</h5></a></li>
+                            <li class="nav-item"><a href="#login-tab2" class="nav-link border-y-0 border-right-0" data-toggle="tab"><h5 class="my-1">User Privileges</h5></a></li>
                         </ul>
 
                         <div class="tab-content modal-body">

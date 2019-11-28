@@ -224,7 +224,7 @@ margin-top: 45px;
                             <th>Start Date</th>
                             <th>End Date</th>
                             <th>Replan</th>
-                            <th>Donwload</th>
+                            <th>Download</th>
                         </tr>
                     </thead>
                     <tbody class="displaytabledata">
