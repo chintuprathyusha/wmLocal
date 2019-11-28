@@ -147,7 +147,7 @@ if ($_SESSION['usernamee'] == '') {
 										<th>Campaign ID</th>
 										<th style="width: 104px !important;">Campaign Name</th>
 										<th>Client</th>
-										<th>Brand</th>
+										<th style="width: 134px;">Brand</th>
 										<th>Start Date</th>
 										<th>Mark As Complete</th>
 										<th>Download</th>

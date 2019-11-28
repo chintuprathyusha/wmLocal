@@ -180,7 +180,7 @@ $("document").ready(function () {
             row += '<td class="nr"><a key="'+i+'" style="text-decoration:underline; cursor:pointer;" plainidattr="'+block.PlanId+'" id="camp_idhyperlink_"  status= "'+block.PlanStatus+'">'+block.CampaignId+'</a></td>';
             row += '<td>'+block.BrandName+' </td>';
             row += '<td>'+block.ClientName+'</td>';
-            row += '<td>'+block.PlannerName+'</td>';
+            row += '<td style="width:120px;">'+block.PlannerName+'</td>';
             row += '<td>'+format_date(block.StartDate)+'</td>';
 
             if (userrole!= 'Planner') {

@@ -200,14 +200,13 @@ display: none !important;
                                 <tr>
 									<th>Sl.no</th>
                                     <th>Campaign ID</th>
-                                    <th>Brand</th>
-                                    <th>Client</th>
+                                    <th style="width:76px;">Brand</th>
+                                    <th style="width:170px;">Client</th>
                                     <th>Planner Name</th>
-                                    <th>Start Date</th>
+                                    <th style="width:162px;">Start Date</th>
                                     <?php if ($_SESSION['role'] == 'ClientLead'): ?>
                                       <th >Prioritization</th>
                                     <?php endif; ?>
-
                                     <link href="assets/css/sweetalert.css" rel="stylesheet" type="text/css">
                                     <script src="assets/js/sweetalert.min.js"></script>
                                     <th>Download</th>
