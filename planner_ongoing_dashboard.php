@@ -62,6 +62,7 @@ if ($_SESSION['usernamee'] == '') {
 	width: 214px;
 	padding: 5px;
 }
+
 </style>
 <body>
 
@@ -140,7 +141,7 @@ if ($_SESSION['usernamee'] == '') {
 							<div class="same_Class" style="color:#f07144">
 								On-Going Plans
 							</div>
-							<table class="table datatable-multi-sortingg" style="color:white;">
+							<table class="table datatable-multi-sortingg" style="color:white;width:100% !important;">
 								<thead style="">
 									<tr>
 										<th>Sl.no</th>
