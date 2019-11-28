@@ -181,7 +181,7 @@ $("document").ready(function () {
             row += '<td>'+block.BrandName+' </td>';
             row += '<td>'+block.ClientName+'</td>';
             row += '<td style="width:120px;">'+block.PlannerName+'</td>';
-            row += '<td>'+format_date(block.StartDate)+'</td>';
+            row += '<td style="width :135px;">'+format_date(block.StartDate)+'</td>';
 
             if (userrole!= 'Planner') {
                 if (block.IsPrioritized == false) {
