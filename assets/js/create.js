@@ -85,6 +85,18 @@ $(document).ready(function () {
     primary_tg,
     campign_markets
 
+
+
+    function swap(json){
+      var ret = {};
+      for(var key in json){
+        ret[json[key]] = key;
+      }
+      return ret;
+    }
+
+
+
     function createPlan() {
         sendObj = {};
         sendObj.user_id = sessionStorage.getItem('userid');
@@ -127,15 +139,43 @@ $(document).ready(function () {
                 base_tg = msg.Base_Tg;
 
 
-                base_tg = Object.values(base_tg);
-                // campign_markets = Object.Values(msg.Campaign_Market);
-                base_tg = base_tg.sort();
+             var obj1 ={}
+             for (key in base_tg) {
+                 obj1[base_tg[key]] = key;
+             }
+             console.log(obj1);
+
+             arr = Object.keys(obj1)
+             console.log(arr.sort());
+
+
+
+
+
+
+
+// ===================================================
+
+
                 //console.log(base_tg);
                 primary_tg = msg.Primary_Tg;
 
-                primary_tg = Object.values(primary_tg);
-                // campign_markets = Object.Values(msg.Campaign_Market);
-                primary_tg = primary_tg.sort();
+
+
+                var obj2 ={}
+                for (key in primary_tg) {
+                    obj2[primary_tg[key]] = key;
+                }
+                console.log(obj2);
+
+                arr1 = Object.keys(obj2)
+                console.log(arr1.sort());
+
+
+
+                // primary_tg = Object.values(primary_tg);
+                // // campign_markets = Object.Values(msg.Campaign_Market);
+                // primary_tg = primary_tg.sort();
 
 
                 campign_markets = msg.Campaign_Market;
@@ -175,11 +215,24 @@ $(document).ready(function () {
 
                 $dropdown.trigger('change');
 
-                for(key in base_tg){
-                    //console.log();
-                    $(".base_tg").append('<option value='+base_tg[key]+' class="get_base_tg-'+count+'" key='+key+'>'+base_tg[key]+'</option>');
-                    count++
+
+                for (var i = 0; i < arr.length; i++) {
+                   $(".base_tg").append('<option value='+[arr[i]]+' class="get_base_tg-'+count+'" key='+obj1[arr[i]]+'>'+[arr[i]]+'</option>');
+                   count++
                 }
+
+
+                for (var i = 0; i < arr1.length; i++) {
+                    $(".primary_tg").append('<option value='+[arr1[i]]+' class="get_primary_tg-'+count+'" key='+obj2[arr1[i]]+'>'+[arr1[i]]+'</option>');
+                      count++
+                }
+
+                //
+                // for(key in base_tg){
+                //     //console.log();
+                //     // $(".base_tg").append('<option value='+base_tg[key]+' class="get_base_tg-'+count+'" key='+key+'>'+base_tg[key]+'</option>');
+                //     // count++
+                // }
 
 
                 for(key in campign_markets){
@@ -187,10 +240,10 @@ $(document).ready(function () {
                     count++
                 }
 
-                for(key in primary_tg){
-                    $(".primary_tg").append('<option value='+primary_tg[key]+' class="get_primary_tg-'+count+'" key='+key+'>'+primary_tg[key]+'</option>');
-                    count++
-                }
+                // for(key in primary_tg){
+                //     $(".primary_tg").append('<option value='+primary_tg[key]+' class="get_primary_tg-'+count+'" key='+key+'>'+primary_tg[key]+'</option>');
+                //     count++
+                // }
 
                 for(key in end_week){
                     $(".end_week").append('<option value='+end_week[key]+' class="get_end_week-'+count+'" key='+key+'>'+end_week[key]+'</option>');
