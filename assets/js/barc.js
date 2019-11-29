@@ -420,16 +420,36 @@ $(document).ready(function () {
                 var End_Week_dt = msg.End_Week_dt;
                 var Primary_Tg_dt= msg.Primary_Tg_dt;
 
-                for(key in Base_Tg_dt){
-                    //console.log();
-                    sel = ''
-                    if (base_tg_ == Base_Tg_dt[key] ) {
-                        sel='selected="selected"'
-                    }
-                    $(".base_tg").append('<option '+sel+' value='+Base_Tg_dt[key]+' class="get_Base_Tg_dt-'+count+'" key='+key+'>'+Base_Tg_dt[key]+'</option>');
-                    count++
+
+                // ====================================
+
+                 console.log(Primary_Tg_dt)
+
+
+                var obj2 ={}
+                for (key in Primary_Tg_dt) {
+                    obj2[Primary_Tg_dt[key]] = key;
                 }
-                //console.log(campaignMarkets);
+                console.log(obj2);
+
+                arr1 = Object.keys(obj2)
+                console.log(arr1.sort());
+
+             var obj1 ={}
+             for (key in Base_Tg_dt) {
+                 obj1[Base_Tg_dt[key]] = key;
+             }
+             console.log(obj1);
+
+             arr = Object.keys(obj1)
+             console.log(arr.sort());
+
+
+
+                // ================================
+
+
+
                 for(key in Campaign_Market_dt){
                     sel = ''
                     if (campaignMarkets.indexOf(Campaign_Market_dt[key]) > -1) {
@@ -439,14 +459,32 @@ $(document).ready(function () {
                     count++
                 }
 
-                for(key in Primary_Tg_dt){
+
+
+
+
+                for (var i = 0; i < arr1.length; i++) {
                     sel = ''
-                    if (primaryTGTd_ == Primary_Tg_dt[key] ) {
+                    if (primaryTGTd_ == [arr1[i]] ) {
                         sel='selected="selected"'
                     }
-                    $(".Primary_Tg_dt").append('<option '+sel+' value='+Primary_Tg_dt[key]+' class="get_Primary_Tg_dt-'+count+'" key='+key+'>'+Primary_Tg_dt[key]+'</option>');
+
+                    $(".Primary_Tg_dt").append('<option '+sel+' value='+[arr1[i]]+' class="get_Primary_Tg_dt-'+count+'" key='+obj2[arr1[i]]+'>'+[arr1[i]]+'</option>');
                     count++
-                }
+                 }
+
+
+                 for (var i = 0; i < arr.length; i++) {
+                         //console.log();
+                    sel = ''
+                    if (base_tg_ == [arr[i]] ) {
+                        sel='selected="selected"'
+                    }
+
+                    $(".base_tg").append('<option '+sel+' value='+[arr[i]]+' class="get_Base_Tg_dt-'+count+'" key='+obj1[arr[i]]+'>'+[arr[i]]+'</option>');
+                    count++
+                 }
+
 
                 for(key in End_Week_dt){
                     sel = ''
