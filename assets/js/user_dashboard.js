@@ -328,7 +328,8 @@ $(document).ready(function () {
             }
             else {
                 updatedplanid = msg.planid
-                window.location.href = 'planner_accelerator.php?planid='+updatedplanid;
+                // window.location.href = 'planner_accelerator.php?planid='+updatedplanid;
+                 window.location.href = 'barc.php?planid='+updatedplanid;
             }
 
         })
