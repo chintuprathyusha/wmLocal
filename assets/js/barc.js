@@ -289,7 +289,7 @@ $(document).ready(function () {
 
             }
             else {
-                if (pathSelection == 1) {
+                if (pathSelection == 1  version > 1) {
                     if (acce_file_name==null) {
                         $('.acce_div').show();
                         $('.acce_File_').hide();
