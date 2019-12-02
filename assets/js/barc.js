@@ -289,7 +289,7 @@ $(document).ready(function () {
 
             }
             else {
-                if (pathSelection == 1 ||  version > 1) {
+                // if (pathSelection == 1 ||  version > 1) {
                     if (acce_file_name==null) {
                         $('.acce_div').show();
                         $('.acce_File_').hide();
@@ -327,31 +327,31 @@ $(document).ready(function () {
 
                     }
 
-                }
-                else if(pathSelection == 2) {
-                    $('.acce_div').hide();
-                    $('.edit_barc').removeAttr('disabled');
-                    if (planProcess>3) {
-                        $('.edit_barc').prop('disabled', true);
-
-                       $('.barcmsg').show();
-                        if (process4ETA == '') {
-                          $(".barcmsg").append('<h5 style="color:#fff"> Final Plan with  Eval is being created. Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : None</h5>')
-                        }
-                        else {
-                            if (plancompleted == false){
-                                $(".barcmsg").append('<h5 style="color:#fff"> Final Plan with  Eval is being created. Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : '+format_date(process4ETA)+'</h5>')
-                            }
-                            else{
-                                $('.barcmsg').hide();
-                            }
-                          //$(".barcmsg").append('<h5 style="color:#fff"> Final Plan with  Eval is being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is :'+format_date(process4ETA)+'</h5>')
-                        }
-
-                        // $(".barcmsg").append('<h5 style="color:#fff">Final Plan with  Eval is being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is :'+format_date(process4ETA)+'</h5>')
-
-                    }
-                }
+                // }
+                // else if(pathSelection == 2) {
+                //     $('.acce_div').hide();
+                //     $('.edit_barc').removeAttr('disabled');
+                //     if (planProcess>3) {
+                //         $('.edit_barc').prop('disabled', true);
+                //
+                //        $('.barcmsg').show();
+                //         if (process4ETA == '') {
+                //           $(".barcmsg").append('<h5 style="color:#fff"> Final Plan with  Eval is being created. Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : None</h5>')
+                //         }
+                //         else {
+                //             if (plancompleted == false){
+                //                 $(".barcmsg").append('<h5 style="color:#fff"> Final Plan with  Eval is being created. Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : '+format_date(process4ETA)+'</h5>')
+                //             }
+                //             else{
+                //                 $('.barcmsg').hide();
+                //             }
+                //           //$(".barcmsg").append('<h5 style="color:#fff"> Final Plan with  Eval is being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is :'+format_date(process4ETA)+'</h5>')
+                //         }
+                //
+                //         // $(".barcmsg").append('<h5 style="color:#fff">Final Plan with  Eval is being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is :'+format_date(process4ETA)+'</h5>')
+                //
+                //     }
+                // }
             }
         })
     }
