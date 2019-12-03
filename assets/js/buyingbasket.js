@@ -13,7 +13,6 @@ $( document ).ready(function() {
     $(".cprp_main").css("background-color", "#F07144");
     $('.radio_class').hide();
     $('.changediv').hide();
-    debugger
     var version_downloadfile;
     var planid = $.urlParam('planid');
     var userid = sessionStorage.getItem('userid');
@@ -899,6 +898,7 @@ $( document ).ready(function() {
                 var arr_check = [];
                 children = $(".sub_div").children();
                 console.log(children);
+
                 obj = {}
                 sendObj = {}
                 sendObj2 = {}
@@ -942,7 +942,7 @@ $( document ).ready(function() {
                         title: 'Alert',
                         content: 'Dispersion should be 100'
                     });
-                }
+                } 
                 else {
                     $('.loading').show();
                     $('.add_more').prop('disabled', true);
@@ -1145,10 +1145,11 @@ $( document ).ready(function() {
                     "data": form
                 };
                 $.ajax(settings11).done(function (msg) {
-                  debugger;
+                   $('.radio_class').hide();
                     console.log(msg);
                       $('.loading').hide();
                     if(msg == "Path inserted Succesfully"){
+                        $('.radio_class').show();
                         if (path_selection == 2) {
                             $('.cprp_div').hide();
                              $('.budget_div_').show();
@@ -1168,7 +1169,7 @@ $( document ).ready(function() {
 
                         $('.texttodisplay').append('<h5 style="color:#fff">Buying Basket file successfully uploaded</h5>')
                     }
-                    else if(msg=="Headers did not match for BuyingBasketFile"){
+                    else if(msg=="wrong_file_uploaded"){
                       $('.radio_class').hide();
                         $('#upl-btn').show();
                         $('.texttodisplay').hide();
@@ -1189,7 +1190,7 @@ $( document ).ready(function() {
 
                     }
                   $('.loading').hide();
-                  $('.radio_class').show();
+                  // $('.radio_class').show();
                   $('#upl-btn').hide();
                   // $('.cprp_div').show();
                 });
@@ -1393,8 +1394,8 @@ $( document ).ready(function() {
                 };
                 $.ajax(settings11).done(function (msg) {
                   $(".loading").hide();
-                  msg1 = msg;
-                  msg = JSON.parse(msg1);
+                  console.log(msg);
+                  msg = JSON.parse(msg);
                     console.log(msg);
                     status  =   msg.Status
                     process3ETA = msg.Process3ETA;
@@ -1432,7 +1433,7 @@ $( document ).ready(function() {
                             }
                         });
                     }
-                    if(status == "Header format did not match!") {
+                    if(status == "wrong_file_uploaded") {
                           $('.texttodisplay').hide();
                           $('.texttodisplayspill').hide();
                           $('#upl-btn__').show();

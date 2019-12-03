@@ -169,7 +169,7 @@ $(document).ready(function () {
                     }
                 });
             }
-            else if(msg == "Headers did not match!" )
+            else if(msg == "wrong_file_uploaded" )
             {
                 $.alert({
                     title: 'error',
