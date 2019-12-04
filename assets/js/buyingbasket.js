@@ -269,6 +269,34 @@ $( document ).ready(function() {
                                 $('.spillll').hide();
                                 $('.spillovertexttodisplay').append('<h5>Genre Level Budget Allocation Sheet is successfully uploaded</h5>')
                             }
+                            else {
+                                if (acceleratedFilePathByRPA == null) {
+                                    $(".next_").prop('disabled', true);
+                                    $('.acceleratorfiletext').show();
+
+                                    if (process3ETA == "None") {
+                                      $('.acceleratorfiletext').append('<h5> Accelerator Output Sheet being created. Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : none </h5>')
+                                    }
+                                    else {
+                                      $('.acceleratorfiletext').append('<h5> Accelerator Output Sheet being created. Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : '+format_date(process3ETA)+' </h5>')
+                                    }
+
+
+                                }
+                                else {
+                                    $(".next_").prop('disabled', false);
+                                }
+                                $('.channelbeing').hide();
+                                $('.spillover').show();
+                                $('.budgetdivnew').hide();
+                                $('.changediv').show();
+                                $('.ss_files').hide();
+                                $('.submit_btn1').hide();
+                                $('.spillovertexttodisplay').show();
+                                $('.spillll').hide();
+                                $('.spillovertexttodisplay').append('<h5>Genre Level Budget Allocation Sheet is successfully uploaded</h5>')
+
+                            }
                         }
 
 
@@ -942,7 +970,7 @@ $( document ).ready(function() {
                         title: 'Alert',
                         content: 'Dispersion should be 100'
                     });
-                } 
+                }
                 else {
                     $('.loading').show();
                     $('.add_more').prop('disabled', true);
@@ -1329,14 +1357,36 @@ $( document ).ready(function() {
                     $(".loading").hide();
                     $('.acceleratorfiletext').hide();
                     if(msg == "Path inserted Succesfully"){
+                        // ===========================
+                        // $('.texttodisplay').show();
+                        // $('.texttodisplayspill').show();
+                        // $('#upl-btn1').hide();
+                        // $('.bb_txt').hide();
+                        // $('.file-input').hide();
+                        // $('.red_color').hide();
+                        // $('.texttodisplayspill').append('<h5 style="color:#fff">Channel Level Budget Allocation Sheet is successfully uploaded</h5>')
+                        // $('.next_').prop('disabled', false)
+                        // =================================
+
+                        if (path_selection == 2) {
+                            $('.acceleratorfiletext').show();
+                            $('.acceleratorfiletext').html('<h5>Accelerator Output Sheet being created. Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : '+format_date(process3ETA)+' </h5>')
+                        }
+                        else {
+                            $('.acceleratorfiletext').hide();
+                            $('.next_').prop('disabled', false)
+                        }
                         $('.texttodisplay').show();
                         $('.texttodisplayspill').show();
-                        $('#upl-btn1').hide();
+                        $('#upl-btn__').hide();
+
                         $('.bb_txt').hide();
                         $('.file-input').hide();
                         $('.red_color').hide();
-                        $('.texttodisplayspill').append('<h5 style="color:#fff">Channel Level Budget Allocation Sheet is successfully uploaded</h5>')
-                        $('.next_').prop('disabled', false)
+                        // $('.texttodisplayspill').append('<h5 style="color:#000">'+file_name_2+' is successfully uploaded</h5>')
+                        $('.texttodisplayspill').append('<h5 style="color:#fff;">Channel Level Budget Allocation Sheet is successfully uploaded</h5>')
+
+
                         // $.alert({
                         //     title: 'File succesfully uploaded',
                         //     animation: 'scale',
