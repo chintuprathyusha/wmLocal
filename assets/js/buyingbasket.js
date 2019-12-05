@@ -1357,6 +1357,7 @@ $( document ).ready(function() {
                     $(".loading").hide();
                     $('.acceleratorfiletext').hide();
                     if(msg == "Path inserted Succesfully"){
+                         $('#upl-btn1').hide();
                         // ===========================
                         // $('.texttodisplay').show();
                         // $('.texttodisplayspill').show();

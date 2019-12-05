@@ -93,6 +93,7 @@ $(document).ready(function () {
         };
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
+            debugger;
             console.log(msg)
             if(msg.message == "fail"){
                 $.alert({
@@ -114,21 +115,39 @@ $(document).ready(function () {
             }
             else {
                 console.log(msg);
-                if (msg == "updated") {
+                console.log(msg.status);
+                console.log(msg.location_miss_match);
+                if (msg.status == "notupdated" && msg.location_miss_match == true ) {
                     $.alert({
-                        title: 'Success',
-                        content: 'Updated Successfully'
+                        title: 'Error',
+                        content: 'Client Assigned not possible due to Location Mismatch!..'
+
+                    });
+                    setInterval(function(){  location.reload(); }, 1500);
+                } else if (msg.status == "updated" && msg.location_miss_match == true) {
+
+                    $.alert({
+                        title: 'succesful',
+                        content: 'Client and location has been updated!..'
 
                     });
                     setInterval(function(){  location.reload(); }, 1500);
                 }
-                else if(msg == "notupdated"){
+                else {
                     $.alert({
-                        title: 'Alert',
-                        content: 'Please try again'
+                        title: 'succesful',
+                        content: 'Client has been succesfully Updated!...'
 
                     });
+                    setInterval(function(){  location.reload(); }, 1500);
                 }
+                // else if(msg == "notupdated"){
+                //     $.alert({
+                //         title: 'Alert',
+                //         content: 'Please try again'
+                //
+                //     });
+                // }
             }
 
         })
