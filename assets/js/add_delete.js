@@ -120,7 +120,7 @@ $(document).ready(function () {
                 if (msg.status == "notupdated" && msg.location_miss_match == true ) {
                     $.alert({
                         title: 'Error',
-                        content: 'Client Assigned not possible due to Location Mismatch!..'
+                        content: 'Location Mismatch, Client not Assigned!.....'
 
                     });
                     setInterval(function(){  location.reload(); }, 1500);
@@ -128,7 +128,7 @@ $(document).ready(function () {
 
                     $.alert({
                         title: 'succesful',
-                        content: 'Client and location has been updated!..'
+                        content: 'Client Assigned Succesfully!...'
 
                     });
                     setInterval(function(){  location.reload(); }, 1500);
@@ -136,7 +136,7 @@ $(document).ready(function () {
                 else {
                     $.alert({
                         title: 'succesful',
-                        content: 'Client has been succesfully Updated!...'
+                        content: 'Client Assigned Succesfully!...'
 
                     });
                     setInterval(function(){  location.reload(); }, 1500);
