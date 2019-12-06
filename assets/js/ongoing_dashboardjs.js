@@ -177,7 +177,7 @@ $("document").ready(function () {
             block = msg[i];
             row += '<tr>';
             row += '<td>'+(i+1)+'</td>'
-            row += '<td class="nr"><a key="'+i+'" style="text-decoration:underline; cursor:pointer;" plainidattr="'+block.PlanId+'" id="camp_idhyperlink_"  status= "'+block.PlanStatus+'">'+block.CampaignId+'</a></td>';
+            row += '<td class="nr"><a key="'+i+'" style="text-decoration:underline; cursor:pointer;" plainidattr="'+block.PlanId+'" id="camp_idhyperlink_" acceleratorpathbyrpa = "'+v[i]['AcceleratorFilePathByRPA']+'" status= "'+block.PlanStatus+'">'+block.CampaignId+'</a></td>';
             row += '<td>'+block.BrandName+' </td>';
             row += '<td>'+block.ClientName+'</td>';
             row += '<td style="width:120px;">'+block.PlannerName+'</td>';
@@ -230,6 +230,7 @@ $("document").ready(function () {
     $("body").on("click", "#camp_idhyperlink_", function(){
         plainiddd =  $(this).attr('plainidattr');
         sessionStorage.setItem('create_plan_id', plainiddd);
+        acceleratorpathbyrpaa = $(this).attr('acceleratorpathbyrpa');
         // alert(plainiddd)
         window.location.href = 'planner_createnewplan.php?planid='+plainiddd;
 
@@ -237,7 +238,7 @@ $("document").ready(function () {
         if (newstatus == 1) {
             window.location.href = 'planner_createnewplan.php?planid='+plainiddd;
         }
-        else if (newstatus == 2) {
+        else if (newstatus == 2 || (newstatus == 3 && acceleratorpathbyrpaa == 'null')) {
             window.location.href = 'buyingbasket.php?planid='+plainiddd;
         }
         else {

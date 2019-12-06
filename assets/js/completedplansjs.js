@@ -68,13 +68,14 @@ function pageonloadhit() {
 $("body").on("click", "#camp_idhyperlink_", function(){
     plainiddd =  $(this).attr('plainidattr');
     // alert(plainiddd)
+    acceleratorpathbyrpaa = $(this).attr('acceleratorpathbyrpa');
     sessionStorage.setItem('create_plan_id', plainiddd);
     // window.location.href = 'planner_createnewplan.php';
     newstatus = $(this).attr('status');
     if (newstatus == 1) {
         window.location.href = 'planner_createnewplan.php?planid='+plainiddd;
     }
-    else if (newstatus == 2) {
+    else if (newstatus == 2 || (newstatus == 3 && acceleratorpathbyrpaa == 'null')) {
         window.location.href = 'buyingbasket.php?planid='+plainiddd;
     }
     else {
@@ -167,7 +168,7 @@ function displaytable(msg) {
         block = msg[i];
         row += '<tr>';
         row += '<td  style="">'+(i+1)+'</td>'
-        row += '<td  style="" class="nr"><a key="'+i+'" style="text-decoration:underline; cursor:pointer;" id="camp_idhyperlink_"  plainidattr="'+block.PlanId+'" status="'+block.PlanStatus+'" class="statusCheck">'+block.CampaignId+'</a></td>';
+        row += '<td  style="" class="nr"><a key="'+i+'" style="text-decoration:underline; cursor:pointer;" acceleratorpathbyrpa = "'+v[i]['AcceleratorFilePathByRPA']+'" id="camp_idhyperlink_"  plainidattr="'+block.PlanId+'" status="'+block.PlanStatus+'" class="statusCheck">'+block.CampaignId+'</a></td>';
         row += '<td style="width: 126px;">'+block.BrandName+' </td>';
         row += '<td  style="width: 120px;">'+block.ClientName+'</td>';
         row += '<td style="width: 125px;">'+block.PlannerName+'</td>';

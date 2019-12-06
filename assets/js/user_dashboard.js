@@ -175,7 +175,7 @@ $(document).ready(function () {
                 for (var i = 0; i < v.length; i++) {
                     ap1 += '<tr>'
                     ap1 += '<td  style="">'+(i+1)+'</td>'
-                    ap1 += '<td  style=""><a style="text-decoration:underline;cursor:pointer;" plainidattr="'+v[i]['PlanId']+'" status = "'+v[i]['PlanStatus']+'" id="camp_idhyperlink">'+v[i]['CampaignId']+'</a></td>'
+                    ap1 += '<td  style=""><a style="text-decoration:underline;cursor:pointer;" plainidattr="'+v[i]['PlanId']+'" status = "'+v[i]['PlanStatus']+'" acceleratorpathbyrpa = "'+v[i]['AcceleratorFilePathByRPA']+'" id="camp_idhyperlink">'+v[i]['CampaignId']+'</a></td>'
                     ap1 += '<td  style="width: 120px;">'+v[i]['CampaignName']+ '</td>'
                     ap1 += '<td  style="">'+v[i]['ClientName']+'</td>'
                     ap1 += '<td  style="">'+v[i]['BrandName']+'</td>'
@@ -201,7 +201,7 @@ $(document).ready(function () {
                 for (var i = 0; i < v.length; i++) {
                     ap += '<tr>'
                     ap += '<td  style="">'+(i+1)+'</td>'
-                    ap += '<td  style=""><a  style="text-decoration:underline;cursor:pointer;" plainidattr="'+v[i]['PlanId']+'" status = "'+v[i]['PlanStatus']+'" id="camp_idhyperlink_">'+v[i]['CampaignId']+'</a></td>'
+                    ap += '<td  style=""><a  style="text-decoration:underline;cursor:pointer;" plainidattr="'+v[i]['PlanId']+'" status = "'+v[i]['PlanStatus']+'" acceleratorpathbyrpa = "'+v[i]['AcceleratorFilePathByRPA']+'" id="camp_idhyperlink_">'+v[i]['CampaignId']+'</a></td>'
                     ap += '<td  style="width: 131px;">'+v[i]['CampaignName']+'</td>'
                     ap += '<td  style="">'+v[i]['ClientName']+'</td>'
                     ap += '<td  style="">'+v[i]['BrandName']+'</td>'
@@ -744,6 +744,7 @@ $(document).ready(function () {
     // =====================
     $("body").on("click", "#camp_idhyperlink_", function(){
         plainiddd =  $(this).attr('plainidattr');
+        acceleratorpathbyrpaa = $(this).attr('acceleratorpathbyrpa');
         // alert(plainiddd)
         sessionStorage.setItem('create_plan_id', plainiddd);
         // window.location.href = 'planner_createnewplan.php';
@@ -751,7 +752,7 @@ $(document).ready(function () {
         if (newstatus == 1) {
             window.location.href = 'planner_createnewplan.php?planid='+plainiddd;
         }
-        else if (newstatus == 2) {
+        else if (newstatus == 2 || (newstatus == 3 && acceleratorpathbyrpaa == 'null')) {
             window.location.href = 'buyingbasket.php?planid='+plainiddd;
         }
         else {
@@ -762,13 +763,18 @@ $(document).ready(function () {
 
     $("body").on("click", "#camp_idhyperlink", function(){
         plainiddd =  $(this).attr('plainidattr');
+        acceleratorpathbyrpaa = $(this).attr('acceleratorpathbyrpa');
         sessionStorage.setItem('create_plan_id', plainiddd);
+
+        debugger;
+
         // window.location.href = 'planner_createnewplan.php';
         newstatus = $(this).attr('status');
         if (newstatus == 1) {
             window.location.href = 'planner_createnewplan.php?planid='+plainiddd;
         }
-        else if (newstatus == 2) {
+
+        else if (newstatus == 2 || (newstatus == 3 && acceleratorpathbyrpaa == 'null')) {
             window.location.href = 'buyingbasket.php?planid='+plainiddd;
         }
         else {

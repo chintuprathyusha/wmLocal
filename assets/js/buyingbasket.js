@@ -294,7 +294,7 @@ $( document ).ready(function() {
                                 $('.submit_btn1').hide();
                                 $('.spillovertexttodisplay').show();
                                 $('.spillll').hide();
-                                $('.spillovertexttodisplay').append('<h5>Genre Level Budget Allocation Sheet is successfully uploaded</h5>')
+                                $('.spillovertexttodisplay').append('<h5>Channel Level Budget Allocation Sheet is successfully uploaded</h5>')
 
                             }
                         }
@@ -1354,9 +1354,13 @@ $( document ).ready(function() {
                 };
                 $.ajax(settings11).done(function (msg) {
                     console.log(msg);
+                    msg = JSON.parse(msg);
+                    console.log(msg);
+                    status  =   msg.Status
+                    process3ETA = msg.Process3ETA;
                     $(".loading").hide();
                     $('.acceleratorfiletext').hide();
-                    if(msg == "Path inserted Succesfully"){
+                    if(status == "Path inserted Succesfully"){
                          $('#upl-btn1').hide();
                         // ===========================
                         // $('.texttodisplay').show();
