@@ -177,7 +177,7 @@ $("document").ready(function () {
             block = msg[i];
             row += '<tr>';
             row += '<td>'+(i+1)+'</td>'
-            row += '<td class="nr"><a key="'+i+'" style="text-decoration:underline; cursor:pointer;" plainidattr="'+block.PlanId+'" id="camp_idhyperlink_" acceleratorpathbyrpa = "'+v[i]['AcceleratorFilePathByRPA']+'" status= "'+block.PlanStatus+'">'+block.CampaignId+'</a></td>';
+            row += '<td class="nr"><a key="'+i+'" style="text-decoration:underline; cursor:pointer;" plainidattr="'+block.PlanId+'" id="camp_idhyperlink_" acceleratorpathbyrpa = "'+block.AcceleratorFilePathByRPA+'" status= "'+block.PlanStatus+'">'+block.CampaignId+'</a></td>';
             row += '<td>'+block.BrandName+' </td>';
             row += '<td>'+block.ClientName+'</td>';
             row += '<td style="width:120px;">'+block.PlannerName+'</td>';

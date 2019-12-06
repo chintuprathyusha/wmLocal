@@ -168,7 +168,7 @@ function displaytable(msg) {
         block = msg[i];
         row += '<tr>';
         row += '<td  style="">'+(i+1)+'</td>'
-        row += '<td  style="" class="nr"><a key="'+i+'" style="text-decoration:underline; cursor:pointer;" acceleratorpathbyrpa = "'+v[i]['AcceleratorFilePathByRPA']+'" id="camp_idhyperlink_"  plainidattr="'+block.PlanId+'" status="'+block.PlanStatus+'" class="statusCheck">'+block.CampaignId+'</a></td>';
+        row += '<td  style="" class="nr"><a key="'+i+'" style="text-decoration:underline; cursor:pointer;" acceleratorpathbyrpa = "'+block.AcceleratorFilePathByRPA+'" id="camp_idhyperlink_"  plainidattr="'+block.PlanId+'" status="'+block.PlanStatus+'" class="statusCheck">'+block.CampaignId+'</a></td>';
         row += '<td style="width: 126px;">'+block.BrandName+' </td>';
         row += '<td  style="width: 120px;">'+block.ClientName+'</td>';
         row += '<td style="width: 125px;">'+block.PlannerName+'</td>';
