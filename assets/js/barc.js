@@ -145,9 +145,10 @@ $(document).ready(function () {
         $.ajax(settings11).done(function (msg) {
             msg =  msg;
             console.log(msg);
-            $('.loading').show();
+            $('.loading').hide();
             if (msg == "Path inserted Succesfully") {
                 $('#upl-btn').hide();
+                $('.loading').show();
                 $('.file-input').hide();
                 $('.red_color').hide();
                 $('.texttodisplay').show();
