@@ -155,19 +155,19 @@ $(document).ready(function () {
 
                 $('.edit_barc').prop('disabled', false);
 
-                $.alert({
-                    title: 'Success',
-                    content: 'File succesfully uploaded',
-                    animation: 'scale',
-                    closeAnimation: 'scale',
-                    opacity: 0.5,
-                    buttons: {
-                        okay: {
-                            text: 'Okay',
-                            btnClass: 'btn-primary'
-                        }
-                    }
-                });
+                // $.alert({
+                //     title: 'Success',
+                //     content: 'File succesfully uploaded',
+                //     animation: 'scale',
+                //     closeAnimation: 'scale',
+                //     opacity: 0.5,
+                //     buttons: {
+                //         okay: {
+                //             text: 'Okay',
+                //             btnClass: 'btn-primary'
+                //         }
+                //     }
+                // });
             }
             else if(msg == "wrong_file_uploaded" )
             {

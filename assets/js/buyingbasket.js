@@ -1474,19 +1474,19 @@ $( document ).ready(function() {
                         $('.texttodisplayspill').append('<h5 style="color:#fff;">Genre Level Budget Allocation Sheet  successfully uploaded </h5>')
 
 
-                        $.alert({
-                            title: 'File succesfully uploaded',
-                            // content: 'Oops ! something went wrong',
-                            animation: 'scale',
-                            closeAnimation: 'scale',
-                            opacity: 0.5,
-                            buttons: {
-                                okay: {
-                                    text: 'Okay',
-                                    btnClass: 'btn-primary'
-                                }
-                            }
-                        });
+                        // $.alert({
+                        //     title: 'File succesfully uploaded',
+                        //     // content: 'Oops ! something went wrong',
+                        //     animation: 'scale',
+                        //     closeAnimation: 'scale',
+                        //     opacity: 0.5,
+                        //     buttons: {
+                        //         okay: {
+                        //             text: 'Okay',
+                        //             btnClass: 'btn-primary'
+                        //         }
+                        //     }
+                        // });
                     }
                     if(status == "wrong_file_uploaded") {
                           $('.texttodisplay').hide();
