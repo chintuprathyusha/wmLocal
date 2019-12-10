@@ -367,7 +367,7 @@ button:focus {outline:0;}
 									<div class="sub_div" style="width:100%">
 										<div class="row keyword" style="width:100%">
 											<div class="col-md-6 mr-b-10 pd-l-10 pd-r-10">
-												<input type="number" name="number"  min="1" max="99"  class="inputboxstyle form-control mods_inputs name name_Class 0" placeholder="Enter the duration in seconds">
+												<input type="number" name="number"  min="1" max="99"  class="inputboxstyle  form-control mods_inputs name name_Class 0" placeholder="Enter the duration in seconds">
 												<!-- <input type="number" name="number"  class="mods_inputs name_Class 0 form-control" required="" placeholder="Please enter a value less than or equal to 10"> -->
 											</div>
 
@@ -420,11 +420,11 @@ button:focus {outline:0;}
 									<div class="sub_div_new" style="width:100%;margin-top:0px;">
 										<div class="row keyword_new" style="width:100%">
 											<div class="col-md-6 mr-b-10 pd-l-10 pd-r-10">
-												<input type="text" style="background-color: #303134 !important;border: none;color: white;" class="form-control mods_inputs name_new name_Class_new 0" placeholder="Enter ACD">
+												<input type="number" type="number" name="number"  min="1" max="99" style="background-color: #303134 !important;border: none;color: white;" class="form-control mods_inputs name_new name_Class_new 0" placeholder="Enter ACD">
 											</div>
 
 											<div class="col-md-6 mr-b-10 pd-l-10 pd-r-10">
-												<input type="text" style="background-color: #303134 !important;border: none;color: white;" class="form-control mods_inputs path_new path_Class_new 0" placeholder="Enter Dispersion">
+												<input type="number" type="number" name="number"  min="1" max="99" style="background-color: #303134 !important;border: none;color: white;" class="form-control mods_inputs path_new path_Class_new 0" placeholder="Enter Dispersion">
 											</div>
 
 										</div>
@@ -558,6 +558,7 @@ button:focus {outline:0;}
 </body>
 <script>
 $(document).ready(function () {
+
 	var alltooltips =  JSON.parse(localStorage.getItem("tool_tips"))
 	var appendcprp= alltooltips.BuyingBasket_GenreLevelBudgetAllocation_CPRP;
 	var appendreach = alltooltips.BuyingBasket_GenreLevelBudgetAllocation_Reach;
@@ -583,7 +584,6 @@ $(document).ready(function () {
 	$('.appendcampaigndays').append('<img style="width:17px;height:17px;margin-left:10px;" title="'+appendcampaigndays+'" src="assets/images/informicon.svg"/>')
 	$('.appedacd').append('<img style="width:17px;height:17px;margin-left:10px;" title="'+appedacd+'" src="assets/images/informicon.svg"/>')
 	$('.appenddispersion').append('<img style="width:17px;height:17px;margin-left:10px;" title="'+appenddispersion+'" src="assets/images/informicon.svg"/>')
-
 
 
 
