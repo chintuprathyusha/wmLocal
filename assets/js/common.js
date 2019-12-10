@@ -26,6 +26,37 @@ var getUrlParameter = function getUrlParameter(sParam) {
     }
  };
 
+
+
+
+  $.ajax({
+              url: "configfile.json",
+              method: "GET",
+              dataType: 'json',
+              async : false,
+              success: function(data){
+                     msg =  data;
+                     console.log(data);
+                    console.log(msg.data[0].sessionTimeOut);
+                    sessionTimeOutvalue = msg.data[0].sessionTimeOut
+                    pythonurl = msg.data[0].pythonurl
+                    cliendid = msg.data[0].clientId
+                    console.log(sessionTimeOutvalue);
+                    console.log(pythonurl);
+                    console.log(cliendid);
+                    console.log(typeof pythonurl);
+               },
+               error:function() {
+                   alert("Error")
+               }
+          });
+
+
+
+
+
+
+
  var aws_url = url();
  var aws_url1 = url1();
  var aws_url2 = url2();
@@ -34,8 +65,8 @@ var getUrlParameter = function getUrlParameter(sParam) {
 
         //  return 'http://192.168.0.101:6767/'
          // return 'http://192.168.0.110:6767/'
-            // return 'http://192.168.0.107:6767/'
-         return 'https://cin-appsvplan-indtvauto-api-stg.azurewebsites.net/'
+            return pythonurl
+         // return 'https://cin-appsvplan-indtvauto-api-stg.azurewebsites.net/'
 
  }
  function url1() {
@@ -44,8 +75,8 @@ var getUrlParameter = function getUrlParameter(sParam) {
         // return 'http://192.168.0.110:6767/'
         // 192.168.0.116
 
-         // return 'http://192.168.0.107:6767/'
-        return 'https://cin-appsvplan-indtvauto-api-stg.azurewebsites.net/'
+         return pythonurl
+        // return 'https://cin-appsvplan-indtvauto-api-stg.azurewebsites.net/'
 
         // return 'http://192.168.1.2:6767/'
  }
@@ -54,8 +85,8 @@ var getUrlParameter = function getUrlParameter(sParam) {
         //  return 'http://192.168.0.116:6767/'
         // return 'http://192.168.0.116:6767/'
         // return 'http://192.168.0.110:6767/'
-           // return 'http://192.168.0.107:6767/'
-        return 'https://cin-appsvplan-indtvauto-api-stg.azurewebsites.net/'
+           return pythonurl
+        // return 'https://cin-appsvplan-indtvauto-api-stg.azurewebsites.net/'
         // return 'http://192.168.1.2:6767/'
  }
 
@@ -89,6 +120,7 @@ function generateDateTime() {
 
     hour = hours_list[datetime.getHours()]
     ampm = datetime.getHours() > 11 ? 'PM' : 'AM'
+
 
     minutes = datetime.getMinutes().toString().length > 1 ? datetime.getMinutes() : '0'+datetime.getMinutes()
     seconds = datetime.getSeconds().toString().length > 1 ? datetime.getSeconds() : '0'+datetime.getSeconds()
