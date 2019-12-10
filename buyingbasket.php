@@ -246,6 +246,12 @@ button:focus {outline:0;}
 			.kv-file-zoom {
 				display:none;
 			}
+			input[type=number]::-webkit-inner-spin-button,
+			input[type=number]::-webkit-outer-spin-button {
+			  -webkit-appearance: none;
+			  margin: 0;
+			}
+
 			</style>
 
 			<!-- <script type="text/javascript">
@@ -361,12 +367,12 @@ button:focus {outline:0;}
 									<div class="sub_div" style="width:100%">
 										<div class="row keyword" style="width:100%">
 											<div class="col-md-6 mr-b-10 pd-l-10 pd-r-10">
-												<input type="text" class="inputboxstyle form-control mods_inputs name name_Class 0" placeholder="Enter the duration in seconds">
+												<input type="number" name="number"  min="1" max="99"  class="inputboxstyle form-control mods_inputs name name_Class 0" placeholder="Enter the duration in seconds">
 												<!-- <input type="number" name="number"  class="mods_inputs name_Class 0 form-control" required="" placeholder="Please enter a value less than or equal to 10"> -->
 											</div>
 
 											<div class="col-md-6 mr-b-10 pd-l-10 pd-r-10">
-												<input type="text" class="inputboxstyle form-control mods_inputs path path_Class 0" placeholder="Enter dispersion in percentage">
+												<input class="inputboxstyle form-control mods_inputs path path_Class 0"  type="number" name="number"  min="1" max="99"  placeholder="Enter dispersion in percentage">
 													<!-- <button style="background-color:#BB2734;color:white" class="btn remodal-add add_more">Add more</button> -->
 												<!-- <input type="number" name="maximum_number" class="mods_inputs path_Class 0 form-control" required="" placeholder="Please enter a value less than or equal to 10"> -->
 
@@ -577,6 +583,8 @@ $(document).ready(function () {
 	$('.appendcampaigndays').append('<img style="width:17px;height:17px;margin-left:10px;" title="'+appendcampaigndays+'" src="assets/images/informicon.svg"/>')
 	$('.appedacd').append('<img style="width:17px;height:17px;margin-left:10px;" title="'+appedacd+'" src="assets/images/informicon.svg"/>')
 	$('.appenddispersion').append('<img style="width:17px;height:17px;margin-left:10px;" title="'+appenddispersion+'" src="assets/images/informicon.svg"/>')
+
+
 
 
 	// <img style="width:17px;height:17px;margin-left:10px;" src="assets/images/informicon.svg"/>
