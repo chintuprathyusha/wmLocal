@@ -1,4 +1,18 @@
 $( document ).ready(function() {
+    // $('.body').on("keypress",'.kkkkk', function(event){
+    //     alert();
+    // })
+
+
+    $('.mods_inputs').on('keypress', function () {
+        var x = event.key;
+         if (x == "e" || x == "." || x == "-") {
+           return false;
+         }
+
+    });
+
+
     $('.loading').show();
     $('#upl-btn').prop('disabled', true);
     $('#upl-btn1').prop('disabled', true);
@@ -52,6 +66,9 @@ $( document ).ready(function() {
     var i;
     var campaignName;
     var acceleratedFilePathByRPA;
+
+
+
     $("#a").keyup(function(){
         var a = parseInt($('#a').val());
         var b = 100-a;
@@ -638,6 +655,8 @@ $( document ).ready(function() {
                 $(".spanClass_").css('font-weight', '400')
                 $(".spanClass_").css('font-size', '14px')
             })
+
+
             $('body').on('click', '.budget_main', function(){
                 $(".cprp_main").css('background-color', '#211d1dbf')
                 $(".cprp_main").css('color', '#ccc6c6')
