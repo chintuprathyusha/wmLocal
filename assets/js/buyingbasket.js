@@ -52,6 +52,7 @@ $( document ).ready(function() {
     getData();
     var newcampaign_id;
     var buyingbasket_filename;
+    var plancompleted;
     var path_selection;
     var campaign_days;
     var acd_dispersion;
@@ -64,6 +65,8 @@ $( document ).ready(function() {
     var version = 1;
     var replan = false;
     var backclicked = "false";
+
+
     $.urlParam = function(name){
         var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
         if (results==null) {
@@ -160,6 +163,12 @@ $( document ).ready(function() {
                     version_downloadfile = msg.Version
                     process2ETA = msg.Process2ETA
                     $('.loading').hide();
+                    if (plancompleted == true) {
+                        $(".next_").prop('disabled', false);
+                    }
+                    else {
+                        $(".next_").prop('disabled', true);
+                    }
                     if (msg.data == "true") {
                         plancompleted=msg.IsPlanCompleted;
                         newcampaign_id = msg.CampaignId;
@@ -183,6 +192,8 @@ $( document ).ready(function() {
                         campaignName = msg.CampaignName;
                         process2ETA = msg.Process2ETA;
                         process3ETA = msg.Process3ETA;
+                        debugger;
+
                       if (process2ETA == 'None') {
                         $('.forsecoundpathtext').append('Channel Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox.- Expected Time of Arrival (ETA) is : None');
                       }
@@ -240,7 +251,14 @@ $( document ).ready(function() {
                         else if (PlanProcessed == 2) {
                             $('.acceleratorfiletext').hide();
                             freezebuyinginfo();
-                            $(".next_").prop('disabled', true);
+
+
+                            if (plancompleted == true) {
+                                $(".next_").prop('disabled', false);
+                            }
+                            else {
+                                $(".next_").prop('disabled', true);
+                            }
                             $('.add_more').prop('disabled', true);
                             $('.submit_').prop('disabled', true);
                             $('.cprp_main').prop('disabled', true);
@@ -248,7 +266,13 @@ $( document ).ready(function() {
                             if (isFilePrepCompleted == "false") {
                                 $('.spillover').hide();
                                 $('.changediv').show();
-                                $(".next_").prop('disabled', true);
+                                if (plancompleted == true) {
+                                    $(".next_").prop('disabled', false);
+                                }
+                                else {
+
+                                    $(".next_").prop('disabled', true);
+                                }
                             }
                             else {
                                 $('.channelbeing').hide();
@@ -263,7 +287,13 @@ $( document ).ready(function() {
                                         $('.spillll').hide();
                                         $('.spillovertexttodisplay').show();
                                         $('.spillovertexttodisplay').append('<h5>Genre Level Budget Allocation Sheet is successfully uploaded</h5>')
-                                        $(".next_").prop('disabled', true);
+                                        if (plancompleted == true) {
+                                            $(".next_").prop('disabled', false);
+                                        }
+                                        else {
+
+                                            $(".next_").prop('disabled', true);
+                                        }
                                     }
                                 }
                                 else {
@@ -279,7 +309,13 @@ $( document ).ready(function() {
                                         $('.budget_text').show();
                                         $('.budget_files').hide();
                                         $('.budget_text').append('<h5>'+budgetallocation_filename+'</h5>')
-                                        $(".next_").prop('disabled', true);
+                                        if (plancompleted == true) {
+                                            $(".next_").prop('disabled', false);
+                                        }
+                                        else {
+
+                                            $(".next_").prop('disabled', true);
+                                        }
                                     }
                                 }
                             }
@@ -288,8 +324,14 @@ $( document ).ready(function() {
                             freezebuyinginfo();
                             if (path_selection == 1) {
                                 if (acceleratedFilePathByRPA == null) {
-                                    $(".next_").prop('disabled', true);
-                                    $('.acceleratorfiletext').show();
+
+                                    if (plancompleted  == true) {
+                                        $(".next_").prop('disabled', false);
+                                    }
+                                    else {
+                                        $(".next_").prop('disabled', true);
+                                        $('.acceleratorfiletext').show();
+                                    }
 
                                     if (process3ETA == "None") {
                                       $('.acceleratorfiletext').append('<h5> Accelerator Output Sheet being created. Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : none </h5>')
@@ -315,7 +357,13 @@ $( document ).ready(function() {
                             }
                             else {
                                 if (acceleratedFilePathByRPA == null) {
-                                    $(".next_").prop('disabled', true);
+                                    if (plancompleted == true) {
+                                        $(".next_").prop('disabled', false);
+                                    }
+                                    else {
+
+                                        $(".next_").prop('disabled', true);
+                                    }
                                     $('.acceleratorfiletext').show();
 
                                     if (process3ETA == "None") {
@@ -442,7 +490,13 @@ $( document ).ready(function() {
 
                             $('.budget_text').hide();
                             $('.budget_files').show();
-                            $(".next_").prop('disabled', true);
+                            if (plancompleted == true) {
+                                $(".next_").prop('disabled', false);
+                            }
+                            else {
+
+                                $(".next_").prop('disabled', true);
+                            }
                         }
                         else {
                             $('.budgetdivnew').show();
@@ -466,6 +520,7 @@ $( document ).ready(function() {
                     $('.bb_files').show();
                     $('.bb_txt').show();
                     $('#upl-btn').show();
+
                 }
                 else {
                     $('.bb_files').hide();
@@ -550,6 +605,10 @@ $( document ).ready(function() {
                     $('.reach_val').val(weightage[key])
                 })
             }
+
+
+
+
 
             function unfreezebuyinginfo() {
                 if (path_selection == 2) {
@@ -1470,7 +1529,13 @@ $( document ).ready(function() {
                         $('#upl-btn1').show();
                         $('.file-input').show();
                         $('.red_color').show();
-                        $('.next_').prop('disabled', true)
+                        if (plancompleted == true) {
+                            $(".next_").prop('disabled', false);
+                        }
+                        else {
+
+                            $('.next_').prop('disabled', true)
+                        }
                         $.alert({
                             title: 'Oops ! Seems you are uploading an incorrect file',
                             // content: 'Oops ! something went wrong',
