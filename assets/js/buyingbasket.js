@@ -11,7 +11,20 @@ $( document ).ready(function() {
          }
 
     });
+    $('.cprp_val').on('keypress', function () {
+        var x = event.key;
+         if (x == "e" || x == "." || x == "-") {
+           return false;
+         }
 
+    });
+    $('.reach_val').on('keypress', function () {
+        var x = event.key;
+         if (x == "e" || x == "." || x == "-") {
+           return false;
+         }
+
+    });
 
     $('.loading').show();
     $('#upl-btn').prop('disabled', true);
