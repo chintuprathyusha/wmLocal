@@ -11,6 +11,15 @@ $( document ).ready(function() {
          }
 
     });
+
+
+    $('.campaign_days_new').on('keypress', function () {
+        var x = event.key;
+         if (x == "e" || x == "." || x == "-") {
+           return false;
+         }
+
+    });
     $('.cprp_val').on('keypress', function () {
         var x = event.key;
          if (x == "e" || x == "." || x == "-") {
