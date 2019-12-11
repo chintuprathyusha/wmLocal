@@ -11,6 +11,28 @@ $( document ).ready(function() {
          }
 
     });
+    $('.cprp_channel_val').on('keypress', function () {
+        var x = event.key;
+         if (x == "e" || x == "." || x == "-") {
+           return false;
+         }
+
+    });
+
+    $('.frequency_channel').on('keypress', function () {
+        var x = event.key;
+         if (x == "e" || x == "." || x == "-") {
+           return false;
+         }
+
+    });
+    $('.campaign_days').on('keypress', function () {
+        var x = event.key;
+         if (x == "e" || x == "." || x == "-") {
+           return false;
+         }
+
+    });
 
 
     $('.campaign_days_new').on('keypress', function () {
