@@ -48,6 +48,7 @@ $( document ).ready(function() {
     $('.forsecoundpathtext').hide()
     $('.channelbeing').hide();
     $('.acceleratorfiletext').hide();
+    debugger;
     getData();
     var newcampaign_id;
     var buyingbasket_filename;
@@ -153,12 +154,14 @@ $( document ).ready(function() {
                 };
                 $.ajax(settings11).done(function (msg) {
                     msg =JSON.parse(msg)
+                    plancompleted=msg.IsPlanCompleted;
                     newcampaign_id=""
                     console.log(msg);
                     version_downloadfile = msg.Version
                     process2ETA = msg.Process2ETA
                     $('.loading').hide();
                     if (msg.data == "true") {
+                        plancompleted=msg.IsPlanCompleted;
                         newcampaign_id = msg.CampaignId;
                         buyingbasket_filename = msg.BuyingBasketFilePath;
                         path_selection = msg.PathSelection;
@@ -191,9 +194,20 @@ $( document ).ready(function() {
                         $(".camp_id_").html('<input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:#f07144";border:none;color:#fff/>')
                         if (version > 1) {
                             replan = true;
-                            $('.bb_files').show();
-                            $('.bb_txt').show();
-                            $('#upl-btn').show();
+                            debugger;
+                            if(plancompleted == true){
+                                $('.bb_files').show();
+                                $('.bb_txt').show();
+                                $('#upl-btn').show();
+                                $('.file-input-ajax').prop('disabled', true);
+                                $(".file-input-ajax").css("background-color", "#4b6584");
+                            }
+                            else {
+                                $('.bb_files').show();
+                                $('.bb_txt').show();
+                                $('#upl-btn').show();
+                            }
+
                         }
                         $('cprp_div').show();
                         if(path_selection == 1) {
@@ -365,12 +379,25 @@ $( document ).ready(function() {
                         else {
                             console.log(msg.BuyingBasketFilePath);
                             if (msg.BuyingBasketFilePath=='' || msg.BuyingBasketFilePath== null) {
-                                $('.bb_files').show();
-                                $('.bb_txt').show();
-                                $('#upl-btn').show();
-                                // $('.next_').prop('disabled', true)
-                                $('.cprp_div').hide();
-                                $('.radio_class').hide();
+                                if(plancompleted == true){
+                                    $('.bb_files').show();
+                                    $('.bb_txt').show();
+                                    $('#upl-btn').show();
+                                    // $('.next_').prop('disabled', true)
+                                    $('.cprp_div').hide();
+                                    $('.radio_class').hide();
+                                    $('.file-input-ajax').prop('disabled', true);
+                                    $(".file-input-ajax").css("background-color", "#4b6584");
+                                }
+                                else {
+                                    $('.bb_files').show();
+                                    $('.bb_txt').show();
+                                    $('#upl-btn').show();
+                                    // $('.next_').prop('disabled', true)
+                                    $('.cprp_div').hide();
+                                    $('.radio_class').hide();
+                                }
+
                             }
                             else {
                                 $('.bb_files').hide();

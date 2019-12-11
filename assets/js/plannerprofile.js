@@ -162,29 +162,81 @@ $(document).ready(function () {
                 });
             }
             else {
-                $(".bg").css("background-color", "#d6d6d6");
-                $(".getClass").addClass('bg')
-                $(".create_plan").attr("disabled", true);
-                $(".create_plan").prop("disabled", true);
-                $(".select2").addClass('hide');
-                $(".text-muted").removeClass('d-block');
-                $(".text-muted").addClass('hide');
-                $(".clientleadClass").hide();
-                $("clientleadClass").addClass('hide');
-                console.log(msg);
-                $('.select_').show();
-                freezeClientEmail = msg.Email_ID;
-                freezeLoc = msg.Location;
-                freezeClient = msg.Client;
-                freezeClientLead = msg.Client_Lead;
-                $(".freezeLoc").append('<p key='+freezeLoc+' value='+freezeLoc+' class="getClass form-control" readonly style="background-color:#d6d6d6;margin-top:10px;">'+freezeLoc+'</p>')
-                for (var i = 0; i < freezeClient.length; i++) {
-                    $(".freezeclient").append('<textarea key='+freezeClient[i]+' value='+freezeClient[i]+' class="getClass form-control" readonly style="background-color:#d6d6d6;margin-top:10px;">'+freezeClient[i]+'</textarea>')
+                debugger;
+                console.log(msg.Client);
+
+                if (msg.Client == "No Client") {
+                    $.alert({
+                        title: 'Alert',
+                        content: 'No clients assigned, pls request the client lead to assign a client.',
+                        animation: 'scale',
+                        closeAnimation: 'scale',
+                        opacity: 0.5,
+                        buttons: {
+                            okay: {
+                                text: 'Okay',
+                                btnClass: 'btn-primary',
+
+                            }
+                        }
+                    });
+
+                    $(".bg").css("background-color", "#d6d6d6");
+                    $(".getClass").addClass('bg')
+                    $(".create_plan").attr("disabled", true);
+                    $(".create_plan").prop("disabled", true);
+                    $(".select2").addClass('hide');
+                    $(".text-muted").removeClass('d-block');
+                    $(".text-muted").addClass('hide');
+                    $(".clientleadClass").hide();
+                    $("clientleadClass").addClass('hide');
+                    console.log(msg);
+                    $('.select_').show();
+                    freezeClientEmail = msg.Email_ID;
+                    freezeLoc = msg.Location;
+                    freezeClient = msg.Client;
+                    freezeClientLead = msg.Client_Lead;
+                    $(".freezeLoc").append('<p key='+freezeLoc+' value='+freezeLoc+' class="getClass form-control" readonly style="background-color:#d6d6d6;margin-top:10px;">'+freezeLoc+'</p>')
+                    // for (var i = 0; i < freezeClient.length; i++) {
+                        $(".freezeclient").append('<textarea   class="getClass form-control" readonly style="background-color:#d6d6d6;margin-top:10px;"></textarea>')
+                    // }
+                    // $(".freezeclient").append('<input key='+freezeClient+' value='+freezeClient+' class="getClass form-control" readonly style="background-color:#d6d6d6;margin-top:10px;">')
+                    for (var i = 0; i < freezeClientLead.length; i++) {
+                        $(".freezeClientLead").append('<textarea key='+freezeClientLead[i]+' value='+freezeClientLead[i]+' class="getClass form-control" readonly style="background-color:#d6d6d6;margin-top:10px;">'+freezeClientLead[i]+'</textarea>')
+                    }
+
+
                 }
-                // $(".freezeclient").append('<input key='+freezeClient+' value='+freezeClient+' class="getClass form-control" readonly style="background-color:#d6d6d6;margin-top:10px;">')
-                for (var i = 0; i < freezeClientLead.length; i++) {
-                    $(".freezeClientLead").append('<textarea key='+freezeClientLead[i]+' value='+freezeClientLead[i]+' class="getClass form-control" readonly style="background-color:#d6d6d6;margin-top:10px;">'+freezeClientLead[i]+'</textarea>')
-                }
+            else {
+    $(".bg").css("background-color", "#d6d6d6");
+    $(".getClass").addClass('bg')
+    $(".create_plan").attr("disabled", true);
+    $(".create_plan").prop("disabled", true);
+    $(".select2").addClass('hide');
+    $(".text-muted").removeClass('d-block');
+    $(".text-muted").addClass('hide');
+    $(".clientleadClass").hide();
+    $("clientleadClass").addClass('hide');
+    console.log(msg);
+    $('.select_').show();
+    freezeClientEmail = msg.Email_ID;
+    freezeLoc = msg.Location;
+    freezeClient = msg.Client;
+    freezeClientLead = msg.Client_Lead;
+    $(".freezeLoc").append('<p key='+freezeLoc+' value='+freezeLoc+' class="getClass form-control" readonly style="background-color:#d6d6d6;margin-top:10px;">'+freezeLoc+'</p>')
+    for (var i = 0; i < freezeClient.length; i++) {
+        $(".freezeclient").append('<textarea key='+freezeClient[i]+' value='+freezeClient[i]+' class="getClass form-control" readonly style="background-color:#d6d6d6;margin-top:10px;">'+freezeClient[i]+'</textarea>')
+    }
+    // $(".freezeclient").append('<input key='+freezeClient+' value='+freezeClient+' class="getClass form-control" readonly style="background-color:#d6d6d6;margin-top:10px;">')
+    for (var i = 0; i < freezeClientLead.length; i++) {
+        $(".freezeClientLead").append('<textarea key='+freezeClientLead[i]+' value='+freezeClientLead[i]+' class="getClass form-control" readonly style="background-color:#d6d6d6;margin-top:10px;">'+freezeClientLead[i]+'</textarea>')
+    }
+
+
+}
+
+
+
             }
         })
     }

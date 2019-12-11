@@ -251,6 +251,7 @@ $(document).ready(function () {
             msg = JSON.parse(msg);
             console.log(msg);
 
+
             setTimeout(function(){
                 $('.loading').hide();
             }, 5000)
@@ -292,8 +293,16 @@ $(document).ready(function () {
             else {
                 // if (pathSelection == 1 ||  version > 1) {
                     if (acce_file_name==null) {
-                        $('.acce_div').show();
-                        $('.acce_File_').hide();
+                        if(plancompleted == true){
+                            $('.acce_div').show();
+                            $('.acce_File_').hide();
+                            $('.file-input-ajax').prop('disabled', true);
+                            $(".file-input-ajax").css("background-color", "#4b6584");
+                        }
+                        else {
+                            $('.acce_div').show();
+                            $('.acce_File_').hide();
+                        }
                     }
                     else {
                         $('.acce_div').hide();
