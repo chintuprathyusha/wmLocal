@@ -484,9 +484,10 @@ $(document).ready(function () {
                 primaryTGTd_ = msg.PrimaryTGTd;
                 userId_ = msg.user_id;
                 client_name = msg.Client;
+                plancompleted=msg.IsPlanCompleted;
 
                 //console.log(ischannelselectioncompleted);
-                if (channel == "true") {
+                if (channel == "true" || plancompleted == true) {
                     $('.next_btn').show();
                     $('texttodisplay').hide();
                 }
