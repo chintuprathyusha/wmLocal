@@ -144,7 +144,7 @@ if ($_SESSION['usernamee'] == '') {
 							<table class="table datatable-multi-sortingg" style="color:white;width:100% !important;">
 								<thead style="">
 									<tr>
-										<th>Sl.no</th>
+										<th  style="text-align:center;">Sl.no</th>
 										<th>Campaign ID</th>
 										<th>Campaign Name</th>
 										<th style="width:159px;">Client</th>
@@ -165,11 +165,11 @@ if ($_SESSION['usernamee'] == '') {
 							<table class="table datatable-multi-sorting" style="color:white;margin-top:30px;">
 								<thead>
 									<tr>
-										<th>Sl.no</th>
+										<th style="text-align:center;">Sl.no</th>
 										<th>Campaign ID</th>
 										<th>Campaign Name</th>
-										<th>Client</th>
-										<th>Brand</th>
+										<th style="width:159px;">Client</th>
+										<th style="width: 134px;">Brand</th>
 										<th>Replan</th>
 										<th>End Date</th>
 										<th>Download</th>

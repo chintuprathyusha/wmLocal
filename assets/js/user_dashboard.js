@@ -174,7 +174,7 @@ $(document).ready(function () {
                 ap1 = ''
                 for (var i = 0; i < v.length; i++) {
                     ap1 += '<tr>'
-                    ap1 += '<td  style="">'+(i+1)+'</td>'
+                    ap1 += '<td  style="text-align:center;">'+(i+1)+'</td>'
                     ap1 += '<td  style=""><a style="text-decoration:underline;cursor:pointer;" plainidattr="'+v[i]['PlanId']+'" status = "'+v[i]['PlanStatus']+'" acceleratorpathbyrpa = "'+v[i]['AcceleratorFilePathByRPA']+'" id="camp_idhyperlink">'+v[i]['CampaignId']+'</a></td>'
                     ap1 += '<td  style="width: 120px;">'+v[i]['CampaignName']+ '</td>'
                     ap1 += '<td  style="">'+v[i]['ClientName']+'</td>'
@@ -200,11 +200,11 @@ $(document).ready(function () {
 
                 for (var i = 0; i < v.length; i++) {
                     ap += '<tr>'
-                    ap += '<td  style="">'+(i+1)+'</td>'
+                    ap += '<td   style="text-align:center;">'+(i+1)+'</td>'
                     ap += '<td  style=""><a  style="text-decoration:underline;cursor:pointer;" plainidattr="'+v[i]['PlanId']+'" status = "'+v[i]['PlanStatus']+'" acceleratorpathbyrpa = "'+v[i]['AcceleratorFilePathByRPA']+'" id="camp_idhyperlink_">'+v[i]['CampaignId']+'</a></td>'
                     ap += '<td  style="width: 131px;">'+v[i]['CampaignName']+'</td>'
                     ap += '<td  style="">'+v[i]['ClientName']+'</td>'
-                    ap += '<td  style="">'+v[i]['BrandName']+'</td>'
+                    ap += '<td  style="width:120px;">'+v[i]['BrandName']+'</td>'
                     // ap += '<td  style="text-align:center;">'+format_date(v[i]['StartDate'])+'</td>'
                     ap += '<td> <button class="replanmodal" Campaignid="'+v[i]['CampaignId']+'" plainidattr="'+v[i]['PlanId']+'"  style="color:white!important;background-color: #f07144;;border: none;padding: 4PX;width: 118px;border-radius: 2px;">Re-Plan</button></td>';
                     // ap += '<td  style="text-align:center;"><button class="replanmodal" campaign_id='+v[i]['CampaignId']+'  plainidattr="'+v[i]['PlanId']+'" style="background-color: #a5b1c2;color: #000;border: none;padding: 4PX;width: 68px;border-radius: 5px;">Re-Plan</button></td>'
