@@ -189,17 +189,40 @@ $( document ).ready(function() {
                 $.ajax(settings11).done(function (msg) {
                     msg =JSON.parse(msg)
                     plancompleted=msg.IsPlanCompleted;
+                    acceleratedFilePathByRPA = msg.AcceleratedFilePathByRPA;
+                    PlanProcessed = msg.planProcessed;
+                    plancompleted=msg.IsPlanCompleted;
+                    debugger;
+                    // if (acceleratedFilePathByRPA != null && PlanProcessed == 3) {
+                    //     $(".next_").prop('disabled', false);
+                    // }
+                    //
+
                     newcampaign_id=""
                     console.log(msg);
+
+
                     version_downloadfile = msg.Version
                     process2ETA = msg.Process2ETA
                     $('.loading').hide();
-                    if (plancompleted == true) {
+                    if ((plancompleted == true) || (acceleratedFilePathByRPA != null && PlanProcessed == 3)) {
                         $(".next_").prop('disabled', false);
                     }
                     else {
                         $(".next_").prop('disabled', true);
                     }
+
+                  if (acceleratedFilePathByRPA != null && PlanProcessed == 3) {
+                      $('.file-input-ajax').prop('disabled', true);
+                      $(".file-input-ajax").css("background-color", "#4b6584");
+                  }
+
+                  if (plancompleted == true) {
+                      $('.add_more').prop('disabled', true);
+                      $('.submit_').prop('disabled', true);
+                  }
+
+
                     if (msg.data == "true") {
                         plancompleted=msg.IsPlanCompleted;
                         newcampaign_id = msg.CampaignId;
