@@ -484,6 +484,8 @@ $( document ).ready(function() {
                                 $('.texttodisplay').show()
                                 $('.texttodisplay').html('<h5>Buying Basket file is succesfully uploaded</h5>')
                                 $('.radio_class').show();
+                                $('.cprp_div').show();
+
                                 // $('.next_').prop('disabled', false)
                             }
                         }
