@@ -146,7 +146,7 @@ if ($_SESSION['usernamee'] == '') {
 									<tr>
 										<th  style="text-align:center;">Sl.no</th>
 										<th>Campaign ID</th>
-										<th>Campaign Name</th>
+										<th style="width:109px;">Campaign Name</th>
 										<th style="width:159px;">Client</th>
 										<th style="width: 134px;">Brand</th>
 										<th>Start Date</th>
@@ -167,7 +167,7 @@ if ($_SESSION['usernamee'] == '') {
 									<tr>
 										<th style="text-align:center;">Sl.no</th>
 										<th>Campaign ID</th>
-										<th>Campaign Name</th>
+										<th  style="width:109px;">Campaign Name</th>
 										<th style="width:159px;">Client</th>
 										<th style="width: 134px;">Brand</th>
 										<th>Replan</th>
