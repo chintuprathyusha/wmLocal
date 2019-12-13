@@ -1130,10 +1130,17 @@ $( document ).ready(function() {
                 for (var sd = 0; sd < subDivs.length; sd++) {
                     kw = subDivs[sd].children[0].children[0].children[0].value
                     vl = subDivs[sd].children[0].children[1].children[0].value
-                    sum += parseFloat(vl) || 0;
-                    acdobj = {}
-                    acdobj[kw] = vl;
-                    obj_subdivs.push(acdobj)
+
+                    if (kw != '' && vl != '') {
+
+                        sum += parseFloat(vl) || 0;
+                        acdobj = {}
+                        acdobj[kw] = vl;
+                        obj_subdivs.push(acdobj)
+                    }
+                    else {
+                        alert("sholud not beeeeeeeeeeeeeeeeeee")
+                    }
 
                 }
                 console.log(obj_subdivs);
