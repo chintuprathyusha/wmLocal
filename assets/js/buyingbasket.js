@@ -212,7 +212,7 @@ $( document ).ready(function() {
                         $(".next_").prop('disabled', true);
                     }
 
-                  if (acceleratedFilePathByRPA != null && PlanProcessed == 3) {
+                  if (acceleratedFilePathByRPA != null && PlanProcessed >= 3) {
                       $('.file-input-ajax').prop('disabled', true);
                       $(".file-input-ajax").css("background-color", "#4b6584");
                   }
