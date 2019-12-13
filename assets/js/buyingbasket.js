@@ -507,7 +507,10 @@ $( document ).ready(function() {
                                 $('.texttodisplay').show()
                                 $('.texttodisplay').html('<h5>Buying Basket file is succesfully uploaded</h5>')
                                 $('.radio_class').show();
-                                // $('.cprp_div').show();
+                                $('.cprp_div').show();
+                                if (path_selection == 2) {
+                                        $('.cprp_div').hide();
+                                }
 
                                 // $('.next_').prop('disabled', false)
                             }
@@ -519,6 +522,7 @@ $( document ).ready(function() {
 
             function freezebuyinginfo() {
                 debugger
+                // $('.cprp_div').show();
                 if (isFilePrepCompleted == "false") {
                     $('.channelbeing').show();
                     if (path_selection == 2) {
@@ -667,6 +671,7 @@ $( document ).ready(function() {
 
 
             function unfreezebuyinginfo() {
+                debugger
                 if (path_selection == 2) {
                     $('.cprp_div').hide();
                      $('.budget_div_').show();
@@ -1086,6 +1091,7 @@ $( document ).ready(function() {
 
 
             $("body").on("click", ".submit_", function(){
+                debugger;
                 $('.forfirstpathtext').empty()
                 path_selection = $(this).closest('.common_class').find('.cprp_main').attr('key');
                 div_weitage = $(this).closest('.common_class').find('.cprp_div');
@@ -1154,6 +1160,10 @@ $( document ).ready(function() {
                     $('.channelbeing').show();
                     $('#upl-btn1').hide();
                     sendObj2.acd_dispersion = obj_subdivs;
+                    console.log(acd_dispersion);
+                    $.each(acd_dispersion ,function(key,i){
+                         console.log(key);
+                    })
                     sendObj2.weightage = sendObj;
                     console.log(sendObj2);
                     console.log(JSON.stringify(sendObj2));
