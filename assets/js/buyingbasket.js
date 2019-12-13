@@ -1138,9 +1138,9 @@ $( document ).ready(function() {
                         acdobj[kw] = vl;
                         obj_subdivs.push(acdobj)
                     }
-                    else {
-                        alert("sholud not beeeeeeeeeeeeeeeeeee")
-                    }
+                    // else {
+                    //     alert("sholud not beeeeeeeeeeeeeeeeeee")
+                    // }
 
                 }
                 console.log(obj_subdivs);
