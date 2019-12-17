@@ -205,7 +205,7 @@ $( document ).ready(function() {
                     version_downloadfile = msg.Version
                     process2ETA = msg.Process2ETA
                     $('.loading').hide();
-                    if ((plancompleted == true) || (acceleratedFilePathByRPA != null && PlanProcessed == 3)) {
+                    if ((plancompleted == true) || (acceleratedFilePathByRPA != null && PlanProcessed >= 3)) {
                         $(".next_").prop('disabled', false);
                     }
                     else {
