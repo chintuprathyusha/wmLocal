@@ -524,7 +524,7 @@ button:focus {outline:0;}
 						</div>
 						<div class="mr-t-10" style="margin-top: 20px;">
 							<!-- <button class="btn btn-primary backclass" style="float:left;">Previous</button> -->
-							<button type="submit" class="btn btn-primary fadeInDown backclass" title="Next" tooltip="Previous"style="color: #F07144;border:none;float: left;background-color: transparent !Important;"><span>PREVIOUS </span></button>
+							<button type="submit" class="btn btn-primary fadeInDown backclass" title="Previous" tooltip="Previous"style="color: #F07144;border:none;float: left;background-color: transparent !Important;"><span>PREVIOUS </span></button>
 							<button type="submit" class="btn btn-primary fadeInDown next_" title="Next" tooltip="Next"style="color: #F07144;border:none;float: right;background-color: transparent !Important;"><span>NEXT </span></button>
 
 						</div>
