@@ -146,10 +146,10 @@ $(document).ready(function () {
             msg = JSON.parse(msg);
             console.log(msg);
 
-            msg = msg.Status
+            msg1 = msg.Status
 
             $('.loading').hide();
-            if (msg == "Path inserted Succesfully") {
+            if (msg1 == "Path inserted Succesfully") {
                 $('#upl-btn').hide();
                 $('.loading').show();
                 $('.file-input').hide();
@@ -173,7 +173,7 @@ $(document).ready(function () {
                 //     }
                 // });
             }
-            else if(msg == "wrong_file_uploaded" )
+            else if(msg1 == "wrong_file_uploaded" )
             {
                 $.alert({
                     title: 'error',
