@@ -366,12 +366,12 @@ button:focus {outline:0;}
 								<div class="row main" style="margin-top:-40px;">
 									<div class="sub_div" style="width:100%">
 										<div class="row keyword" style="width:100%">
-											<div class="col-md-6 mr-b-10 pd-l-10 pd-r-10">
+											<div class="col-md-6 mr-b-10 pd-l-10 pd-r-10 appendobjvalinacd">
 												<input type="number" name="number"  min="1" max="99"  class="inputboxstyle  form-control mods_inputs name name_Class 0" placeholder="Enter the duration in seconds">
 												<!-- <input type="number" name="number"  class="mods_inputs name_Class 0 form-control" required="" placeholder="Please enter a value less than or equal to 10"> -->
 											</div>
 
-											<div class="col-md-6 mr-b-10 pd-l-10 pd-r-10">
+											<div class="col-md-6 mr-b-10 pd-l-10 pd-r-10 appendobjvalindispersion">
 												<input class="inputboxstyle form-control mods_inputs path path_Class 0"  type="number" name="number"  min="1" max="99"  placeholder="Enter dispersion in percentage">
 													<!-- <button style="background-color:#BB2734;color:white" class="btn remodal-add add_more">Add more</button> -->
 												<!-- <input type="number" name="maximum_number" class="mods_inputs path_Class 0 form-control" required="" placeholder="Please enter a value less than or equal to 10"> -->
@@ -419,11 +419,11 @@ button:focus {outline:0;}
 								<div class="row main_new">
 									<div class="sub_div_new" style="width:100%;margin-top:0px;">
 										<div class="row keyword_new" style="width:100%">
-											<div class="col-md-6 mr-b-10 pd-l-10 pd-r-10">
+											<div class="col-md-6 mr-b-10 pd-l-10 pd-r-10 appendobjvalinacd">
 												<input type="number" type="number" name="number"  min="1" max="99" style="background-color: #303134 !important;border: none;color: white;" class="form-control mods_inputs name_new name_Class_new 0" placeholder="Enter ACD">
 											</div>
 
-											<div class="col-md-6 mr-b-10 pd-l-10 pd-r-10">
+											<div class="col-md-6 mr-b-10 pd-l-10 pd-r-10 appendobjvalindispersion">
 												<input type="number" type="number" name="number"  min="1" max="99" style="background-color: #303134 !important;border: none;color: white;" class="form-control mods_inputs path_new path_Class_new 0" placeholder="Enter Dispersion">
 											</div>
 

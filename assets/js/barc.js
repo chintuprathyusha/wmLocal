@@ -143,8 +143,11 @@ $(document).ready(function () {
             "data": form
         };
         $.ajax(settings11).done(function (msg) {
-            msg =  msg;
+            msg = JSON.parse(msg);
             console.log(msg);
+
+            msg = msg.Status
+
             $('.loading').hide();
             if (msg == "Path inserted Succesfully") {
                 $('#upl-btn').hide();

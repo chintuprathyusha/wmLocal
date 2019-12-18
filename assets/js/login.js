@@ -1,5 +1,6 @@
 $(document).ready(function () {
-$('.loading').hide();
+    $(".loginbtnn").attr("disabled", false);
+    $('.loading').hide();
     $("body").on("click", ".login_btn", function () {
         $('.loading').show();
         currentdate = generateDateTime();

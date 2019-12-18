@@ -49,7 +49,7 @@ if ($_SESSION['usernamee'] == '') {
     padding: 2px 15px;
     color: white;
 }
-.DownloadAllfiles{
+/* .DownloadAllfiles{
     padding: 4px 20px;
     background: #4caf50;
     border: 1px solid #ccc;
@@ -57,6 +57,16 @@ if ($_SESSION['usernamee'] == '') {
     font-size: 15px;
     font-weight: 400;
     margin-right: 10px;
+} */
+.DownloadAllfiles{
+   padding: 4px 20px;
+    background: #bb512b;
+    border: 1px solid #131514;
+    /* border-radius: 5px; */
+    font-size: 15px;
+    font-weight: 400;
+    margin-right: 10px;
+    color: white;
 }
 
 /* .dataTables_filter{
@@ -109,6 +119,18 @@ margin-top: 45px;
         border-top: 1px solid #484545;
         border-bottom: 1px solid #3e3b3b;
         padding: 1px;
+}
+div.oddevencolors
+{
+    /* border: 1px solid black; */
+}
+div.row_body div:nth-of-type(even)
+{
+    background-color: #131514;
+}
+div.row_body div:nth-of-type(odd)
+{
+    background-color : #1f1d1d;
 }
 </style>
 <body>
@@ -275,10 +297,10 @@ margin-top: 45px;
 
 <div id="downloadicon" class="modal fade" tabindex="-1"  data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content" style="margin-top: 255px;">
+        <div class="modal-content" style="margin-top: 255px;background-color: #131514;border: 1px solid #b54d27;">
             <div class="modal-header">
                 <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-                <button type="button" class="close closeModal closeClass" data-dismiss="modal">&times;</button>
+                <button type="button" style="color: #bb512b" class="close closeModal closeClass" data-dismiss="modal">&times;</button>
             </div>
             <!-- Form -->
 			<div class="modal-body" style="padding-top: 0px;">
@@ -286,9 +308,9 @@ margin-top: 45px;
 					<div class="row row_header">
 						<div class="col-md-6">
 						<button type="button" class="selectAll">Select All</button>
-						<button type="button" class="downloadAll">Download </button>
+						<!-- <button type="button" class="downloadAll">Download </button> -->
 						</div>
-						<div class="col-md-6"><p>Click here to download all the files
+						<div class="col-md-6"><p style="color:white;">Click here to download all the files
 							<button type="button" class="DownloadAllfiles">Download All Files</button></p>
 						</div>
 					</div>

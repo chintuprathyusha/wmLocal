@@ -25,6 +25,7 @@ session_start();
 .pleasewaitforlogin{
 	color:red;
 	font-size: 20px;
+	margin-left: 20px;
 }
 </style>
 
@@ -95,8 +96,8 @@ session_start();
 	<script src="assets/js/common.js" charset="utf-8"></script>
 	<script type="text/javascript">
 		$(".loading").hide();
+
 		$('.pleasewaitforlogin').hide();
-	// #1: Set up ADAL
 	var authContext = new AuthenticationContext({
 		clientId: 'd3cc7c04-0c90-44d5-b40b-7f10a5cce951',
 		postLogoutRedirectUri: window.location
@@ -118,7 +119,7 @@ session_start();
 		var user = authContext.getCachedUser();
 		if (user) {
 			$('.loginbtnn').hide()
-			$('.pleasewaitforlogin').show();
+			// $('.pleasewaitforlogin').show();
 
 			console.log('Signed in as: ' + user.userName);
 

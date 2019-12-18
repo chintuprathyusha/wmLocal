@@ -2,6 +2,7 @@
 "data": [{
     "sessionTimeOut": "7200",
     "pythonurl" : "https://cin-appsvplan-indtvauto-api-stg.azurewebsites.net/"
+
 }]
 
 }

@@ -1,5 +1,5 @@
 $("document").ready(function () {
-
+var selectedFiles = [];
     $(".loading").show();
     var useridd = sessionStorage.getItem("userid");
     var userrole = sessionStorage.getItem("role");
@@ -443,9 +443,12 @@ $("document").ready(function () {
                 console.log(keys.length);
                 all_files_ = val;
                 for (var i = 0; i < keys.length; i++) {
-                    console.log(keys[i]);
-                    $('.row_body').append('<div class="col-sm-3"><div class="fileClick pointer" file_camid="'+global_campId+'" title="'+keys[i]+'"><span>'+keys[i]+'</span></div></div>');
-                }
+                    // console.log(keys[i]);
+                    // $('.row_body').append('<div class="col-sm-3"><div class="fileClick pointer" file_camid="'+global_campId+'" title="'+keys[i]+'"><span>'+keys[i]+'</span></div></div>');
+                    $('.row_body').append('<div style="color:white;" class="col-sm-12 oddevencolors"><input class="fileClick pointer styled-checkbox"  name="checkbox" file_camid="'+global_campId+'" title="'+keys[i]+'" type="checkbox"  value="'+keys[i]+'"> '+keys[i]+'</div><br>');
+               }
+               $('.row_body').append('<button style="color:white;" this_campid='+global_campId+' type="button" class="downloadAll">Download </button>')
+
             }
 
         })
@@ -454,6 +457,7 @@ $("document").ready(function () {
     var key;
     $('.downloadAll').prop('disabled', true)
     $("body").on("click", ".fileClick", function () {
+        debugger
         key = $(this).attr('title');
         path = filesData[key];
         idx = selectedFiles.indexOf(path);
@@ -475,6 +479,7 @@ $("document").ready(function () {
     //-----------------SelectALl-------------//
     $('body').on('click', '.selectAll', function(){
         $('.downloadAll').prop('disabled', false)
+         $('input[name=checkbox]').prop('checked', true)
         selectedFiles = Object.values(filesData);
         $(this).addClass('unSelectAll')
         $(this).html('Unselect All')
@@ -487,7 +492,9 @@ $("document").ready(function () {
     $('body').on('click', '.unSelectAll', function(){
         resetSelect();
         $('.downloadAll').prop('disabled', true)
+         $('input[name=checkbox]').prop('checked', false)
     })
+    
     $('body').on('click', '.downloadAll', function(){
         sendObj={};
         console.log(selectedFiles.length);

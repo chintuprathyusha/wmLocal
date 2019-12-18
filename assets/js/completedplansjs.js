@@ -3,6 +3,7 @@ $(".loading").show();
 var useridd = sessionStorage.getItem("userid");
 var planid = $.urlParam('planid');
 var dataTable___;
+var selectedFiles = [];
 $(".displaytoptextboxes").slideToggle('hidden');
 $(".btn3").click(function(){
     $(".displaytoptextboxes").slideToggle('slow');
@@ -169,8 +170,8 @@ function displaytable(msg) {
         row += '<tr>';
         row += '<td  style="">'+(i+1)+'</td>'
         row += '<td  style="" class="nr"><a key="'+i+'" style="text-decoration:underline; cursor:pointer;" acceleratorpathbyrpa = "'+block.AcceleratorFilePathByRPA+'" id="camp_idhyperlink_"  plainidattr="'+block.PlanId+'" status="'+block.PlanStatus+'" class="statusCheck">'+block.CampaignId+'</a></td>';
-        row += '<td style="width: 126px;">'+block.BrandName+' </td>';
-        row += '<td  style="width: 120px;">'+block.ClientName+'</td>';
+        row += '<td style="width: 142px;">'+block.BrandName+' </td>';
+        row += '<td  style="width: 121px;">'+block.ClientName+'</td>';
         row += '<td style="width: 125px;">'+block.PlannerName+'</td>';
         row += '<td style="width: 159px;">'+format_date(block.StartDate)+'</td>';
         row += '<td style="width: 162px;">'+format_date(block.EndDate)+'</td>';
@@ -400,6 +401,79 @@ function format_date(date_string) {
 
 var all_files_;
 var global_campId;
+// original--------------------------------------------------
+// $("body").on("click", ".downloadbtn", function(){
+//
+//     plainiddd =  $(this).attr('plainidattr');
+//     global_campId = $(this).attr('campId');
+//
+//     $('.downloadAll').attr('this_campId', global_campId)
+//     $('.DownloadAllfiles').attr('this_campId', global_campId);
+//     $('#downloadicon').modal()
+//     sendObj = {};
+//     sendObj.plan_id = plainiddd;
+//     console.log(sendObj);
+//     var form = new FormData();
+//     form.append("file", JSON.stringify(sendObj));
+//     var settings11 = {
+//         "async": true,
+//         "crossDomain": true,
+//         "url": aws_url+'get_file_names',
+//         "method": "POST",
+//         "processData": false,
+//         "contentType": false,
+//         "mimeType": "multipart/form-data",
+//         "data": form
+//     };
+//     $.ajax(settings11).done(function (msg) {
+//         filesData = JSON.parse(msg);
+//         console.log(msg);
+//         console.log(filesData);
+//         console.log(jQuery.isEmptyObject(filesData));
+//         if(filesData.Status == "fail"){
+//             $.alert({
+//                 title: 'Error',
+//                 content: 'Oops ! something went wrong, try again'
+//             });
+//         }
+//
+//         else if (jQuery.isEmptyObject(filesData)) {
+//             $('.row_body').empty()
+//             $('.row_body').append('<h5 class="sendpath" ><p>No files to Download</p></5>');
+//         }
+//         else {
+//             $('.pathslinks').empty()
+//             keys = Object.keys(filesData);
+//             var val = Object.values(filesData)
+//
+//             $('.row_body').html('')
+//             console.log(val.length);
+//             console.log(keys.length);
+//             all_files_ = val;
+//             for (var i = 0; i < keys.length; i++) {
+//                 console.log(keys[i]);
+//                 $('.row_body').append('<div class="col-sm-3"><div class="fileClick pointer" file_camid="'+global_campId+'" title="'+keys[i]+'"><span>'+keys[i]+'</span></div></div>');
+//             }
+//         }
+//     })
+//
+// })
+
+//original=================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 $("body").on("click", ".downloadbtn", function(){
 
     plainiddd =  $(this).attr('plainidattr');
@@ -424,6 +498,7 @@ $("body").on("click", ".downloadbtn", function(){
         "data": form
     };
     $.ajax(settings11).done(function (msg) {
+        debugger
         filesData = JSON.parse(msg);
         console.log(msg);
         console.log(filesData);
@@ -449,15 +524,21 @@ $("body").on("click", ".downloadbtn", function(){
             console.log(keys.length);
             all_files_ = val;
             for (var i = 0; i < keys.length; i++) {
-                console.log(keys[i]);
-                $('.row_body').append('<div class="col-sm-3"><div class="fileClick pointer" file_camid="'+global_campId+'" title="'+keys[i]+'"><span>'+keys[i]+'</span></div></div>');
+                // console.log(keys[i]);
+                // $('.row_body').append('<div class="col-sm-3"><div class="fileClick pointer" file_camid="'+global_campId+'" title="'+keys[i]+'"><span>'+keys[i]+'</span></div></div>');
+                 $('.row_body').append('<div style="color:white;" class="col-sm-12 oddevencolors"><input class="fileClick pointer styled-checkbox"  name="checkbox" file_camid="'+global_campId+'" title="'+keys[i]+'" type="checkbox"  value="'+keys[i]+'"> '+keys[i]+'</div><br>');
             }
+            $('.row_body').append('<button style="color:white;" this_campid='+global_campId+' type="button" class="downloadAll">Download </button>')
         }
     })
 
 })
+
+
+
 var key;
 $('.downloadAll').prop('disabled', true)
+
 $("body").on("click", ".fileClick", function () {
     key = $(this).attr('title');
     path = filesData[key];
@@ -477,8 +558,32 @@ $("body").on("click", ".fileClick", function () {
     }
     console.log(selectedFiles);
 })
+
+// $("body").on("click", ".fileClick", function () {
+//     // $('.downloadAll').prop('disabled', false)
+//     key = $(this).attr('title');
+//     path = filesData[key];
+//     idx = selectedFiles.indexOf(path);
+//     $(".unSelectAll").addClass('selectAll')
+//     $(".unSelectAll").html('Select All')
+//     $(".selectAll").removeClass('unSelectAll')
+//     if (idx > -1) {
+//         selectedFiles.splice(idx, 1)
+//         $(this).removeClass('active')
+//         $('.downloadAll').prop('disabled', true)
+//     }
+//     else {
+//         $(this).addClass('active')
+//         selectedFiles.push(path);
+//         $('.downloadAll').prop('disabled', false)
+//     }
+//     console.log(selectedFiles);
+// })
 //-----------------SelectALl-------------//
+var selectedFiles;
 $('body').on('click', '.selectAll', function(){
+    debugger
+     $('input[name=checkbox]').prop('checked', true)
     $('.downloadAll').prop('disabled', false)
     selectedFiles = Object.values(filesData);
     $(this).addClass('unSelectAll')
@@ -489,15 +594,121 @@ $('body').on('click', '.selectAll', function(){
 
 })
 
+$('input[name=checkbox]').prop('checked', true)
 $('body').on('click', '.unSelectAll', function(){
     resetSelect();
     $('.downloadAll').prop('disabled', true)
+     $('input[name=checkbox]').prop('checked', false)
 })
+// $('body').on('click', '.downloadAll', function(){
+//      // $('input[name=checkbox]').prop('checked', false)
+//     sendObj={};
+//     console.log(selectedFiles.length);
+//
+//     console.log(sendObj);
+//     result = $(this).attr('this_campid');
+//     if(selectedFiles.length==1){
+//         sendObj.file_path = selectedFiles;
+//         var form = new FormData();
+//         form.append("file", JSON.stringify(sendObj));
+//         var settings11 = {
+//             "async": true,
+//             "crossDomain": true,
+//             "url": aws_url+'download_file',
+//             "method": "POST",
+//             "processData": false,
+//             "contentType": false,
+//             "mimeType": "multipart/form-data",
+//             "data": form
+//         };
+//         $.ajax(settings11).done(function (msg) {
+//             result =key
+//             console.log(msg);
+//             if(msg.message == "fail"){
+//                 $.alert({
+//                     title: 'Error',
+//                     content: 'Oops ! something went wrong, try again'
+//                 });
+//             }
+//             else {
+//                 // console.log(JSON.parse(msg))
+//                 msg_obj = msg
+//                 var blob = new Blob([s2ab(atob(encodeURI(msg_obj)))], {
+//                     type: 'octet/stream'
+//                 });
+//
+//                 href = URL.createObjectURL(blob);
+//                 var a = document.createElement("a");
+//                 a.href = href;
+//                 a.download = result;
+//                 document.body.appendChild(a);
+//                 a.click();
+//                 // success_notify(result+ " Excel sheet downloaded Successfully")
+//                 $.alert({
+//                     title: 'Success',
+//                     content: 'Excel sheer downloaded Succesfully'
+//                 });
+//
+//             }
+//
+//         })
+//     }
+//     else{
+//         sendObj.file_path = selectedFiles;
+//         var form = new FormData();
+//         form.append("file", JSON.stringify(sendObj));
+//         var settings11 = {
+//             "async": true,
+//             "crossDomain": true,
+//             "url": aws_url+'download_file',
+//             "method": "POST",
+//             "processData": false,
+//             "contentType": false,
+//             "mimeType": "multipart/form-data",
+//             "data": form
+//         };
+//         $.ajax(settings11).done(function (msg) {
+//             console.log(msg);
+//             if(msg.message == "fail"){
+//                 $.alert({
+//                     title: 'Error',
+//                     content: 'Oops ! something went wrong, try again'
+//                 });
+//             }
+//             else {
+//                 result = result+'.zip'
+//                 // file_name = msg.file_name;
+//                 var bin = atob(msg);
+//                 var ab = s2ab(bin); // from example above
+//                 var blob = new Blob([ab], { type: 'octet/stream' });
+//
+//                 var link = document.createElement('a');
+//                 link.href = window.URL.createObjectURL(blob);
+//                 link.download = result
+//                 ;
+//                 // link.download = 'file_name';
+//
+//                 document.body.appendChild(link);
+//
+//                 link.click();
+//
+//                 resetSelect()
+//
+//                 document.body.removeChild(link);
+//                     $('.loading').hide()
+//             }
+//         });
+//     }
+//      $('input[name=checkbox]').prop('checked', false)
+// });
 $('body').on('click', '.downloadAll', function(){
+    $('.loading').show()
     sendObj={};
     console.log(selectedFiles.length);
-
     console.log(sendObj);
+
+    filenamewith_versions =  $('.fileClick').attr('filenamewithversions')
+
     result = $(this).attr('this_campid');
     if(selectedFiles.length==1){
         sendObj.file_path = selectedFiles;
@@ -514,35 +725,46 @@ $('body').on('click', '.downloadAll', function(){
             "data": form
         };
         $.ajax(settings11).done(function (msg) {
-            result =key
+
             console.log(msg);
+
             if(msg.message == "fail"){
                 $.alert({
                     title: 'Error',
-                    content: 'Oops ! something went wrong, try again'
+                    content: 'Oops ! something went wrong, try again',
+                    animation: 'scale',
+                    closeAnimation: 'scale',
+                    opacity: 0.5,
+                    buttons: {
+                        okay: {
+                            text: 'Okay',
+                            btnClass: 'btn-primary',
+                            action: function(){
+                                window.location.href="error.php"
+                            }
+                        }
+                    }
                 });
             }
-            else {
-                // console.log(JSON.parse(msg))
-                msg_obj = msg
-                var blob = new Blob([s2ab(atob(encodeURI(msg_obj)))], {
-                    type: 'octet/stream'
-                });
+            else{
+            result = key
+            msg_obj = msg
+            $('.loading').hide()
+            var blob = new Blob([s2ab(atob(encodeURI(msg_obj)))], {
+                type: 'octet/stream'
+            });
 
-                href = URL.createObjectURL(blob);
-                var a = document.createElement("a");
-                a.href = href;
-                a.download = result;
-                document.body.appendChild(a);
-                a.click();
-                // success_notify(result+ " Excel sheet downloaded Successfully")
-                $.alert({
-                    title: 'Success',
-                    content: 'Excel sheer downloaded Succesfully'
-                });
-
-            }
-
+            href = URL.createObjectURL(blob);
+            var a = document.createElement("a");
+            a.href = href;
+            a.download = result;
+            document.body.appendChild(a);
+            a.click();
+            success_notify(result+ " Excel sheet downloaded Successfully")
+            // setInterval(function () {
+            //     location.reload();
+            // }, 1000);
+         }
         })
     }
     else{
@@ -564,30 +786,41 @@ $('body').on('click', '.downloadAll', function(){
             if(msg.message == "fail"){
                 $.alert({
                     title: 'Error',
-                    content: 'Oops ! something went wrong, try again'
+                    content: 'Oops ! something went wrong, try again',
+                    animation: 'scale',
+                    closeAnimation: 'scale',
+                    opacity: 0.5,
+                    buttons: {
+                        okay: {
+                            text: 'Okay',
+                            btnClass: 'btn-primary',
+                            action: function(){
+                                window.location.href="error.php"
+                            }
+                        }
+                    }
                 });
             }
-            else {
-                result = result+'.zip'
-                // file_name = msg.file_name;
-                var bin = atob(msg);
-                var ab = s2ab(bin); // from example above
-                var blob = new Blob([ab], { type: 'octet/stream' });
+            else{
+            result = result+'.zip'
+            // file_name = msg.file_name;
+            var bin = atob(msg);
+            var ab = s2ab(bin); // from example above
+            var blob = new Blob([ab], { type: 'octet/stream' });
 
-                var link = document.createElement('a');
-                link.href = window.URL.createObjectURL(blob);
-                link.download = result
-                ;
-                // link.download = 'file_name';
+            var link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.download = result;
+            // link.download = 'file_name';
 
-                document.body.appendChild(link);
+            document.body.appendChild(link);
 
-                link.click();
+            link.click();
 
-                resetSelect()
+            resetSelect()
 
-                document.body.removeChild(link);
-                    $('.loading').hide()
+            document.body.removeChild(link);
+                $('.loading').hide()
             }
         });
     }

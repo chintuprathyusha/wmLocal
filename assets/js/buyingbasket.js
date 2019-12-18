@@ -610,16 +610,31 @@ $( document ).ready(function() {
                     console.log(acd_dispersion);
                     acd_data = []
                     acd_value = []
+                    // $.each(acd_dispersion, function( key, value ) {
+                    //     $.each(value, function( keyy, valuee ) {
+                    //
+                    //         acd_data.push(keyy)
+                    //         acd_value.push(valuee)
+                    //
+                    //     })
+                    // })
                     $.each(acd_dispersion, function( key, value ) {
-                        $.each(value, function( keyy, valuee ) {
+                        // $.each(value, function( keyy, valuee ) {
+                        for (var val in value) {
+                            acd_value.push(val)
+                            acd_data.push(value[val])
 
-                            acd_data.push(keyy)
-                            acd_value.push(valuee)
+                        }
 
-                        })
                     })
-                    $('.name_Class_new').val(acd_data.join(","))
-                    $('.path_Class_new').val(acd_value.join(","))
+                    $('.name_Class_new').hide();
+                    $('.path_Class_new').hide();
+                    $('.appendobjvalinacd').append('<input type="number" name="number" min="1" max="99"  class="inputboxstyle  form-control mods_inputs name name_Class 0" placeholder="'+acd_value.join(",")+'" readonly="" style="background: rgba(41, 40, 40, 0.91); color: rgb(255, 255, 255);">')
+                    $('.appendobjvalindispersion').append('<input type="number" name="number" min="1" max="99"  class="inputboxstyle  form-control mods_inputs name name_Class 0" placeholder="'+acd_data.join(",")+'" readonly="" style="background: rgba(41, 40, 40, 0.91); color: rgb(255, 255, 255);">')
+                    //
+                    //
+                    // $('.name_Class_new').val(acd_data.join(","))
+                    // $('.path_Class_new').val(acd_value.join(","))
                 }
                 else if(path_selection == 1){
                     $(".cprp_main").prop("checked", true);
@@ -643,15 +658,23 @@ $( document ).ready(function() {
                     acd_data = []
                     acd_value = []
                     $.each(acd_dispersion, function( key, value ) {
-                        $.each(value, function( keyy, valuee ) {
+                        // $.each(value, function( keyy, valuee ) {
+                        for (var val in value) {
+                            acd_value.push(val)
+                            acd_data.push(value[val])
 
-                            acd_data.push(keyy)
-                            acd_value.push(valuee)
-
-                        })
+                        }
                     })
-                    $('.name_Class').val(acd_data.join(","))
-                    $('.path_Class').val(acd_value.join(","))
+                    console.log(acd_data);
+                    console.log(acd_value);
+
+                    $('.name_Class').hide();
+                    $('.path_Class').hide();
+                    $('.appendobjvalinacd').append('<input type="number" name="number" min="1" max="99"  class="inputboxstyle  form-control mods_inputs name name_Class 0" placeholder="'+acd_value.join(",")+'" readonly="" style="background: rgba(41, 40, 40, 0.91); color: rgb(255, 255, 255);">')
+                    $('.appendobjvalindispersion').append('<input type="number" name="number" min="1" max="99"  class="inputboxstyle  form-control mods_inputs name name_Class 0" placeholder="'+acd_data.join(",")+'" readonly="" style="background: rgba(41, 40, 40, 0.91); color: rgb(255, 255, 255);">')
+
+                    // $('.name_Class').val(acd_data.join(","))
+                    // $('.path_Class').val(acd_value.join(","))
                 }
                 else {
                     $(".cprp_main").prop("checked", true);
@@ -865,11 +888,23 @@ $( document ).ready(function() {
 
                 }
                 if (x>100) {
-                    swal("Dispersion sholud be 100");
+
+                    $.alert({
+                        title: 'Alert',
+                        content: 'Dispersion sholud be 100"'
+                    });
+
+                    // swal("Dispersion sholud be 100");
                 }
                 if (name_cls=="" && /^[a-zA-Z-, ]*$/.test(name_cls)) {
 
-                    swal("Acd and Dispersion should not be empty");
+                    $.alert({
+                        title: 'Alert',
+                        content: 'Acd and Dispersion should not be empty'
+                    });
+
+
+                    // swal("Acd and Dispersion should not be empty");
                 }
                 else {
                     console.log(i);
@@ -898,7 +933,11 @@ $( document ).ready(function() {
                 }
                 if (name_cls=="" && /^[a-zA-Z-, ]*$/.test(name_cls)) {
 
-                    swal("Acd and Dispersion should not be empty");
+                        // swal("Acd and Dispersion should not be empty");
+                        $.alert({
+                            title: 'Alert',
+                            content: 'Acd and Dispersion should not be empty'
+                        });
                 }
                 else {
                     console.log(i);
