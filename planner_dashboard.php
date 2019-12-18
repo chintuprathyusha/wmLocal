@@ -383,7 +383,7 @@ Footer
 						<button type="button" class="selectAll">Select All</button>
 						<!-- <button type="button" class="downloadAll">Download </button> -->
 						</div>
-						<div class="col-md-6"><p style="color:white;">Click here to download all the files
+						<div class="col-md-6"><p style="color:white;">Click here to download all the files  &nbsp &nbsp
 							<button type="button" class="DownloadAllfiles">Download All Files</button></p>
 						</div>
 					</div>
