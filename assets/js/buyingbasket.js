@@ -910,6 +910,13 @@ $( document ).ready(function() {
                     console.log(i);
                     $(".main").append('<div class="sub_div" style="width:100%"><div class="row keyword"><div class="col-md-6"><input type="number" class="inputboxstyle form-control mods_inputs name_Class ' + i + '" placeholder="Enter keyword"></div><div class="col-lg-6"><input type="number" class="inputboxstyle form-control mods_inputs path_Class path_Class ' + i + '" placeholder="Enter negative keyword"><span><img src="assets/images/delete.svg" style="width:20px;" class="remove"></span></div></div></div>')
                     $(".hide_").show();
+                    $('.mods_inputs').on('keypress', function () {
+                        var x = event.key;
+                         if (x == "e" || x == "." || x == "-") {
+                           return false;
+                         }
+
+                    });
 
                 }
             })
