@@ -125,7 +125,8 @@ $(document).ready(function () {
 
     $("body").on("click", "#upl-btn", function(){
         debugger;
-        $(".loading").show();
+        $('.loading').show();
+
         fileobj.fromReplan = false;
         fileobj.category = "acceleratedfile";
         //console.log(file_name_);
@@ -148,33 +149,40 @@ $(document).ready(function () {
 
             msg1 = msg.Status
 
-            $('.loading').hide();
+            $('.loading').show();
             if (msg1 == "Path inserted Succesfully") {
-                $('#upl-btn').hide();
-                $('.loading').show();
-                $('.file-input').hide();
-                $('.red_color').hide();
-                $('.texttodisplay').show();
-                $('.texttodisplay').append('<h5>Accelerator Output file successfully uploaded</h5>')
+                if(msg1 != "Path inserted Succesfully"){
+                    $('.loading').show();
+                }
+                else{
+                    $('.loading').hide();
+                    $('#upl-btn').hide();
+                    $('.file-input').hide();
+                    $('.red_color').hide();
+                    $('.texttodisplay').show();
+                    $('.texttodisplay').append('<h5>Accelerator Output file successfully uploaded</h5>')
 
-                $('.edit_barc').prop('disabled', false);
+                    $('.edit_barc').prop('disabled', false);
 
-                // $.alert({
-                //     title: 'Success',
-                //     content: 'File succesfully uploaded',
-                //     animation: 'scale',
-                //     closeAnimation: 'scale',
-                //     opacity: 0.5,
-                //     buttons: {
-                //         okay: {
-                //             text: 'Okay',
-                //             btnClass: 'btn-primary'
-                //         }
-                //     }
-                // });
+                    // $.alert({
+                    //     title: 'Success',
+                    //     content: 'File succesfully uploaded',
+                    //     animation: 'scale',
+                    //     closeAnimation: 'scale',
+                    //     opacity: 0.5,
+                    //     buttons: {
+                    //         okay: {
+                    //             text: 'Okay',
+                    //             btnClass: 'btn-primary'
+                    //         }
+                    //     }
+                    // });
+                }
+
             }
             else if(msg1 == "wrong_file_uploaded" )
             {
+                $('.loading').hide();
                 $.alert({
                     title: 'error',
                     content: 'Headers did not match!',
@@ -188,7 +196,7 @@ $(document).ready(function () {
                         }
                     }
                 });
-
+                $('.loading').hide();
             }
 
            else {
@@ -219,7 +227,7 @@ $(document).ready(function () {
             }
         });
     })
-
+    $('.loading').show();
 
     var edit_flag = false;
     var base_tg_;
