@@ -70,23 +70,24 @@ body{
 }
 .notetoupload{
 }
+
 .selectAll{
     padding: 4px 20px;
-    background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    /* background: #ccc; */
+    border: 1px solid #171515;
+    /* border-radius: 5px; */
     font-size: 15px;
     font-weight: 400;
-    margin-right: 10px;
+
 }
+
 .unSelectAll{
     padding: 4px 20px;
-    background: #ccc;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    /* background: #ccc; */
+    border: 1px solid #171515;
+    /* border-radius: 5px; */
     font-size: 15px;
     font-weight: 400;
-    margin-right: 10px;
 }
 /* .downloadAll{
     padding: 4px 20px;
