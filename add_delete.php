@@ -86,7 +86,25 @@ if ($_SESSION['usernamee'] == '') {
         .tab-content{
             padding: 0px
         }
+        body{
+	width: auto;
+}
     }
+
+    @media screen and (max-width: 768px) {
+        body{
+	width: fit-content;
+	height: -webkit-fill-available;
+}
+    .addsavebtn{
+        width: 100px;
+    }
+    .deletesavebtn
+    {
+    width: 100px;
+    padding: 0px;
+    }
+}
     /* responsive */
 
 </style>
