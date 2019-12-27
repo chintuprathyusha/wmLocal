@@ -192,8 +192,22 @@ button:focus {outline:0;}
 		display: none !important;
 		} */
 
-		.common_main{
+		/* .common_main{
 			margin-left: 40px;
+		} */
+		.budget_main{
+		padding: 12px;
+			width: 50%;
+			border: 2px solid #1f2022;
+			color: white;
+			float: right;
+		}
+		.cprp_main{
+			border: 2px solid #1f2022;
+			color: #fff;
+			padding: 12px;
+			margin-left: -8px;
+			width: 50%;
 		}
 		.remove_new{
 			display: inline;
@@ -251,115 +265,149 @@ button:focus {outline:0;}
 			  -webkit-appearance: none;
 			  margin: 0;
 			}
-
-		/* responsive */
-		@media screen and (max-width: 770px) {
-			.page-content{
-		width: 1000px;
-			}
-		}
-		@media screen and (max-width: 768px) {
-			.page-content {
-			 height: 112vh;
-		  }
-			.col-lg-3{
-				text-align: left!important;
-			}
-			.submit_   {
-		 width: 296px!important;
-		}
-		.text{
-			margin-left: 8px;
-		}
-		.px{
-			right: -312px;
-			margin-top: -38px;
-		}
-
-		/* .font-weight-semibold{
-			float: right;
-			margin-top: -29px;
-		} */
-		/* .dis{
-			float: right;
-			width: 50%;
-			margin-top: -38px;
-		} */
-		}
-		@media screen and (max-width: 1024px) {
-			.submit_   {
-		 width: 300px!important;
-		}
-	}
-
-	@media screen and (max-width: 320px) {
+	/* responsive */
 	.icon-paragraph-justify3:before {
-		color: white;
-}
-	.padding{
-		padding: 100px;
-	}
-	.buying_basket{
-		padding:75px!important;
-	}
-	.appendobjvalindispersion{
-		right: -477px;
-		margin-top: -47px;
-		left: 463px
-	}
-	.dispersion{
-			right: -462px;
-			margin-top: -54px;
-		}
-		.appendobjvalinacd{
-			width: 342px;
-		}
-		.field{
-			width: 354px;
-			padding: 9px;
-		}
-}
+    content: "\eec1";
+	color: white;
+	float: right;
 
-	@media screen and (max-width :882px){
-		.radio_class{
-			font-size:14px;
+}
+			@media screen and (max-width: 770px) {
+				.page-content{
+			width: 1000px;
+				}
+			}
+			@media screen and (max-width: 768px) {
+				.page-content {
+                 height: 112vh;
+              }
+				.col-lg-3{
+					text-align: left!important;
+				}
+				.submit_   {
+			 width: 296px!important;
+			}
+			.text{
+				margin-left: 8px;
+			}
+			.px{
+				right: -312px;
+				margin-top: -38px;
+			}
+			.positions{
+
+    width: 100px!important;
+			}
+			.common_main{
+				margin-top: -54px;
+				padding: 14px;
+			   width: 50%;
+			}
+			.cprp_main{
+				width: 100%;
+				padding: 16px!important;
+			}
+			.budget_main{
+				width: 100%;
+				padding: 17px!important;
+			}
+
+			/* .font-weight-semibold{
+				float: right;
+                margin-top: -29px;
+			} */
+			/* .dis{
+				float: right;
+                width: 50%;
+                margin-top: -38px;
+			} */
+			}
+			@media screen and (max-width: 1024px) {
+				.submit_   {
+			 width: 300px!important;
+			}
 		}
-	}
-	@media screen and (max-width :803px){
-		.radio_class{
-			font-size:11px;
-		}
-	}
-	@media screen and (max-width : 320px){
-		.radio_class{
-			font-size:14px;
-		}
-		.cprp_main{
-			width: 100%;
-		}
-		.budget_main{
-			width: 100%;
-		}
-		body{
-			height : 300vh!important;
-			width: 1000px!important;
+
+		@media screen and (max-width: 320px) {
+		.icon-paragraph-justify3:before {
+			color: white;
+}
+		.padding{
+			padding: 100px;
 		}
 		.padding{
-			padding: 45px!important;
+				padding: 45px!important;
+			}
+		.buying_basket{
+			padding:75px!important;
 		}
-
-
+		.appendobjvalindispersion{
+			right: -477px;
+            margin-top: -47px;
+	        left: 463px
+		}
+		.dispersion{
+				right: -462px;
+                margin-top: -54px;
+			}
+			.appendobjvalinacd{
+				width: 342px;
+			}
+			.mods_inputs{
+				width: 342px;
+			}
+			.field{
+				width: 354px;
+				padding: 9px;
+			}
+			.jconfirm-box{
+				width: 230px;
+			}
+			.position{
+       position: absolute;
+    right: 0px;
+    width: 45%;
+			}
+			.positions{
+				position: absolute;
+    right: 0px;
+    width: 580px;
+			}
+			.radio_class{
+				font-size:14px;
+			}
+			.cprp_main{
+				width: 100%;
+				padding: 16px!important;
+			}
+			.budget_main{
+				width: 100%;
+				padding: 17px!important;
+			}
+			body{
+				height : 300vh!important;
+				width: 1000px!important;
+			}
 	}
-	.budget_main{
-			padding: 12px;
-			width: 50%;
-			border: 2px solid #1f2022;
-			color: white;
-			float: right;
-			margin-top: -54px;
-    }
-/* responsive */
 
+		@media screen and (max-width :882px){
+			.radio_class{
+				font-size:14px;
+			}
+		}
+		@media screen and (max-width :803px){
+			.radio_class{
+				font-size:11px;
+			}
+		}
+		/* @media screen and (max-width : 320px){
+
+
+			.padding{
+				padding: 45px!important;
+			}
+		} */
+/* responsive */
 			</style>
 
 			<!-- <script type="text/javascript">
@@ -426,10 +474,10 @@ button:focus {outline:0;}
 							</div>
 							<div class="radio_class">
 								<!-- <button type="submit" value="Genre Level Budget Allocation"  key='1' class="common_main cprp_main">Genre Level Budget Allocation</button> -->
-								<button type="submit" value="Genre Level Budget Allocation" key="1" class="common_main cprp_main" style="border: 2px solid #1f2022;color: #fff;padding: 12px;margin-left: -1px;width: 50%;">Genre Level Budget Allocation</button>
+								<button type="submit" value="Genre Level Budget Allocation" key="1" class="common_main cprp_main" style="border: 2px solid #1f2022;color: #fff;padding: 12px;margin-left: -8px;width: 50%;">Genre Level Budget Allocation</button>
 								<!-- <input type="radio" name="gender" value="Genre Level Budget Allocation"  key='1' class="common_main cprp_main"><span class="spanClass">Genre Level Budget Allocation</span> -->
 								<!-- <button  type="submit"  value="Channel Level Budget Allocation" key='2' class="common_main budget_main">Channel Level Budget Allocation</button> -->
-								<button type="submit"  value="Channel Level Budget Allocation" key="2" class="common_main budget_main">Channel Level Budget Allocation</button>
+								<button type="submit" style="padding: 12px;width: 50%;border: 2px solid #1f2022;color: white;float: right;margin-top: -54px;" value="Channel Level Budget Allocation" key="2" class="common_main budget_main">Channel Level Budget Allocation</button>
 								<!-- <input type="radio" name="gender" value="Channel Level Budget Allocation" key='2' class="common_main budget_main"><span class="spanClass_">Channel Level Budget Allocation</span><br> -->
 							</div>
 							<div class="cprp_div close_" >
@@ -464,10 +512,10 @@ button:focus {outline:0;}
 								</div>
 								<!-- <button data-remodal-action="close" type="button" class="remodal-close" aria-label="Close"></button> -->
 								<div class="row">
-									<div class="col-lg-6">
+									<div class="col-lg-6 col-md-6 col-xs-6">
 										<h6 class="font-weight-semibold" style="margin-top:20px">Edit <span class="appendaveragecommer"></span></h6>
 									</div>
-									<div class="col-lg-6">
+									<div class="col-lg-6 col-sm-3 col-xs-6 position">
 										<h6 class="font-weight-semibold" style="margin-top:20px">Dispersion <span class="appenddispers"></span></h6>
 									</div>
 								</div>
@@ -496,10 +544,10 @@ button:focus {outline:0;}
 									<div class="col-lg-3">
 
 									</div>
-									<div class="col-lg-3" style="text-align:right">
+									<div class="col-lg-3 col-md-6 col-xs-6" style="text-align:right">
 										<button style="background-color:#BB2734;color:white" class="btn remodal-add add_more">Add more</button>
 									</div>
-									<div class="col-lg-6">
+									<div class="col-lg-3 col-sm-3 col-xs-6 position">
 										<button class="submit_ btn" style="width:485px;background-color:#BB2734;color:white" data-toggle="modal" data-target="#myModal_">Submit</button>
 
 									</div>
@@ -517,11 +565,11 @@ button:focus {outline:0;}
 									</div>
 								</div>
 								<div class="row">
-									<div class="col-lg-6">
-										<h6 class="font-weight-semibold" style="margin-top:20px">Edit<span class="appedacd"></span></h6>
+									<div class="col-lg-6 col-md-6 col-xs-6">
+										<h6 class="font-weight-semibold" style="margin-top:20px">Edit <span class="appendaveragecommer"></span></h6>
 									</div>
-									<div class="col-lg-6">
-										<h6 class="font-weight-semibold" style="margin-top:20px">Dispersion<span class="appenddispersion"></span></h6>
+									<div class="col-lg-6 col-sm-3 col-xs-6">
+										<h6 class="font-weight-semibold" style="margin-top:20px">Dispersion <span class="appenddispers"></span></h6>
 									</div>
 								</div>
 								<div class="row main_new">
@@ -545,10 +593,10 @@ button:focus {outline:0;}
 										<div class="col-lg-3">
 
 										</div>
-										<div class="col-lg-3" style="text-align:right">
+										<div class="col-lg-3 col-md-6 col-xs-6" style="text-align:right">
 											<button style="background-color:#BB2734;color:white" class="btn remodal-add add_more_new">Add more</button>
 										</div>
-										<div class="col-lg-6">
+										<div class="col-lg-3 col-sm-3 col-xs-6 positions">
 											<button class="submit_new btn" style="width:485px;background-color:#BB2734;color:white" data-toggle="modal" data-target="#myModal_">Submit</button>
 										</div>
 									</div>
