@@ -111,6 +111,12 @@ p{
 } */
 
 /* responsive */
+.icon-paragraph-justify3:before {
+    content: "\eec1";
+	color: white;
+	float: right;
+
+}
 @media screen and (max-width: 540px) {
 	.select2-selection{
 	width: 275px;
@@ -157,8 +163,17 @@ body{
 }
 @media screen and (max-width: 768px) {
 .page-content{
-   width: 1000px!important;
+   /* width: 1000px!important; */
    height: 120vh;
+}
+body{
+	width: fit-content;
+	height: -webkit-fill-available;
+}
+}
+@media screen and (max-width: 320px) {
+	body{
+	width: auto;
 }
 }
 /* responsive */
@@ -194,7 +209,7 @@ body{
 						</div>
 
 
-						<a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+						<a href="#" class="header-elements-toggle text-default d-md-none"></a>
 					</div>
 				</div>
 			</div>
