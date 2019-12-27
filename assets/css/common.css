@@ -1,4 +1,6 @@
-
+html{
+    width:100%;
+}
 .page-content{
     height: 82vh;
 }
