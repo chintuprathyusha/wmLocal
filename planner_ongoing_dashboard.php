@@ -142,6 +142,48 @@ div.row_body div:nth-of-type(odd)
     transform: rotate(45deg);
 }
 
+/* responsive */
+.icon-paragraph-justify3:before {
+    content: "\eec1";
+	color: white;
+	float: right;
+}
+@media screen and (max-width: 540px) {
+	.content-wrapper{
+		overflow-x:auto;
+	}
+}
+@media screen and (max-width: 768px) {
+	.content-wrapper{
+		overflow-x:auto;
+	}
+	.page-content{
+		width: 1000px;
+    height: 100%;
+	}
+}
+@media screen and (max-width: 1024px) {
+	.content-wrapper{
+		overflow-x:auto;
+	}
+}
+@media screen and (max-width: 320px) {
+			.page-header{
+				width: 1000px;
+			}
+			.createbtn__
+
+			{
+				width: 1000px;
+			}
+			.card{
+				width: 1000px;
+			}
+
+		}
+
+
+/* responsive */
 
 
 </style>

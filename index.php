@@ -27,6 +27,17 @@ session_start();
 	font-size: 20px;
 	margin-left: 20px;
 }
+@media screen and (max-width: 540px) {
+    .card-body {
+		width:280px !important;
+    	-ms-flex: 1 1 auto;
+    	flex: 1 1 auto!important;
+    	padding: 0.25rem;
+    }
+    .img{
+        padding:0px!important;
+    }
+}
 </style>
 
 

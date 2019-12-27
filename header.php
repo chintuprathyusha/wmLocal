@@ -40,9 +40,9 @@ $(document).ready(function () {
         <!-- </a> -->
     </div>
     <div class="d-md-none">
-        <button class="" type="button">
+        <!-- <button class="" type="button">
             <i class="icon-tree5"></i>
-        </button>
+        </button> -->
         <button class="navbar-toggler sidebar-mobile-main-toggle" type="button">
             <i class="icon-paragraph-justify3"></i>
         </button>

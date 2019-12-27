@@ -101,6 +101,64 @@ if ($_SESSION['usernamee'] == '') {
 .nav-tabs .nav-link.active {
     background-color: #f07144;
 }
+/* responsive */
+
+@media screen and (min-width: 570px) and (max-width: 1024px) {
+    .font-weight-semibold {
+        width: 123px;
+        margin-left: -39px;
+        font-size: 13.5px!important;
+
+    }
+    .masterdatastamp li {
+        font-size: 12px;
+
+    }
+
+}
+@media screen and (max-width: 768px) and (min-width: 560px) {
+    .page-content {
+        width: 950px;
+    }
+    .masterdatastamp li {
+        font-size: 12px;
+        width: 289px;
+    }
+}
+@media screen and (max-width: 570px) and (min-width: 300px) {
+    /* .tab-content modal-body{
+        width: 328px;
+        margin-left: -79px;
+
+     }  */
+     .content {
+        width: 365px;
+        margin-left: -26px;
+
+     }
+    .cprp.card{
+
+        width: 331px;
+        margin-left: -47px;
+
+    }
+    .font-weight-semibold {
+        font-size: 13px;
+    }
+    .row.timestampfiles {
+        width: 372px;
+        margin-left: -55px;
+    }
+    .masterdatastamp li {
+        font-size: 12px;
+    }
+    .icon-paragraph-justify3:before {
+        content: "\eec1";
+        color: white;
+    }
+}
+
+/* responsive */
 </style>
 
 <script>

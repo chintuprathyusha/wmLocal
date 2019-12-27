@@ -252,6 +252,114 @@ button:focus {outline:0;}
 			  margin: 0;
 			}
 
+		/* responsive */
+		@media screen and (max-width: 770px) {
+			.page-content{
+		width: 1000px;
+			}
+		}
+		@media screen and (max-width: 768px) {
+			.page-content {
+			 height: 112vh;
+		  }
+			.col-lg-3{
+				text-align: left!important;
+			}
+			.submit_   {
+		 width: 296px!important;
+		}
+		.text{
+			margin-left: 8px;
+		}
+		.px{
+			right: -312px;
+			margin-top: -38px;
+		}
+
+		/* .font-weight-semibold{
+			float: right;
+			margin-top: -29px;
+		} */
+		/* .dis{
+			float: right;
+			width: 50%;
+			margin-top: -38px;
+		} */
+		}
+		@media screen and (max-width: 1024px) {
+			.submit_   {
+		 width: 300px!important;
+		}
+	}
+
+	@media screen and (max-width: 320px) {
+	.icon-paragraph-justify3:before {
+		color: white;
+}
+	.padding{
+		padding: 100px;
+	}
+	.buying_basket{
+		padding:75px!important;
+	}
+	.appendobjvalindispersion{
+		right: -477px;
+		margin-top: -47px;
+		left: 463px
+	}
+	.dispersion{
+			right: -462px;
+			margin-top: -54px;
+		}
+		.appendobjvalinacd{
+			width: 342px;
+		}
+		.field{
+			width: 354px;
+			padding: 9px;
+		}
+}
+
+	@media screen and (max-width :882px){
+		.radio_class{
+			font-size:14px;
+		}
+	}
+	@media screen and (max-width :803px){
+		.radio_class{
+			font-size:11px;
+		}
+	}
+	@media screen and (max-width : 320px){
+		.radio_class{
+			font-size:14px;
+		}
+		.cprp_main{
+			width: 100%;
+		}
+		.budget_main{
+			width: 100%;
+		}
+		body{
+			height : 300vh!important;
+			width: 1000px!important;
+		}
+		.padding{
+			padding: 45px!important;
+		}
+
+
+	}
+	.budget_main{
+			padding: 12px;
+			width: 50%;
+			border: 2px solid #1f2022;
+			color: white;
+			float: right;
+			margin-top: -54px;
+    }
+/* responsive */
+
 			</style>
 
 			<!-- <script type="text/javascript">
@@ -321,7 +429,7 @@ button:focus {outline:0;}
 								<button type="submit" value="Genre Level Budget Allocation" key="1" class="common_main cprp_main" style="border: 2px solid #1f2022;color: #fff;padding: 12px;margin-left: -1px;width: 50%;">Genre Level Budget Allocation</button>
 								<!-- <input type="radio" name="gender" value="Genre Level Budget Allocation"  key='1' class="common_main cprp_main"><span class="spanClass">Genre Level Budget Allocation</span> -->
 								<!-- <button  type="submit"  value="Channel Level Budget Allocation" key='2' class="common_main budget_main">Channel Level Budget Allocation</button> -->
-								<button type="submit" style="padding: 12px;width: 50%;border: 2px solid #1f2022;color: white;float: right;margin-top: -54px;" value="Channel Level Budget Allocation" key="2" class="common_main budget_main">Channel Level Budget Allocation</button>
+								<button type="submit"  value="Channel Level Budget Allocation" key="2" class="common_main budget_main">Channel Level Budget Allocation</button>
 								<!-- <input type="radio" name="gender" value="Channel Level Budget Allocation" key='2' class="common_main budget_main"><span class="spanClass_">Channel Level Budget Allocation</span><br> -->
 							</div>
 							<div class="cprp_div close_" >

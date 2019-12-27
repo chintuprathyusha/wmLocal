@@ -110,6 +110,60 @@ p{
 	padding: 12px !important;
 } */
 
+/* responsive */
+@media screen and (max-width: 540px) {
+	.select2-selection{
+	width: 275px;
+}
+.campign_name{
+	width: 275px;
+}
+.campign_id{
+	width: 275px;
+}
+.icon-paragraph-justify3:before {
+    content: "\eec1";
+	color: white;
+	float: right;
+}
+}
+
+@media screen and (max-width: 320px) {
+	.mb-12{
+	width: 275px;
+}
+body{
+	height : 200vh!important;
+            }
+.content{
+	width: 260px;
+			}
+			.page-header{
+				width: 318px
+			}
+			.content-wrapper{
+
+				width: 100%;
+			}
+			.page-content{
+				width: 333px!important;
+			}
+}
+
+@media screen and (max-width: 540px) {
+.cprp {
+    padding: 30px 0px;
+}
+}
+@media screen and (max-width: 768px) {
+.page-content{
+   width: 1000px!important;
+   height: 120vh;
+}
+}
+/* responsive */
+
+
 </style>
 
 <body>

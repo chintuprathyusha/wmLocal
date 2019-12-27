@@ -104,6 +104,21 @@ width: 70px;
 display: none;
 visibility: hideen;
 } */
+
+
+/* responsive */
+.icon-paragraph-justify3:before {
+    content: "\eec1";
+	color: white;
+	float: right;
+}
+@media screen and (max-width : 768px){
+body{
+	/* width: 1000px; */
+	height: -webkit-fill-available;
+}
+}
+/* responsive */
 </style>
 
 <body>

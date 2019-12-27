@@ -74,6 +74,21 @@ if ($_SESSION['usernamee'] == '') {
     background-color: #1f2022;
 }
 
+
+/* responsive */
+@media screen and (max-width: 320px) {
+		.icon-paragraph-justify3:before {
+			color: white;
+}
+		.cprp{
+			padding: 10px;
+        }
+        .tab-content{
+            padding: 0px
+        }
+    }
+    /* responsive */
+
 </style>
 
 <script>
