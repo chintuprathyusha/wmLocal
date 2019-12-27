@@ -111,12 +111,21 @@ visibility: hideen;
     content: "\eec1";
 	color: white;
 	float: right;
+
 }
-@media screen and (max-width : 768px){
-body{
-	/* width: 1000px; */
+@media screen and (max-width: 768px) {
+	.page-content{
+    /* width: 1000px !important; */
 	height: -webkit-fill-available;
 }
+body{
+	width: fit-content;
+}
+}
+@media screen and (max-width: 320px){
+ body{
+	 width: auto;
+ }
 }
 /* responsive */
 </style>
@@ -148,7 +157,7 @@ body{
 						</div>
 
 
-						<a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+						<a href="#" class="header-elements-toggle text-default d-md-none"></a>
 					</div>
 				</div>
 			</div>
