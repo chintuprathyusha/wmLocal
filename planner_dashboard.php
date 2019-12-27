@@ -222,14 +222,17 @@ div.row_body div:nth-of-type(odd)
 		overflow-x:auto;
 	}
 }
-@media screen and (max-width: 320px) {
+/* @media screen and (max-width: 320px) {
 			.page-header{
 				width: 1000px;
 			}
 			.card{
 				width: 1000px;
-			}
-}
+            }
+            .page_content{
+                width: 1000px;
+            }
+} */
 /* responsive */
 </style>
 <body>
