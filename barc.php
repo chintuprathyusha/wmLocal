@@ -122,6 +122,52 @@ $(document).ready(function() {
 .kv-file-upload {
 	display: none;
 }
+
+/* responsive */
+@media screen and (max-width: 320px) {
+		.icon-paragraph-justify3:before {
+			color: white;
+			}
+			.col-lg-3{
+				margin-top:5px;
+			}
+			.col-lg-6{
+				margin-top:5px;
+			}
+}
+@media screen and (max-width: 768px) {
+			.col-lg-3{
+				margin-top:5px;
+			}
+			.col-lg-6{
+				margin-top:5px;
+			}
+
+}
+
+@media screen and (max-width: 768px) and (min-width: 570px) {
+    .btn.btn-primary {
+        margin-top: 10px;
+
+    }
+    .file-caption {
+        margin-top: 12px!important;
+    }
+}
+@media screen and (max-width: 570px) and (min-width: 320px) {
+    .icon-paragraph-justify3 {
+    content: "\eec1";
+    color: white;
+    }
+    .btn.btn-primary {
+        margin-top: 10px;
+
+    }
+    .file-caption {
+        margin-top: 12px!important;
+    }
+}
+/* responsive */
 </style>
 <body>
 	<?php include 'header.php';?>
