@@ -141,7 +141,6 @@ div.row_body div:nth-of-type(odd)
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
-
 /* responsive */
 .icon-paragraph-justify3:before {
     content: "\eec1";
@@ -157,10 +156,14 @@ div.row_body div:nth-of-type(odd)
 	.content-wrapper{
 		overflow-x:auto;
 	}
-	.page-content{
-		width: 1000px;
+	/* .page-content{
+	width: 1000px;
     height: 100%;
-	}
+	} */
+	body{
+	width: fit-content;
+	height: -webkit-fill-available;
+}
 }
 @media screen and (max-width: 1024px) {
 	.content-wrapper{
@@ -172,20 +175,15 @@ div.row_body div:nth-of-type(odd)
 				width: 1000px;
 			}
 			.createbtn__
-
 			{
 				width: 1000px;
 			}
-			.card{
-				width: 1000px;
+			.page-content{
+				width: auto;
 			}
 
 		}
-
-
 /* responsive */
-
-
 </style>
 <body>
 
@@ -221,7 +219,7 @@ div.row_body div:nth-of-type(odd)
 						</div>
 
 
-						<a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+						<a href="#" class="header-elements-toggle text-default d-md-none"><i class=""></i></a>
 					</div>
 				</div>
 			</div>
