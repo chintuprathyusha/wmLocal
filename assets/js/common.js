@@ -27,28 +27,28 @@ var getUrlParameter = function getUrlParameter(sParam) {
  };
 
 
-  //
-  // $.ajax({
-  //             url: "configfile.json",
-  //             method: "GET",
-  //             dataType: 'json',
-  //             async : false,
-  //             success: function(data){
-  //                    msg =  data;
-  //                    console.log(data);
-  //                   console.log(msg.data[0].sessionTimeOut);
-  //                   sessionTimeOutvalue = msg.data[0].sessionTimeOut
-  //                   pythonurl = msg.data[0].pythonurl
-  //                   cliendid = msg.data[0].clientId
-  //                   console.log(sessionTimeOutvalue);
-  //                   console.log(pythonurl);
-  //                   console.log(cliendid);
-  //                   console.log(typeof pythonurl);
-  //              },
-  //              error:function() {
-  //                  alert("Error")
-  //              }
-  //         });
+
+  $.ajax({
+              url: "configfile.json",
+              method: "GET",
+              dataType: 'json',
+              async : false,
+              success: function(data){
+                     msg =  data;
+                     console.log(data);
+                    console.log(msg.data[0].sessionTimeOut);
+                    sessionTimeOutvalue = msg.data[0].sessionTimeOut
+                    pythonurl = msg.data[0].pythonurl
+                    cliendid = msg.data[0].clientId
+                    console.log(sessionTimeOutvalue);
+                    console.log(pythonurl);
+                    console.log(cliendid);
+                    console.log(typeof pythonurl);
+               },
+               error:function() {
+                   alert("Error")
+               }
+          });
 
 
 
@@ -62,18 +62,18 @@ var getUrlParameter = function getUrlParameter(sParam) {
 
  function url() {
 
-        return 'http://192.168.0.188:6767/'
-            // return pythonurl
+        // return 'http://192.168.0.164:6767/'
+            return pythonurl
          // return 'https://cin-appsvplan-indtvauto-api-stg.azurewebsites.net/'
 
  }
  function url1() {
-         return 'http://192.168.0.188:6767/'
-         // return pythonurl
+         // return 'http://192.168.0.164:6767/'
+         return pythonurl
  }
  function url2() {
-         return 'http://192.168.0.188:6767/'
-           // return pythonurl
+         // return 'http://192.168.0.164:6767/'
+           return pythonurl
  }
 
 
