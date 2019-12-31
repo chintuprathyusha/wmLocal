@@ -235,6 +235,9 @@ div.row_body div:nth-of-type(odd)
 			.card{
 				width: 1000px;
 			}
+			body{
+				width:fit-content;
+			}
 }
 /* responsive */
 

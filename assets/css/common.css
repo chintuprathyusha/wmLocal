@@ -1,6 +1,4 @@
-html{
-    width:100%;
-}
+
 .page-content{
     height: 82vh;
 }
@@ -16,6 +14,9 @@ body{
     padding: 30px;
     margin-top: 47px;
     border: 1px solid #f07144!important;
+}
+.collapse:not(.show){
+    display:block !important;
 }
 .loading{
     position: fixed;

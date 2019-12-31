@@ -181,6 +181,9 @@ div.row_body div:nth-of-type(odd)
 			.page-content{
 				width: auto;
 			}
+			body{
+				width:fit-content;
+			}
 
 		}
 /* responsive */
