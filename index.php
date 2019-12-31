@@ -33,6 +33,7 @@ session_start();
     	-ms-flex: 1 1 auto;
     	flex: 1 1 auto!important;
     	padding: 0.25rem;
+		padding-right: 13px !important;
     }
     .img{
         padding:0px!important;
