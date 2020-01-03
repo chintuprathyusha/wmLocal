@@ -328,10 +328,10 @@ button:focus {outline:0;}
 			}
 		}
 
-		@media screen and (max-width: 320px) {
+		@media screen and (max-width: 425px)  and (min-width: 320px) {
 		.icon-paragraph-justify3:before {
 			color: white;
-}
+        }
 		.padding{
 			padding: 100px;
 		}
