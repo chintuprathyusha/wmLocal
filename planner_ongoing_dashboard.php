@@ -184,6 +184,9 @@ div.row_body div:nth-of-type(odd)
 			body{
 				width:fit-content;
 			}
+			.swal-modal{
+                width: 482px!important;
+            }
 
 		}
 /* responsive */
