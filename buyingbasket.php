@@ -364,14 +364,14 @@ button:focus {outline:0;}
 				width: 230px;
 			}
 			.position{
-       position: absolute;
-    right: 0px;
-    width: 45%;
+				position: absolute;
+				right: 0px;
+				width: 45%;
 			}
 			.positions{
 				position: absolute;
-    right: 0px;
-    width: 580px;
+				right: 0px;
+				width: 580px;
 			}
 			.radio_class{
 				font-size:14px;
@@ -388,6 +388,11 @@ button:focus {outline:0;}
 				height : 300vh!important;
 				width: 1000px!important;
 			}
+			.submit_new{
+                width: 338px!important;
+                margin-left: -332px;
+            }
+
 	}
 
 		@media screen and (max-width :882px){
