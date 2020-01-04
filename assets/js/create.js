@@ -155,18 +155,18 @@ $(document).ready(function () {
 
 
 // ===================================================
-end_week = msg.End_Week;
+            end_week = msg.End_Week;
 
 
-var obj_2 ={}
-for (key in end_week) {
-    obj_2[end_week[key]] = key;
-}
-console.log(obj_2);
+            var obj_2 ={}
+            for (key in end_week) {
+                obj_2[end_week[key]] = key;
+            }
+            console.log(obj_2);
 
-arr_1 = Object.keys(obj_2)
-console.log(arr_1.sort());
-endweek_sort = arr_1.sort()
+            arr_1 = Object.keys(obj_2)
+            console.log(arr_1.sort());
+            // endweek_sort = arr_1.sort()
 // alert(endweek_sort)
 
 
@@ -247,10 +247,10 @@ endweek_sort = arr_1.sort()
                       count++
                 }
 
-                for (var i = 0; i < endweek_sort.length; i++) {
-                    console.log(endweek_sort[i])
-                    // $(".end_week").append('<option value='+[arr_1[i]]+' class="get_primary_tg-'+count+'" key='+obj_2[arr_1[i]]+'>'+[arr_1[i]]+'</option>');
-                    $(".end_week").append('<option value='+endweek_sort[i]+' class="get_end_week-'+count+'" key='+key+'>'+endweek_sort[i]+'</option>');
+                for (var i = 0; i < arr_1.length; i++) {
+                    // console.log(endweek_sort[i])
+                    $(".end_week").append('<option value='+[arr_1[i]]+' class="get_primary_tg-'+count+'" key='+obj_2[arr_1[i]]+'>'+[arr_1[i]]+'</option>');
+                    // $(".end_week").append('<option value='+endweek_sort[i]+' class="get_end_week-'+count+'" key='+key+'>'+endweek_sort[i]+'</option>');
                       count++
                 }
                 //
@@ -341,7 +341,7 @@ endweek_sort = arr_1.sort()
             obj.BaseTGId = parseInt(key_base_tg);
             obj.EndWeekId = parseInt(key_end_week);
             obj.user_id = userid;
-            //console.log(obj);
+            console.log(obj);
             var form = new FormData();
             form.append("file", JSON.stringify(obj));
             var settings11 = {
@@ -370,10 +370,10 @@ endweek_sort = arr_1.sort()
                         buttons: {
                             okay: {
                                 text: 'Okay',
-                                btnClass: 'btn-primary',
-                                action: function(){
-                                    window.location.href="error.php"
-                                }
+                                btnClass: 'btn-primary'
+                                // action: function(){
+                                //     window.location.href="error.php"
+                                // }
                             }
                         }
                     });
