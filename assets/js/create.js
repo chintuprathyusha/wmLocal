@@ -370,10 +370,10 @@ $(document).ready(function () {
                         buttons: {
                             okay: {
                                 text: 'Okay',
-                                btnClass: 'btn-primary'
-                                // action: function(){
-                                //     window.location.href="error.php"
-                                // }
+                                btnClass: 'btn-primary',
+                                action: function(){
+                                    window.location.href="error.php"
+                                }
                             }
                         }
                     });
