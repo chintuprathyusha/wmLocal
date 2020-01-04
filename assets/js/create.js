@@ -155,6 +155,26 @@ $(document).ready(function () {
 
 
 // ===================================================
+end_week = msg.End_Week;
+
+
+var obj_2 ={}
+for (key in end_week) {
+    obj_2[end_week[key]] = key;
+}
+console.log(obj_2);
+
+arr_1 = Object.keys(obj_2)
+console.log(arr_1.sort());
+endweek_sort = arr_1.sort()
+// alert(endweek_sort)
+
+
+
+
+
+
+// ==========================
 
 
                 //console.log(base_tg);
@@ -183,7 +203,7 @@ $(document).ready(function () {
                 campign_markets = Object.values(campign_markets);
                 // campign_markets = Object.Values(msg.Campaign_Market);
                 campign_markets = campign_markets.sort();
-                end_week = msg.End_Week;
+                // end_week = msg.End_Week;
                 data = msg.Client;
                 console.log(data);
                 var ordered = {};
@@ -227,6 +247,12 @@ $(document).ready(function () {
                       count++
                 }
 
+                for (var i = 0; i < endweek_sort.length; i++) {
+                    console.log(endweek_sort[i])
+                    // $(".end_week").append('<option value='+[arr_1[i]]+' class="get_primary_tg-'+count+'" key='+obj_2[arr_1[i]]+'>'+[arr_1[i]]+'</option>');
+                    $(".end_week").append('<option value='+endweek_sort[i]+' class="get_end_week-'+count+'" key='+key+'>'+endweek_sort[i]+'</option>');
+                      count++
+                }
                 //
                 // for(key in base_tg){
                 //     //console.log();
@@ -244,11 +270,10 @@ $(document).ready(function () {
                 //     $(".primary_tg").append('<option value='+primary_tg[key]+' class="get_primary_tg-'+count+'" key='+key+'>'+primary_tg[key]+'</option>');
                 //     count++
                 // }
-
-                for(key in end_week){
-                    $(".end_week").append('<option value='+end_week[key]+' class="get_end_week-'+count+'" key='+key+'>'+end_week[key]+'</option>');
-                    count++
-                }
+                // for(key in end_week){
+                //     $(".end_week").append('<option value='+end_week[key]+' class="get_end_week-'+count+'" key='+key+'>'+end_week[key]+'</option>');
+                //     count++
+                // }
             }
         })
     }
