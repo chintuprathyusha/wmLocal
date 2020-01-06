@@ -982,8 +982,39 @@ $( document ).ready(function() {
                 }
            })
 
+            // $("body").on("click", ".add_more_new", function(){
+            //     debugger;
+            //     var x=0;
+            //     thiss = $(this)
+            //     val = $(this).html();
+            //     children = $(".sub_div_new").children();
+            //
+            //     var name_cls = $(children[0]).find(".name_Class_new").val()
+            //     for (var i = 0; i < children.length; i++) {
+            //         var path_cls =  $(children[0]).find('.path_Class_new').val();
+            //
+            //         x = 0+parseInt(path_cls);
+            //
+            //     }
+            //     if (x>100) {
+            //         alert("error")
+            //     }
+            //     if (name_cls=="" && /^[a-zA-Z-, ]*$/.test(name_cls)) {
+            //
+            //             // swal("Acd and Dispersion should not be empty");
+            //             $.alert({
+            //                 title: 'Alert',
+            //                 content: 'Acd and Dispersion should not be empty'
+            //             });
+            //     }
+            //     else {
+            //         console.log(i);
+            //         $(".main_new").append('<div class="sub_div_new" style="width:100%"><div class="row keyword_new"><div class="col-md-6"><input type="number" class="form-control mods_inputs name_Class_new ' + i + '" placeholder="Enter keyword" style="background-color:#303134;border:none;color:#fff;"></div><div class="col-lg-6"><input type="number" class="form-control mods_inputs path_Class_new path_Class_new ' + i + '" placeholder="Enter negative keyword" style="background-color:#303134;border:none;color:#fff;"><span><img src="assets/images/delete.svg" style="width:20px;" class="remove_new"></span></div></div></div>')
+            //         $(".hide_").show();
+            //     }
+            // })
             $("body").on("click", ".add_more_new", function(){
-                debugger;
+                // debugger;
                 var x=0;
                 thiss = $(this)
                 val = $(this).html();
@@ -1009,10 +1040,18 @@ $( document ).ready(function() {
                 }
                 else {
                     console.log(i);
-                    $(".main_new").append('<div class="sub_div_new" style="width:100%"><div class="row keyword_new"><div class="col-md-6"><input type="number" class="form-control mods_inputs name_Class_new ' + i + '" placeholder="Enter keyword" style="background-color:#303134;border:none;color:#fff;"></div><div class="col-lg-6"><input type="number" class="form-control mods_inputs path_Class_new path_Class_new ' + i + '" placeholder="Enter negative keyword" style="background-color:#303134;border:none;color:#fff;"><span><img src="assets/images/delete.svg" style="width:20px;" class="remove_new"></span></div></div></div>')
+                    $(".main_new").append('<div class="sub_div_new" style="width:100%"><div class="row keyword_new"><div class="removeclassmd kk  col-md-6"><input type="number" class="form-control mods_inputs name_Class_new ' + i + '" placeholder="Enter keyword" style="background-color:#303134;border:none;color:#fff;"></div><div class="removelgclass kk1 col-lg-6"><input type="number" class="pks   form-control mods_inputs path_Class_new path_Class_new ' + i + '" placeholder="Enter negative keyword" style="background-color:#303134;border:none;color:#fff;"><span><img src="assets/images/delete.svg" style="width:20px;" class="remove_new"></span></div></div></div>')
                     $(".hide_").show();
                 }
+                if ($(window).width()<=320) {
+                    // debugger
+                    $(".kk").addClass("col-xs-6");
+                    $(".kk1").addClass("col-xs-6");
+                    $(".pks").css( { float : "right" } );
+                  $(".pks").css( { "margin-top" : "-40px" } );
+                 }
             })
+
 
             $("body").on("click", ".remove_new", function(){
                 $(this).closest('.sub_div_new').remove();
