@@ -870,56 +870,117 @@ $( document ).ready(function() {
                 }
             }
             var i; var c; var p; var s;
+            // $("body").on("click", ".add_more", function(){
+            //
+            //     //debugger
+            //     var x=0;
+            //
+            //     thiss = $(this)
+            //     val = $(this).html();
+            //     children = $(".sub_div").children();
+            //
+            //     var name_cls = $(children[0]).find(".name_Class").val()
+            //
+            //     for (var i = 0; i < children.length; i++) {
+            //         var path_cls =  $(children[0]).find('.path_Class').val();
+            //         // alert(path_cls);
+            //         x = 0+parseInt(path_cls);
+            //
+            //     }
+            //     if (x>100) {
+            //
+            //         $.alert({
+            //             title: 'Alert',
+            //             content: 'Dispersion sholud be 100"'
+            //         });
+            //
+            //         // swal("Dispersion sholud be 100");
+            //     }
+            //     if (name_cls=="" && /^[a-zA-Z-, ]*$/.test(name_cls)) {
+            //
+            //         $.alert({
+            //             title: 'Alert',
+            //             content: 'Acd and Dispersion should not be empty'
+            //         });
+            //
+            //
+            //         // swal("Acd and Dispersion should not be empty");
+            //     }
+            //     else {
+            //         console.log(i);
+            //         $(".main").append('<div class="sub_div" style="width:100%"><div class="row keyword"><div class="col-md-6"><input type="number" class="inputboxstyle form-control mods_inputs name_Class ' + i + '" placeholder="Enter keyword"></div><div class="col-lg-6"><input type="number" class="inputboxstyle form-control mods_inputs path_Class path_Class ' + i + '" placeholder="Enter negative keyword"><span><img src="assets/images/delete.svg" style="width:20px;" class="remove"></span></div></div></div>')
+            //         $(".hide_").show();
+            //         $('.mods_inputs').on('keypress', function () {
+            //             var x = event.key;
+            //              if (x == "e" || x == "." || x == "-") {
+            //                return false;
+            //              }
+            //
+            //         });
+            //
+            //     }
+            // })
             $("body").on("click", ".add_more", function(){
 
-                //debugger
-                var x=0;
+               //debugger
+               var x=0;
 
-                thiss = $(this)
-                val = $(this).html();
-                children = $(".sub_div").children();
+               thiss = $(this)
+               val = $(this).html();
+               children = $(".sub_div").children();
 
-                var name_cls = $(children[0]).find(".name_Class").val()
+               var name_cls = $(children[0]).find(".name_Class").val()
 
-                for (var i = 0; i < children.length; i++) {
-                    var path_cls =  $(children[0]).find('.path_Class').val();
-                    // alert(path_cls);
-                    x = 0+parseInt(path_cls);
+               for (var i = 0; i < children.length; i++) {
+                   var path_cls =  $(children[0]).find('.path_Class').val();
+                   // alert(path_cls);
+                   x = 0+parseInt(path_cls);
 
+               }
+               if (x>100) {
+
+                   $.alert({
+                       title: 'Alert',
+                       content: 'Dispersion sholud be 100"'
+                   });
+
+                   // swal("Dispersion sholud be 100");
+               }
+               if (name_cls=="" && /^[a-zA-Z-, ]*$/.test(name_cls)) {
+
+                   $.alert({
+                       title: 'Alert',
+                       content: 'Acd and Dispersion should not be empty'
+                   });
+
+
+                   // swal("Acd and Dispersion should not be empty");
+               }
+               else {
+                   console.log(i);
+                   $(".main").append('<div class="sub_div" style="width:100%"><div class="row keyword"><div class="removeclassmd kk col-md-6"><input type="number" class="inputboxstyle  form-control mods_inputs name_Class ' + i + '" placeholder="Enter keyword"></div><div class="removelgclass kk1 col-lg-6"><input type="number" class="inputboxstyle pks form-control mods_inputs path_Class path_Class ' + i + '" placeholder="Enter negative keyword"><span><img src="assets/images/delete.svg" style="width:20px;" class="remove"></span></div></div></div>')
+                   $(".hide_").show();
+                   $('.mods_inputs').on('keypress', function () {
+                       var x = event.key;
+                        if (x == "e" || x == "." || x == "-") {
+                          return false;
+                        }
+
+                   });
+
+               }
+               if ($(window).width()<=320) {
+                   // debugger
+
+                   $(".kk").addClass("col-md-6");
+
+                   $(".kk1").addClass("col-lg-6");
+                   // $(".inputboxstyle ").css("margin-left" "130px");
+                   // $(".pks").css( { marginLeft : "130px" } );
+                   $(".pks").css( { float : "right" } );
+                  $(".pks").css( { "margin-top" : "-40px" } );
                 }
-                if (x>100) {
-
-                    $.alert({
-                        title: 'Alert',
-                        content: 'Dispersion sholud be 100"'
-                    });
-
-                    // swal("Dispersion sholud be 100");
-                }
-                if (name_cls=="" && /^[a-zA-Z-, ]*$/.test(name_cls)) {
-
-                    $.alert({
-                        title: 'Alert',
-                        content: 'Acd and Dispersion should not be empty'
-                    });
-
-
-                    // swal("Acd and Dispersion should not be empty");
-                }
-                else {
-                    console.log(i);
-                    $(".main").append('<div class="sub_div" style="width:100%"><div class="row keyword"><div class="col-md-6"><input type="number" class="inputboxstyle form-control mods_inputs name_Class ' + i + '" placeholder="Enter keyword"></div><div class="col-lg-6"><input type="number" class="inputboxstyle form-control mods_inputs path_Class path_Class ' + i + '" placeholder="Enter negative keyword"><span><img src="assets/images/delete.svg" style="width:20px;" class="remove"></span></div></div></div>')
-                    $(".hide_").show();
-                    $('.mods_inputs').on('keypress', function () {
-                        var x = event.key;
-                         if (x == "e" || x == "." || x == "-") {
-                           return false;
-                         }
-
-                    });
-
-                }
-            })
+           })
 
             $("body").on("click", ".add_more_new", function(){
                 debugger;
