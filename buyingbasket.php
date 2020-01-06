@@ -392,6 +392,10 @@ button:focus {outline:0;}
                 width: 338px!important;
                 margin-left: -332px;
             }
+			.col-sm-2{
+					width: fit-content;
+					float: right;
+            }
 
 	}
 
