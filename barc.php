@@ -134,6 +134,9 @@ $(document).ready(function() {
 			.col-lg-6{
 				margin-top:5px;
 			}
+			.barcmsg{
+		        width: auto;
+		    }
 }
 @media screen and (max-width: 768px) {
 			.col-lg-3{

@@ -238,6 +238,16 @@ div.row_body div:nth-of-type(odd)
 			body{
 				width:fit-content;
 			}
+			.col-sm-2{
+			  width: 150px;
+		  }
+		  .col-sm-1{
+			  width: 150px;
+			  margin-left: 800px;
+		  }
+		  .gobtn{
+			  margin-top: -40px;
+		  }
 }
 /* responsive */
 
