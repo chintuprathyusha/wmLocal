@@ -958,7 +958,7 @@ $( document ).ready(function() {
                }
                else {
                    console.log(i);
-                   $(".main").append('<div class="sub_div" style="width:100%"><div class="row keyword"><div class="removeclassmd kk col-md-6"><input type="number" class="inputboxstyle  form-control mods_inputs name_Class ' + i + '" placeholder="Enter keyword"></div><div class="removelgclass kk1 col-lg-6"><input type="number" class="inputboxstyle pks form-control mods_inputs path_Class path_Class ' + i + '" placeholder="Enter negative keyword"><span><img src="assets/images/delete.svg" style="width:20px;" class="remove"></span></div></div></div>')
+                   $(".main").append('<div class="sub_div" style="width:100%"><div class="row keyword"><div class="removeclassmd kk col-md-6"><input type="number" min="0" max="200"  onKeyUp="if(this.value>200){this.value=200;}else if(this.value<0){this.value=0;}" class="inputboxstyle  form-control mods_inputs name_Class ' + i + '" placeholder="Enter keyword"></div><div class="removelgclass kk1 col-lg-6"><input type="number" class="inputboxstyle pks form-control mods_inputs path_Class path_Class ' + i + '" placeholder="Enter negative keyword"><span><img src="assets/images/delete.svg" style="width:20px;" class="remove"></span></div></div></div>')
                    $(".hide_").show();
                    $('.mods_inputs').on('keypress', function () {
                        var x = event.key;
@@ -1040,7 +1040,7 @@ $( document ).ready(function() {
                 }
                 else {
                     console.log(i);
-                    $(".main_new").append('<div class="sub_div_new" style="width:100%"><div class="row keyword_new"><div class="removeclassmd kk  col-md-6"><input type="number" class="form-control mods_inputs name_Class_new ' + i + '" placeholder="Enter keyword" style="background-color:#303134;border:none;color:#fff;"></div><div class="removelgclass kk1 col-lg-6"><input type="number" class="pks   form-control mods_inputs path_Class_new path_Class_new ' + i + '" placeholder="Enter negative keyword" style="background-color:#303134;border:none;color:#fff;"><span><img src="assets/images/delete.svg" style="width:20px;" class="remove_new"></span></div></div></div>')
+                    $(".main_new").append('<div class="sub_div_new" style="width:100%"><div class="row keyword_new"><div class="removeclassmd kk  col-md-6"><input type="number" min="0" max="200"  onKeyUp="if(this.value>200){this.value=200;}else if(this.value<0){this.value=0;}" class="form-control mods_inputs name_Class_new ' + i + '" placeholder="Enter keyword" style="background-color:#303134;border:none;color:#fff;"></div><div class="removelgclass kk1 col-lg-6"><input type="number" class="pks   form-control mods_inputs path_Class_new path_Class_new ' + i + '" placeholder="Enter negative keyword" style="background-color:#303134;border:none;color:#fff;"><span><img src="assets/images/delete.svg" style="width:20px;" class="remove_new"></span></div></div></div>')
                     $(".hide_").show();
                 }
                 if ($(window).width()<=320) {
