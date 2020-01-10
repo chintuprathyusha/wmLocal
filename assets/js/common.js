@@ -62,18 +62,20 @@ var getUrlParameter = function getUrlParameter(sParam) {
 
  function url() {
 
-        // return 'http://192.168.0.164:6767/'
+        // return 'http://192.168.0.128:6767/'
             return pythonurl
          // return 'https://cin-appsvplan-indtvauto-api-stg.azurewebsites.net/'
 
  }
  function url1() {
          // return 'http://192.168.0.164:6767/'
-         return pythonurl
+         // return pythonurl
+         // return 'http://192.168.0.128:6767/'
  }
  function url2() {
          // return 'http://192.168.0.164:6767/'
            return pythonurl
+           // return 'http://192.168.0.128:6767/'
  }
 
 
