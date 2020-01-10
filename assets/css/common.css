@@ -426,6 +426,10 @@ body{
     background: rgb(209, 216, 224);
     color: #000;
 }
+.camp_id_{
+    /* background: rgb(209, 216, 224); */
+    color: #000;
+}
 .acce_File_{
 	text-align: center;
 }

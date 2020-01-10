@@ -42,6 +42,7 @@ $( document ).ready(function() {
          }
 
     });
+
     $('.cprp_val').on('keypress', function () {
         var x = event.key;
          if (x == "e" || x == "." || x == "-") {
@@ -707,7 +708,7 @@ $( document ).ready(function() {
                 }
                 // $('.radio_class').show()
                 // $('.cprp_div').show()
-                $(".camp_id_").html('<input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:#f07144;border:none;color:#fff"/>')
+                $(".camp_id_").html('<input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background: #1f2022;color:#fff"/>')
                 $('.texttodisplayspill').hide();
 
                 if (buyingbasket_filename=='' || buyingbasket_filename== "NULL" || replan == true) {

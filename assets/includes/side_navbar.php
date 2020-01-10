@@ -94,6 +94,13 @@
             <!-- <span class="badge bg-blue-400 align-self-center ml-auto">2.2</span> -->
           </a>
         </li>
+        <li  id="help" class="nav-item  nav-item-submenu">
+              <a href="Help.php" class="nav-link" style="color: #fff !important;">
+                <i class="icon-user"></i>
+                <span>Help</span>
+                <!-- <span class="badge bg-blue-400 align-self-center ml-auto">2.2</span> -->
+              </a>
+            </li>
         <!-- /main -->
 
 
