@@ -156,14 +156,13 @@ div.row_body div:nth-of-type(odd)
 	.content-wrapper{
 		overflow-x:auto;
 	}
-	/* .page-content{
-	width: 1000px;
-    height: 100%;
-	} */
-	body{
-	width: fit-content;
-	height: -webkit-fill-available;
-}
+		body{
+		width: fit-content;
+		height: -webkit-fill-available;
+	}
+	.modal-backdrop {
+		background-color: #1f2022 !important;
+	}
 }
 @media screen and (max-width: 1024px) {
 	.content-wrapper{
@@ -189,6 +188,26 @@ div.row_body div:nth-of-type(odd)
             }
 
 		}
+
+		@media screen and (max-width: 375px){
+			  .swal-modal {
+				  width: 481px;
+			  }
+		}
+
+		@media screen and (max-width: 425px){
+			  .swal-modal {
+				  width: 481px;
+			  }
+			  .modal-content{
+					width: 617px;
+					margin-left: 218px;
+				}
+				.modal-backdrop {
+					background-color: #1f2022 !important;
+				}
+		}
+
 /* responsive */
 </style>
 <body>
