@@ -186,6 +186,16 @@ div.row_body div:nth-of-type(odd)
 			.swal-modal{
                 width: 482px!important;
             }
+			.col-sm-4 {
+				width: auto;
+			}
+			.col-sm-3 {
+				width: auto;
+			}
+			.jc-bs3-container.container {
+				width: fit-content;
+				/* margin-top: -450px; */
+			}
 
 		}
 
@@ -206,6 +216,16 @@ div.row_body div:nth-of-type(odd)
 				.modal-backdrop {
 					background-color: #1f2022 !important;
 				}
+				.col-sm-4 {
+				width: auto;
+			}
+			.col-sm-3 {
+				width: auto;
+			}
+			.jc-bs3-container.container {
+				width: fit-content;
+				/* margin-top: -450px; */
+			}
 		}
 
 /* responsive */

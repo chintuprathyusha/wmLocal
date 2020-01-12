@@ -124,20 +124,7 @@ $(document).ready(function() {
 }
 
 /* responsive */
-@media screen and (max-width: 320px) {
-		.icon-paragraph-justify3:before {
-			color: white;
-			}
-			.col-lg-3{
-				margin-top:5px;
-			}
-			.col-lg-6{
-				margin-top:5px;
-			}
-			.barcmsg{
-		        width: auto;
-		    }
-}
+
 @media screen and (max-width: 768px) {
 			.col-lg-3{
 				margin-top:5px;
@@ -156,8 +143,13 @@ $(document).ready(function() {
     .file-caption {
         margin-top: 12px!important;
     }
+	.barcmsg {
+		width: 483px;
+
+	}
+
 }
-@media screen and (max-width: 570px) and (min-width: 320px) {
+@media screen and (max-width: 570px) and (min-width: 375px) {
     .icon-paragraph-justify3 {
     content: "\eec1";
     color: white;
@@ -169,7 +161,26 @@ $(document).ready(function() {
     .file-caption {
         margin-top: 12px!important;
     }
+	.barcmsg{
+		width: 292px;
+	}
+
 }
+@media screen and (max-width: 320px) {
+		.icon-paragraph-justify3:before {
+			color: white;
+			}
+			.col-lg-3{
+				margin-top:5px;
+			}
+			.col-lg-6{
+				margin-top:5px;
+			}
+			.barcmsg{
+		        width: 242px;
+		    }
+}
+/* responsive */
 /* responsive */
 </style>
 <body>

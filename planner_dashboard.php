@@ -216,28 +216,32 @@ div.row_body div:nth-of-type(odd)
     height: 100%;
 	}
 }
-
 @media screen and (max-width: 1024px) {
 	.content-wrapper{
 		overflow-x:auto;
 	}
 }
-@media screen and (max-width: 425px)  and (min-width: 320px) {
-	body{
-		width:fit-content;
-	}
-}
-/* @media screen and (max-width: 320px) {
+@media screen  and (max-width: 425px)  and (min-width: 320px){
 			.page-header{
 				width: 1000px;
 			}
 			.card{
 				width: 1000px;
-            }
-            .page_content{
-                width: 1000px;
-            }
-} */
+			}
+			body{
+				width:fit-content;
+			}
+			.col-sm-2{
+			  width: 150px;
+		  }
+		  .col-sm-1{
+			  width: 150px;
+			  margin-left: 800px;
+		  }
+		  .gobtn{
+			  margin-top: -40px;
+		  }
+}
 /* responsive */
 </style>
 <body>
