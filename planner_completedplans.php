@@ -222,6 +222,13 @@ div.row_body div:nth-of-type(odd)
 		width: 1000px;
     height: 100%;
 	}
+	.modal-content{
+		  width: 617px;
+		  /* margin-left: 218px; */
+	  }
+	  .modal-backdrop {
+		  background-color: #1f2022 !important;
+	  }
 }
 @media screen and (max-width: 1024px) {
 	.content-wrapper{
@@ -248,6 +255,13 @@ div.row_body div:nth-of-type(odd)
 		  .gobtn{
 			  margin-top: -40px;
 		  }
+		  .modal-content{
+				width: 617px;
+				margin-left: 218px;
+			}
+			.modal-backdrop {
+				background-color: #1f2022 !important;
+			}
 }
 /* responsive */
 
