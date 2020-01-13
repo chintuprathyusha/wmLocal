@@ -1028,9 +1028,9 @@ $( document ).ready(function() {
                     x = 0+parseInt(path_cls);
 
                 }
-                if (x>100) {
-                    alert("error")
-                }
+                // if (x>100) {
+                //     alert("error")
+                // }
                 if (name_cls=="" && /^[a-zA-Z-, ]*$/.test(name_cls)) {
 
                         // swal("Acd and Dispersion should not be empty");

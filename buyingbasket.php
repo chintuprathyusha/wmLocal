@@ -311,7 +311,11 @@ button:focus {outline:0;}
 				width: 100%;
 				padding: 17px!important;
 			}
-
+			.path_Class{
+					width: 295px;
+					float: right;
+					margin-top: -34px;
+			}
 			/* .font-weight-semibold{
 				float: right;
                 margin-top: -29px;
@@ -396,6 +400,13 @@ button:focus {outline:0;}
 					width: fit-content;
 					float: right;
             }
+			.campaign_days_new{
+				width: 50%;
+			}
+			.path_Class{
+              float: right;
+			  margin-top: -32px;
+			}
 
 	}
 
