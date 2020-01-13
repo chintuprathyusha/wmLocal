@@ -312,7 +312,7 @@ button:focus {outline:0;}
 				padding: 17px!important;
 			}
 			.path_Class{
-					width: 295px;
+					width: 50%;
 					float: right;
 					margin-top: -34px;
 			}

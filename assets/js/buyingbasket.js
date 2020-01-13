@@ -257,7 +257,7 @@ $( document ).ready(function() {
 
                       }
 
-                        $(".camp_id_").html('<input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:#f07144";border:none;color:#fff/>')
+                        $(".camp_id_").html('<input class="form-control" placeholder="Campaign Name" type="text" value="'+campaignName+'" readonly style="background:#1f2022;color:#fff/>')
                         if (version > 1) {
                             replan = true;
                             debugger;
