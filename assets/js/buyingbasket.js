@@ -171,6 +171,30 @@ $( document ).ready(function() {
                 }, )
             })
 
+
+
+
+            $.ajax({
+                        url: "configfile.json",
+                        method: "GET",
+                        dataType: 'json',
+                        async : false,
+                        success: function(data){
+                               msg =  data;
+                                console.log(data);
+                                genre_levellabel = msg.data[0].genre_level_label
+                                channel_levellabel  = msg.data[0].channel_level_label
+                                genre_uploadlabel = msg.data[0].genre_upload_label
+                                console.log(typeof genre_level_label);
+                         },
+                         error:function() {
+                             alert("Error")
+                         }
+                    });
+
+
+
+
             function getData(){
                 sendObj = {}
                 sendObj.planid = planid;
@@ -250,10 +274,10 @@ $( document ).ready(function() {
                         debugger;
 
                       if (process2ETA == 'None') {
-                        $('.forsecoundpathtext').append('Channel Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox.- Expected Time of Arrival (ETA) is : None');
+                        $('.forsecoundpathtext').append(''+channel_levellabel+' None');
                       }
                       else {
-                        $('.forsecoundpathtext').append('Channel Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox.- Expected Time of Arrival (ETA) is : '+format_date(process2ETA)+'');
+                        $('.forsecoundpathtext').append(''+channel_levellabel+' : '+format_date(process2ETA)+'');
 
                       }
 
@@ -389,10 +413,10 @@ $( document ).ready(function() {
                                     }
 
                                     if (process3ETA == "None") {
-                                      $('.acceleratorfiletext').append('<h5> Accelerator Output Sheet being created. Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : none </h5>')
+                                      $('.acceleratorfiletext').append('<h5> '+genre_uploadlabel+'  none </h5>')
                                     }
                                     else {
-                                      $('.acceleratorfiletext').append('<h5> Accelerator Output Sheet being created. Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : '+format_date(process3ETA)+' </h5>')
+                                      $('.acceleratorfiletext').append('<h5> '+genre_uploadlabel+' '+format_date(process3ETA)+' </h5>')
                                     }
 
 
@@ -422,10 +446,10 @@ $( document ).ready(function() {
                                     $('.acceleratorfiletext').show();
 
                                     if (process3ETA == "None") {
-                                      $('.acceleratorfiletext').append('<h5> Accelerator Output Sheet being created. Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : none </h5>')
+                                      $('.acceleratorfiletext').append('<h5> '+genre_uploadlabel+' : none </h5>')
                                     }
                                     else {
-                                      $('.acceleratorfiletext').append('<h5> Accelerator Output Sheet being created. Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : '+format_date(process3ETA)+' </h5>')
+                                      $('.acceleratorfiletext').append('<h5> '+genre_uploadlabel+' : '+format_date(process3ETA)+' </h5>')
                                     }
 
 
@@ -449,11 +473,11 @@ $( document ).ready(function() {
 
                         if (process2ETA == "None") {
 
-                          $('.forfirstpathtext').append('Genre Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is  : none');
+                          $('.forfirstpathtext').append(''+genre_levellabel+' : none');
                         }
                         else {
 
-                          $('.forfirstpathtext').append('Genre Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is  : '+format_date(process2ETA)+'');
+                          $('.forfirstpathtext').append(''+genre_levellabel+' : '+format_date(process2ETA)+'');
 
                         }
                     }
@@ -871,56 +895,7 @@ $( document ).ready(function() {
                 }
             }
             var i; var c; var p; var s;
-            // $("body").on("click", ".add_more", function(){
-            //
-            //     //debugger
-            //     var x=0;
-            //
-            //     thiss = $(this)
-            //     val = $(this).html();
-            //     children = $(".sub_div").children();
-            //
-            //     var name_cls = $(children[0]).find(".name_Class").val()
-            //
-            //     for (var i = 0; i < children.length; i++) {
-            //         var path_cls =  $(children[0]).find('.path_Class').val();
-            //         // alert(path_cls);
-            //         x = 0+parseInt(path_cls);
-            //
-            //     }
-            //     if (x>100) {
-            //
-            //         $.alert({
-            //             title: 'Alert',
-            //             content: 'Dispersion sholud be 100"'
-            //         });
-            //
-            //         // swal("Dispersion sholud be 100");
-            //     }
-            //     if (name_cls=="" && /^[a-zA-Z-, ]*$/.test(name_cls)) {
-            //
-            //         $.alert({
-            //             title: 'Alert',
-            //             content: 'Acd and Dispersion should not be empty'
-            //         });
-            //
-            //
-            //         // swal("Acd and Dispersion should not be empty");
-            //     }
-            //     else {
-            //         console.log(i);
-            //         $(".main").append('<div class="sub_div" style="width:100%"><div class="row keyword"><div class="col-md-6"><input type="number" class="inputboxstyle form-control mods_inputs name_Class ' + i + '" placeholder="Enter keyword"></div><div class="col-lg-6"><input type="number" class="inputboxstyle form-control mods_inputs path_Class path_Class ' + i + '" placeholder="Enter negative keyword"><span><img src="assets/images/delete.svg" style="width:20px;" class="remove"></span></div></div></div>')
-            //         $(".hide_").show();
-            //         $('.mods_inputs').on('keypress', function () {
-            //             var x = event.key;
-            //              if (x == "e" || x == "." || x == "-") {
-            //                return false;
-            //              }
-            //
-            //         });
-            //
-            //     }
-            // })
+
             $("body").on("click", ".add_more", function(){
 
                //debugger
@@ -1180,10 +1155,10 @@ $( document ).ready(function() {
 
                       if (process2ETA == 'None') {
 
-                        $('.forsecoundpathtext').append('Channel Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is :None');
+                        $('.forsecoundpathtext').append(''+channel_levellabel+' :None');
                       }
                       else {
-                        $('.forsecoundpathtext').append('Channel Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : '+format_date(process2ETA)+'');
+                        $('.forsecoundpathtext').append(''+channel_levellabel+' '+format_date(process2ETA)+'');
 
                       }
                             $('.add_more_new').prop('disabled', true);
@@ -1362,7 +1337,7 @@ $( document ).ready(function() {
                             });
                         }
                         else {
-                          $('.forfirstpathtext').append('Genre Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox. - Expected Time of Arrival (ETA) is : '+format_date(process2ETA)+'');
+                          $('.forfirstpathtext').append(''+genre_levellabel+' '+format_date(process2ETA)+'');
 
                             $('.mods_inputs').css("color", "#fff");
                             $('.mods_inputs').css("background", "rgba(41, 40, 40, 0.91)");
@@ -1713,7 +1688,7 @@ $( document ).ready(function() {
 
                         if (path_selection == 2) {
                             $('.acceleratorfiletext').show();
-                            $('.acceleratorfiletext').html('<h5>Accelerator Output Sheet being created. Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : '+format_date(process3ETA)+' </h5>')
+                            $('.acceleratorfiletext').html('<h5> '+genre_uploadlabel+' '+format_date(process3ETA)+' </h5>')
                         }
                         else {
                             $('.acceleratorfiletext').hide();
@@ -1801,7 +1776,7 @@ $( document ).ready(function() {
                     if(status == "Path inserted Succesfully"){
                         if (path_selection == 1) {
                             $('.acceleratorfiletext').show();
-                            $('.acceleratorfiletext').html('<h5>Accelerator Output Sheet being created. Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : '+format_date(process3ETA)+' </h5>')
+                            $('.acceleratorfiletext').html('<h5>'+genre_uploadlabel+' '+format_date(process3ETA)+' </h5>')
                         }
                         else {
                             $('.acceleratorfiletext').hide();

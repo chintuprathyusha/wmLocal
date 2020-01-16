@@ -277,6 +277,26 @@ $(document).ready(function () {
             }
         })
     }
+
+
+        $.ajax({
+                    url: "configfile.json",
+                    method: "GET",
+                    dataType: 'json',
+                    async : false,
+                    success: function(data){
+                           msg =  data;
+                            console.log(data);
+                            create_planlabel = msg.data[0].create_plan_label
+                            console.log(typeof create_planlabel);
+                     },
+                     error:function() {
+                         alert("Error")
+                     }
+                });
+
+
+
     $("body").on("click", ".create_plan", function(){
         $('.loading').show();
         userid = sessionStorage.getItem('userid');
@@ -395,13 +415,12 @@ $(document).ready(function () {
 
                    $('.texttodisplay').append('');
 
-                    if (process1ETA == "None" ) {
-                      $('.texttodisplay').append('Channel Selection Sheet being created. Once complete you will receive it in your inbox');
-                    }
-                    else {
-                      $('.texttodisplay').append('Channel Selection Sheet being created. Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : '+format_date(process1ETA)+'');
-                    }
-
+                   if (process1ETA == "None" ) {
+                     $('.texttodisplay').append(''+create_planlabel+'');
+                   }
+                   else {
+                     $('.texttodisplay').append(''+create_planlabel+''+format_date(process1ETA)+'');
+                   }
 
                     // $('.texttodisplay').append('Channel Selection Sheet being created. Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : '+format_date(process1ETA)+'');
                     createplanid = parseInt(msg.createplanid);
@@ -531,12 +550,11 @@ $(document).ready(function () {
                 }
 
 
-
                 if (process1ETA == "None" ) {
-                  $('.texttodisplay').append('Channel Selection Sheet being created. Once complete you will receive it in your inbox');
+                  $('.texttodisplay').append(''+create_planlabel+'');
                 }
                 else {
-                  $('.texttodisplay').append('Channel Selection Sheet being created. Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : '+format_date(process1ETA)+'');
+                  $('.texttodisplay').append(''+create_planlabel+''+format_date(process1ETA)+'');
                 }
 
 
