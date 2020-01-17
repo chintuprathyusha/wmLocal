@@ -118,28 +118,66 @@ $(document).ready(function () {
                 console.log(msg.status);
                 console.log(msg.location_miss_match);
                 if (msg.status == "notupdated" && msg.location_miss_match == true ) {
+
                     $.alert({
                         title: 'Error',
-                        content: 'Location Mismatch, Client not Assigned!.....'
-
+                        content: 'Location Mismatch, Client not Assigned!.....',
+                        animation: 'scale',
+                        closeAnimation: 'scale',
+                        opacity: 0.5,
+                        buttons: {
+                            okay: {
+                                text: 'Okay',
+                                btnClass: 'btn-primary',
+                                action: function(){
+                                    location.reload();
+                                }
+                            }
+                        }
                     });
-                    setInterval(function(){  location.reload(); }, 1500);
+
+
+
+
+
                 } else if (msg.status == "updated" && msg.location_miss_match == true) {
-
                     $.alert({
-                        title: 'succesful',
-                        content: 'Client Assigned Succesfully!...'
-
+                        title: 'successful',
+                        content: 'Client Assigned Succesfully!...',
+                        animation: 'scale',
+                        closeAnimation: 'scale',
+                        opacity: 0.5,
+                        buttons: {
+                            okay: {
+                                text: 'Okay',
+                                btnClass: 'btn-primary',
+                                action: function(){
+                                    location.reload();
+                                }
+                            }
+                        }
                     });
-                    setInterval(function(){  location.reload(); }, 1500);
+
                 }
                 else {
-                    $.alert({
-                        title: 'succesful',
-                        content: 'Client Assigned Succesfully!...'
 
+                    $.alert({
+                        title: 'successful',
+                        content: 'Client Assigned Succesfully!...',
+                        animation: 'scale',
+                        closeAnimation: 'scale',
+                        opacity: 0.5,
+                        buttons: {
+                            okay: {
+                                text: 'Okay',
+                                btnClass: 'btn-primary',
+                                action: function(){
+                                    location.reload();
+                                }
+                            }
+                        }
                     });
-                    setInterval(function(){  location.reload(); }, 1500);
+
                 }
                 // else if(msg == "notupdated"){
                 //     $.alert({
@@ -276,11 +314,27 @@ $(document).ready(function () {
             }
             else {
                 console.log(msg);
+                // $.alert({
+                //     title: 'Success',
+                //     content: 'Removed Succesfully'
+                // });
+                // setInterval(function(){  location.reload(); }, 1500);
                 $.alert({
-                    title: 'Success',
-                    content: 'Removed Succesfully'
+                    title: 'successful',
+                    content: 'Removed Succesfully',
+                    animation: 'scale',
+                    closeAnimation: 'scale',
+                    opacity: 0.5,
+                    buttons: {
+                        okay: {
+                            text: 'Okay',
+                            btnClass: 'btn-primary',
+                            action: function(){
+                                location.reload();
+                            }
+                        }
+                    }
                 });
-                setInterval(function(){  location.reload(); }, 1500);
             }
 
         })
