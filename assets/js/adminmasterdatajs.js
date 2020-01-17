@@ -172,7 +172,7 @@ $(document).ready(function(){
                 var blob = new Blob([ab], { type: 'octet/stream' });
                 var link = document.createElement('a');
                 link.href = window.URL.createObjectURL(blob);
-                link.download = "results.zip";
+                link.download = "AdminFiles.zip";
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
