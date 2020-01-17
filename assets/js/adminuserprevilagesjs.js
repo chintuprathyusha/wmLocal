@@ -69,7 +69,7 @@ $(document).ready(function () {
                 row += '<p class="hidden checkpoint_prev' + j + '">' + a[j].Privilage_Description + '</p>'
                 if (a[j].Privilage_Value.toLowerCase() == 'yes') {
                     row += '<input  type="radio"   class="radioclick" checked data-Privilege_Name=' + a[j].Privilage_Description + ' value="Yes" data-checked="checked" checked>Yes<br>'
-                    row += '<input  type="radio"  class="radioclick" data-Privilege_Name=' + a[j].Privilage_Description + ' value="No"> no<br>'
+                    row += '<input  type="radio"  class="radioclick" data-Privilege_Name=' + a[j].Privilage_Description + ' value="No"> No<br>'
 
                 }
                 else if (a[j].Privilage_Value.toLowerCase() == 'no') {
