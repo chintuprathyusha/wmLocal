@@ -252,7 +252,7 @@ $( document ).ready(function() {
 
                                     </div>
                                     <div class="mb-4">
-                                        <h6  title="<?php echo $_SESSION['tool_tips']['AddPlanner_Client'];?>"  class="font-weight-semibold">ClientName</h6>
+                                        <h6  title="<?php echo $_SESSION['tool_tips']['AddPlanner_Client'];?>"  class="font-weight-semibold">Client</h6>
                                         <!-- <p class="mb-2">Select2 supports ability to add choices automatically as the user is typing into the search field. Try typing in the search field below and entering a space or a comma.</p> -->
                                         <div class="row">
                                             <div class="col-md-6">
@@ -281,7 +281,7 @@ $( document ).ready(function() {
                             <div class="tab-pane fade" id="login-tab2">
                                 <div class="cprp card">
                                     <div class="mb-4">
-                                        <h6  title="<?php echo $_SESSION['tool_tips']['DeletePlanner_Client'];?>"  class="font-weight-semibold">ClientName</h6>
+                                        <h6  title="<?php echo $_SESSION['tool_tips']['DeletePlanner_Client'];?>"  class="font-weight-semibold">Client</h6>
                                         <!-- <p class="mb-2">Select2 supports ability to add choices automatically as the user is typing into the search field. Try typing in the search field below and entering a space or a comma.</p> -->
                                         <div class="row">
                                             <div class="col-md-6">
