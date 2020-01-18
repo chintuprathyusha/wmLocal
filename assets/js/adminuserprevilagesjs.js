@@ -73,7 +73,7 @@ $(document).ready(function () {
 
                 }
                 else if (a[j].Privilage_Value.toLowerCase() == 'no') {
-                    row += '<input type="radio" class="radioclick" data-Privilege_Name=' + a[j].Privilage_Description + ' value="Yes" > yes<br>'
+                    row += '<input type="radio" class="radioclick" data-Privilege_Name=' + a[j].Privilage_Description + ' value="Yes" > Yes<br>'
                     row += '<input type="radio" class="radioclick" data-Privilege_Name=' + a[j].Privilage_Description + '  value="No" data-checked="checked" checked> No<br>'
                 }
                 row += '</td>';
