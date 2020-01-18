@@ -142,8 +142,8 @@ $(document).ready(function () {
 
                 } else if (msg.status == "updated" && msg.location_miss_match == true) {
                     $.alert({
-                        title: 'successful',
-                        content: 'Client Assigned Succesfully!...',
+                        title: 'Successful',
+                        content: 'Client assigned successfully!...',
                         animation: 'scale',
                         closeAnimation: 'scale',
                         opacity: 0.5,
@@ -162,8 +162,8 @@ $(document).ready(function () {
                 else {
 
                     $.alert({
-                        title: 'successful',
-                        content: 'Client Assigned Succesfully!...',
+                        title: 'Successful',
+                        content: 'Client assigned successfully!...',
                         animation: 'scale',
                         closeAnimation: 'scale',
                         opacity: 0.5,
