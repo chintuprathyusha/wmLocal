@@ -13,7 +13,7 @@ $(document).ready(function () {
     $('.budget_div_').hide();
     $('.cprp_div').hide();
 
-    $('.spillover').hide();    
+    $('.spillover').hide();
     $('.budgetdivnew').hide();
     $('.texttodisplayspill').hide();
 
@@ -28,7 +28,7 @@ $(document).ready(function () {
 
 
     var version_downloadfile;
-    
+
     $('.spillovertexttodisplay').hide()
     $('.forfirstpathtext').hide()
     $('.forsecoundpathtext').hide()
@@ -51,7 +51,7 @@ $(document).ready(function () {
     var replan = false;
     var backclicked = "false";
     var widthofscreen = $(window).width()
-    
+
     var paramgoback = $.urlParam('goback');
     var parangonext = $.urlParam('gonext');
 
@@ -102,7 +102,7 @@ $(document).ready(function () {
             editDispersionHtml += '    </div>'
             editDispersionHtml += '</div>'
 
-            
+
         }
         $(".editDispersionDisplay").html(editDispersionHtml)
 
@@ -182,7 +182,7 @@ $(document).ready(function () {
             editDispersionHtmlAppend += '</div>'
 
             $(".genreLevelEditDispersion").append(editDispersionHtmlAppend)
-            
+
         }
     }
 
@@ -311,7 +311,7 @@ $(document).ready(function () {
                 campaignName = msg.CampaignName;
                 process2ETA = msg.Process2ETA;
                 process3ETA = msg.Process3ETA;
-                
+
 
                 if (process2ETA == 'None') {
                     $('.forsecoundpathtext').append('' + channel_levellabel + ' None');
@@ -353,7 +353,7 @@ $(document).ready(function () {
                     $('.changediv').html('<h6 class="font-weight-semibold textforchange">Upload Budget File</h6>')
                 }
                 console.log(buyingbasket_filename);
-                
+
                 //alert(buyingbasket_filename)
                 if (PlanProcessed == 1 && (buyingbasket_filename == '' || buyingbasket_filename == null)) {
                     unfreezebuyinginfo();
@@ -624,7 +624,7 @@ $(document).ready(function () {
         if (path_selection == 2) {
 
             $('.cprp_div').hide();
-            
+
             $('.add_more_new').prop('disabled', true);
             $('.submit_new').prop('disabled', true);
             $(".cprp_main").prop("disabled", true);
@@ -658,7 +658,7 @@ $(document).ready(function () {
             for (let i = 0; i < key.length; i++) {
                 editdisperionlables1(key[i],val[i]);
             }
-            
+
         } else if (path_selection == 1) {
             $(".cprp_main").prop("checked", true);
             $(".budget_main").prop("checked", false);
@@ -705,7 +705,7 @@ $(document).ready(function () {
             $('.budget_div_').show();
             $('.radio_class').show();
         } else {
-            
+
             $('.cprp_div').show();
             $('.budget_div_').hide();
             $('.radio_class').show();
@@ -740,7 +740,7 @@ $(document).ready(function () {
             }
         }
 
-        
+
         if (path_selection == 2) {
             //    $('.kav').hide()
             //    $(".edit_disp").hide()
@@ -769,7 +769,7 @@ $(document).ready(function () {
             $('.add_more_new').prop('disabled', false);
         } else if (path_selection == 1) {
             // $('.kav').hide()
-            
+
             $(".budget_main").css("background-color", "#292828");
             $(".cprp_main").css("background-color", "#F07144");
             $(".cprp_main").prop("checked", true);
@@ -856,7 +856,7 @@ $(document).ready(function () {
 
     $("body").on("click", ".add_more", function () {
 
-        
+
         var x = 0;
 
         thiss = $(this)
@@ -890,7 +890,7 @@ $(document).ready(function () {
                 content: 'Acd and Dispersion should not be empty'
             });
         } else {
-           
+
             editdisperionlables("", "")
 
             $('.mods_inputs').on('keypress', function () {
@@ -905,7 +905,7 @@ $(document).ready(function () {
     })
 
     $("body").on("click", ".add_more_new", function () {
-        
+
         var x = 0;
         thiss = $(this)
         val = $(this).html();
@@ -1373,7 +1373,7 @@ $('.campaign').focus(function () {
     fileobj_new = {};
     (function ($) {
         $('#load-file').on('change', function () {
-            
+
             main_output = ''
             var file = $('#load-file')[0].files[0];
             file_name_new = file.name;
@@ -1461,6 +1461,7 @@ $('.campaign').focus(function () {
         $.ajax(settings11).done(function (msg) {
             $('.radio_class').hide();
             console.log(msg);
+            msg = JSON.parse(msg);
             $('.loading').hide();
             if (msg == "Path inserted Succesfully") {
                 $('.radio_class').show();
@@ -1516,7 +1517,7 @@ $('.campaign').focus(function () {
     fileobj = {};
     (function ($) {
         $('#load-file1').on('change', function () {
-            
+
             main_output = ''
             var file = $('#load-file1')[0].files[0];
             filename = file.name;
@@ -1549,7 +1550,7 @@ $('.campaign').focus(function () {
     fileobj2 = {};
     (function ($) {
         $('#load-file__').on('change', function () {
-            
+
             main_output = ''
             var file = $('#load-file__')[0].files[0];
             filename = file.name;
@@ -1625,7 +1626,7 @@ $('.campaign').focus(function () {
     })
 
     $("body").on("click", "#upl-btn1", function () {
-        
+
         $(".loading").show();
         console.log(file_name_);
         var form = new FormData();
@@ -1723,7 +1724,7 @@ $('.campaign').focus(function () {
     })
 
     $("body").on("click", "#upl-btn__", function () {
-        
+
         $(".loading").show();
         console.log(file_name_2);
         var form = new FormData();
