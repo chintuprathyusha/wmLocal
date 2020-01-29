@@ -334,7 +334,7 @@ $(document).ready(function () {
             }
         })
 
-
+var plan_id;
     $("body").on("click", ".create_plan", function(){
         debugger;
         $('.loading').show();
@@ -398,7 +398,7 @@ $(document).ready(function () {
             }
             // var skipChannelSelection =   $('input[name=channel__]:checked', '#channel_selection').val();
             // var skipProgramPerformance =   $('input[name=progran__]:checked', '#program_performance').val()
-        
+
              var skipChannelSelection =  channel_selection_value
              var skipProgramPerformance = program_performance_value
 
@@ -447,6 +447,8 @@ $(document).ready(function () {
             };
             $.ajax(settings11).done(function (msg) {
                 msg = JSON.parse(msg);
+                alert(msg)
+                plan_id = msg.createplanid
                 $('.loading').hide();
 
                 console.log(msg);
@@ -486,21 +488,33 @@ $(document).ready(function () {
                        $('#program_performance').prop('disabled', true);
                        $("#channel_selection").prop('disabled',true);
                    $('.texttodisplay').append('');
-
-                   if (process1ETA == "None" ) {
-                     $('.texttodisplay').append(''+create_planlabel+'');
-                   }
-                   else {
-                     $('.texttodisplay').append(''+create_planlabel+''+format_date(process1ETA)+'');
-                   }
+                   debugger;
+                if (skipChannelSelection == "true") {
+                    $(".next_btn").show();
+                    $(".texttodisplay").hide();
+                }
+                else {
+                    if (process1ETA == "None" ) {
+                      $('.texttodisplay').append(''+create_planlabel+'');
+                    }
+                    else {
+                      $('.texttodisplay').append(''+create_planlabel+''+format_date(process1ETA)+'');
+                    }
+                }
+                   // if (process1ETA == "None" ) {
+                   //   $('.texttodisplay').append(''+create_planlabel+'');
+                   // }
+                   // else {
+                   //   $('.texttodisplay').append(''+create_planlabel+''+format_date(process1ETA)+'');
+                   // }
 
                     // $('.texttodisplay').append('Channel Selection Sheet being created. Once complete you will receive it in your inbox - Expected Time of Arrival (ETA) is : '+format_date(process1ETA)+'');
                     createplanid = parseInt(msg.createplanid);
                     $('.campign_name').prop('disabled', true);
                     $('.campign_id').prop('disabled', true);
                     $(".select2-hidden-accessible").prop('disabled', true);
-                    $(".texttodisplay").show();
-                    $(".next_btn").hide();
+                    // $(".texttodisplay").show();
+                    // $(".next_btn").hide();
                     $(this).prop("disabled", true);
                     $(this).parent(".new_plan");
 
@@ -804,7 +818,9 @@ $(document).ready(function () {
     }
 
     $("body").on("click", ".next_btn", function(){
+        // alert(createplanid)
         window.location.href = "buyingbasket.php?planid="+plan_id
+        // createplanid = msg.createplanid
     })
 
 
