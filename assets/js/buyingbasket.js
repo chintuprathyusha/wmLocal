@@ -153,11 +153,11 @@ $(document).ready(function () {
             editDispersionHtmlAppend = '<div class="row edit_disp kav sub_div">'
             editDispersionHtmlAppend += '    <div class="col-lg-6 col-md-6 col-xs-6">'
             editDispersionHtmlAppend += '        <h6 class="font-weight-semibold">Edit<span class="appendaveragecommer"></span></h6>'
-            editDispersionHtmlAppend += '        <input type="number" name="number" min="0" max="200" onKeyUp="if(this.value>200){this.value=200;}else if(this.value<0){this.value=0;}" class="kav edit__class inputboxstyle  form-control mods_inputs name name_Class 0 editView__Check editView__Check'+class_+'" placeholder="Enter the duration in seconds" value="'+key+'" readonly>'
+            editDispersionHtmlAppend += '        <input type="number" name="number" min="0" max="200" onKeyUp="if(this.value>200){this.value=200;}else if(this.value<0){this.value=0;}" class="kav edit__class inputboxstyle  form-control mods_inputs name name_Class 0 editView__Check editView__Check'+class_+'" placeholder="Enter the duration in seconds" value="'+key+'">'
             editDispersionHtmlAppend += '    </div>'
             editDispersionHtmlAppend += '    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 position">'
             editDispersionHtmlAppend += '        <h6 class="font-weight-semibold">Dispersion <span class="appenddispers"></span></h6>'
-            editDispersionHtmlAppend += '        <input class="kav dispersion__class inputboxstyle form-control mods_inputs path path_Class 0 desView__Check desView__Check'+class_+'" type="number" name="number" min="1" max="99" placeholder="Enter dispersion in percentage" value="'+val+'" readonly>'
+            editDispersionHtmlAppend += '        <input class="kav dispersion__class inputboxstyle form-control mods_inputs path path_Class 0 desView__Check desView__Check'+class_+'" type="number" name="number" min="1" max="99" placeholder="Enter dispersion in percentage" value="'+val+'">'
             if (key === "" && val === "") {
                 editDispersionHtmlAppend += '<img src="assets/images/delete.svg" style="width:20px;" class="remove"></img>'
             }
@@ -170,10 +170,10 @@ $(document).ready(function () {
             editDispersionHtmlAppend = '<div class="main sub_div">'
             editDispersionHtmlAppend += '   <div class="row keyword row3">'
             editDispersionHtmlAppend += '        <div class="col-md-6 mr-b-10 pd-l-10 pd-r-10 appendobjvalinacd edit_res_class">'
-            editDispersionHtmlAppend += '            <input type="number" name="number" min="0" max="200" onKeyUp="if(this.value>200){this.value=200;}else if(this.value<0){this.value=0;}" class="kav edit__class inputboxstyle  form-control mods_inputs name name_Class 0 editView__Check editView__Check'+class_+'" placeholder="Enter the duration in seconds" value="'+key+'" readonly>'
+            editDispersionHtmlAppend += '            <input type="number" name="number" min="0" max="200" onKeyUp="if(this.value>200){this.value=200;}else if(this.value<0){this.value=0;}" class="kav edit__class inputboxstyle  form-control mods_inputs name name_Class 0 editView__Check editView__Check'+class_+'" placeholder="Enter the duration in seconds" value="'+key+'">'
             editDispersionHtmlAppend += '        </div>'
             editDispersionHtmlAppend += '        <div class="col-md-6 mr-b-10 pd-l-10 pd-r-10 appendobjvalindispersion dispersion_res_class">'
-            editDispersionHtmlAppend += '            <input class="kav dispersion__class inputboxstyle form-control mods_inputs path path_Class 0 desView__Check desView__Check'+class_+'" type="number" name="number" min="1" max="99" placeholder="Enter dispersion in percentage" value="'+val+'" readonly>'
+            editDispersionHtmlAppend += '            <input class="kav dispersion__class inputboxstyle form-control mods_inputs path path_Class 0 desView__Check desView__Check'+class_+'" type="number" name="number" min="1" max="99" placeholder="Enter dispersion in percentage" value="'+val+'">'
             if (key === "" && val === "") {
                 editDispersionHtmlAppend += '<img src="assets/images/delete.svg" style="width:20px;" class="remove"></img>'
             }
@@ -1460,9 +1460,8 @@ $('.campaign').focus(function () {
         };
         $.ajax(settings11).done(function (msg) {
             $('.radio_class').hide();
-            debugger
             console.log(msg);
-             msg = JSON.parse(msg);
+            msg = JSON.parse(msg);
             $('.loading').hide();
             if (msg == "Path inserted Succesfully") {
                 $('.radio_class').show();
@@ -1498,4 +1497,315 @@ $('.campaign').focus(function () {
                         okay: {
                             text: 'Okay',
                             btnClass: 'btn-primary'
-                   
+                        }
+                    }
+                });
+
+            }
+            $('.loading').hide();
+            // $('.radio_class').show();
+            $('#upl-btn').hide();
+            // $('.cprp_div').show();
+        });
+    })
+
+
+    //budget upload file path B//
+
+    var file_name_;
+    var main_output;
+    fileobj = {};
+    (function ($) {
+        $('#load-file1').on('change', function () {
+
+            main_output = ''
+            var file = $('#load-file1')[0].files[0];
+            filename = file.name;
+            filename = "ChannelLevelBudgetAllocation" + newcampaign_id + "_" + version + ".xlsx"
+            var fileReader = new FileReader();
+            fileReader.onloadend = function (e) {
+                blob___ = e.target.result;
+
+                fileobj.filename = filename;
+                fileobj.blob = blob___;
+                fileobj.plan_id = planid;
+                fileobj.user_id = userid;
+                fileobj.category = "budgetallocation";
+                console.log(fileobj);
+                $('#upl-btn1').prop('disabled', false);
+                file_name_ = filename;
+            };
+
+            fileReader.readAsDataURL(file);
+        });
+    })(jQuery);
+
+
+    //Path A//
+
+
+
+    var file_name_2;
+    var main_output2;
+    fileobj2 = {};
+    (function ($) {
+        $('#load-file__').on('change', function () {
+
+            main_output = ''
+            var file = $('#load-file__')[0].files[0];
+            filename = file.name;
+            filename = "GenreLevelBudgetAllocation_" + newcampaign_id + "_" + version + ".xlsx"
+            var fileReader = new FileReader();
+            fileReader.onloadend = function (e) {
+                blob___ = e.target.result;
+
+                fileobj2.filename = filename;
+                fileobj2.blob = blob___;
+                fileobj2.plan_id = planid;
+                fileobj2.user_id = userid;
+                fileobj2.category = "spilloversheet";
+                console.log(fileobj2);
+                $('#upl-btn__').prop('disabled', false);
+                file_name_2 = filename;
+            };
+
+            fileReader.readAsDataURL(file);
+        });
+    })(jQuery);
+
+
+    var counting = 0;
+
+    function exceltoblob(file) {
+        pagesArr = [];
+        window.PDFJS = window.pdfjsLib;
+        PDFJS.disableWorker = true;
+        PDFJS.getDocument(file).then(function getPdfHelloWorld(pdf) {
+            const go = async function () {
+                let h = 0;
+                for (var pageN = 1; pageN <= pdf.numPages; pageN++) {
+                    const page = await pdf.getPage(pageN);
+                    var scale = 2;
+                    var viewport = page.getViewport(scale);
+                    //
+                    // Prepare canvas using PDF page dimensions
+                    //
+                    var canvas = document.createElement('canvas');
+                    //document.body.appendChild(canvas);
+                    var context = canvas.getContext('2d');
+                    canvas.height += viewport.height;
+                    canvas.width = viewport.width;
+                    //
+                    // Render PDF page into canvas context
+                    //
+                    var task = page.render({
+                        canvasContext: context,
+                        viewport: viewport
+                    })
+                    await task.promise;
+                    pages = canvas.toDataURL('image/jpeg');
+                    pagesArr.push(pages)
+                    if (pageN == pdf.numPages) {
+                        displayImagesMain(pagesArr)
+                    }
+                }
+            };
+            go();
+        }, function (error) {
+            //console.log(error);
+        });
+    }
+
+    //remove btn click
+
+    $("body").on("click", ".fileinput-remove-button", function () {
+
+        $('#upl-btn').prop('disabled', 'disabled')
+
+
+    })
+
+    $("body").on("click", "#upl-btn1", function () {
+
+        $(".loading").show();
+        console.log(file_name_);
+        var form = new FormData();
+        form.append("file", JSON.stringify(fileobj));
+        var settings11 = {
+            "async": true,
+            "crossDomain": true,
+            "url": aws_url + 'Buying_basket',
+            "method": "POST",
+            "processData": false,
+            "contentType": false,
+            "mimeType": "multipart/form-data",
+            "data": form
+        };
+        $.ajax(settings11).done(function (msg) {
+            console.log(msg);
+            msg = JSON.parse(msg);
+            console.log(msg);
+            status = msg.Status
+            process3ETA = msg.Process3ETA;
+            $(".loading").hide();
+            $('.acceleratorfiletext').hide();
+            if (status == "Path inserted Succesfully") {
+                $('#upl-btn1').hide();
+                // ===========================
+                // $('.texttodisplay').show();
+                // $('.texttodisplayspill').show();
+                // $('#upl-btn1').hide();
+                // $('.bb_txt').hide();
+                // $('.file-input').hide();
+                // $('.red_color').hide();
+                // $('.texttodisplayspill').append('<h5 style="color:#fff">Channel Level Budget Allocation Sheet is successfully uploaded</h5>')
+                // $('.next_').prop('disabled', false)
+                // =================================
+
+                if (path_selection == 2) {
+                    $('.acceleratorfiletext').show();
+                    $('.acceleratorfiletext').html('<h5> ' + genre_uploadlabel + ' ' + format_date(process3ETA) + ' </h5>')
+                } else {
+                    $('.acceleratorfiletext').hide();
+                    $('.next_').prop('disabled', false)
+                }
+                $('.texttodisplay').show();
+                $('.texttodisplayspill').show();
+                $('#upl-btn__').hide();
+
+                $('.bb_txt').hide();
+                $('.file-input').hide();
+                $('.red_color').hide();
+                // $('.texttodisplayspill').append('<h5 style="color:#000">'+file_name_2+' is successfully uploaded</h5>')
+                $('.texttodisplayspill').append('<h5 style="color:#fff;">Channel Level Budget Allocation Sheet is successfully uploaded</h5>')
+
+
+                // $.alert({
+                //     title: 'File succesfully uploaded',
+                //     animation: 'scale',
+                //     closeAnimation: 'scale',
+                //     opacity: 0.5,
+                //     buttons: {
+                //         okay: {
+                //             text: 'Okay',
+                //             btnClass: 'btn-primary'
+                //         }
+                //     }
+                // });
+            } else {
+                $('.texttodisplay').hide();
+                $('.texttodisplayspill').hide();
+                $('#upl-btn1').show();
+                $('.file-input').show();
+                $('.red_color').show();
+                if (plancompleted == true) {
+                    $(".next_").prop('disabled', false);
+                } else {
+
+                    $('.next_').prop('disabled', true)
+                }
+                $.alert({
+                    title: 'Oops ! Seems you are uploading an incorrect file',
+                    // content: 'Oops ! something went wrong',
+                    animation: 'scale',
+                    closeAnimation: 'scale',
+                    opacity: 0.5,
+                    buttons: {
+                        okay: {
+                            text: 'Okay',
+                            btnClass: 'btn-primary'
+                        }
+                    }
+                });
+
+            }
+            version = 0;
+        });
+    })
+
+    $("body").on("click", "#upl-btn__", function () {
+
+        $(".loading").show();
+        console.log(file_name_2);
+        var form = new FormData();
+        form.append("file", JSON.stringify(fileobj2));
+        var settings11 = {
+            "async": true,
+            "crossDomain": true,
+            "url": aws_url + 'Buying_basket',
+            "method": "POST",
+            "processData": false,
+            "contentType": false,
+            "mimeType": "multipart/form-data",
+            "data": form
+        };
+        $.ajax(settings11).done(function (msg) {
+            $(".loading").hide();
+            console.log(msg);
+            msg = JSON.parse(msg);
+            console.log(msg);
+            status = msg.Status
+            process3ETA = msg.Process3ETA;
+            if (status == "Path inserted Succesfully") {
+                if (path_selection == 1) {
+                    $('.acceleratorfiletext').show();
+                    $('.acceleratorfiletext').html('<h5>' + genre_uploadlabel + ' ' + format_date(process3ETA) + ' </h5>')
+                } else {
+                    $('.acceleratorfiletext').hide();
+                    $('.next_').prop('disabled', false)
+                }
+                $('.texttodisplay').show();
+                $('.texttodisplayspill').show();
+                $('#upl-btn__').hide();
+
+                $('.bb_txt').hide();
+                $('.file-input').hide();
+                $('.red_color').hide();
+                // $('.texttodisplayspill').append('<h5 style="color:#000">'+file_name_2+' is successfully uploaded</h5>')
+                $('.texttodisplayspill').append('<h5 style="color:#fff;">Genre Level Budget Allocation Sheet  successfully uploaded </h5>')
+
+
+                // $.alert({
+                //     title: 'File succesfully uploaded',
+                //     // content: 'Oops ! something went wrong',
+                //     animation: 'scale',
+                //     closeAnimation: 'scale',
+                //     opacity: 0.5,
+                //     buttons: {
+                //         okay: {
+                //             text: 'Okay',
+                //             btnClass: 'btn-primary'
+                //         }
+                //     }
+                // });
+            }
+            if (status == "wrong_file_uploaded") {
+                $('.texttodisplay').hide();
+                $('.texttodisplayspill').hide();
+                $('#upl-btn__').show();
+                $('.file-input').show();
+                $('.red_color').show();
+                $.alert({
+                    title: 'Oops ! Seems you are uploading an incorrect file',
+                    // content: 'Oops ! something went wrong',
+                    animation: 'scale',
+                    closeAnimation: 'scale',
+                    opacity: 0.5,
+                    buttons: {
+                        okay: {
+                            text: 'Okay',
+                            btnClass: 'btn-primary'
+                        }
+                    }
+                });
+            }
+            version = 0;
+        });
+    })
+
+    $('body').on('click', '.backclass', function () {
+        sessionStorage.setItem('backclicked', true);
+    })
+
+
+})
