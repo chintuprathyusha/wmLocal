@@ -2,6 +2,10 @@ $(document).ready(function () {
     $('.create_plan').prop('disabled', true);
     var urlType = getUrlParameter('type');
     $(".loading").show();
+    $(".onclass").show();
+    $(".offclass").hide();
+    $(".onnclass").show();
+    $(".offfclass").hide();
     $('.file_download').hide();
     $('#select2').val([]);
     $('#select2').val();
@@ -16,7 +20,6 @@ $(document).ready(function () {
     var filenames;
     var paths;
     var backclicked = "false";
-
     var paramgoback = $.urlParam('goback');
 
     $(".texttodisplay").hide();
@@ -285,7 +288,7 @@ $(document).ready(function () {
                     dataType: 'json',
                     async : false,
                     success: function(data){
-                           msg =  data;
+                            msg =  data;
                             console.log(data);
                             create_planlabel = msg.data[0].create_plan_label
                             console.log(typeof create_planlabel);
@@ -296,8 +299,44 @@ $(document).ready(function () {
                 });
 
 
+        var channel_selection_value
+        var program_performance_value
+        $("body").on("change", "#channel_selection", function(){
+            debugger
+            if ($('#channel_selection').is(':checked')) {
+                $('#program_performance').prop('checked', true);
+                $('#program_performance').prop('disabled', false);
+                $('.onclass').show();
+                $('.offclass').hide();
+                $('.onnclass').show();
+                $('.offfclass').hide();
+            }
+            else {
+                $('#program_performance').prop('checked', false);
+                $('#program_performance').prop('disabled', true);
+                $('.onclass').hide();
+                $('.offclass').show();
+                $('.offfclass').show();
+                $('.onnclass').hide();
+            }
+        })
+
+        $("body").on("change", "#program_performance", function(){
+            debugger;
+            if ($('#program_performance').is(':checked')) {
+                $('.onnclass').show();
+                $('.offfclass').hide();
+            }
+            else {
+                $(this).attr('checked', false);
+                $('.onnclass').hide();
+                $('.offfclass').show();
+            }
+        })
+
 
     $("body").on("click", ".create_plan", function(){
+        debugger;
         $('.loading').show();
         userid = sessionStorage.getItem('userid');
 
@@ -334,7 +373,35 @@ $(document).ready(function () {
         var client = $.unique(cclinet);
         var end_week = $(".end_week").val();
         var key_end_week = $(".end_week").find("option:selected").attr('key');
-        //console.log(camp_markets, campign_id, primary_tg, base_tg,campign_name,brand,client, end_week);
+            if ($('#channel_selection').is(':checked')) {
+                channel_selection_value = $('#channel_selection').is(':checked');
+                $('.onclass').show();
+                channel_selection_value = "false"
+
+            }
+            else {
+               channel_selection_value = $('#channel_selection').is(':checked');
+               $('.offclass').show();
+               channel_selection_value = "true"
+
+            }
+
+            if ($('#program_performance').is(':checked')) {
+                program_performance_value = $('#program_performance').is(':checked');
+                program_performance_value = "false"
+
+            }
+            else {
+               program_performance_value = $('#program_performance').is(':checked');
+               program_performance_value = "true"
+
+            }
+            // var skipChannelSelection =   $('input[name=channel__]:checked', '#channel_selection').val();
+            // var skipProgramPerformance =   $('input[name=progran__]:checked', '#program_performance').val()
+        
+             var skipChannelSelection =  channel_selection_value
+             var skipProgramPerformance = program_performance_value
+
         if (client == '' || campign_name  == '' || primary_tg == 'undefined' || base_tg == '' || end_week == '' || selectedValues == '') {
             $.alert({
                 title: 'Alert',
@@ -360,7 +427,11 @@ $(document).ready(function () {
             obj.PrimaryTGTd = parseInt(key_primary_tg);
             obj.BaseTGId = parseInt(key_base_tg);
             obj.EndWeekId = parseInt(key_end_week);
+            obj.channel_selection  = channel_selection
+            obj.program_performance = program_performance
             obj.user_id = userid;
+            obj.skipChannelSelection = skipChannelSelection;
+            obj.skipProgramPerformance = skipProgramPerformance;
             console.log(obj);
             var form = new FormData();
             form.append("file", JSON.stringify(obj));
@@ -412,7 +483,8 @@ $(document).ready(function () {
                             }
                         }
                     });
-
+                       $('#program_performance').prop('disabled', true);
+                       $("#channel_selection").prop('disabled',true);
                    $('.texttodisplay').append('');
 
                    if (process1ETA == "None" ) {
@@ -529,6 +601,9 @@ $(document).ready(function () {
                 userId_ = msg.user_id;
                 client_name = msg.Client;
                 plancompleted=msg.IsPlanCompleted;
+                skipChannelSelection = msg.SkipChannelSelection;
+                skipProgramPerformance = msg.skipProgramPerformance;
+
 
                 //console.log(ischannelselectioncompleted);
                 if (channel == "true" || plancompleted == true) {
@@ -542,6 +617,8 @@ $(document).ready(function () {
                 $(".getClass").addClass('bg')
                 $(".create_plan").attr("disabled", true);
                 $(".select2").addClass('hide');
+                $(".slider").hide();
+                // $("#program_performance").hide();
                 $("#select").hide();
                 $(".select2").hide();
                 for (var i = 0; i < campaignMarketId_.length; i++) {
@@ -566,6 +643,24 @@ $(document).ready(function () {
                 $(".primary_freeze").append('<p type="text" value='+primaryTGTd_+' class="form-control" readonly style="background-color:#d6d6d6;">'+primaryTGTd_+'</p>')
                 $(".base_freeze").append('<p type="text" value='+base_tg_+' class="form-control" readonly style="background-color:#d6d6d6;">'+base_tg_+'</p>')
                 $('.endfreeze').append('<p type="text" value='+endWeekId_+' class="form-control" readonly style="background-color:#d6d6d6;">'+endWeekId_+'</p>')
+                // $('.channel_selection_freez').append('<p type="text" value='+skipChannelSelection+' class="form-control" readonly style="background-color:#d6d6d6;">'+skipChannelSelection+'</p>')
+                // $('.program_performance_freez').append('<p type="text" value='+skipProgramPerformance+' class="form-control" readonly style="background-color:#d6d6d6;">'+skipProgramPerformance+'</p>')
+                if (skipChannelSelection == "true") {
+                   $('.channel_selection_freez').append('<label class="switch"><input type="checkbox" id="channel_selection"  value="true" name="disableYXLogo"><div class="slider round"></div></label>')
+                }
+                else {
+                  $('.channel_selection_freez').append('<label class="switch"><input type="checkbox" id="channel_selection" checked value="true" name="disableYXLogo"><div class="slider round"></div></label>')
+                }
+
+                if (skipProgramPerformance == "true") {
+
+                    $('.program_performance_freez').append('<label class="switch"><input type="checkbox" id="channel_selection"  value="true" name="disableYXLogo"><div class="slider round"></div></label>')
+                }
+                else {
+                    $('.program_performance_freez').append('<label class="switch"><input type="checkbox" id="channel_selection" checked value="true" name="disableYXLogo"><div class="slider round"></div></label>')
+
+                }
+
             }
         })
     }
