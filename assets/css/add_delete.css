@@ -1,0 +1,106 @@
+
+.file-drop-zone-title {
+    padding: 11px;
+}
+.submit_btn{
+    margin-top: 19px;
+    float: right;
+    text-align: right;
+}
+.cursor_pointer{
+    cursor: pointer;
+}
+.cprp{
+    padding: 30px 55px;
+}
+.budget{
+    padding: 30px 55px;
+}
+.disabled {
+    color: #999;
+}
+.disable_border{
+    border:1px solid #ccc !important;
+    cursor: auto;
+}
+.total_div{
+    display: none;
+}
+.nav-tabs .nav-link.active {
+    background-color: #f07144 !important;
+}
+.file-preview {
+    display: none;
+}
+.hidden{
+    display: none;
+}
+#logoutbtnid{
+    background-color: #ffffff2e !important;
+    border: none;
+    border-radius: 5px;
+    padding: 2px 15px;
+    color: white;
+}
+.content {
+    /* background-color: red /* background-image: url(../images/wmflow.png) no-repeat; */
+    /* background-image: url('asserts/images/wmflow.png') */
+    /* background-image: url("assets/images/wmflow.png");
+    background-repeat: no-repeat, repeat; */
+    background-color: #1f2022;
+}
+
+
+/* responsive */
+@media screen and (max-width: 320px) {
+		.icon-paragraph-justify3:before {
+			color: white;
+}
+		.cprp{
+			padding: 10px;
+        }
+        .tab-content{
+            padding: 0px
+        }
+        body{
+	width: auto;
+}
+    }
+
+    @media screen and (max-width: 768px) {
+        body{
+	width: fit-content;
+	height: -webkit-fill-available;
+}
+    .addsavebtn{
+        width: 100px;
+    }
+    .deletesavebtn
+    {
+    width: 100px;
+    padding: 0px;
+    }
+}
+    /* responsive */
+.breadcrumb-line.breadcrumb-line-light.header-elements-md-inline{
+    background-color: #1f2022;
+    color: white;
+}
+.class{
+    width:17px;
+}
+.form-control.addsavebtn{
+    background-color:#f07144;
+    color:white;
+    border: none;
+    border-radius: 3px;
+}
+.form-control.deletesavebtn{
+    background-color:#f07144;
+    color:white;
+    border: none;
+    border-radius: 3px;
+}
+.img{
+    width: 17px;
+}

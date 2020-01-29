@@ -35,100 +35,12 @@ if ($_SESSION['usernamee'] == '') {
 	<?php include 'assets/includes/common_scripts.php';?>
 	<script src="global_assets/js/demo_pages/form_validation.js"></script>
 	<script src="assets/js/plannerprofile.js"></script>
+	<link rel="stylesheet" href="assets/css/userprofile.css">
 
 
 	<!-- /theme JS files -->
 
 </head>
-<style media="screen">
-.login-form {
-	width: 100% ;
-}
-.select2-selection--single .select2-selection__rendered{
-	padding-left: 2.75rem !important;
-}
-.form-control-feedback {
-	position: absolute;
-	top: 33px;
-}
-.form-group-feedback-left .form-control {
-	padding-left: 10px;
-}
-.select2-selection--single .select2-selection__rendered{
-	padding-left: 10px !important;
-}
-.hide{
-	display: none;
-}
-/* .loading{
-position: fixed;
-background: rgba(177, 172, 172, 0.4);
-width: 81vw;
-height: 100vh;
-top: 83px;
-z-index: 999999999999999999999999999999;
-text-align: center;
-padding-top:37vh;
-left: 15%;
-}
-.loading img{
-width: 70px;
-} */
-#admin{
-	display: none !important;
-}
-.hidden{
-	display:none;
-}
-#logoutbtnid{
-	background-color: #ffffff2e !important;
-	border: none;
-	border-radius: 5px;
-	padding: 2px 15px;
-	color: white;
-}
-/* Added */
-.bodyy{
-	background-color: #1f2022;
-}
-.textcolor{
-	color:white;
-}
-.content{
-	/* background-color: #393e3e; */
-	/* background-image: url('assets/images/wmflow.png');
-	background-repeat: no-repeat; */
-	background-color: #1f2022;
-}
-/* .select_ .select{
-display: none;
-visibility: hideen;
-} */
-
-
-/* responsive */
-.icon-paragraph-justify3:before {
-    content: "\eec1";
-	color: white;
-	float: right;
-
-}
-@media screen and (max-width: 768px) {
-	.page-content{
-    /* width: 1000px !important; */
-	height: -webkit-fill-available;
-}
-body{
-	width: fit-content;
-}
-}
-@media screen and (max-width: 320px){
- body{
-	 width: auto;
- }
-}
-/* responsive */
-</style>
 
 <body>
 	<?php include 'header.php';?>
@@ -145,15 +57,15 @@ body{
 			<!-- Page header -->
 			<div class="page-header page-header-light">
 
-				<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline" style="background-color: #1f2022;color: white;">
-					<div class="d-flex">
+				<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+					<div class="">
 						<div class="breadcrumb">
 							<a href="planner_ongoing_dashboard.php" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
 							<span class="breadcrumb-item active">User Profile</span>
 							<!-- <span style="position:absolute;right:0px;margin-left:13px;">Help<img style="width:17px;height:17px;" title="'+client+'" src="assets/images/informicon.svg"/></span> -->
 							<p class="help">HELP
 								<img style="width:17px;" title="Write to adminwmflow@wmglobal.com to get details added" src="assets/images/informicon.svg">
-							</p>
+							</p>	
 						</div>
 
 
@@ -219,11 +131,9 @@ body{
 
 									</div>
 								</div>
-<!--
-						<select data-placeholder="Select Client" required class="form-control select clientClass"  multiple  data-fouc>
+                        <!--<select data-placeholder="Select Client" required class="form-control select clientClass"  multiple  data-fouc>
 							<option value=""></option>
 						</select> -->
-
 							</div>
 
 							<div class="form-group row">
@@ -239,14 +149,10 @@ body{
 									</div>
 								</div>
 							</div>
-
-
 						</fieldset>
-
-
 						<div class="d-flex justify-content-end align-items-center">
 							<!-- <button type="reset" class="btn btn-light" id="reset">Reset <i class="icon-reload-alt ml-2"></i></button> -->
-							<button type="submit" style="background: #4b6584 !important; color: #fff;" class="form-control btn create_btn create_plan">Create <i class="icon-paperplane ml-2"></i></button>
+							<button type="submit" class="form-control btn create_btn create_plan">Create <i class="icon-paperplane ml-2"></i></button>
 						</div>
 						<!-- </form> -->
 					</div>

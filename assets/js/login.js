@@ -12,7 +12,6 @@ $(document).ready(function () {
         login(username, password, currentdate)
     })
 
-
     $('.login_input').keypress(function(event){
         currentdate = new Date().toLocaleString();
         username = $('.useridclass').val();

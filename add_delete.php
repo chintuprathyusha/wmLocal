@@ -19,95 +19,9 @@ if ($_SESSION['usernamee'] == '') {
     <?php include 'assets/includes/common_css.php';?>
 
     <?php include 'assets/includes/common_scripts.php';?>
-
+<link rel="stylesheet" href="assets/css/add_delete.css">
     <script src="assets/js/add_delete.js"></script>
 </head>
-<style>
-.file-drop-zone-title {
-    padding: 11px;
-}
-.submit_btn{
-    margin-top: 19px;
-    float: right;
-    text-align: right;
-}
-.cursor_pointer{
-    cursor: pointer;
-}
-.cprp{
-    padding: 30px 55px;
-}
-.budget{
-    padding: 30px 55px;
-}
-.disabled {
-    color: #999;
-}
-.disable_border{
-    border:1px solid #ccc !important;
-    cursor: auto;
-}
-.total_div{
-    display: none;
-}
-.nav-tabs .nav-link.active {
-    background-color: #f07144 !important;
-}
-.file-preview {
-    display: none;
-}
-.hidden{
-    display: none;
-}
-#logoutbtnid{
-    background-color: #ffffff2e !important;
-    border: none;
-    border-radius: 5px;
-    padding: 2px 15px;
-    color: white;
-}
-.content {
-    /* background-color: red /* background-image: url(../images/wmflow.png) no-repeat; */
-    /* background-image: url('asserts/images/wmflow.png') */
-    /* background-image: url("assets/images/wmflow.png");
-    background-repeat: no-repeat, repeat; */
-    background-color: #1f2022;
-}
-
-
-/* responsive */
-@media screen and (max-width: 320px) {
-		.icon-paragraph-justify3:before {
-			color: white;
-}
-		.cprp{
-			padding: 10px;
-        }
-        .tab-content{
-            padding: 0px
-        }
-        body{
-	width: auto;
-}
-    }
-
-    @media screen and (max-width: 768px) {
-        body{
-	width: fit-content;
-	height: -webkit-fill-available;
-}
-    .addsavebtn{
-        width: 100px;
-    }
-    .deletesavebtn
-    {
-    width: 100px;
-    padding: 0px;
-    }
-}
-    /* responsive */
-
-</style>
 
 <script>
 $( document ).ready(function() {
@@ -196,14 +110,14 @@ $( document ).ready(function() {
         <div class="content-wrapper">
             <div class="page-header page-header-light">
 
-                <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline" style="background-color: #1f2022;color: white;">
+                <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline" >
                     <div class="d-flex">
                         <div class="breadcrumb">
                             <a href="planner_ongoing_dashboard.php" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
                             <span class="breadcrumb-item active">Assign Planner</span>
                             <!-- <span style="position:absolute;right:0px;margin-left:13px;">Help<img style="width:17px;height:17px;" title="'+client+'" src="assets/images/informicon.svg"/></span> -->
                             <span class="help">HELP
-                                <img style="width:17px;" title="Write to adminwmflow@wmglobal.com to get details added" src="assets/images/informicon.svg">
+                                <img class="img" title="Write to adminwmflow@wmglobal.com to get details added" src="assets/images/informicon.svg">
                             </span>
                         </div>
 
@@ -270,7 +184,7 @@ $( document ).ready(function() {
                                         <!-- <p class="mb-2">Select2 supports ability to add choices automatically as the user is typing into the search field. Try typing in the search field below and entering a space or a comma.</p> -->
                                         <div class="row">
                                             <div class="col-md-2">
-                                                <button style="background-color:#f07144;color:white;border: none;border-radius: 3px;" class="form-control addsavebtn">Add Planner</button>
+                                                <button  class="form-control addsavebtn">Add Planner</button>
                                             </div>
                                         </div>
                                     </div>
@@ -311,7 +225,7 @@ $( document ).ready(function() {
                                         <!-- <p class="mb-2">Select2 supports ability to add choices automatically as the user is typing into the search field. Try typing in the search field below and entering a space or a comma.</p> -->
                                         <div class="row">
                                             <div class="col-md-2">
-                                                <button style="background-color:#f07144;color:white;border: none;border-radius: 3px;" class="form-control deletesavebtn">Delete Planner</button>
+                                                <button  class="form-control deletesavebtn">Delete Planner</button>
                                             </div>
                                         </div>
                                     </div>

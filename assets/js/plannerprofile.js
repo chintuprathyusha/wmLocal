@@ -19,14 +19,9 @@ $(document).ready(function () {
         clinet_planner_flag = "true";
     }
 
-
     // alert(prev.hasOwnProperty('edituserprofile'))
     // alert(edituserprofile_new)
     // alert(edituserprofile_new)
-
-
-
-
     var selectedValues;
     $(".CLemId").show();
     $('.select2-search').select2().next().hide();

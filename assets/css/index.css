@@ -1,0 +1,33 @@
+
+/* .content{
+/* background-image: ('assets/images/wmflow.png') */
+/* background-image: url('assets/images/wmflow.png');
+} */
+.pleasewaitforlogin{
+	color:red;
+	font-size: 20px;
+	margin-left: 20px;
+}
+@media screen and (max-width: 540px) {
+    .card-body {
+		width:280px !important;
+    	-ms-flex: 1 1 auto;
+    	flex: 1 1 auto!important;
+    	padding: 0.25rem;
+		padding-right: 13px !important;
+    }
+    .img{
+        padding:0px!important;
+    }
+}
+/* .card-body{
+    width:400px;
+}
+.updatesinprogress{
+    width: 200px;
+    height: 100%;
+    padding:15px;
+}
+.loginbtnn.btn.btn-block{
+    background:#f07144;color:white;
+} */

@@ -32,133 +32,11 @@ if ($_SESSION['usernamee'] == '') {
     <script src="assets/js/exportExcel.js" charset="utf-8"></script>
     <script src="assets/js/FileSaver.min.js" charset="utf-8"></script>
     <script src="assets/js/xlsx.full.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="assets/css/adminindex.css">
     <!-- /theme JS files -->
 
 </head>
 <style>
-.content{
-    /* background-image: url('./assets/images/wmflow.png'); */
-    	background-size: cover;
-}
-.file-drop-zone-title {
-    padding: 11px;
-}
-.submit_btn{
-    margin-top: 19px;
-    float: right;
-    text-align: right;
-}
-.cursor_pointer{
-    cursor: pointer;
-}
-.cprp{
-    padding: 30px 55px;
-}
-.budget{
-    padding: 30px 55px;
-}
-.disabled {
-    color: #999;
-}
-.disable_border{
-    border:1px solid #ccc !important;
-    cursor: auto;
-}
-.total_div{
-    display: none;
-}
-.nav-tabs .nav-link.active {
-    background-color: #cccccc87;
-}
-.file-preview {
-    display: none;
-}
-.my-custom-scrollbar {
-    position: relative;
-    height: 200px;
-    overflow: auto;
-}
-.table-wrapper-scroll-y {
-    display: block;
-}
-.fileinput-upload{
-    display: none;
-}
-.editdropdown{
-    display: none;
-}
-.beforeedit{
-    display: block;
-}
-.btn_style{
-}
-.masterdata_new{
-    display: none;
-}
-.table-bordered{
-    color: #fff !important;
-}
-.nav-tabs .nav-link.active {
-    background-color: #f07144;
-}
-/* responsive */
-
-@media screen and (min-width: 570px) and (max-width: 1024px) {
-    .font-weight-semibold {
-        width: 123px;
-        margin-left: -39px;
-        font-size: 13.5px!important;
-
-    }
-    .masterdatastamp li {
-        font-size: 12px;
-
-    }
-
-}
-@media screen and (max-width: 768px) and (min-width: 560px) {
-    .page-content {
-        width: 950px;
-    }
-    .masterdatastamp li {
-        font-size: 12px;
-        width: 289px;
-    }
-}
-@media screen and (max-width: 570px) and (min-width: 300px) {
-    /* .tab-content modal-body{
-        width: 328px;
-        margin-left: -79px;
-
-     }  */
-     .content {
-        width: 365px;
-        margin-left: -26px;
-
-     }
-    .cprp.card{
-
-        width: 331px;
-        margin-left: -47px;
-
-    }
-    .font-weight-semibold {
-        font-size: 13px;
-    }
-    .row.timestampfiles {
-        width: 372px;
-        margin-left: -55px;
-    }
-    .masterdatastamp li {
-        font-size: 12px;
-    }
-    .icon-paragraph-justify3:before {
-        content: "\eec1";
-        color: white;
-    }
-}
-
-/* responsive */
 </style>
 
 <script>
@@ -277,7 +155,7 @@ $( document ).ready(function() {
                                             <div class="col-md-8 masterdata_new">
                                             </div>
                                             <div class="col-md-2">
-                                                <span class="btn_style">  <button type="submit" class="btn btn-primary" style="background: #4caf50;" id="locationuploadbtn">Upload <i class="icon-upload ml-2"></i></button></span>
+                                                <span class="btn_style">  <button type="submit" class="btn btn-primary" id="locationuploadbtn">Upload <i class="icon-upload ml-2"></i></button></span>
                                             </div>
                                         </div>
                                         <div class="row mb-4">
@@ -290,7 +168,7 @@ $( document ).ready(function() {
 
                                             </div>
                                             <div class="col-md-2">
-                                                <span class="btn_style">  <button type="submit" class="btn btn-primary" style="background: #4caf50;"  id="channelgenrebtn">Upload <i class="icon-upload ml-2"></i></button></span>
+                                                <span class="btn_style">  <button type="submit" class="btn btn-primary"  id="channelgenrebtn">Upload <i class="icon-upload ml-2"></i></button></span>
                                             </div>
                                         </div>
                                         <!-- <div class="mb-4">
@@ -339,7 +217,7 @@ $( document ).ready(function() {
 
     </div>
     <div class="row timestampfiles">
-        <h4 style="width:100%; text-align:center">Recent uploaded files </h4>
+        <h4 class="h4">Recent uploaded files </h4>
         <div class="col-lg-6 col-md-6 col-sm-6">
             <div class="masterdatastamp">
                 <h5>Master Data:</h5>
@@ -351,7 +229,7 @@ $( document ).ready(function() {
             </div>
         </div>
     </div>
-    <button type="button" class="btn btn-primary downloadall" name="button" style="float:right">Download all admin files here</button>
+    <button type="button" class="btn btn-primary downloadall" name="button" >Download all admin files here</button>
 </div>
 
 <div class="tab-pane fade" id="login-tab2">
@@ -390,8 +268,8 @@ $( document ).ready(function() {
                     <thead>
                         <tr>
                             <!-- <th scope="col">#</th> -->
-                            <th scope="col" style="width: 443px;font-weight: 600;font-size: 15px;">User role previlages </th>
-                            <th scope="col" style="width: 443px;font-weight: 600;font-size: 15px;">Status</th>
+                            <th scope="col" class="scope">User role previlages </th>
+                            <th scope="col" class="scope">Status</th>
 
                         </tr>
                     </thead>
@@ -414,7 +292,7 @@ $( document ).ready(function() {
 
 
 <div class="mb-4">
-    <button type="submit" class="btn btn-primary submitbtn" style="background: #4caf50;float:right">Submit <i class="icon-paperplane ml-2"></i></button>
+    <button type="submit" class="btn btn-primary submitbtn" >Submit <i class="icon-paperplane ml-2"></i></button>
 </div>
 
 
@@ -456,7 +334,7 @@ $( document ).ready(function() {
 
 
 
-<div class="" style="height:30px;">
+<div class="null">
 
 </div>
 <div class="loading">

@@ -90,51 +90,6 @@ if ($_SESSION['usernamee'] == '') {
 	</script>
 
 </head>
-<style>
-.file-drop-zone-title {
-    padding: 11px;
-}
-.submit_btn{
-    margin-top: 19px;
-    float: right;
-    text-align: right;
-}
-.cursor_pointer{
-	cursor: pointer;
-}
-.cprp{
-	padding: 30px 55px;
-}
-.budget{
-	padding: 30px 55px;
-}
-.disabled {
-    color: #999;
-}
-.disable_border{
-	border:1px solid #ccc !important;
-	cursor: auto;
-}
-#logoutbtnid{
-    background-color: #ffffff2e !important;
-    border: none;
-    border-radius: 5px;
-    padding: 2px 15px;
-    color: white;
-}
-.content-wrapper {
-    height: calc(100vh - 72px);
-}
-.file-caption{
-	margin-top:4px;
-}
-.kv-file-upload {
-	display:none;
-}
-.fileinput-upload {
-	display:none;
-}
-</style>
 
 <body>
 
@@ -154,7 +109,7 @@ if ($_SESSION['usernamee'] == '') {
 
 
 		<!-- Main content -->
-		<div class="content-wrapper" style="background-color: #1f2022;">
+		<div class="content-wrapper" >
 
 			<!-- Content area -->
 			<div class="content">
@@ -166,7 +121,7 @@ if ($_SESSION['usernamee'] == '') {
 						<div class="total_div">
 							<div class="cprp new_plan">
                                 <div class="step-content">
-                            		<div style="width: 100%;">
+                            		<div class="step-content_">
                             			<div class="acce_div">
                             				<h6 class="font-weight-semibold">Upload Accelerator File</h6>
                             				<div class="col-lg-10">
@@ -174,7 +129,7 @@ if ($_SESSION['usernamee'] == '') {
                             					<input type="file" id="load-file" class="file-input-ajax" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" data-fouc>
                             				</div>
                             				<div class="col-lg-12 submit_btn">
-                            					<button type="button" class="btn btn-primary" id="upl-btn" style="background: #4caf50;">Upload <i class="icon-upload ml-2"></i></button>
+                            					<button type="button" class="btn btn-primary" id="upl-btn">Upload <i class="icon-upload ml-2"></i></button>
                             				</div>
                             			</div>
 										<div class="acce_File_">

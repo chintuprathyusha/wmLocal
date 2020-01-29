@@ -1,0 +1,99 @@
+.login-form {
+	width: 100% ;
+}
+.select2-selection--single .select2-selection__rendered{
+	padding-left: 2.75rem !important;
+}
+.form-control-feedback {
+	position: absolute;
+	top: 33px;
+}
+.form-group-feedback-left .form-control {
+	padding-left: 10px;
+}
+.select2-selection--single .select2-selection__rendered{
+	padding-left: 10px !important;
+}
+.hide{
+	display: none;
+}
+/* .loading{
+position: fixed;
+background: rgba(177, 172, 172, 0.4);
+width: 81vw;
+height: 100vh;
+top: 83px;
+z-index: 999999999999999999999999999999;
+text-align: center;
+padding-top:37vh;
+left: 15%;
+}
+.loading img{
+width: 70px;
+} */
+#admin{
+	display: none !important;
+}
+.hidden{
+	display:none;
+}
+#logoutbtnid{
+	background-color: #ffffff2e !important;
+	border: none;
+	border-radius: 5px;
+	padding: 2px 15px;
+	color: white;
+}
+/* Added */
+.bodyy{
+	background-color: #1f2022;
+}
+.textcolor{
+	color:white;
+}
+.content{
+	/* background-color: #393e3e; */
+	/* background-image: url('assets/images/wmflow.png');
+	background-repeat: no-repeat; */
+	background-color: #1f2022;
+}
+
+.breadcrumb-line.breadcrumb-line-light.header-elements-md-inline { 
+    background-color: #1f2022;
+    color: white;
+}
+.form-control.btn.create_btn.create_plan{
+    background: #4b6584 !important; 
+    color: #fff
+}
+/* .select_ .select{
+display: none;
+visibility: hideen;
+} */
+
+
+/* responsive */
+.icon-paragraph-justify3:before {
+    content: "\eec1";
+	color: white;
+	float: right;
+
+}
+@media screen and (max-width: 768px) {
+	.page-content{
+    /* width: 1000px !important; */
+	height: -webkit-fill-available;
+}
+body{
+	width: fit-content;
+}
+}
+@media screen and (max-width: 320px){
+ body{
+	 width: auto;
+ }
+}
+/* responsive */
+.page-header-light{
+    background-color: transparent !important;
+}

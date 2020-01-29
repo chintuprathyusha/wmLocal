@@ -23,7 +23,7 @@ body{
     background: rgba(177, 172, 172, 0.4);
     width: 100%;
     height: 100vh;
-    top: 62px;
+    top: 0px;
     z-index: 999999999999999999999999999999;
     text-align: center;
     padding-top:37vh;
@@ -375,15 +375,13 @@ body{
  .same_Class{
      padding: 0px 16px;
      font-size: 18px;
-     color: green;
+     color:#f07144;
      margin-top: 20px;
  }
  .datatable-header{
      display: none !important;
  }
- .dataTables_filter input{
-     margin-left: 17px;
- }
+
  .dataTables_paginate{
          margin-top: 15px;
  }
@@ -481,10 +479,10 @@ body{
     /* display:none; */
 }
 blink {
-  -webkit-animation: 2s linear infinite condemned_blink_effect; // for Safari 4.0 - 8.0
+  -webkit-animation: 2s linear infinite condemned_blink_effect;
   animation: 2s linear infinite condemned_blink_effect;
 }
-@-webkit-keyframes condemned_blink_effect { // for Safari 4.0 - 8.0
+@-webkit-keyframes condemned_blink_effect {
   0% {
     visibility: hidden;
   }
@@ -537,7 +535,7 @@ blink {
     padding-bottom: 67px;
 } */
 .swal-button--cancel{
-    width: 386px !important;
+    width: 386px;
     background-color: #BB2734 !important;
 }
 .swal-button--confirm {
@@ -578,9 +576,21 @@ blink {
     width:12px;
 }
 .swal-text{
-    font-size: 28px !important;
+    font-size: 28px ;
     color:#fff;
 }
+@media screen and (max-width: 425px)  and (min-width: 320px) {
+    .swal-button.swal-button--cancel{
+        width: 201px;
+    }
+    .swal-title{
+        font-size: 14px;
+    }
+    .swal-text{
+        font-size: 16px;
+    }
+}
+
 .swal-title{
     font-weight: unset !important;
 }

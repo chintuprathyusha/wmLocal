@@ -1,0 +1,145 @@
+.content{
+    /* background-image: url('./assets/images/wmflow.png'); */
+    	background-size: cover;
+}
+.file-drop-zone-title {
+    padding: 11px;
+}
+.submit_btn{
+    margin-top: 19px;
+    float: right;
+    text-align: right;
+}
+.cursor_pointer{
+    cursor: pointer;
+}
+.cprp{
+    padding: 30px 55px;
+}
+.budget{
+    padding: 30px 55px;
+}
+.disabled {
+    color: #999;
+}
+.disable_border{
+    border:1px solid #ccc !important;
+    cursor: auto;
+}
+.total_div{
+    display: none;
+}
+.nav-tabs .nav-link.active {
+    background-color: #cccccc87;
+}
+.file-preview {
+    display: none;
+}
+.my-custom-scrollbar {
+    position: relative;
+    height: 200px;
+    overflow: auto;
+}
+.table-wrapper-scroll-y {
+    display: block;
+}
+.fileinput-upload{
+    display: none;
+}
+.editdropdown{
+    display: none;
+}
+.beforeedit{
+    display: block;
+}
+.btn_style{
+}
+.masterdata_new{
+    display: none;
+}
+.table-bordered{
+    color: #fff !important;
+}
+.nav-tabs .nav-link.active {
+    background-color: #f07144;
+}
+/* responsive */
+
+@media screen and (min-width: 570px) and (max-width: 1024px) {
+    .font-weight-semibold {
+        width: 123px;
+        margin-left: -39px;
+        font-size: 13.5px!important;
+
+    }
+    .masterdatastamp li {
+        font-size: 12px;
+
+    }
+
+}
+@media screen and (max-width: 768px) and (min-width: 560px) {
+    .page-content {
+        width: 950px;
+    }
+    .masterdatastamp li {
+        font-size: 12px;
+        width: 289px;
+    }
+}
+@media screen and (max-width: 570px) and (min-width: 300px) {
+    /* .tab-content modal-body{
+        width: 328px;
+        margin-left: -79px;
+
+     }  */
+     .content {
+        width: 365px;
+        margin-left: -26px;
+
+     }
+    .cprp.card{
+
+        width: 331px;
+        margin-left: -47px;
+
+    }
+    .font-weight-semibold {
+        font-size: 13px;
+    }
+    .row.timestampfiles {
+        width: 372px;
+        margin-left: -55px;
+    }
+    .masterdatastamp li {
+        font-size: 12px;
+    }
+    .icon-paragraph-justify3:before {
+        content: "\eec1";
+        color: white;
+    }
+}
+
+/* responsive */
+.btn.btn-primary{
+    background: #4caf50;
+}
+.btn.btn-primary.downloadall{
+    float:right;
+}
+.scope{
+    width: 443px;
+    font-weight: 600;
+    font-size: 15px;
+}
+.btn.btn-primary.submitbtn{
+    background: #4caf50;
+    float:right;
+}
+.null{
+    height:30px;
+}
+.h4{
+    width:100%; 
+    text-align:center"
+}

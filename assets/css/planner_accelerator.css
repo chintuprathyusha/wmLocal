@@ -1,0 +1,53 @@
+
+.file-drop-zone-title {
+    padding: 11px;
+}
+.submit_btn{
+    margin-top: 19px;
+    float: right;
+    text-align: right;
+}
+.cursor_pointer{
+	cursor: pointer;
+}
+.cprp{
+	padding: 30px 55px;
+}
+.budget{
+	padding: 30px 55px;
+}
+.disabled {
+    color: #999;
+}
+.disable_border{
+	border:1px solid #ccc !important;
+	cursor: auto;
+}
+#logoutbtnid{
+    background-color: #ffffff2e !important;
+    border: none;
+    border-radius: 5px;
+    padding: 2px 15px;
+    color: white;
+}
+.content-wrapper {
+    height: calc(100vh - 72px);
+}
+.file-caption{
+	margin-top:4px;
+}
+.kv-file-upload {
+	display:none;
+}
+.fileinput-upload {
+	display:none;
+}
+.content-wrapper{
+    background-color: #1f2022;
+}
+.step-content_{
+    width: 100%;
+}
+.btn.btn-primary{
+    background: #4caf50;
+}

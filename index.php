@@ -15,32 +15,8 @@ session_start();
     <?php include 'assets/includes/common_scripts.php';?>
 
 	<script src="assets/js/login.js" charset="utf-8"></script>
-
+<link rel="stylesheet" href="assets/css/index.css">
 </head>
-<style>
-/* .content{
-/* background-image: ('assets/images/wmflow.png') */
-/* background-image: url('assets/images/wmflow.png');
-} */
-.pleasewaitforlogin{
-	color:red;
-	font-size: 20px;
-	margin-left: 20px;
-}
-@media screen and (max-width: 540px) {
-    .card-body {
-		width:280px !important;
-    	-ms-flex: 1 1 auto;
-    	flex: 1 1 auto!important;
-    	padding: 0.25rem;
-		padding-right: 13px !important;
-    }
-    .img{
-        padding:0px!important;
-    }
-}
-</style>
-
 
 <body>
 

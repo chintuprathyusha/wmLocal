@@ -1,0 +1,553 @@
+
+input[type='radio']:after {
+	width: 15px;
+	height: 15px;
+	border-radius: 15px;
+	top: -4px;
+	left: -1px;
+	position: relative;
+	background-color: #d1d3d1;
+	content: '';
+	display: inline-block;
+	visibility: visible;
+	border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+	width: 15px;
+	height: 15px;
+	border-radius: 15px;
+	top: -6px;
+	left: -1px;
+	position: relative;
+	background-color: #0de6f1;
+	content: '';
+	display: inline-block;
+	visibility: visible;
+	border: 2px solid #f1f1f1;
+
+}
+
+.file-drop-zone-title {
+	padding: 11px;
+}
+/* .submit_btn{
+    margin-top: 19px;
+    margin-left: 10px !important;
+} */
+.submit_btn {
+    margin-top: 19px;
+    float: right;
+    text-align: right;
+}
+.form-control[readonly] {
+	background-color: #5c5e6147 !important;
+	cursor: no-drop;
+}
+.cursor_pointer{
+	cursor: pointer;
+}
+.cprp{
+	padding: 30px 55px;
+}
+.budget{
+	padding: 30px 55px;
+}
+.disabled {
+	color: #999;
+}
+.disable_border{
+	border:1px solid #ccc !important;
+	cursor: auto;
+}
+
+.file-caption-name{
+	height: 1.2rem !important;
+	border-bottom: none !important;
+}
+.select2-search__field{
+	margin: -10px !important;
+}
+.select2-search__field{
+	margin-left: 10px !important;
+}
+.select2-selection__choice{
+	margin-top: 10px !important;
+}
+.bootstrap-touchspin-down{
+	display: none !important;
+}
+.bootstrap-touchspin-up{
+	display: none !important;
+}
+.fileinput-upload{
+	display: none !important;
+}
+.texttodisplay{
+	display: none;
+}
+button:focus {outline:0;}
+#logoutbtnid{
+	background-color: #ffffff2e !important;
+	border: none;
+	border-radius: 5px;
+	padding: 2px 15px;
+	color: white;
+}
+
+.submit_ {
+    margin-left: 10px !important;
+	/* color: #333;
+	background: #15961bbf;
+	border: 1px solid var(--border-color);
+	padding: 11px 33px; */
+}
+	.hide_{
+		display: none;
+	}
+	.close_{
+		width: 100%;
+        padding: 0px 50px;
+        padding: 0px;
+	}
+	/* .cprp_div{
+		display: none;
+	} */
+	/* .row {
+		margin-right: 0px;
+		margin-left: 0px;} */
+		.radio_class{
+			width: 100%;
+			/* padding: 0px 50px; */
+			font-size: 17px;
+			font-weight: 600;
+		}
+		.changediv{
+			width: 100%;
+		}
+		.spillovertexttodisplay{
+			margin: auto;
+			background: #323335;
+		    border: 1px solid #f07144!important;
+			color: #fff !important;
+			padding: 30px;
+		}
+		.texttodisplayspill{
+			margin: auto;
+			background: #323335;
+			padding: 30px;
+			width: 600px;
+			margin-top: 30px;
+			color: #fff !important;
+			border: 1px solid #f07144!important;
+			text-align: center;
+		}
+		.commonstyle{
+			margin: auto;
+			padding: 30px;
+			width: 600px;
+			background: #323335;
+		    border: 1px solid #f07144!important;
+		}
+		/* .spillover{
+		display: none !important;
+		} */
+
+		/* .common_main{
+			margin-left: 40px;
+		} */
+		.budget_main{
+		padding: 12px;
+			width: 50%;
+			border: 2px solid #1f2022;
+			color: white;
+			float: right;
+		}
+		.cprp_main{
+			border: 2px solid #1f2022;
+			color: #fff;
+			padding: 12px;
+			margin-left: -8px;
+			width: 50%;
+		}
+		.sub_div_new {
+			margin-top: 16px;}
+			.content{
+				/* background-image: url('./assets/images/wmflow.png'); */
+				background-color: #1f2022;
+
+			}
+			.common_main{
+				margin-right: 10px;
+			}
+			.acceleratorfiletext{
+				margin: auto;
+				background: #323335;
+			    border: 1px solid #f07144!important;
+				color: #fff !important;
+				padding: 30px;
+				margin-top: 50px;
+			}
+			.spanClass{
+				font-weight: 400;
+			}
+			.spanClass_{
+				font-weight: 400;
+			}
+			.kv-file-upload {
+				display: none;
+			}
+			.file-footer-buttons {
+			    float: left;
+			}
+			.inputboxstyle{
+				display: block;
+				background-color: #5c5e6147;
+				color:white;border:none;
+			}
+			.colorchange{
+				/* background-color: red !important; */
+				background-color: #303134 !important;
+				border: none;
+				color: white;
+			}
+			.kv-file-zoom {
+				display:none;
+			}
+			input[type=number]::-webkit-inner-spin-button,
+			input[type=number]::-webkit-outer-spin-button {
+			  -webkit-appearance: none;
+			  margin: 0;
+            }
+            .row_{
+                height:100%
+            }
+            .camp_id_{
+                margin-top:6px;
+                float:right;
+            }
+            .buying_basket{
+                width: 100%;
+                /* padding:50px; */
+            }
+            .bb_txt{
+                width:100%
+            }
+            .texttodisplay{
+                background-color:#323335;
+                color:#fff;
+                border:1px solid #f07144!important;
+            }
+            .budget_main{
+                padding: 12px;
+                width: 50%;
+                border: 2px solid #1f2022;
+                color: white;
+                float: right;
+                margin-top: -54px;
+            }
+            .cprp_main{
+                border: 2px solid #1f2022;
+                color: #fff;padding: 12px;
+                margin-left: -8px;
+                width: 50%;
+            }
+            .weight{
+                color:#f07144!important
+            }
+            .row1{
+                margin-top: 20px;
+            }
+            .cd{
+                margin-top:20px
+            }
+            .row2{
+                margin-top:-40px;
+            }
+            .row3{
+                width:100%
+            }
+            .submit_{
+                width:485px;
+                background-color:#BB2734;
+                color:white
+            }
+            .addmore_{
+                text-align:right
+            }
+            .add_more{
+                background-color:#BB2734;
+                color:white
+            }
+            .campaign_days_new{
+                background-color: #303134 !important;
+                border: none;
+                color: white;
+            }
+            .sub_div_new{
+                width:100%;margin-top:0px;
+            }
+            .submit_new{
+                width:485px;
+                background-color:#BB2734;
+                color:white;
+            }
+            .name_class_new{
+                background-color: #303134;
+                border: none;
+                color: white;
+            }
+            .upbtn{
+                background: #4caf50;float:right
+            }
+            .backclass{
+                color: #F07144;
+                border:none;
+                float: left;
+                background-color: transparent !important;
+            }
+            .next_{
+                color: #F07144;
+                border:none;float: right;
+                background-color: transparent !important;
+            }
+            .budgetdivnew{
+               width: 100%;
+               padding:50px;
+            }
+            .forfirstpathtext{
+                margin-top:50px;
+            }
+            .forsecoundpathtext{
+                margin-top:50px;
+            }
+            .spillover{
+                width: 100%;
+                padding:50px;
+            }
+           .btn.btn-primary.btn1{
+            background: #4caf50;
+            float:right;
+           }
+            .acceleratorfiletext{
+                padding: 50px;
+            }
+           .upload_msg_full_width{
+            width: 100%;
+            margin-right: 0px !important;
+           }
+           .camp_id_{
+               color: white;
+           }
+
+
+
+
+
+
+
+	/* responsive */
+	.icon-paragraph-justify3:before {
+    content: "\eec1";
+	color: white;
+	float: right;
+
+}
+			/* @media screen and (max-width: 770px) {
+				.page-content{
+			width: 1000px;
+				}
+			} */
+			@media screen and (max-width: 768px) and (min-width: 320px) {
+				.page-content {
+                 height: 112vh;
+              }
+				.col-lg-3{
+					text-align: left!important;
+				}
+				.submit_   {
+			 width: 296px!important;
+			}
+			.text{
+				margin-left: 8px;
+			}
+			.px{
+				right: -312px;
+				margin-top: -38px;
+			}
+			.positions{
+                width: 100px!important;
+			}
+			/* .common_main{
+				margin-top: -54px;
+				padding: 14px;
+			   width: 50%;
+			} */
+			/* .cprp_main{
+				width: 100%;
+				padding: 16px!important;
+			} */
+			/* .budget_main{
+				width: 100%;
+				padding: 17px!important;
+            } */
+            .common_main{
+                    font-size: 10px;
+                    width: 50%;
+                    margin: 0px;
+                    height: 60px;
+			 }
+			 .kv-preview-thumb{
+				width: -webkit-fill-available;
+			 }
+             .cprp_main{
+                font-size: 10px;
+                width: 50%;
+                margin: 0px;
+                height: 60px
+             }
+			/* .path_Class{
+					width: 50%;
+					float: right;
+					margin-top: -34px;
+            } */
+            .submit_.btn, .submit_new.btn{
+                width: 170px !important;
+                margin-left: 10px;
+            }
+           
+            .forfirstpathtext{
+               width: auto;
+            }
+            .forsecoundpathtext{
+                width: auto;
+            }
+            .card.fadeInDown.texttodisplayspill{
+                width: auto;
+            }
+			/* .font-weight-semibold{
+				float: right;
+                margin-top: -29px;
+			} */
+			/* .dis{
+				float: right;
+                width: 50%;
+                margin-top: -38px;
+			} */
+			}
+			@media screen and (max-width: 1024px) {
+				.submit_   {
+			 width: 300px!important;
+			}
+		}
+
+		/* @media screen and (max-width: 425px)  and (min-width: 320px) {
+		.icon-paragraph-justify3:before {
+			color: white;
+        }
+		.padding{
+			padding: 100px;
+		}
+		.padding{
+				padding: 45px!important;
+			}
+		.buying_basket{
+			padding:75px!important;
+		}
+		.appendobjvalindispersion{
+			right: -477px;
+            margin-top: -47px;
+	        left: 463px
+		}
+		.dispersion{
+				right: -462px;
+                margin-top: -54px;
+			}
+			.appendobjvalinacd{
+				width: 342px;
+			}
+			.mods_inputs{
+				width: 342px;
+			}
+			.field{
+				width: 354px;
+				padding: 9px;
+			}
+			.jconfirm-box{
+				width: 230px;
+			}
+			.position{
+				position: absolute;
+				right: 0px;
+				width: 45%;
+			}
+			.positions{
+				position: absolute;
+				right: 0px;
+				width: 580px;
+			}
+			.radio_class{
+				font-size:14px;
+			}
+			.cprp_main{
+				width: 100%;
+				padding: 16px!important;
+			}
+			.budget_main{
+				width: 100%;
+				padding: 17px!important;
+			}
+			body{
+				height : 300vh!important;
+				width: 1000px!important;
+			}
+			.submit_new{
+                width: 338px!important;
+                margin-left: -332px;
+            }
+			.col-sm-2{
+					width: fit-content;
+					float: right;
+            }
+			.campaign_days_new{
+				width: 50%;
+			}
+			.path_Class{
+              float: right;
+			  margin-top: -32px;
+			}
+
+	} */
+
+		@media screen and (max-width :882px){
+			.radio_class{
+				font-size:14px;
+			}
+		}
+		@media screen and (max-width :803px){
+			.radio_class{
+				font-size:11px;
+			}
+		}
+		/* @media screen and (max-width : 320px){
+
+
+			.padding{
+				padding: 45px!important;
+			}
+		} */
+/* responsive */
+    
+
+.remove_new, .remove {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+.path_Class, .path_Class_new{
+    width: calc(100% - 40px);
+}
+.add_more_new{
+    background-color: #BB2734;
+    color: white;
+}

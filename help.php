@@ -254,7 +254,7 @@ div.row_body div:nth-of-type(odd)
                 <div class="card" style="background-color: #1f2022;color: white;">
                     <div style="padding:12px;">
                            <p style="font-size:20px;">Files To Download</p>
-                           search:
+                           Search:
                            <input style="background-color: #1f2022;border-color: #f07144;border-top: none;border-left: none;border-right: none;width: 201px;" type="text" />
                         <!-- <span style="font-size:16px;color: #eade47;
                     font-weight: 600;float: right;
@@ -263,7 +263,7 @@ div.row_body div:nth-of-type(odd)
                     <!-- <button onclick="location.href='planner_createnewplan.php';" class="createbtn">Create plan</button> -->
                     <!-- <button class="btn3">More filters+</button> -->
                 </div>
-                <div class="row displaytoptextboxes">
+                <!-- <div class="row displaytoptextboxes">
                     <div style="margin-top:6px;margin-right:14px;margin-left:12px;" class="col-sm-2">
                         <input type="text" style="padding:5px;" placeholder="search for Campaign ID" class="form-control Campaignidclass"/>
                     </div>
@@ -286,7 +286,7 @@ div.row_body div:nth-of-type(odd)
                     <div style="margin-top:6px;" class="col-sm-1">
                         <button style="background-color:#f07144;border:none;color:#fff;border:none;" class="form-control gobtn">GO</button>
                     </div>
-                </div>
+                </div> -->
                 <!-- <div class="linesss">
                 </div> -->
                 <table class="table datatable-multi-sorting" style="color:white;margin-top:30px">
