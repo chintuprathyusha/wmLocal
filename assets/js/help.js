@@ -57,12 +57,36 @@ $( document ).ready(function() {
 
         })
     }
+    function dataTableMultiSort() {
 
+        setTimeout(function () {
+            dataTable___ = $('.datatable-multi-sorting').DataTable();
+        }, 0);
+    }
+
+    $("body").on("keyup", "#searchHelp", function () {
+
+                var input, filter, table, tr, td, i, txtValue;
+                input = $(this).val();
+                filter = input.toUpperCase();
+                table = document.getElementById("searchTable");
+                tr = table.getElementsByTagName("tr");
+                for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[1];
+                    if (td) {
+                        txtValue = td.textContent || td.innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+            })
 
 
     $("body").on("click", ".downloadbtn", function () {
          filename =  $(this).attr('filename');
-         alert(filename)
          obj = {}
          obj.filename = filename
          console.log(obj);
