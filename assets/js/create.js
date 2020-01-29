@@ -447,7 +447,6 @@ var plan_id;
             };
             $.ajax(settings11).done(function (msg) {
                 msg = JSON.parse(msg);
-                alert(msg)
                 plan_id = msg.createplanid
                 $('.loading').hide();
 
