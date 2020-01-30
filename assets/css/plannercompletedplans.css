@@ -27,7 +27,7 @@
 
 .form-control.buyingbasketbtn{
     margin-top: 20px !important;
-    
+
 }
 
 /* .dataTables_filter{
@@ -188,7 +188,7 @@ div.row_body div:nth-of-type(odd)
     .gobtn{
         width: fit-content;
     }
-    
+
 }
 @media screen and (max-width: 540px) {
 	.content-wrapper{
@@ -197,7 +197,7 @@ div.row_body div:nth-of-type(odd)
 }
 
 @media screen  and (max-width: 425px)  and (min-width: 320px){
-			
+
 			.card{
 				width: 1000px;
 			}
@@ -267,7 +267,7 @@ div.row_body div:nth-of-type(odd)
 .form-control.acceleratorbtn{
     background-color: #192124;
     color: white;
-    color:#fff;   
+    color:#fff;
 }
 .modal-content{
     margin-top: 255px;
@@ -306,4 +306,11 @@ div.row_body div:nth-of-type(odd)
 .table.datatable-multi-sorting{
     color:white;
     margin-top:30px;
+}
+@media screen  and (min-width: 400px) {
+    .sidebar-mobile-main-toggle{
+        position: absolute;
+        /* top: 13px; */
+        right: 30px;
+      }
 }

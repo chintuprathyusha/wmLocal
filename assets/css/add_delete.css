@@ -104,3 +104,15 @@
 .img{
     width: 17px;
 }
+.icon-paragraph-justify3:before {
+    content: "\eec1";
+    color: white;
+    float: right;
+
+}
+
+@media screen and (max-width: 400px) {
+    .jconfirm-holder{
+        width: 282px;
+        margin: 62px;
+}
