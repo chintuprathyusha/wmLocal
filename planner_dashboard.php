@@ -100,28 +100,43 @@ $(document).ready(function () {
                         <!-- <div class="card" style="background-color: #222c31;"> -->
                         <div class="row displaytoptextboxes" style="display:none;" >
                             <!-- <div class="row"> -->
-                            <div  class="col-sm-2 campid">
-                                <input type="text" placeholder="search for Campaign ID" class="form-control Campaignidclass"/>
-                            </div>
-                            <div  class="col-sm-2 date">
-                                <input class="form-control startdateclass"  placeholder="start date" type="date"/>
-                            </div>
-                            <div class="col-sm-2 date">
-                                <input class="form-control enddateclass"  placeholder="end date" type="date"/>
-                            </div>
-                            <div class="col-sm-2 date">
-                                <select data-placeholder="Client Name" class="form-control select clientclass" id="clientt" data-fouc>
-                                    <option value=""></option>
-                                </select>
-                            </div>
-                            <div class="col-sm-2 date">
-                                <select data-placeholder="BrandName" class="form-control select brandclass" id="brandd" data-fouc>
-                                    <option value=""></option>
-                                </select>
-                            </div>
-                            <div class="col-sm-1 date">
-                                <button  class="form-control gobtn">GO</button>
-                            </div>
+							<div class="col-sm-6 col-md-2 campid">
+                                        <div class="s-e-campid">Campaign ID:
+                                            <input type="text" placeholder="search for Campaign ID"
+                                                class="form-control Campaignidclass" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-2 date">
+                                        <div class="s-e-date">Start Date:
+                                            <input class="form-control startdateclass" placeholder="start date"
+                                                type="date" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-2 date">
+                                        <div class="s-e-date">End Date:
+                                            <input class="form-control startdateclass" placeholder="start date"
+                                                type="date" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-2 client">
+                                        <div class="s-e-client">Client Name:
+                                            <select data-placeholder="Client Name"
+                                                class="form-control select clientclass" id="clientt" data-fouc>
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-2 brand">
+                                        <div class="s-e-brand">Brand Name:
+                                            <select data-placeholder="BrandName" class="form-control select brandclass"
+                                                id="brandd" data-fouc>
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-1 go">
+                                        <button class="form-control gobtn">GO</button>
+                                    </div>
                         </div>
 
 
