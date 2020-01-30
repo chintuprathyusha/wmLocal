@@ -658,7 +658,6 @@ var plan_id;
                 $('.endfreeze').append('<p type="text" value='+endWeekId_+' class="form-control" readonly style="background-color:#d6d6d6;">'+endWeekId_+'</p>')
                 // $('.channel_selection_freez').append('<p type="text" value='+skipChannelSelection+' class="form-control" readonly style="background-color:#d6d6d6;">'+skipChannelSelection+'</p>')
                 // $('.program_performance_freez').append('<p type="text" value='+skipProgramPerformance+' class="form-control" readonly style="background-color:#d6d6d6;">'+skipProgramPerformance+'</p>')
-                $(".freezswith").hide()
                 if (skipChannelSelection == "true") {
                    $('.channel_selection_freez').append('<label class="switch"><input type="checkbox" id="channel_selection"  value="true" name="disableYXLogo"><div class="slider round"></div></label>')
                 }
@@ -668,13 +667,16 @@ var plan_id;
 
                 if (skipProgramPerformance == "true") {
 
-                    $('.program_performance_freez').append('<label class="switch"><input type="checkbox" id="channel_selection"  value="true" name="disableYXLogo"><div class="slider round"></div></label>')
+                    $('.program_performance_freez').append('<label class="switch"><input type="checkbox" id="program_performance"  value="true" name="disableYXLogo"><div class="slider round"></div></label>')
                 }
                 else {
-                    $('.program_performance_freez').append('<label class="switch"><input type="checkbox" id="channel_selection" checked value="true" name="disableYXLogo"><div class="slider round"></div></label>')
+                    $('.program_performance_freez').append('<label class="switch"><input type="checkbox" id="program_performance" checked value="true" name="disableYXLogo"><div class="slider round"></div></label>')
 
                 }
 
+                $(".freezswith").hide()
+                $('#channel_selection').prop('disabled', true);
+                $('#program_performance').prop('disabled', true);
             }
         })
     }
