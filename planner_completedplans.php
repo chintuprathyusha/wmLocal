@@ -107,7 +107,7 @@ if ($_SESSION['usernamee'] == '') {
         <div class="col-xl-12">
             <div class="card" >
                 <div class="card card1" >
-                    <div style="padding:12px;">
+                    <div class="filter">
                         <!-- <span style="font-size:16px;color: #eade47;
                     font-weight: 600;float: right;
                     text-decoration: none;">More Filters </span> -->
@@ -116,28 +116,43 @@ if ($_SESSION['usernamee'] == '') {
                     <!-- <button class="btn3">More filters+</button> -->
                 </div>
                 <div class="row displaytoptextboxes">
-                    <div  class="col-sm-2 col-xs-2 i">
-                        <input type="text"  placeholder="search for Campaign ID" class="form-control Campaignidclass"/>
-                    </div>
-                    <div  class="col-sm-2 col-xs-2">
-                        <input class="form-control startdateclass"  placeholder="start date" type="date"/>
-                    </div>
-                    <div class="col-sm-2 col-xs-2">
-                        <input class="form-control enddateclass"  placeholder="end date" type="date"/>
-                    </div>
-                    <div  class="col-sm-2 col-xs-2">
-                        <select data-placeholder="Client Name" class="form-control select clientclass" id="clientt" data-fouc>
-                            <option value=""></option>
-                        </select>
-                    </div>
-                    <div  class="col-sm-2 col-xs-2">
-                        <select data-placeholder="Brand Name" class="form-control select brandclass" id="brandd" data-fouc>
-                            <option value=""></option>
-                        </select>
-                    </div>
-                    <div class="col-sm-1 col-xs-2">
-                        <button class="form-control gobtn">GO</button>
-                    </div>
+					<div class="col-sm-6 col-md-2 campid">
+                                        <div class="s-e-campid">Campaign ID:
+                                            <input type="text" placeholder="search for Campaign ID"
+                                                class="form-control Campaignidclass" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-2 date">
+                                        <div class="s-e-date">Start Date:
+                                            <input class="form-control startdateclass" placeholder="start date"
+                                                type="date" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-2 date">
+                                        <div class="s-e-date">End Date:
+                                            <input class="form-control startdateclass" placeholder="start date"
+                                                type="date" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-2 client">
+                                        <div class="s-e-client">Client Name:
+                                            <select data-placeholder="Client Name"
+                                                class="form-control select clientclass" id="clientt" data-fouc>
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-2 brand">
+                                        <div class="s-e-brand">Brand Name:
+                                            <select data-placeholder="BrandName" class="form-control select brandclass"
+                                                id="brandd" data-fouc>
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-1 go">
+                                        <button class="form-control gobtn">GO</button>
+                                    </div>
                 </div>
                 <!-- <div class="linesss">
                 </div> -->
