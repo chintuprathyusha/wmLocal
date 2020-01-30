@@ -658,6 +658,7 @@ var plan_id;
                 $('.endfreeze').append('<p type="text" value='+endWeekId_+' class="form-control" readonly style="background-color:#d6d6d6;">'+endWeekId_+'</p>')
                 // $('.channel_selection_freez').append('<p type="text" value='+skipChannelSelection+' class="form-control" readonly style="background-color:#d6d6d6;">'+skipChannelSelection+'</p>')
                 // $('.program_performance_freez').append('<p type="text" value='+skipProgramPerformance+' class="form-control" readonly style="background-color:#d6d6d6;">'+skipProgramPerformance+'</p>')
+                $(".freezswith").hide()
                 if (skipChannelSelection == "true") {
                    $('.channel_selection_freez').append('<label class="switch"><input type="checkbox" id="channel_selection"  value="true" name="disableYXLogo"><div class="slider round"></div></label>')
                 }

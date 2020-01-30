@@ -207,7 +207,7 @@
 									</div>
 								</div>
 
-
+																<div class="mb-4">
 																	<!-- <p class="mb-2">Select2 supports ability to add choices automatically as the user is typing into the search field. Try typing in the search field below and entering a space or a comma.</p> -->
 																	<div class="row">
 																		<div class="col-md-3">
@@ -229,7 +229,7 @@
 
 																			</div>
 
-																			<label class="switch">
+																			<label class="freezswith switch">
 																		    <input type="checkbox" id="channel_selection" checked  value="true" name="disableYXLogo">
 																		    <div class="slider round"></div>
 																		    </label>
@@ -240,9 +240,10 @@
 																			</div> -->
 																		</div>
 																	</div>
-																
+																</div>
 																<!-- <div class="mb-4"> -->
 																	<!-- <p class="mb-2">Select2 supports ability to add choices automatically as the user is typing into the search field. Try typing in the search field below and entering a space or a comma.</p> -->
+																<div class="mb-4">
 																	<div class="row">
 																		<div class="col-md-3">
 																			<h6  title="<?php echo $_SESSION['tool_tips']['CreateNewPlan_CampaignMarkets'];?>" class="font-weight-semibold">Program Performance Report<span class="text-danger">*</span></h6>
@@ -250,18 +251,11 @@
 																		<p class="onnclass">ON</p>
 																		<p class="offfclass">OFF</p>
 																		<div class="col-md-4">
-																			<!-- <input type="radio">Yes -->
-																			<!-- <label style="padding: 12px;"><input type="radio" name="Admin">YES</label>
-								 											<label style=""><input type="radio" name="Admin">NO</label> -->
-																			<!-- <form id="program_performance">
-																				  <input type="radio" name="progran__" value="YES" /> YES &nbsp;&nbsp;&nbsp;
-																				  <input type="radio" name="progran__" value="NO" /> NO
-																				</form> -->
 																				<div class="program_performance_freez">
 
 																				</div>
 
-																				<label class="switch">
+																				<label class="freezswith switch">
 																			    <input type="checkbox" id="program_performance" checked value="true" name="disableYXLogo">
 																			    <div class="slider round"></div>
 																			    </label>
@@ -269,7 +263,7 @@
 
 																		</div>
 																	</div>
-																<!-- </div> -->
+																</div>
 
 														<div class="row">
 															<div class="col-md-6">
