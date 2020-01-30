@@ -166,7 +166,7 @@ div.row_body div:nth-of-type(odd)
 .btn3{
     float:right;
     width:20px;
-    height:20px; 
+    height:20px;
     cursor:pointer !important;
 }
 /* .row.displaytoptextboxes{
@@ -307,3 +307,10 @@ div.row_body div:nth-of-type(odd)
           }
 }
 /* responsive */
+@media screen  and (min-width: 400px) {
+    .sidebar-mobile-main-toggle{
+        position: absolute;
+        /* top: 13px; */
+        right: 30px;
+      }
+}
