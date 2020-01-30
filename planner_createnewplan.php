@@ -207,7 +207,7 @@
 									</div>
 								</div>
 
-																<div class="mb-4">
+
 																	<!-- <p class="mb-2">Select2 supports ability to add choices automatically as the user is typing into the search field. Try typing in the search field below and entering a space or a comma.</p> -->
 																	<div class="row">
 																		<div class="col-md-3">
@@ -240,8 +240,8 @@
 																			</div> -->
 																		</div>
 																	</div>
-																</div>
-																<div class="mb-4">
+																
+																<!-- <div class="mb-4"> -->
 																	<!-- <p class="mb-2">Select2 supports ability to add choices automatically as the user is typing into the search field. Try typing in the search field below and entering a space or a comma.</p> -->
 																	<div class="row">
 																		<div class="col-md-3">
@@ -269,27 +269,27 @@
 
 																		</div>
 																	</div>
-																</div>
+																<!-- </div> -->
 
-								<div class="row">
-									<div class="col-md-6">
+														<div class="row">
+															<div class="col-md-6">
 
-									</div>
-									<div class="col-md-6" style="margin-bottom: 35px;">
+															</div>
+															<div class="col-md-6" style="margin-bottom: 35px;">
 
-										<button type="button" name="button" class="btn btn-primary file_download" data-toggle="modal" data-target="#myModal">File Download</button>
-									</div>
-								</div>
-								<div class="mb-12">
+																<button type="button" name="button" class="btn btn-primary file_download" data-toggle="modal" data-target="#myModal">File Download</button>
+															</div>
+														</div>
+														<div class="mb-12">
 
-									<button type="submit" class="btn form-control cprp_submit create_plan" >Create <i class="icon-paperplane ml-2"></i></button>
-								</div>
-							</div>
-							<div class="card fadeInDown texttodisplay" style="">
-								<!-- <h5 style="color:#000;">Channel Selection Sheet being created. Once complete you will receive it in your inbox. -->
-								</h5>
-							</div>
-						</div>
+															<button type="submit" class="btn form-control cprp_submit create_plan" >Create <i class="icon-paperplane ml-2"></i></button>
+														</div>
+													</div>
+													<div class="card fadeInDown texttodisplay" style="">
+														<!-- <h5 style="color:#000;">Channel Selection Sheet being created. Once complete you will receive it in your inbox. -->
+														</h5>
+													</div>
+												</div>
 
 
 					</div>
