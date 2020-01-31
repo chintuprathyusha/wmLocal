@@ -498,6 +498,7 @@ var plan_id;
                     }
                     else {
                       $('.texttodisplay').append(''+create_planlabel+''+format_date(process1ETA)+'');
+                      $(".texttodisplay").show();
                     }
                 }
                    // if (process1ETA == "None" ) {
