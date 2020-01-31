@@ -1,0 +1,8 @@
+{
+"data": [{
+    "sessionTimeOut": "300",
+    "clientId" : "d3cc7c04-0c90-44d5-b40b-7f10a5cce951",
+    "productionurl" : "http://192.168.0.156:6767/"
+}]
+
+}

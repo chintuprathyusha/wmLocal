@@ -1,0 +1,320 @@
+
+.displaytoptextboxes{
+	display: none;
+}
+
+.DownloadAllfiles{
+   padding: 4px 20px;
+    background: #bb512b;
+    border: 1px solid #131514;
+    /* border-radius: 5px; */
+    font-size: 15px;
+    font-weight: 400;
+    margin-right: 10px;
+    color: white;
+}
+div.row_body div:nth-of-type(even)
+{
+    background-color: #131514;
+}
+div.row_body div:nth-of-type(odd)
+{
+    background-color : #1f1d1d;
+}
+
+#DataTables_Table_0_wrapper{
+	padding: 10px 10px;
+}
+#DataTables_Table_1_wrapper{
+	padding: 10px 10px;
+}
+.dataTables_paginate .paginate_button.disabled{
+	background-color: #37474f3b;
+
+}
+.content {
+	background-color: #1f2022;
+}
+.createbtn{
+	background-color: #BB2734;
+	color: white;
+	font-size: 14px;
+	color: #ffffff;
+	cursor: pointer;
+	border: none;
+	width: 214px;
+	padding: 5px;
+}
+
+
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 13px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+	position: absolute;
+   top: 4px;
+   left: 3px;
+   height: 16px;
+   width: 16px;
+   background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #bb512b;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+	left: 5px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.breadcrumb-line.breadcrumb-line-light.header-elements-md-inline{
+    background-color: #1f2022 !important;
+    color: white;
+}
+.row.row1{
+    height:100%;
+}
+.row2{
+    height:100%;
+}
+.card{
+    height:100%;
+    background-color: #1f2022;
+    color:white;
+}
+.btn3{
+    width:20px;
+    height:20px;
+    float:right;
+    cursor:pointer !important;
+}
+.displaytoptextboxes{
+    display:none;
+}
+.colsm{
+    display: inline-block;
+}
+.s-e-date{
+    margin-top:12px;
+    margin-right:12px;
+    padding:12px;
+}
+.gobtndiv{
+margin-top: 32px;
+margin-right: 12px;
+padding: 12px;
+}
+.gobtn{
+    background-color:#f07144;
+    border:none;
+    color:#fff;
+    width:55px;
+}
+.datatable-multi-sortingg{
+    color:white;
+    width:100% !important;
+}
+.datatable-multi-sorting{
+    color:white;
+    margin-top:30px;
+}
+.sino{
+    text-align:center;
+}
+.campname{
+    width: 107px!important;
+}
+.modal-content{
+    margin-top: 225px;
+    background-color: #131514;
+    border: 1px solid #b54d27;
+}
+.modal-body.mb{
+    padding-top: 0px;
+}
+/* .modal-body{
+    background-color: aliceblue;
+} */
+.same_class{
+    color:#f07144 !important;
+}
+.buyingbasketbtn{
+    background-color: #192124;
+    color: white;
+}
+.acceleratorbtn{
+    background-color: #192124 !important;
+    color: white !important;
+}
+.modal-content.mc{
+    margin-top: 255px;
+}
+/* .modal-body{
+    background-color: white;
+} */
+/* responsive */
+.icon-paragraph-justify3:before {
+    content: "\eec1";
+	color: white;
+	float: right;
+}
+@media screen and (max-width: 540px) {
+	.content-wrapper{
+		overflow-x:auto;
+	}
+}
+@media screen and (max-width: 768px) {
+    .content-wrapper{
+		overflow-x:auto;
+	}
+	/* .page-content{
+	width: 1000px;
+    height: 100%;
+	} */
+	body{
+	width: fit-content;
+	height: -webkit-fill-available;
+}
+.page-content{
+    /* width: 1000px; */
+height: 100%;
+}
+.body{
+    width: fit-content;
+    height: -webkit-fill-available;
+}
+  .modal-backdrop {
+      background-color: #1f2022 !important;
+  }
+  /* .navbar{
+      display: block;
+  } */
+  .dataTables_wrapper.no-footer{
+    overflow-x: auto;
+}
+}
+@media screen and (max-width: 1024px) {
+	.content-wrapper{
+		overflow-x:auto;
+	}
+}
+@media screen and (max-width: 425px) and (min-width: 320px) {
+    .page-content{
+        width: auto;
+    }
+    body{
+        width:auto;
+    }
+    .dataTables_wrapper.no-footer{
+        overflow-x: auto;
+    }
+    .swal-modal{
+        width: 300px;
+    }
+    .form-control.acceleratorbtn{
+        padding: 0px;
+    }
+     .form-control.buyingbasketbtn{
+         margin-top: 20px !important;
+     }
+     .navbar-toggler.sidebar-mobile-main-toggle{
+         float: right;
+     }
+    /* .content-wrapper{
+        overflow-x: auto;
+    } */
+}
+
+		/* @media screen and (max-width: 425px){
+			  .swal-modal {
+				  width: 481px;
+			  }
+			  .modal-content{
+					width: 617px;
+					margin-left: 218px;
+				}
+				.modal-backdrop {
+					background-color: #1f2022 !important;
+				}
+				.col-sm-4 {
+				width: auto;
+			}
+			.col-sm-3 {
+				width: auto;
+			}
+			.jc-bs3-container.container {
+				width: fit-content;
+				margin-top: -450px;
+			}
+        } */
+        
+		/* @media screen and (max-width: 375px){
+            .swal-modal {
+                width: 481px;
+            }
+      } */
+
+
+/* responsive */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
