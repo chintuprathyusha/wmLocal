@@ -559,7 +559,9 @@ $(document).ready(function () {
     }
 
     function freezebuyinginfo() {
+        debugger;
         // $('.cprp_div').show();
+        $('sub_div').prop('disabled',true);
         if (isFilePrepCompleted == "false") {
             $('.channelbeing').show();
             if (path_selection == 2) {
@@ -692,6 +694,8 @@ $(document).ready(function () {
         }
         $('.add_more').prop('disabled', true);
         $('.submit_').prop('disabled', true);
+        $('.edit__class').prop('readonly', true);
+        $('.dispersion__class').prop('readonly', true);
 
         $.each(weightage, function (key, value) {
             $('.cprp_val').val(key)
@@ -1186,6 +1190,7 @@ $('.campaign').focus(function () {
 
 
     $("body").on("click", ".submit_", function () {
+        debugger
         $('.forfirstpathtext').empty()
         path_selection = $(this).closest('.common_class').find('.cprp_main').attr('key');
         div_weitage = $(this).closest('.common_class').find('.cprp_div');
@@ -1316,6 +1321,7 @@ $('.campaign').focus(function () {
                     $('input[type=number]').prop('readonly', true);
                     $('.add_more').prop('disbale', true);
                     $('.submit_').prop('disbale', true);
+                    $('.remove').hide();
                     sessionStorage.getItem('create_plan_id', 0);
                     $('.channelbeing').show();
                     $('.forfirstpathtext').show();
