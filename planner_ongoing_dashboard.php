@@ -14,12 +14,13 @@ if ($_SESSION['usernamee'] == '') {
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Wavemaker</title>
-
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 	<?php include 'assets/includes/common_css.php'; ?>
 	<?php include 'assets/includes/common_scripts.php';?>
+	
+	
 
-	<script src="assets/js/user_dashboard.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Base64/1.0.2/base64.js"></script>
+	
 	<!-- <script type="assets/js/configfile.json"></script> -->
 <link rel="stylesheet" href="assets/css/plannerongdashboard.css">
 </head>
@@ -79,23 +80,8 @@ if ($_SESSION['usernamee'] == '') {
 								<!-- <img class="btn3" src="assets/images/filter-icon.svg"> -->
 							</div>
 
-							<div class="row " >
-								<div class="col-sm-4 colsm" >
-									<div class="s-e-date">Start Date:
-										<input class="form-control startdateclass"  placeholder="start date" type="date"/>
-									</div>
-								</div>
-								<div class="col-sm-4 colsm" >
-									<div class="s-e-date">End Date:
-										<input  class="form-control enddateclass" placeholder="end date" type="date"/>
-									</div>
-								</div>
-								<div class="col-sm-3 colsm">
-
-									<div class="gobtndiv">
-										<button  class="form-control gobtn">GO</button>
-									</div>
-								</div>
+							<div class="flt-r" >
+								<input type="text" id="dateFilter" class="flt-r" name="daterange" placeholder="Select Date Range" readonly/>
 							</div>
 							<div class="same_Class" >
 								On-Going Plans
@@ -197,5 +183,11 @@ if ($_SESSION['usernamee'] == '') {
 		</div>
 	</div>
 	<!-- /page content -->
-
+	
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+	
+	<script src="assets/js/user_dashboard.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Base64/1.0.2/base64.js"></script>
 </body>
+</html>
