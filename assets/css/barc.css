@@ -48,6 +48,21 @@
 	display: none !important;
 }
 
+.commonstyle.barcmsg {
+    margin-top: 50px!important;
+    margin: auto;
+    padding: 18px 75px;
+    width: 100%;
+    color: white;
+    text-align: center;
+    background: black;
+    border: 1px solid black!important;
+    border-radius: 5px;
+    height: 9vh;
+    white-space: nowrap;
+	overflow: hidden;
+	
+}
 
 #logoutbtnid{
 	background-color: #ffffff2e !important;
@@ -75,11 +90,7 @@
 	width: 100%;
 }
 .commonstyle{
-	margin: auto;
-	/* background: #f3713c; */
-	padding: 30px;
-	width: 600px;
-	color:white;
+
 }
 .kv-file-upload {
 	display: none;

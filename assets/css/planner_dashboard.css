@@ -272,6 +272,14 @@ div.row_body div:nth-of-type(odd)
 	}
 }
 
+@media screen  and (min-width: 360px)  and (max-width: 720px){
+    .sidebar-mobile-main-toggle{
+        position: absolute;
+        /* top: 13px; */
+        right: 30px;
+      }
+}
+
 @media screen  and (max-width: 425px)  and (min-width: 320px){
 	.modal-content{
 		  width: 617px;
@@ -327,3 +335,8 @@ div.row_body div:nth-of-type(odd)
  .go{
     top: 6px;
  }
+
+
+
+
+

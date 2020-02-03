@@ -8,6 +8,7 @@ $(document).ready(function () {
 // $('#displayusername').append('<p value='+username+'>Hello &nbsp;&nbsp<img src="assets/images/WhiteIcons/user profile.png" alt="" style="height: 29px;color:white;">&nbsp'+username+'</p>')
 // })
 </script>
+<!-- <link rel="stylesheet" href="assets/css/updatesinprogress.css"> -->
 <style media="screen">
 .navbar-expand-md .navbar-brand {
     min-width: 13.625rem;
@@ -63,19 +64,19 @@ $(document).ready(function () {
             <li class="nav-item dropdown dropdown-user row" style="float: right;list-style-type: none;">
                
                
-               <div class="row">
-                   <div class="col-md-1" style="color: #ffff;position: relative;top: 7px;right: 5px;font-size: 16px;">Hello</div>
-                   <div class="col-md-6">
+               
+                   <div class="col-md-3" style="color: #ffff;position: relative;top: 15px;font-size: 16px;">Hello</div>
                    
-                    <a href="#" class=" navbar-nav-link d-flex align-items-center dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                   
+                    <a href="#" class=" navbar-nav-link d-flex align-items-center dropdown-toggle col-md-2" data-toggle="dropdown" aria-expanded="false">
                     <!-- <span id="displayusername"></span> -->
                     <span>
                     <p id="displayusername"><?php echo $_SESSION['usernamee']?></p>
-</span>
-                </a>
+                    </span>
+                   </a>
 
-                </div>
-                </div>
+              
+            
 
 
 
@@ -96,3 +97,4 @@ $(document).ready(function () {
 </div>
 <script src="assets/js/common.js"></script>
 <script src="assets/js/headerjs.js"></script>
+

@@ -122,7 +122,8 @@ $( document ).ready(function() {
                         </div>
 
 
-                        <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+                        <a href="#" class="header-elements-toggle text-default d-md-none"></a>
+                        <!-- <i class="icon-more"></i> -->
                     </div>
                 </div>
             </div>

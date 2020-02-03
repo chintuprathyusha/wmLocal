@@ -475,8 +475,8 @@ body{
     border-radius: 0px!important;
 }
 
-.updatesinprogress{
-    /* display:none; */
+/* .updatesinprogress{
+    display:none;
 }
 blink {
   -webkit-animation: 2s linear infinite condemned_blink_effect;
@@ -503,7 +503,7 @@ blink {
   100% {
     visibility: visible;
   }
-}
+} */
 
 /*
 .swal-button--cancel{

@@ -18,10 +18,10 @@ $( document ).ready(function() {
                         var string1= decoded__;
                         var result = string1.substring(string1.indexOf('.') + 1);
                         if (result ==  "pdf") {
-                            $('.appendhere').append('<tr><td>'+count+'</td><td style="width: 446px;" >'+decoded+' <img style="width:20px;height:20px;" src="assets/images/pdf.png"/</td><td><img  class="downloadbtn" aa="TGBL/'+decoded+'" src="assets/images/WhiteIcons/FilesDownload.png" style="width:27px;"><td></tr>');
+                            $('.appendhere').append('<tr><td>'+count+'</td><td style="width: 446px;" >'+decoded+' </td><td><img  class="downloadbtn" aa="TGBL/'+decoded+'" src="assets/images/WhiteIcons/download.png" style="width:27px;"><td></tr>');
                         }
                         else if (result ==  "xlsx"){
-                            $('.appendhere').append('<tr><td>'+count+'</td><td  style="width: 446px;">'+decoded+' <img style="width:20px;height:20px;" src="assets/images/excel.png"/</td><td><img class="downloadbtn" aa="TGBL/'+decoded+'" src="assets/images/WhiteIcons/FilesDownload.png" style="width:27px;"><td></tr>');
+                            $('.appendhere').append('<tr><td>'+count+'</td><td  style="width: 446px;">'+decoded+'</td><td><img class="downloadbtn" aa="TGBL/'+decoded+'" src="assets/images/WhiteIcons/download.png" style="width:27px;"><td></tr>');
                         }
                   }
                   count++;

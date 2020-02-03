@@ -185,13 +185,26 @@ $(document).ready(function () {
                     ap1 += '<td  style="width:138px;">'+v[i]['ClientName']+'</td>'
                     ap1 += '<td  style="width:138px;">'+v[i]['BrandName']+'</td>'
                     ap1 += '<td  style="width:140px;">'+format_date(v[i]['StartDate'])+'</td>'
-                    ap1 += '<td> <div  plainidattr="'+v[i]['PlanId']+'"  class="form-control completebtn" style="background:none;border:none;text-align:center"><img src="assets/images/WhiteIcons/verified.png" style="width:27px;"></div> </td>'
-                    ap1 += '<td style=""><div class="pointer downloadbtn" campId="'+v[i]['CampaignId']+'" plainidattr="'+v[i]['PlanId']+'" style=""><img src="assets/images/WhiteIcons/download.png" style="width:27px;"></div></td>';
+                    ap1 += '<td> <div  plainidattr="'+v[i]['PlanId']+'"  class="form-control completebtn" style="background:none;border:none;text-align:center"><img class="idimg" src="assets/images/WhiteIcons/normal_check.png" style="width:27px;"></div> </td>'
+                    ap1 += '<td style=""><div class="pointer downloadbtn" campId="'+v[i]['CampaignId']+'" plainidattr="'+v[i]['PlanId']+'" style=""><img  src="assets/images/WhiteIcons/download.png" style="width:27px;"></div></td>';
                     ap1 += '</tr>'
                 }
                 $(".displayincompletedplans").html(ap1);
 
                 dataTableMultiSort()
+
+                $('.idimg').hover(function()
+                {
+                    $(this).attr('src', 'assets/images/WhiteIcons/hover_check.png');
+                },
+                function()
+                {
+                    $(this).attr('src', 'assets/images/WhiteIcons/normal_check.png');
+                })
+
+        
+
+
 
 
             }
@@ -211,7 +224,7 @@ $(document).ready(function () {
                     ap += '<td  style="width:138px;">'+v[i]['ClientName']+'</td>'
                     ap += '<td  style="width: 13p8x;">'+v[i]['BrandName']+'</td>'
                     // ap += '<td  style="text-align:center;">'+format_date(v[i]['StartDate'])+'</td>'
-                    ap += '<td> <div class="replanmodal" Campaignid="'+v[i]['CampaignId']+'" plainidattr="'+v[i]['PlanId']+'"  ><img src="assets/images/WhiteIcons/replan.png" style="width:27px;"></div></td>';
+                    ap += '<td> <div class="replanmodal" Campaignid="'+v[i]['CampaignId']+'" plainidattr="'+v[i]['PlanId']+'"  ><img class="idimg1"src="assets/images/WhiteIcons/replan-hover.png" style="width:27px;"></div></td>';
                     // ap += '<td  style="text-align:center;"><button class="replanmodal" campaign_id='+v[i]['CampaignId']+'  plainidattr="'+v[i]['PlanId']+'" style="background-color: #a5b1c2;color: #000;border: none;padding: 4PX;width: 68px;border-radius: 5px;">Re-Plan</button></td>'
                     ap += '<td  style="width:150px;">'+format_date(v[i]['EndDate'])+'</td>'
                     ap += '<td><div class="downloadbtn pointer" campId="'+v[i]['CampaignId']+'" plainidattr="'+v[i]['PlanId']+'" style=""><img  src="assets/images/WhiteIcons/download.png" style="width:27px;"></div></td>'
@@ -220,6 +233,18 @@ $(document).ready(function () {
                 $(".displaycompletedplans").html(ap);
 
                 dataTableMultiSortt()
+
+
+
+
+                $('.idimg1').hover(function()
+                {
+                    $(this).attr('src', 'assets/images/WhiteIcons/replan.png');
+                },
+                function()
+                {
+                    $(this).attr('src', 'assets/images/WhiteIcons/replan-hover.png');
+                })
 
             }
         })

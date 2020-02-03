@@ -123,7 +123,7 @@ if ($_SESSION['usernamee'] == '') {
 
 
 							<div class="form-group row">
-								<label title="<?php echo $_SESSION['tool_tips']['CreateProfile_Client'];?>" class="col-form-label col-lg-3">Client<span class="text-danger">*</span></label>
+								<label title="<?php echo $_SESSION['tool_tips']['CreateProfile_Client'];?>" class="col-form-label col-lg-1">Client<span class="text-danger">*</span></label>
 								<div class="col-lg-9 select_">
 
 									<select data-placeholder="Select Client" required class="form-control select clientClass"  multiple  data-fouc>
@@ -144,18 +144,24 @@ if ($_SESSION['usernamee'] == '') {
 							</div>
 
 							<div class="form-group row">
-								<label title="<?php echo $_SESSION['tool_tips']['CreateProfile_ClientLeadEmailId'];?>" class="col-form-label col-lg-3">Client Lead Email Id's<span class="text-danger">*</span></label>
-								<div class="col-lg-9">
+								<label title="<?php echo $_SESSION['tool_tips']['CreateProfile_ClientLeadEmailId'];?>" class="col-form-label col-lg-2">Client Lead Email Id's<span class="text-danger">*</span></label>
+								<div class="col-lg-12">
 									<input type="text" name="" value="" required placeholder="Client Email Id's" readonly class="form-control CLemId">
 									<!-- <input type="text" name="text" class="form-control CLemId" readonly placeholder="Enter a valid email address"> -->
 									<div data-placeholder="Client Lead" class="clientleadClass" data-fouc>
 
 									</div>
+                                         <!-- </br> -->
 									<div class="freezeClientLead">
 
 									</div>
 								</div>
+
 							</div>
+
+
+
+
 						</fieldset>
 						<div class="row">
 							<div class="col-md-5"></div>

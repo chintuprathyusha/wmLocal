@@ -15,7 +15,19 @@ session_start();
     <?php include 'assets/includes/common_scripts.php';?>
 
 	<script src="assets/js/login.js" charset="utf-8"></script>
-<link rel="stylesheet" href="assets/css/index.css">
+	<link rel="stylesheet" href="assets/css/index.css">
+	<link rel="stylesheet" href="assets/css/updatesinprogress.css">
+	
+
+	<script type="text/javascript" language="javascript">  
+    var versionUpdate = (new Date()).getTime();  
+    var script = document.createElement("script");  
+    script.type = "stylesheet";  
+    script.src = "assets/css/updatesinprogress.css?v=" + versionUpdate;  
+    document.body.appendChild(script);  
+	</script>  
+
+	
 </head>
 
 <body>

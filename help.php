@@ -202,8 +202,18 @@ div.row_body div:nth-of-type(odd)
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
-
-
+.icon-paragraph-justify3:before {
+    content: "\eec1";
+    color: white;
+    float: right;
+}
+@media screen  and (max-width: 425px)  and (min-width: 320px){
+.icon-paragraph-justify3:before {
+    content: "\eec1";
+    color: white;
+    float: right;
+}
+}
 </style>
 <body>
 
@@ -253,7 +263,7 @@ div.row_body div:nth-of-type(odd)
             <div class="card" style="height:100%;background-color: #1f2022;">
                 <div class="card" style="background-color: #1f2022;color: white;">
                     <div style="padding:12px;">
-                           <p style="font-size:20px;">Files To Download</p>
+                           <p style="font-size:20px;">Files to Help Document</p>
                            Search:
                            <input style="background-color: #1f2022;border-color: #f07144;border-top: none;border-left: none;border-right: none;width: 201px;" type="text" />
                         <!-- <span style="font-size:16px;color: #eade47;

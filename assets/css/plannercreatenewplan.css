@@ -82,6 +82,17 @@
 p{
 	height: auto;
 }
+
+.texttodisplay {
+    margin: auto;
+    background: black;
+    padding: 20px 60px;
+    margin-top: 47px;
+    width: 100%;
+    border: 1px solid black!important;
+    border-radius: 5px;
+    
+}
 .switch {
 	position: absolute;
     bottom: -4px;

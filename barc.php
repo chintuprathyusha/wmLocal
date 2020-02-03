@@ -73,18 +73,20 @@ $(document).ready(function() {
 									<div style="width: 100%;">
 										<div class="row">
 											<h6 class="font-weight-semibold">Upload Accelerator File</h6>
-											<div class="col-lg-10">
-												<div class="texttodisplay" style=""></div>
+											<div class="col-lg-4">
+												<div  class="texttodisplay" style=""></div>
 												
 
                                      <!-- <input type="file"  style="display:none"  class="file-input-ajax" id="load-file" accept=".csv, xlsm, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"></span> -->
  
+									 <button id="uploadFileTrigger2" style="background: #f07144;border: none;color: #fff;padding: 9px;border-radius: 4px;position: absolute;left: 7px;top: -5px;">Click to Select File</button>
 
-												<input type="file" name="myfile" id="load-file" class="file-input-ajax" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+									         <div class="acceleratorFileNameDisplay" style="position: relative;left: 80px;top:3px;"></div>
+												<input type="file" name="myfile" style="display:none;" id="load-file" class="file-input-ajax" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
 											</div>
-											<div class="col-lg-12 submit_btn">
+											<!-- <div class="col-lg-12 submit_btn">
 												<button type="button" class="btn btn-primary" id="upl-btn" style="background: #4caf50;">Upload <i class="icon-upload ml-2"></i></button>
-											</div>
+											</div> -->
 										</div>
 									</div>
 									<!-- <span class="d-block text-muted">All fields are required</span> -->
@@ -192,6 +194,23 @@ $(document).ready(function() {
 	<!-- /page content -->
 
 </body>
+<script>
+function myFunction() {
+  var dots = document.getElementById("dots");
+  var moreText = document.getElementById("more");
+  var btnText = document.getElementById("myclick");
+
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "Read more"; 
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = "Read less"; 
+    moreText.style.display = "inline";
+  }
+}
+</script>
 <style>
 
 .uploadbtn{
@@ -205,5 +224,14 @@ $(document).ready(function() {
     background-color: #F07144;
     margin-top: -3px;
 }
+   .texttodisplay{margin: auto;
+    background: none !important;
+    color: #fff;
+    text-align: center;
+    padding: 0px !important;
+	
+    margin-top: 0px !important;
+	border: none!important;
+   }
 	</style>
 </html>
