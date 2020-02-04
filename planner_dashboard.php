@@ -23,9 +23,14 @@ if ($_SESSION['usernamee'] == '') {
 	<?php include 'assets/includes/common_css.php';?>
 	<?php include 'assets/includes/common_scripts.php';?>
 	<script src="assets/js/ongoing_dashboardjs.js"></script>
-<link rel="stylesheet" href="assets/css/planner_dashboard.css">
+    <link rel="stylesheet" href="assets/css/planner_dashboard.css">
     <!-- <script src="assets\js\sessiontimeoutjs.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="assets/js/daterangepicker/daterangepicker.css" />
+    <script type="text/javascript" src="assets/js/daterangepicker/moment.min.js"></script>
+    <script type="text/javascript" src="assets/js/daterangepicker/daterangepicker.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Base64/1.0.2/base64.js"></script>
 </head>
 <script>
 $(document).ready(function () {
@@ -92,51 +97,50 @@ $(document).ready(function () {
                         <div class="card" >
                             <div class="btn3_" >
                                 <!-- <span style="font-size:16px; color: #eade47;font-weight: 600;text-decoration: none;float:right;">More Filters </span> -->
-                            <img class="btn3" src="assets/images/filter-icon.svg">
+                            <!-- <img class="btn3" src="assets/images/filter-icon.svg"> -->
                             <!-- <button onclick="location.href='planner_createnewplan.php';" class="createbtn">Create plan</button> -->
                         </div>
 
                         <!-- Order direction sequence control -->
                         <!-- <div class="card" style="background-color: #222c31;"> -->
-                        <div class="row displaytoptextboxes" style="display:none;" >
+                        <div class="row" style="height:100%" >
                             <!-- <div class="row"> -->
-							<div class="col-sm-6 col-md-2 campid">
-                                        <div class="s-e-campid">Campaign ID:
-                                            <input type="text" placeholder="search for Campaign ID"
-                                                class="form-control Campaignidclass" />
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-md-2 date">
-                                        <div class="s-e-date">Start Date:
-                                            <input class="form-control startdateclass" placeholder="start date"
-                                                type="date" />
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-md-2 date">
-                                        <div class="s-e-date">End Date:
-                                            <input class="form-control startdateclass" placeholder="start date"
-                                                type="date" />
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-md-2 client">
-                                        <div class="s-e-client">Client Name:
-                                            <select data-placeholder="Client Name"
-                                                class="form-control select clientclass" id="clientt" data-fouc>
-                                                <option value=""></option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-md-2 brand">
-                                        <div class="s-e-brand">Brand Name:
-                                            <select data-placeholder="BrandName" class="form-control select brandclass"
-                                                id="brandd" data-fouc>
-                                                <option value=""></option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12 col-md-1 go">
-                                        <button class="form-control gobtn">GO</button>
-                                    </div>
+                            <div  class="col-sm-6 col-md-2 campid">
+                                <div class="s-e-campid">Campaign ID:
+                                    <input type="text" placeholder="search for Campaign ID" class="form-control Campaignidclass"/>
+                                </div>
+                            </div>
+                         
+                            <div class="col-sm-6 col-md-2 client">
+                                <div class="s-e-client">Client Name:
+                                    <select data-placeholder="Client Name" class="form-control select clientclass" id="clientt" data-fouc>
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 brand">
+                                <div class="s-e-brand">Brand Name:
+                                    <select data-placeholder="BrandName" class="form-control select brandclass" id="brandd" data-fouc>
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="flt-r" >
+                                <input type="text" id="dateFilter" class="flt-r" name="daterange" placeholder="Select Date Range" readonly/>
+                                <span><i class="fa fa-calendar" style="    font-size: 16px;
+    color: black;
+    position: absolute;
+    top: 60px;
+    margin-left: 15px;"></i>
+    <!-- <i class="fa fa-caret-down" ></i> -->
+                                  </span> 
+                                  
+                            </div>
+                            
+                            <div class="col-sm-12 col-md-1 go">
+                                <button  class="form-control gobtn">GO</button>
+                            </div>
                         </div>
 
 

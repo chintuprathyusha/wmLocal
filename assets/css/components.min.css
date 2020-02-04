@@ -1632,7 +1632,7 @@ input[type=text].noui-height-helper:not(.noUi-target)[data-fouc] {
 
 .select2-results__option[aria-selected=true] {
     color: #fff;
-    background-color: #2196f3
+    background-color: #f07144
 }
 
 .select2-results__options--nested>.select2-results__option {
@@ -1699,7 +1699,8 @@ input[type=text].noui-height-helper:not(.noUi-target)[data-fouc] {
 .select2-container--open .select2-dropdown--below {
     border-top: none;
     border-top-left-radius: 0;
-    border-top-right-radius: 0
+    border-top-right-radius: 0;
+    width:400px !important;
 }
 
 .select2-container--open .select2-dropdown--below[class*=bg-] {

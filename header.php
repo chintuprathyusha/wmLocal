@@ -8,6 +8,7 @@ $(document).ready(function () {
 // $('#displayusername').append('<p value='+username+'>Hello &nbsp;&nbsp<img src="assets/images/WhiteIcons/user profile.png" alt="" style="height: 29px;color:white;">&nbsp'+username+'</p>')
 // })
 </script>
+<!-- <link rel="stylesheet" href="assets/css/updatesinprogress.css"> -->
 <style media="screen">
 .navbar-expand-md .navbar-brand {
     min-width: 13.625rem;
@@ -60,15 +61,24 @@ $(document).ready(function () {
         <blink style="font-size: 17px;color: red;width:459px;" class="updatesinprogress">Updates in progress. Kindly check back later </blink>
 
         <ul style="float: right;width: 100%;">
-            <li class="nav-item dropdown dropdown-user" style="float: right;list-style-type: none;">
-                <a href="#" class="navbar-nav-link d-flex align-items-center dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-
+            <li class="nav-item dropdown dropdown-user row" style="float: right;list-style-type: none;">
+               
+               
+               
+                   <div class="col-md-3" style="color: #ffff;position: relative;top: 15px;font-size: 16px;">Hello</div>
+                   
+                   
+                    <a href="#" class=" navbar-nav-link d-flex align-items-center dropdown-toggle col-md-2" data-toggle="dropdown" aria-expanded="false">
                     <!-- <span id="displayusername"></span> -->
                     <span>
-                        <p id="displayusername">Hello &nbsp;&nbsp<img src="assets/images/WhiteIcons/user profile.png" alt="" style="height: 29px;color:white;">&nbsp<?php echo $_SESSION['usernamee']?></p>
-
+                    <p id="displayusername"><?php echo $_SESSION['usernamee']?></p>
                     </span>
-                </a>
+                   </a>
+
+              
+            
+
+
 
                 <div class="dropdown-menu dropdown-menu-right" style="background-color:#324148;">
 
@@ -87,3 +97,4 @@ $(document).ready(function () {
 </div>
 <script src="assets/js/common.js"></script>
 <script src="assets/js/headerjs.js"></script>
+

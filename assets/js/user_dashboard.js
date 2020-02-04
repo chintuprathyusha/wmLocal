@@ -14,10 +14,87 @@ $(document).ready(function () {
         window.location.href='planner_createnewplan.php?type=new';
     })
 
-    $("body").on("click", ".btn3", function(){
-        $(".displaytoptextboxes").slideToggle('slow');
+    // $("body").on("click", ".btn3", function(){
+    //     $(".displaytoptextboxes").slideToggle('slow');
+    // });
+    var start = moment().subtract(29, 'days');
+    var end = moment();
+    
+    
+    $('input[name="daterange"]').daterangepicker({
+        autoUpdateInput: false,
+        opens: 'left',
+        ranges: {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        },
+        locale: {
+            cancelLabel: 'Clear'
+        }
+    });
+    
+    $('input[name="daterange"]').on('apply.daterangepicker', function (ev, picker) {
+        $(this).val(picker.startDate.format('DD/MM/YYYY') + ' - ' + picker.endDate.format('DDMM/YYYY'));
+        cb(picker.startDate.format('YYYY-MM-DD'), picker.endDate.format('YYYY-MM-DD'))
     });
 
+    $('input[name="daterange"]').on('cancel.daterangepicker', function (ev, picker) {
+        $(this).val('');
+    });
+    
+    function cb(start, end) {
+        objj = {}
+        objj.startdate = start
+        objj.enddate = end
+        objj.user_id = useridd
+        console.log(objj);
+        var form = new FormData();
+        form.append("file", JSON.stringify(objj));
+        var settings11 = {
+            "async": true,
+            "crossDomain": true,
+            "url": aws_url + 'Dashboard_Table_One',
+            "method": "POST",
+            "processData": false,
+            "contentType": false,
+            "mimeType": "multipart/form-data",
+            "data": form
+        };
+
+        $.ajax(settings11).done(function (msg) {
+            msg = JSON.parse(msg);
+            console.log(msg);
+            if (msg.message == "fail") {
+                $.alert({
+                    title: 'Error',
+                    content: 'Oops ! something went wrong, try again',
+                    animation: 'scale',
+                    closeAnimation: 'scale',
+                    opacity: 0.5,
+                    buttons: {
+                        okay: {
+                            text: 'Okay',
+                            btnClass: 'btn-primary',
+                            action: function () {
+                                window.location.href = "error.php"
+                            }
+                        }
+                    }
+                });
+            }
+            else {
+                displaytable(msg);
+            }
+            // dataTableMultiSort()
+            // planid = msg[Id];
+            // console.log(planid);
+
+        })
+    }
 
     function pageonloadhit() {
         obj = {}
@@ -68,6 +145,11 @@ $(document).ready(function () {
         })
     }
 
+
+
+
+
+    
 
     $("body").on("click", ".gobtn", function(){
         startdate =   $('.startdateclass').val();
@@ -161,6 +243,11 @@ $(document).ready(function () {
     var completeArray;
     var incompleteArray;
 
+
+
+
+    
+    
     function displaytable(msg) {
 
         $(".loading").hide();
@@ -180,13 +267,26 @@ $(document).ready(function () {
                     ap1 += '<td  style="width:138px;">'+v[i]['ClientName']+'</td>'
                     ap1 += '<td  style="width:138px;">'+v[i]['BrandName']+'</td>'
                     ap1 += '<td  style="width:140px;">'+format_date(v[i]['StartDate'])+'</td>'
-                    ap1 += '<td> <button  plainidattr="'+v[i]['PlanId']+'" style="color: white;border: none;  background: #BB2734;  padding: 1px;font-size: 9px;width: 94px;font-weight: 700;" class="form-control completebtn">Mark As Complete</button> </td>'
-                    ap1 += '<td style=""><div class="pointer downloadbtn" campId="'+v[i]['CampaignId']+'" plainidattr="'+v[i]['PlanId']+'" style=""><img src="assets/images/WhiteIcons/FilesDownload.png" style="width:27px;"></div></td>';
+                    ap1 += '<td> <div  plainidattr="'+v[i]['PlanId']+'"  class="form-control completebtn" style="background:none;border:none;text-align:center"><img class="idimg" src="assets/images/WhiteIcons/normal_check.png" style="width:27px;"></div> </td>'
+                    ap1 += '<td style=""><div class="pointer downloadbtn" campId="'+v[i]['CampaignId']+'" plainidattr="'+v[i]['PlanId']+'" style=""><img  src="assets/images/WhiteIcons/download.png" style="width:27px;"></div></td>';
                     ap1 += '</tr>'
                 }
                 $(".displayincompletedplans").html(ap1);
 
                 dataTableMultiSort()
+
+                $('.idimg').hover(function()
+                {
+                    $(this).attr('src', 'assets/images/WhiteIcons/hover_check.png');
+                },
+                function()
+                {
+                    $(this).attr('src', 'assets/images/WhiteIcons/normal_check.png');
+                })
+
+        
+
+
 
 
             }
@@ -206,20 +306,37 @@ $(document).ready(function () {
                     ap += '<td  style="width:138px;">'+v[i]['ClientName']+'</td>'
                     ap += '<td  style="width: 13p8x;">'+v[i]['BrandName']+'</td>'
                     // ap += '<td  style="text-align:center;">'+format_date(v[i]['StartDate'])+'</td>'
-                    ap += '<td> <button class="replanmodal" Campaignid="'+v[i]['CampaignId']+'" plainidattr="'+v[i]['PlanId']+'"  style="color:white!important;background-color: #f07144;;border: none;padding: 4PX;width: 118px;border-radius: 2px;">Re-Plan</button></td>';
+                    ap += '<td> <div class="replanmodal" Campaignid="'+v[i]['CampaignId']+'" plainidattr="'+v[i]['PlanId']+'"  ><img class="idimg1"src="assets/images/WhiteIcons/replan-hover.png" style="width:27px;"></div></td>';
                     // ap += '<td  style="text-align:center;"><button class="replanmodal" campaign_id='+v[i]['CampaignId']+'  plainidattr="'+v[i]['PlanId']+'" style="background-color: #a5b1c2;color: #000;border: none;padding: 4PX;width: 68px;border-radius: 5px;">Re-Plan</button></td>'
                     ap += '<td  style="width:150px;">'+format_date(v[i]['EndDate'])+'</td>'
-                    ap += '<td><div class="downloadbtn pointer" campId="'+v[i]['CampaignId']+'" plainidattr="'+v[i]['PlanId']+'" style=""><img src="assets/images/WhiteIcons/FilesDownload.png" style="width:27px;"></div></td>'
+                    ap += '<td><div class="downloadbtn pointer" campId="'+v[i]['CampaignId']+'" plainidattr="'+v[i]['PlanId']+'" style=""><img  src="assets/images/WhiteIcons/download.png" style="width:27px;"></div></td>'
                     ap += '</tr>'
                 }
                 $(".displaycompletedplans").html(ap);
 
                 dataTableMultiSortt()
 
+
+
+
+                $('.idimg1').hover(function()
+                {
+                    $(this).attr('src', 'assets/images/WhiteIcons/replan.png');
+                },
+                function()
+                {
+                    $(this).attr('src', 'assets/images/WhiteIcons/replan-hover.png');
+                })
+
             }
         })
 
     }
+
+    
+      
+
+
 
 
     var attr__, plannIdd;

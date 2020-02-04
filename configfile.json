@@ -1,7 +1,7 @@
 {
 "data": [{
     "sessionTimeOut": "7200",
-    "pythonurl" : "https://cin-appsvplan-indtvauto-api-stg.azurewebsites.net/",
+    "pythonurl" : "http://192.168.0.153:6767/",
     "create_plan_label" : "Channel Selection Sheet is being created. Once created you will receive it in your inbox - Expected Time of Arrival (ETA) is: ",
     "genre_level_label" :  "Genre Level Budget Allocation Sheet being created. Once created you will receive it in your inbox. - Expected Time of Arrival (ETA) is: ",
     "channel_level_label" : "Channel Level Budget Allocation Sheet being created. Once created you will receive it in your inbox - Expected Time of Arrival (ETA) is: ",

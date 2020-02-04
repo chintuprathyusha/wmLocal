@@ -64,11 +64,31 @@ $(document).ready(function () {
     var file_name_;
     var main_output;
     fileobj = {};
+
+    $("#uploadFileTrigger2").on("click", function () {
+        $('#load-file').click()
+    })
+
     $('#load-file').on('change', function () {
+
+
+        debugger
         main_output = ''
         var file = $('#load-file')[0].files[0];
-        file_name_ = "AcceleratorOutput_"+campaign_id+"_"+version+".xlsx";
+        // file_name_ = "AcceleratorOutput_"+campaign_id+"_"+version+".xlsx";
+        file_name_ = file.name;
         var fileReader = new FileReader();
+
+        $(".acceleratorFileNameDisplay").html('<p class="">'+file_name_+' <img src="assets/images/delete.svg" style="width:15px" class="deleteFile"></p>')
+
+        
+        $("body").on("click", ".deleteFile", function () {
+            $(this).closest('.acceleratorFileNameDisplay').remove();
+            $('.hide_').hide();
+        })
+        
+        
+        
         fileReader.onloadend = function (e) {
             blob___ = e.target.result;
 
@@ -78,7 +98,128 @@ $(document).ready(function () {
             fileobj.user_id = user_id;
             //console.log(fileobj);
             file_name_ = file_name_;
-            $('#upl-btn').prop('disabled', false);
+
+            // $("body").on("click", "#upl-btn", function(){
+      
+                $('.loading').show();
+        
+                fileobj.fromReplan = false;
+                fileobj.category = "acceleratedfile";
+                //console.log(file_name_);
+        
+                var form = new FormData();
+                form.append("file", JSON.stringify(fileobj));
+                var settings11 = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url":aws_url+'Buying_basket',
+                    "method": "POST",
+                    "processData": false,
+                    "contentType": false,
+                    "mimeType": "multipart/form-data",
+                    "data": form
+                };
+                $.ajax(settings11).done(function (msg) {
+                    msg = JSON.parse(msg);
+                    console.log(msg);
+        
+                    msg1 = msg.message
+        
+                    $('.loading').show();
+                    if (msg1 == true) {
+                        if(msg1 != false){
+                            $('.loading').show();
+                        }
+                        else{
+                            $('.uploadFileTrigger2').hide();
+                            $('.acceleratorFileNameDisplay').hide();
+                            $('.loading').hide();
+                            $('#upl-btn').hide();
+                            $('.file-input').hide();
+                            $('.red_color').hide();
+                            $('.texttodisplay').show();
+        
+                            $('.file-input-ajax').hide();
+                            
+                             
+
+
+                            // $('.texttodisplay').append('<h5>Accelerator Output file successfully uploaded</h5>')
+                             $('.texttodisplay').html('<p>'+msg.file_name +'</p>')
+                           
+
+
+                            $('.edit_barc').prop('disabled', false);
+        
+                            // $.alert({
+                            //     title: 'Success',
+                            //     content: 'File succesfully uploaded',
+                            //     animation: 'scale',
+                            //     closeAnimation: 'scale',
+                            //     opacity: 0.5,
+                            //     buttons: {
+                            //         okay: {
+                            //             text: 'Okay',
+                            //             btnClass: 'btn-primary'
+                            //         }
+                            //     }
+                            // });
+                        }
+        
+                    }
+                    else if(msg1 == false)
+                    {
+                        $('.loading').hide();
+                        $.alert({
+                            title: 'error',
+                            content: 'Headers did not match!',
+                            animation: 'scale',
+                            closeAnimation: 'scale',
+                            opacity: 0.5,
+                            buttons: {
+                                okay: {
+                                    text: 'Okay',
+                                    btnClass: 'btn-primary'
+                                }
+                            }
+                        });
+                        $('.loading').hide();
+                    }
+        
+                   else {
+        
+        
+                        $('#upl-btn').show();
+                        $('.file-input').show();
+                        $('.red_color').show();
+                        $('.texttodisplay').hide();
+                        $('.edit_barc').prop('disabled', true);
+                        $('.confirm_barc').prop('disabled', true);
+                        $('.submit_barc').prop('disabled', true);
+        
+                        $.alert({
+                            title: 'Error',
+                            Content: 'Oops ! something went wrong, try again',
+                            animation: 'scale',
+                            closeAnimation: 'scale',
+                            opacity: 0.5,
+                            buttons: {
+                                okay: {
+                                    text: 'Okay',
+                                    btnClass: 'btn-primary'
+                                }
+                            }
+                        });
+        
+                    }
+                });
+            // })
+
+
+
+
+
+            // $('#upl-btn').prop('disabled', false);
 
         };
         fileReader.readAsDataURL(file);
@@ -123,110 +264,113 @@ $(document).ready(function () {
         });
     }
 
-    $("body").on("click", "#upl-btn", function(){
-        debugger;
-        $('.loading').show();
+    // $("body").on("click", "#upl-btn", function(){
+      
+    //     $('.loading').show();
 
-        fileobj.fromReplan = false;
-        fileobj.category = "acceleratedfile";
-        //console.log(file_name_);
+    //     fileobj.fromReplan = false;
+    //     fileobj.category = "acceleratedfile";
+    //     //console.log(file_name_);
 
-        var form = new FormData();
-        form.append("file", JSON.stringify(fileobj));
-        var settings11 = {
-            "async": true,
-            "crossDomain": true,
-            "url":aws_url+'Buying_basket',
-            "method": "POST",
-            "processData": false,
-            "contentType": false,
-            "mimeType": "multipart/form-data",
-            "data": form
-        };
-        $.ajax(settings11).done(function (msg) {
-            msg = JSON.parse(msg);
-            console.log(msg);
+    //     var form = new FormData();
+    //     form.append("file", JSON.stringify(fileobj));
+    //     var settings11 = {
+    //         "async": true,
+    //         "crossDomain": true,
+    //         "url":aws_url+'Buying_basket',
+    //         "method": "POST",
+    //         "processData": false,
+    //         "contentType": false,
+    //         "mimeType": "multipart/form-data",
+    //         "data": form
+    //     };
+    //     $.ajax(settings11).done(function (msg) {
+    //         msg = JSON.parse(msg);
+    //         console.log(msg);
 
-            msg1 = msg.Status
+    //         msg1 = msg.Status
 
-            $('.loading').show();
-            if (msg1 == "Path inserted Succesfully") {
-                if(msg1 != "Path inserted Succesfully"){
-                    $('.loading').show();
-                }
-                else{
-                    $('.loading').hide();
-                    $('#upl-btn').hide();
-                    $('.file-input').hide();
-                    $('.red_color').hide();
-                    $('.texttodisplay').show();
-                    $('.texttodisplay').append('<h5>Accelerator Output file successfully uploaded</h5>')
+    //         $('.loading').show();
+    //         if (msg1 == "Path inserted Succesfully") {
+    //             if(msg1 != "Path inserted Succesfully"){
+    //                 $('.loading').show();
+    //             }
+    //             else{
+    //                 $('.loading').hide();
+    //                 $('#upl-btn').hide();
+    //                 $('.file-input').hide();
+    //                 $('.red_color').hide();
+    //                 $('.texttodisplay').show();
 
-                    $('.edit_barc').prop('disabled', false);
+    //                 $('.file-input-ajax').hide();
 
-                    // $.alert({
-                    //     title: 'Success',
-                    //     content: 'File succesfully uploaded',
-                    //     animation: 'scale',
-                    //     closeAnimation: 'scale',
-                    //     opacity: 0.5,
-                    //     buttons: {
-                    //         okay: {
-                    //             text: 'Okay',
-                    //             btnClass: 'btn-primary'
-                    //         }
-                    //     }
-                    // });
-                }
+    //                 $('.texttodisplay').append('<h5>Accelerator Output file successfully uploaded</h5>')
 
-            }
-            else if(msg1 == "wrong_file_uploaded" )
-            {
-                $('.loading').hide();
-                $.alert({
-                    title: 'error',
-                    content: 'Headers did not match!',
-                    animation: 'scale',
-                    closeAnimation: 'scale',
-                    opacity: 0.5,
-                    buttons: {
-                        okay: {
-                            text: 'Okay',
-                            btnClass: 'btn-primary'
-                        }
-                    }
-                });
-                $('.loading').hide();
-            }
+    //                 $('.edit_barc').prop('disabled', false);
 
-           else {
+    //                 // $.alert({
+    //                 //     title: 'Success',
+    //                 //     content: 'File succesfully uploaded',
+    //                 //     animation: 'scale',
+    //                 //     closeAnimation: 'scale',
+    //                 //     opacity: 0.5,
+    //                 //     buttons: {
+    //                 //         okay: {
+    //                 //             text: 'Okay',
+    //                 //             btnClass: 'btn-primary'
+    //                 //         }
+    //                 //     }
+    //                 // });
+    //             }
+
+    //         }
+    //         else if(msg1 == "wrong_file_uploaded" )
+    //         {
+    //             $('.loading').hide();
+    //             $.alert({
+    //                 title: 'error',
+    //                 content: 'Headers did not match!',
+    //                 animation: 'scale',
+    //                 closeAnimation: 'scale',
+    //                 opacity: 0.5,
+    //                 buttons: {
+    //                     okay: {
+    //                         text: 'Okay',
+    //                         btnClass: 'btn-primary'
+    //                     }
+    //                 }
+    //             });
+    //             $('.loading').hide();
+    //         }
+
+    //        else {
 
 
-                $('#upl-btn').show();
-                $('.file-input').show();
-                $('.red_color').show();
-                $('.texttodisplay').hide();
-                $('.edit_barc').prop('disabled', true);
-                $('.confirm_barc').prop('disabled', true);
-                $('.submit_barc').prop('disabled', true);
+    //             $('#upl-btn').show();
+    //             $('.file-input').show();
+    //             $('.red_color').show();
+    //             $('.texttodisplay').hide();
+    //             $('.edit_barc').prop('disabled', true);
+    //             $('.confirm_barc').prop('disabled', true);
+    //             $('.submit_barc').prop('disabled', true);
 
-                $.alert({
-                    title: 'Error',
-                    Content: 'Oops ! something went wrong, try again',
-                    animation: 'scale',
-                    closeAnimation: 'scale',
-                    opacity: 0.5,
-                    buttons: {
-                        okay: {
-                            text: 'Okay',
-                            btnClass: 'btn-primary'
-                        }
-                    }
-                });
+    //             $.alert({
+    //                 title: 'Error',
+    //                 Content: 'Oops ! something went wrong, try again',
+    //                 animation: 'scale',
+    //                 closeAnimation: 'scale',
+    //                 opacity: 0.5,
+    //                 buttons: {
+    //                     okay: {
+    //                         text: 'Okay',
+    //                         btnClass: 'btn-primary'
+    //                     }
+    //                 }
+    //             });
 
-            }
-        });
-    })
+    //         }
+    //     });
+    // })
     $('.loading').show();
 
     var edit_flag = false;
@@ -279,9 +423,9 @@ $(document).ready(function () {
             console.log(msg);
 
 
-            setTimeout(function(){
-                $('.loading').hide();
-            }, 5000)
+            // setTimeout(function(){
+            //     $('.loading').hide();
+            // }, 5000)
             planProcess = msg.planProcess;
             acce_file_name = msg.AcceleratedFilePath;
             $(".select2").addClass('hide');
@@ -651,12 +795,11 @@ $(document).ready(function () {
                           $('.edit_barc').prop('disabled', true);
                           $('.barcmsg').show();
                           if (process4ETA == '') {
-                            $(".barcmsg").append('<h5 style="color:#fff"> '+barc_label+' : None</h5>')
+                            $(".barcmsg").append(''+barc_label+' : None')
                           }
                           else {
                             if (plancompleted == false){
-                                $(".barcmsg").append('<h5 style="color:#fff"> '+barc_label+' : '+format_date(process4ETA)+'</h5>')
-                            }
+                                $('.barcmsg').append('<span>'+ barc_label +'<span id="dots">...</span></span><span id="more" style="display:none;">' + format_date(process4ETA) + '</span><span onclick="myFunction()" id="myclick" style="color:#9780f1;text-decoration: underline; ">Read more</span>'); }
                             else{
                                 $('.barcmsg').hide();
                             }

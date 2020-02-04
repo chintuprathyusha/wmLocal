@@ -49,7 +49,11 @@
     background-repeat: no-repeat, repeat; */
     background-color: #1f2022;
 }
-
+.icon-paragraph-justify3:before {
+    content: "\eec1";
+    color: white;
+    float: right;
+}
 
 /* responsive */
 @media screen and (max-width: 320px) {
@@ -103,16 +107,4 @@
 }
 .img{
     width: 17px;
-}
-.icon-paragraph-justify3:before {
-    content: "\eec1";
-    color: white;
-    float: right;
-
-}
-
-@media screen and (max-width: 400px) {
-    .jconfirm-holder{
-        width: 282px;
-        margin: 62px;
 }

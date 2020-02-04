@@ -122,7 +122,8 @@ $( document ).ready(function() {
                         </div>
 
 
-                        <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+                        <a href="#" class="header-elements-toggle text-default d-md-none"></a>
+                        <!-- <i class="icon-more"></i> -->
                     </div>
                 </div>
             </div>
@@ -142,47 +143,66 @@ $( document ).ready(function() {
                             <li class="nav-item"><a href="#login-tab2" class="nav-link border-y-0 border-right-0 deleteheaderbtn" data-toggle="tab"><h5 class="my-1">Delete planner</h5></a></li>
                         </ul>
 
+                        
                         <div class="tab-content modal-body">
                             <div class="tab-pane fade show active" id="login-tab1">
                                 <div class="cprp card">
+
+
+                                  <div class="row">
+                                      <div class="col-md-6">
                                     <div class="mb-4">
+                                     <div class="col-md-12">
                                         <h6  title="<?php echo $_SESSION['tool_tips']['AddPlanner_UserEmails'];?>"  class="font-weight-semibold">UserEmail </h6>
-                                        <div class="row">
-                                            <div class="col-md-6">
+                                        </div>
+                                        
+                                        <!-- <div class="row"> -->
+                                            <div class="col-md-12">
                                                 <div class="form-group">
                                                     <div class="mb-4">
                                                         <select data-placeholder="search for email id" class="form-control select-minimum emailvalue" data-fouc>
                                                             <option></option>
                                                             <optgroup class="allemailsvalues">
                                                                 <option disabled value="select UserEmail">--select Email--</option>
-
                                                             </optgroup>
                                                         </select>
                                                     </div>
-                                                </div>
+                                                <!-- </div> -->
                                             </div>
-
                                         </div>
+                                    </div>
 
                                     </div>
+
+                                    <div class="col-md-6">
                                     <div class="mb-4">
+                                       
                                         <h6  title="<?php echo $_SESSION['tool_tips']['AddPlanner_Client'];?>"  class="font-weight-semibold">Client</h6>
                                         <!-- <p class="mb-2">Select2 supports ability to add choices automatically as the user is typing into the search field. Try typing in the search field below and entering a space or a comma.</p> -->
-                                        <div class="row">
-                                            <div class="col-md-6">
+                                        <!-- <div class="row"> -->
+                                            <div class="col-md-12">
                                                 <div class="form-group">
                                                     <select class="form-control select allclientnames" data-fouc>
                                                         <option value="">--select ClientName--</option>
 
                                                     </select>
                                                 </div>
-                                            </div>
+                                            <!-- </div> -->
                                         </div>
                                     </div>
+                                    
+                                    
+                                    </div>
+                                    </div>
+
+
+
+
                                     <div class="mb-4">
 
                                         <!-- <p class="mb-2">Select2 supports ability to add choices automatically as the user is typing into the search field. Try typing in the search field below and entering a space or a comma.</p> -->
                                         <div class="row">
+                                            <div class="col-md-5"></div>
                                             <div class="col-md-2">
                                                 <button  class="form-control addsavebtn">Add Planner</button>
                                             </div>
@@ -194,11 +214,17 @@ $( document ).ready(function() {
 
                             <div class="tab-pane fade" id="login-tab2">
                                 <div class="cprp card">
+
+
+
+
+                                <div class="row">
+                                    <div class="col-md-6">
                                     <div class="mb-4">
                                         <h6  title="<?php echo $_SESSION['tool_tips']['DeletePlanner_Client'];?>"  class="font-weight-semibold">Client</h6>
                                         <!-- <p class="mb-2">Select2 supports ability to add choices automatically as the user is typing into the search field. Try typing in the search field below and entering a space or a comma.</p> -->
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-12">
                                                 <select class="form-control select  clientdelete" id="select"  data-fouc >
                                                     <option disabled>--select ClientName--</option>
 
@@ -206,10 +232,15 @@ $( document ).ready(function() {
                                             </div>
                                         </div>
                                     </div>
+
+
+                                    </div>
+
+                                    <div class="col-md-6">
                                     <div class="mb-4">
                                         <h6  title="<?php echo $_SESSION['tool_tips']['DeletePlanner_Useremails'];?>"  class="font-weight-semibold" >UserEmail</h6>
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-12">
                                                 <select class="form-control select  deletemails" id="select0"  data-fouc >
                                                     <option disabled>--select UserEmail--</option>
 
@@ -219,11 +250,17 @@ $( document ).ready(function() {
                                             </div>
                                         </div>
                                     </div>
+                                    </div>
+
+
+                                    </div>
+
 
                                     <div class="mb-4">
 
                                         <!-- <p class="mb-2">Select2 supports ability to add choices automatically as the user is typing into the search field. Try typing in the search field below and entering a space or a comma.</p> -->
                                         <div class="row">
+                                            <div class="col-md-5"></div>
                                             <div class="col-md-2">
                                                 <button  class="form-control deletesavebtn">Delete Planner</button>
                                             </div>

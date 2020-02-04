@@ -320,8 +320,8 @@ $(document).ready(function () {
                 // });
                 // setInterval(function(){  location.reload(); }, 1500);
                 $.alert({
-                    title: 'successful',
-                    content: 'Removed Succesfully',
+                    title: 'Successful',
+                    content: 'Removed succesfully',
                     animation: 'scale',
                     closeAnimation: 'scale',
                     opacity: 0.5,

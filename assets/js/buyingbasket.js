@@ -1,7 +1,7 @@
-$(document).ready(function () {
-    var planid = $.urlParam('planid');
-    var userid = sessionStorage.getItem('userid');
 
+$(document).ready(function () {
+    var plan_id = $.urlParam('planid');
+    var userid = sessionStorage.getItem('userid');
     $('.loading').show();
     // all upload buttons disabled
     $('#upl-btn').prop('disabled', true);
@@ -64,6 +64,135 @@ $(document).ready(function () {
     var acceleratedFilePathByRPA;
     getData();
 
+    $("#uploadFileTrigger").on("click", function () {
+        $('#load-file').click()
+    })
+
+    $('#load-file').on('change', function () {
+        
+        debugger;
+        main_output = ''
+        var file = $(this)[0].files[0];
+        file_name_new = file.name;
+        // file_name_new = "Buying Basket_" + version_downloadfile + ".xlsx"
+        console.log(file, file_name_new);
+        $(".buyingFileNameDisplay").html('<span style="border-left: 2px solid;height: 24px;position: relative;left: 17px;top: 8px;"></span><p class="" style="margin-top:-13px;margin-left:27px;">'+file_name_new+' <img src="assets/images/delete.svg" style="width:15px;" class="deleteFile"></p>')
+           
+
+
+
+             
+        // $(".deleteFile").on('click', function(){
+
+        //     $(".buyingFileNameDisplay").empty();
+    
+        // });
+        
+
+        $("body").on("click", ".deleteFile", function () {
+            $(this).closest('.buyingFileNameDisplay').remove();
+            $('.hide_').hide();
+        })
+    
+
+
+        var fileReader = new FileReader();
+        fileReader.onloadend = function (e) {
+            blob___ = e.target.result;
+            fileobj_new = {}
+
+            fileobj_new.filename = file_name_new;
+
+            fileobj_new.blob = blob___;
+            fileobj_new.plan_id = plan_id;
+            fileobj_new.user_id = userid;
+            console.log(fileobj_new);
+
+            $(".loading").show();
+            fileobj_new.category = "buyingbasket"
+            console.log(file_name_new);
+            var form = new FormData();
+            form.append("file", JSON.stringify(fileobj_new));
+            var settings11 = {
+                "async": true,
+                "crossDomain": true,
+                "url": aws_url + 'Buying_basket',
+                "method": "POST",
+                "processData": false,
+                "contentType": false,
+                "mimeType": "multipart/form-data",
+                "data": form
+            };
+            $.ajax(settings11).done(function (msg) {
+                $('.radio_class').hide();
+                msg = JSON.parse(msg);
+                console.log(msg.file_name);
+                // $.each(msg, function( key, value ) {
+                    // console.log(key);
+                // })
+                
+                $('.loading').show();
+                if (msg.status == true) {
+                    $('.radio_class').show();
+                    if (path_selection == 2) {  
+                        $('.cprp_div').hide();
+                        $('.budget_div_').show();
+                        $('.radio_class').show();
+                    } else {
+                        $('.cprp_div').show();
+                        $('.budget_div_').hide();
+                        $('.radio_class').show();
+                    }
+                    $('.radio_class').show();
+                    $('.texttodisplay').show();
+                    $('.file-input').hide();
+                    $('.red_color').hide();
+                    $('#upl-btn').hide();
+                    // $('.cprp_div').show(); 
+                    $('.file-input-ajax').hide();
+                    $('.uploadFileTrigger').hide();
+                    $('.buyingFileNameDisplay').hide();
+                    $('.bb_txt').hide();
+                    $('.bb_files').html('<p>'+msg.file_name +'</p>')
+                    // $('.texttodisplay').append('<h5 style="color:#fff">Buying basket file is succesfully uploaded</h5>')
+                  
+                
+                
+                } else if (msg.status == false) {
+                    $('.radio_class').hide();
+                    $('#upl-btn').show();
+                    $('.texttodisplay').hide();
+                    $('.file-input').show();
+                    $('.red_color').show();
+                    $.alert({
+                        title: 'Oops ! Seems you are uploading an incorrect file',
+                        animation: 'scale',
+                        closeAnimation: 'scale',
+                        opacity: 0.5,
+                        buttons: {
+                            okay: {
+                                text: 'Okay',
+                                btnClass: 'btn-primary'
+                            }
+                        }
+                    });
+
+                }
+                $('.loading').hide();
+                // $('.radio_class').show();
+                // $('#upl-btn').hide();
+                // $('.cprp_div').show();
+            });
+        };
+
+
+
+
+        fileReader.readAsDataURL(file);
+    });
+
+
+   
 
     editdisperionlablesFirst("", "");
     editdisperionlables1First("", "")
@@ -75,11 +204,11 @@ $(document).ready(function () {
             editDispersionHtml += '<div class="row edit_disp kav sub_div">'
             editDispersionHtml += '    <div class="col-lg-6 col-md-6 col-xs-6">'
             editDispersionHtml += '        <h6 class="font-weight-semibold">Edit<span class="appendaveragecommer"></span></h6>'
-            editDispersionHtml += '        <input type="number" name="number" min="0" max="200" onKeyUp="if(this.value>200){this.value=200;}else if(this.value<0){this.value=0;}" class="kav edit__class inputboxstyle  form-control mods_inputs name name_Class 0 editView__Check editView__Check'+class_+'" placeholder="Enter the duration in seconds" value="'+key+'">'
+            editDispersionHtml += '        <input type="number" name="number" min="0" max="200" onKeyUp="if(this.value>200){this.value=200;}else if(this.value<0){this.value=0;}" class="kav edit__class inputboxstyle  form-control mods_inputs name name_Class 0 editView__Check editView__Check' + class_ + '" placeholder="Enter the duration in seconds" value="' + key + '">'
             editDispersionHtml += '    </div>'
             editDispersionHtml += '    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 position">'
             editDispersionHtml += '        <h6 class="font-weight-semibold">Dispersion <span class="appenddispers"></span></h6>'
-            editDispersionHtml += '        <input class="kav dispersion__class inputboxstyle form-control mods_inputs path path_Class 0 desView__Check desView__Check'+class_+'" type="number" name="number" min="1" max="99" placeholder="Enter dispersion in percentage" value="'+val+'">'
+            editDispersionHtml += '        <input class="kav dispersion__class inputboxstyle form-control mods_inputs path path_Class 0 desView__Check desView__Check' + class_ + '" type="number" name="number" min="1" max="99" placeholder="Enter dispersion in percentage" value="' + val + '">'
             editDispersionHtml += '    </div>'
             editDispersionHtml += '</div>'
         } else {
@@ -93,10 +222,10 @@ $(document).ready(function () {
             editDispersionHtml += '    <div class="main sub_div">'
             editDispersionHtml += '        <div class="row keyword row3">'
             editDispersionHtml += '            <div class="col-md-6 mr-b-10 pd-l-10 pd-r-10 appendobjvalinacd edit_res_class">'
-            editDispersionHtml += '                <input type="number" name="number" min="0" max="200" onKeyUp="if(this.value>200){this.value=200;}else if(this.value<0){this.value=0;}" class="kav edit__class inputboxstyle  form-control mods_inputs name name_Class 0 editView__Check editView__Check'+class_+'" placeholder="Enter the duration in seconds" value="'+key+'">'
+            editDispersionHtml += '                <input type="number" name="number" min="0" max="200" onKeyUp="if(this.value>200){this.value=200;}else if(this.value<0){this.value=0;}" class="kav edit__class inputboxstyle  form-control mods_inputs name name_Class 0 editView__Check editView__Check' + class_ + '" placeholder="Enter the duration in seconds" value="' + key + '">'
             editDispersionHtml += '            </div>'
             editDispersionHtml += '            <div class="col-md-6 mr-b-10 pd-l-10 pd-r-10 appendobjvalindispersion dispersion_res_class">'
-            editDispersionHtml += '                <input class="kav dispersion__class inputboxstyle form-control mods_inputs path path_Class 0 desView__Check desView__Check'+class_+'" type="number" name="number" min="1" max="99" placeholder="Enter dispersion in percentage" value="'+val+'">'
+            editDispersionHtml += '                <input class="kav dispersion__class inputboxstyle form-control mods_inputs path path_Class 0 desView__Check desView__Check' + class_ + '" type="number" name="number" min="1" max="99" placeholder="Enter dispersion in percentage" value="' + val + '">'
             editDispersionHtml += '            </div>'
             editDispersionHtml += '        </div>'
             editDispersionHtml += '    </div>'
@@ -115,11 +244,11 @@ $(document).ready(function () {
             editDispersionHtml1 += '<div class="row edit_disp kav sub_div_new">'
             editDispersionHtml1 += '    <div class="col-lg-6 col-md-6 col-xs-6">'
             editDispersionHtml1 += '        <h6 class="font-weight-semibold">Edit<span class="appendaveragecommer"></span></h6>'
-            editDispersionHtml1 += '        <input type="text" name="number" min="0" max="200" onKeyUp="if(this.value>200){this.value=200;}else if(this.value<0){this.value=0;}" class="kav edit__class inputboxstyle  form-control mods_inputs name_new name_Class_new 0 editView__Check1 editView__Check1'+class_1+'" placeholder="Enter the duration in seconds" value="'+key+'">'
+            editDispersionHtml1 += '        <input type="text" name="number" min="0" max="200" onKeyUp="if(this.value>200){this.value=200;}else if(this.value<0){this.value=0;}" class="kav edit__class inputboxstyle  form-control mods_inputs name_new name_Class_new 0 editView__Check1 editView__Check1' + class_1 + '" placeholder="Enter the duration in seconds" value="' + key + '">'
             editDispersionHtml1 += '    </div>'
             editDispersionHtml1 += '    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 position">'
             editDispersionHtml1 += '        <h6 class="font-weight-semibold">Dispersion <span class="appenddispers"></span></h6>'
-            editDispersionHtml1 += '        <input class="kav dispersion__class inputboxstyle form-control mods_inputs path_new path_Class_new 0 desView__Check1 desView__Check1'+class_1+'" type="number" name="number" min="1" max="99" placeholder="Enter dispersion in percentage" value="'+val+'">'
+            editDispersionHtml1 += '        <input class="kav dispersion__class inputboxstyle form-control mods_inputs path_new path_Class_new 0 desView__Check1 desView__Check1' + class_1 + '" type="number" name="number" min="1" max="99" placeholder="Enter dispersion in percentage" value="' + val + '">'
             editDispersionHtml1 += '    </div>'
             editDispersionHtml1 += '</div>'
         } else {
@@ -133,10 +262,10 @@ $(document).ready(function () {
             editDispersionHtml1 += '    <div class="main sub_div_new">'
             editDispersionHtml1 += '        <div class="row keyword row3">'
             editDispersionHtml1 += '            <div class="col-md-6 mr-b-10 pd-l-10 pd-r-10 appendobjvalinacd edit_res_class">'
-            editDispersionHtml1 += '                <input type="number" name="number" min="0" max="200" onKeyUp="if(this.value>200){this.value=200;}else if(this.value<0){this.value=0;}" class="kav edit__class inputboxstyle  form-control mods_inputs name_new name_Class_new 0 editView__Check1 editView__Check1'+class_1+'" placeholder="Enter the duration in seconds" value="'+key+'">'
+            editDispersionHtml1 += '                <input type="number" name="number" min="0" max="200" onKeyUp="if(this.value>200){this.value=200;}else if(this.value<0){this.value=0;}" class="kav edit__class inputboxstyle  form-control mods_inputs name_new name_Class_new 0 editView__Check1 editView__Check1' + class_1 + '" placeholder="Enter the duration in seconds" value="' + key + '">'
             editDispersionHtml1 += '            </div>'
             editDispersionHtml1 += '            <div class="col-md-6 mr-b-10 pd-l-10 pd-r-10 appendobjvalindispersion dispersion_res_class">'
-            editDispersionHtml1 += '                <input class="kav dispersion__class inputboxstyle form-control mods_inputs path_new path_Class_new 0 desView__Check1 desView__Check1'+class_1+'" type="number" name="number" min="1" max="99" placeholder="Enter dispersion in percentage" value="'+val+'">'
+            editDispersionHtml1 += '                <input class="kav dispersion__class inputboxstyle form-control mods_inputs path_new path_Class_new 0 desView__Check1 desView__Check1' + class_1 + '" type="number" name="number" min="1" max="99" placeholder="Enter dispersion in percentage" value="' + val + '">'
             editDispersionHtml1 += '            </div>'
             editDispersionHtml1 += '        </div>'
             editDispersionHtml1 += '    </div>'
@@ -153,11 +282,11 @@ $(document).ready(function () {
             editDispersionHtmlAppend = '<div class="row edit_disp kav sub_div">'
             editDispersionHtmlAppend += '    <div class="col-lg-6 col-md-6 col-xs-6">'
             editDispersionHtmlAppend += '        <h6 class="font-weight-semibold">Edit<span class="appendaveragecommer"></span></h6>'
-            editDispersionHtmlAppend += '        <input type="number" name="number" min="0" max="200" onKeyUp="if(this.value>200){this.value=200;}else if(this.value<0){this.value=0;}" class="kav edit__class inputboxstyle  form-control mods_inputs name name_Class 0 editView__Check editView__Check'+class_+'" placeholder="Enter the duration in seconds" value="'+key+'">'
+            editDispersionHtmlAppend += '        <input type="number" name="number" min="0" max="200" onKeyUp="if(this.value>200){this.value=200;}else if(this.value<0){this.value=0;}" class="kav edit__class inputboxstyle  form-control mods_inputs name name_Class 0 editView__Check editView__Check' + class_ + '" placeholder="Enter the duration in seconds" value="' + key + '">'
             editDispersionHtmlAppend += '    </div>'
             editDispersionHtmlAppend += '    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 position">'
             editDispersionHtmlAppend += '        <h6 class="font-weight-semibold">Dispersion <span class="appenddispers"></span></h6>'
-            editDispersionHtmlAppend += '        <input class="kav dispersion__class inputboxstyle form-control mods_inputs path path_Class 0 desView__Check desView__Check'+class_+'" type="number" name="number" min="1" max="99" placeholder="Enter dispersion in percentage" value="'+val+'">'
+            editDispersionHtmlAppend += '        <input class="kav dispersion__class inputboxstyle form-control mods_inputs path path_Class 0 desView__Check desView__Check' + class_ + '" type="number" name="number" min="1" max="99" placeholder="Enter dispersion in percentage" value="' + val + '">'
             if (key === "" && val === "") {
                 editDispersionHtmlAppend += '<img src="assets/images/delete.svg" style="width:20px;" class="remove"></img>'
             }
@@ -170,10 +299,14 @@ $(document).ready(function () {
             editDispersionHtmlAppend = '<div class="main sub_div">'
             editDispersionHtmlAppend += '   <div class="row keyword row3">'
             editDispersionHtmlAppend += '        <div class="col-md-6 mr-b-10 pd-l-10 pd-r-10 appendobjvalinacd edit_res_class">'
-            editDispersionHtmlAppend += '            <input type="number" name="number" min="0" max="200" onKeyUp="if(this.value>200){this.value=200;}else if(this.value<0){this.value=0;}" class="kav edit__class inputboxstyle  form-control mods_inputs name name_Class 0 editView__Check editView__Check'+class_+'" placeholder="Enter the duration in seconds" value="'+key+'">'
+            editDispersionHtmlAppend += '        <h6 class="font-weight-semibold">Edit<span class="appendaveragecommer"></span></h6>'
+            
+            editDispersionHtmlAppend += '            <input type="number" name="number" min="0" max="200" onKeyUp="if(this.value>200){this.value=200;}else if(this.value<0){this.value=0;}" class="kav edit__class inputboxstyle  form-control mods_inputs name name_Class 0 editView__Check editView__Check' + class_ + '"   placeholder="Enter the duration in seconds" value="' + key + '">'
             editDispersionHtmlAppend += '        </div>'
             editDispersionHtmlAppend += '        <div class="col-md-6 mr-b-10 pd-l-10 pd-r-10 appendobjvalindispersion dispersion_res_class">'
-            editDispersionHtmlAppend += '            <input class="kav dispersion__class inputboxstyle form-control mods_inputs path path_Class 0 desView__Check desView__Check'+class_+'" type="number" name="number" min="1" max="99" placeholder="Enter dispersion in percentage" value="'+val+'">'
+            editDispersionHtmlAppend += '        <h6 class="font-weight-semibold">Dispersion <span class="appenddispers"></span></h6>'
+           
+            editDispersionHtmlAppend += '            <input class="kav dispersion__class inputboxstyle form-control mods_inputs path path_Class 0 desView__Check desView__Check' + class_ + '" type="number" name="number" min="1" max="99" placeholder="Enter dispersion in percentage" value="' + val + '" >'
             if (key === "" && val === "") {
                 editDispersionHtmlAppend += '<img src="assets/images/delete.svg" style="width:20px;" class="remove"></img>'
             }
@@ -186,6 +319,66 @@ $(document).ready(function () {
         }
     }
 
+    function editdisperionlablescopy(key, val) {
+        var class_ = $(".editView__Check").length;
+        if (widthofscreen <= 680) {
+            editDispersionHtmlAppend = '<div class="row edit_disp kav sub_div">'
+            editDispersionHtmlAppend += '    <div class="col-lg-6 col-md-6 col-xs-6">'
+            editDispersionHtmlAppend += '        <h6 class="font-weight-semibold">Edit<span class="appendaveragecommer"></span></h6>'
+            editDispersionHtmlAppend += '        <input type="number" name="number" min="0" max="200" onKeyUp="if(this.value>200){this.value=200;}else if(this.value<0){this.value=0;}" class="kav edit__class inputboxstyle  form-control mods_inputs name name_Class 0 editView__Check editView__Check' + class_ + '" placeholder="Enter the duration in seconds" value="' + key + '">'
+            editDispersionHtmlAppend += '    </div>'
+            editDispersionHtmlAppend += '    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 position">'
+            editDispersionHtmlAppend += '        <h6 class="font-weight-semibold">Dispersion <span class="appenddispers"></span></h6>'
+            editDispersionHtmlAppend += '        <input class="kav dispersion__class inputboxstyle form-control mods_inputs path path_Class 0 desView__Check desView__Check' + class_ + '" type="number" name="number" min="1" max="99" placeholder="Enter dispersion in percentage" value="' + val + '">'
+            if (key === "" && val === "") {
+                editDispersionHtmlAppend += '<img src="assets/images/delete.svg" style="width:20px;" class="remove"></img>'
+            }
+            editDispersionHtmlAppend += '    </div>'
+            editDispersionHtmlAppend += '</div>'
+
+            $(".editDispersionDisplay").append(editDispersionHtmlAppend)
+
+        } else {
+            editDispersionHtmlAppend = '<div class="main sub_div">'
+            editDispersionHtmlAppend += '   <div class="row keyword row3">'
+            editDispersionHtmlAppend += '        <div class="col-md-6 mr-b-10 pd-l-10 pd-r-10 appendobjvalinacd edit_res_class">'
+            editDispersionHtmlAppend += '        <h6 class="font-weight-semibold">Edit<span class="appendaveragecommer"></span></h6>'
+            
+            editDispersionHtmlAppend += '            <input type="number" name="number" min="0" max="200" onKeyUp="if(this.value>200){this.value=200;}else if(this.value<0){this.value=0;}" class="kav edit__class inputboxstyle  form-control mods_inputs name name_Class 0 editView__Check editView__Check' + class_ + '"  readonly placeholder="Enter the duration in seconds" value="' + key + '">'
+            editDispersionHtmlAppend += '        </div>'
+            editDispersionHtmlAppend += '        <div class="col-md-6 mr-b-10 pd-l-10 pd-r-10 appendobjvalindispersion dispersion_res_class">'
+            editDispersionHtmlAppend += '        <h6 class="font-weight-semibold">Dispersion <span class="appenddispers"></span></h6>'
+           
+            editDispersionHtmlAppend += '            <input class="kav dispersion__class inputboxstyle form-control mods_inputs path path_Class 0 desView__Check desView__Check' + class_ + '" type="number" name="number" min="1" max="99" placeholder="Enter dispersion in percentage" value="' + val + '" readonly>'
+            if (key === "" && val === "") {
+                editDispersionHtmlAppend += '<img src="assets/images/delete.svg" style="width:20px;" class="remove"></img>'
+            }
+            editDispersionHtmlAppend += '        </div>'
+            editDispersionHtmlAppend += '    </div>'
+            editDispersionHtmlAppend += '</div>'
+
+            $(".genreLevelEditDispersion").append(editDispersionHtmlAppend)
+
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     function editdisperionlables1(key, val) {
         var class_1 = $(".editView__Check1").length;
 
@@ -193,11 +386,11 @@ $(document).ready(function () {
             editDispersionHtml1Append = '<div class="row edit_disp kav sub_div_new">'
             editDispersionHtml1Append += '    <div class="col-lg-6 col-md-6 col-xs-6">'
             editDispersionHtml1Append += '        <h6 class="font-weight-semibold">Edit<span class="appendaveragecommer"></span></h6>'
-            editDispersionHtml1Append += '        <input type="text" name="number" min="0" max="200" onKeyUp="if(this.value>200){this.value=200;}else if(this.value<0){this.value=0;}" class="kav edit__class inputboxstyle  form-control mods_inputs name_new name_Class_new 0 editView__Check1 editView__Check1'+class_1+'" placeholder="Enter the duration in seconds" value="'+key+'">'
+            editDispersionHtml1Append += '        <input type="text" name="number" min="0" max="200" onKeyUp="if(this.value>200){this.value=200;}else if(this.value<0){this.value=0;}" class="kav edit__class inputboxstyle  form-control mods_inputs name_new name_Class_new 0 editView__Check1 editView__Check1' + class_1 + '" placeholder="Enter the duration in seconds" value="' + key + '">'
             editDispersionHtml1Append += '    </div>'
             editDispersionHtml1Append += '    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 position">'
             editDispersionHtml1Append += '        <h6 class="font-weight-semibold">Dispersion <span class="appenddispers"></span></h6>'
-            editDispersionHtml1Append += '        <input class="kav dispersion__class inputboxstyle form-control mods_inputs path_new path_Class_new 0 desView__Check1 desView__Check1'+class_1+'" type="number" name="number" min="1" max="99" placeholder="Enter dispersion in percentage" value="'+val+'">'
+            editDispersionHtml1Append += '        <input class="kav dispersion__class inputboxstyle form-control mods_inputs path_new path_Class_new 0 desView__Check1 desView__Check1' + class_1 + '" type="number" name="number" min="1" max="99" placeholder="Enter dispersion in percentage" value="' + val + '">'
             if (key === "" && val === "") {
                 editDispersionHtml1Append += '<img src="assets/images/delete.svg" style="width:20px;" class="remove_new"></img>'
             }
@@ -210,10 +403,10 @@ $(document).ready(function () {
             editDispersionHtml1Append = '<div class="main sub_div_new">'
             editDispersionHtml1Append += '    <div class="row keyword row3">'
             editDispersionHtml1Append += '        <div class="col-md-6 mr-b-10 pd-l-10 pd-r-10 appendobjvalinacd edit_res_class">'
-            editDispersionHtml1Append += '            <input type="number" name="number" min="0" max="200" onKeyUp="if(this.value>200){this.value=200;}else if(this.value<0){this.value=0;}" class="kav edit__class inputboxstyle  form-control mods_inputs name_new name_Class_new 0 editView__Check1 editView__Check1'+class_1+'" placeholder="Enter the duration in seconds" value="'+key+'">'
+            editDispersionHtml1Append += '            <input type="number" name="number" min="0" max="200" onKeyUp="if(this.value>200){this.value=200;}else if(this.value<0){this.value=0;}" class="kav edit__class inputboxstyle  form-control mods_inputs name_new name_Class_new 0 editView__Check1 editView__Check1' + class_1 + '" placeholder="Enter the duration in seconds" value="' + key + '">'
             editDispersionHtml1Append += '        </div>'
             editDispersionHtml1Append += '        <div class="col-md-6 mr-b-10 pd-l-10 pd-r-10 appendobjvalindispersion dispersion_res_class">'
-            editDispersionHtml1Append += '            <input class="kav dispersion__class inputboxstyle form-control mods_inputs path_new path_Class_new 0 desView__Check1 desView__Check1'+class_1+'" type="number" name="number" min="1" max="99" placeholder="Enter dispersion in percentage" value="'+val+'">'
+            editDispersionHtml1Append += '            <input class="kav dispersion__class inputboxstyle form-control mods_inputs path_new path_Class_new 0 desView__Check1 desView__Check1' + class_1 + '" type="number" name="number" min="1" max="99" placeholder="Enter dispersion in percentage" value="' + val + '">'
             if (key === "" && val === "") {
                 editDispersionHtml1Append += '<img src="assets/images/delete.svg" style="width:20px;" class="remove_new"></img>'
             }
@@ -244,8 +437,9 @@ $(document).ready(function () {
     });
 
     function getData() {
+        debugger
         sendObj = {}
-        sendObj.planid = planid;
+        sendObj.planid = plan_id;
         console.log(sendObj);
         var form = new FormData();
         form.append("file", JSON.stringify(sendObj));
@@ -336,6 +530,7 @@ $(document).ready(function () {
                     }
 
                 }
+
                 $('cprp_div').show();
                 if (path_selection == 1) {
                     $('.changediv').html('<h6 class="font-weight-semibold textforchange">Upload spillover sheet</h6>')
@@ -386,6 +581,7 @@ $(document).ready(function () {
                     } else {
                         $('.channelbeing').hide();
                         if (path_selection == 1) {
+                            debugger
                             if (spilloversheet_filename == '' || spilloversheet_filename == null) {
                                 $('.spillover').show();
                                 $('.budegtdivnew').hide();
@@ -394,6 +590,7 @@ $(document).ready(function () {
                             } else {
                                 $('.spillll').hide();
                                 $('.spillovertexttodisplay').show();
+                                
                                 $('.spillovertexttodisplay').append('<h5>Genre Level Budget Allocation Sheet is successfully uploaded</h5>')
                                 if (plancompleted == true) {
                                     $(".next_").prop('disabled', false);
@@ -492,8 +689,9 @@ $(document).ready(function () {
 
                     $('.forfirstpathtext').append('' + genre_levellabel + ' : none');
                 } else {
+                    $('.forfirstpathtext').append('<span> '+ genre_levellabel +'<span id="dots">...</span></span><span id="more" style="display:none;">' + format_date(process2ETA) + '</span><span onclick="myFunction()" id="myclick" style="color:#9780f1;text-decoration: underline; ">Read more</span>');
 
-                    $('.forfirstpathtext').append('' + genre_levellabel + ' : ' + format_date(process2ETA) + '');
+                    // $('.forfirstpathtext').append('' + genre_levellabel + ' : ' + format_date(process2ETA) + '');
 
                 }
             }
@@ -543,7 +741,10 @@ $(document).ready(function () {
                         $('.bb_files').hide();
                         $('#upl-btn').hide();
                         $('.texttodisplay').show()
-                        $('.texttodisplay').html('<h5>Buying Basket file is succesfully uploaded</h5>')
+
+                        $('.bb_txt').append('<h5>Buying Basket file is succesfully uploaded</h5>')
+                        console.log(file_name_new);
+                        // $('.bb_files').html('<p>'+msg.file_name +'</p>')
                         $('.radio_class').show();
                         $('.cprp_div').show();
                         if (path_selection == 2) {
@@ -559,9 +760,8 @@ $(document).ready(function () {
     }
 
     function freezebuyinginfo() {
-        debugger;
+        debugger
         // $('.cprp_div').show();
-        $('sub_div').prop('disabled',true);
         if (isFilePrepCompleted == "false") {
             $('.channelbeing').show();
             if (path_selection == 2) {
@@ -619,9 +819,10 @@ $(document).ready(function () {
 
         } else {
             $('.bb_files').hide();
+            // append(filename)
             $('#upl-btn').hide();
-            $('.texttodisplay').show()
-            $('.texttodisplay').html('<h5 style="color:#fff">Buying Basket file is succesfully uploaded</h5>')
+            // $('.texttodisplay').show()
+            // $('.texttodisplay').html('<h5 style="color:#fff">Buying Basket file is succesfully uploaded</h5>')
         }
         if (path_selection == 2) {
 
@@ -658,7 +859,7 @@ $(document).ready(function () {
             val = acd_data
             $('.sub_div_new').remove()
             for (let i = 0; i < key.length; i++) {
-                editdisperionlables1(key[i],val[i]);
+                editdisperionlables1(key[i], val[i]);
             }
 
         } else if (path_selection == 1) {
@@ -685,23 +886,45 @@ $(document).ready(function () {
             $(".sub_div").remove()
             $.each(acd_dispersion, function (key, value) {
                 for (var val in value) {
-                    editdisperionlables(val, value[val])
+                    editdisperionlablescopy(val, value[val])
                 }
             })
+        
+        
+        // for (var val in value) {
+        //            acd_value.push(val)
+        //            acd_data.push(value[val])
+
+        //        }
+        //    })
+        //    console.log(acd_data);
+        //    console.log(acd_value);
+
+        //    $('.name_Class').hide();
+        //    $('.path_Class').hide();
+        //    $('.appendobjvalinacd').append('<input type="number" name="number" min="1" max="99"  class="inputboxstyle  form-control mods_inputs name name_Class 0" placeholder="' + acd_value.join(",") + '" readonly="" style="background: rgba(41, 40, 40, 0.91); color: rgb(255, 255, 255);">')
+        //    $('.appendobjvalindispersion').append('<input type="number" name="number" min="1" max="99"  class="inputboxstyle  form-control mods_inputs name name_Class 0" placeholder="' + acd_data.join(",") + '" readonly="" style="background: rgba(41, 40, 40, 0.91); color: rgb(255, 255, 255);">')
+        
+        
+        
+        
+        
+        
         } else {
             $(".cprp_main").prop("checked", true);
             $(".budget_main").prop("checked", false);
         }
         $('.add_more').prop('disabled', true);
         $('.submit_').prop('disabled', true);
-        $('.edit__class').prop('readonly', true);
-        $('.dispersion__class').prop('readonly', true);
 
         $.each(weightage, function (key, value) {
             $('.cprp_val').val(key)
             $('.reach_val').val(weightage[key])
         })
     }
+
+
+    
 
     function unfreezebuyinginfo() {
         if (path_selection == 2) {
@@ -733,6 +956,7 @@ $(document).ready(function () {
                 $('.bb_files').show();
                 $('.bb_txt').show();
                 $('#upl-btn').show();
+                
             }
         } else {
             if (replan == false) {
@@ -748,6 +972,7 @@ $(document).ready(function () {
         if (path_selection == 2) {
             //    $('.kav').hide()
             //    $(".edit_disp").hide()
+            
             $(".cprp_main").css("background-color", "#292828");
             $(".budget_main").css("background-color", "#F07144");
             // $('.cprp_div').hide();
@@ -962,7 +1187,6 @@ $(document).ready(function () {
         path_selection_ = $(this).closest('.common_class').find('.budget_main').attr('key');
         var campaign_days = $('.campaign_days_new').val();
         var userid = sessionStorage.getItem('userid');
-        var plan_id = planid;
         var err = 0;
         var arr_check = [];
         children = $(".sub_div_new").children();
@@ -1072,7 +1296,10 @@ $(document).ready(function () {
 
                         $('.forsecoundpathtext').append('' + channel_levellabel + ' :None');
                     } else {
-                        $('.forsecoundpathtext').append('' + channel_levellabel + ' ' + format_date(process2ETA) + '');
+
+
+                        $('.forsecoundpathtext').append('<span>'+ channel_levellabel +'<span id="dots">...</span></span><span id="more" style="display:none;">' + format_date(process2ETA) + '</span><span onclick="myFunction()" id="myclick" style="color:#9780f1;text-decoration: underline; ">Read more</span>');
+                        // $('.forsecoundpathtext').append('' + channel_levellabel + ' ' + format_date(process2ETA) + '');
 
                     }
                     $('.add_more_new').prop('disabled', true);
@@ -1125,72 +1352,65 @@ $(document).ready(function () {
 
 
 
-// ......$.njjhjk
+    // ......$.njjhjk
 
 
-$("#a").keyup(function () {
-    var a = parseInt($('#a').val());
-    var b = 100 - a;
-    var b = parseInt($('#b').val(b));
-})
-$("#a").mousewheel(function () {
-    var a = parseInt($('#a').val());
-    var b = 100 - a;
-    var b = parseInt($('#b').val(b));
-})
-$("#b").mousewheel(function () {
-    var a = parseInt($('#b').val());
-    var b = 100 - a;
-    var b = parseInt($('#a').val(b));
-})
-$("#b").keyup(function () {
-    var a = parseInt($('#b').val());
-    var b = 100 - a;
-    var b = parseInt($('#a').val(b));
-})
-var t = false
-$('.input').focus(function () {
-    var $this = $(this)
-    t = setInterval(
-        function () {
-            if (($this.val() < 0 || $this.val() > 100) && $this.val().length != 0) {
-                if ($this.val() < 0) {
-                    $this.val(0)
+    $("#a").keyup(function () {
+        var a = parseInt($('#a').val());
+        var b = 100 - a;
+        var b = parseInt($('#b').val(b));
+    })
+    // $("#a").mousewheel(function () {
+    //     var a = parseInt($('#a').val());
+    //     var b = 100 - a;
+    //     var b = parseInt($('#b').val(b));
+    // })
+    // $("#b").mousewheel(function () {
+    //     var a = parseInt($('#b').val());
+    //     var b = 100 - a;
+    //     var b = parseInt($('#a').val(b));
+    // })
+    $("#b").keyup(function () {
+        var a = parseInt($('#b').val());
+        var b = 100 - a;
+        var b = parseInt($('#a').val(b));
+    })
+    var t = false
+    $('.input').focus(function () {
+        var $this = $(this)
+        t = setInterval(
+            function () {
+                if (($this.val() < 0 || $this.val() > 100) && $this.val().length != 0) {
+                    if ($this.val() < 0) {
+                        $this.val(0)
+                    }
+
+                    if ($this.val() > 100) {
+                        $this.val(100)
+                    }
                 }
+            }, )
+    })
+    var t = false
+    $('.campaign').focus(function () {
+        var $this = $(this)
+        t = setInterval(
+            function () {
+                if (($this.val() < 0 || $this.val() > 100) && $this.val().length != 0) {
+                    if ($this.val() < 0) {
+                        $this.val(0)
+                    }
 
-                if ($this.val() > 100) {
-                    $this.val(100)
+                    if ($this.val() > 365) {
+                        $this.val(365)
+                    }
                 }
-            }
         }, )
-})
-var t = false
-$('.campaign').focus(function () {
-    var $this = $(this)
-    t = setInterval(
-        function () {
-            if (($this.val() < 0 || $this.val() > 100) && $this.val().length != 0) {
-                if ($this.val() < 0) {
-                    $this.val(0)
-                }
-
-                if ($this.val() > 365) {
-                    $this.val(365)
-                }
-            }
-        }, )
-})
-
-
-
-
-
-
-
-
+    })
 
     $("body").on("click", ".submit_", function () {
-        debugger
+
+        debugger;
         $('.forfirstpathtext').empty()
         path_selection = $(this).closest('.common_class').find('.cprp_main').attr('key');
         div_weitage = $(this).closest('.common_class').find('.cprp_div');
@@ -1200,7 +1420,6 @@ $('.campaign').focus(function () {
         var frequency_channel = div_weitage.find('.frequency_channel').val();
         var campaign_days = div_weitage.find('.campaign_days').val();
         var userid = sessionStorage.getItem('userid');
-        var plan_id = planid;
         var err = 0;
         var arr_check = [];
         children = $(".sub_div").children();
@@ -1252,10 +1471,10 @@ $('.campaign').focus(function () {
             });
 
         } else if (sum < 100 || sum > 100) {
-            $.alert({
-                title: 'Alert',
-                content: 'Dispersion should be 100'
-            });
+            // $.alert({
+            //     title: 'Alert',
+            //     content: 'Dispersion should be 100'
+            // });
         } else {
             $('.loading').show();
             $('.add_more').prop('disabled', true);
@@ -1264,8 +1483,8 @@ $('.campaign').focus(function () {
             $('.channelbeing').show();
             $('#upl-btn1').hide();
             sendObj2.acd_dispersion = obj_subdivs;
-            console.log(acd_dispersion);
-            $.each(acd_dispersion, function (key, i) {
+            console.log(obj_subdivs);
+            $.each(obj_subdivs, function (key, i) {
                 console.log(key);
             })
             sendObj2.weightage = sendObj;
@@ -1297,9 +1516,6 @@ $('.campaign').focus(function () {
                     $.alert({
                         title: 'Error',
                         content: 'Oops ! something went wrong, try again',
-                        animation: 'scale',
-                        closeAnimation: 'scale',
-                        opacity: 0.5,
                         buttons: {
                             okay: {
                                 text: 'Okay',
@@ -1311,7 +1527,12 @@ $('.campaign').focus(function () {
                         }
                     });
                 } else {
-                    $('.forfirstpathtext').append('' + genre_levellabel + ' ' + format_date(process2ETA) + '');
+                    $('.forfirstpathtext').append('' + genre_levellabel + '' + format_date(process2ETA) + '');
+
+
+                    // $('.forfirstpathtext').append('<p> '+ genre_levellabel +'<span id="dots">...</span></p><span id="more" style="display:none;">' + format_date(process2ETA) + '</span><button onclick="myFunction()" id="myBtn">Read more</button>');
+
+
 
                     $('.mods_inputs').css("color", "#fff");
                     $('.mods_inputs').css("background", "rgba(41, 40, 40, 0.91)");
@@ -1321,7 +1542,6 @@ $('.campaign').focus(function () {
                     $('input[type=number]').prop('readonly', true);
                     $('.add_more').prop('disbale', true);
                     $('.submit_').prop('disbale', true);
-                    $('.remove').hide();
                     sessionStorage.getItem('create_plan_id', 0);
                     $('.channelbeing').show();
                     $('.forfirstpathtext').show();
@@ -1336,6 +1556,8 @@ $('.campaign').focus(function () {
         }
 
     })
+
+
 
     $("body").on("click", ".cprp_r", function () {
         $(".cprp").show();
@@ -1362,46 +1584,23 @@ $('.campaign').focus(function () {
     })
 
     $("body").on("click", ".backclass", function () {
-        window.location.href = 'planner_createnewplan.php?planid=' + planid
+        window.location.href = 'planner_createnewplan.php?planid=' + plan_id
     })
 
 
     $("body").on("click", ".next_", function () {
-        window.location.href = "barc.php?planid=" + planid
+        window.location.href = "barc.php?planid=" + plan_id
     })
 
-    var plan_id = planid;
-    var user_id = sessionStorage.getItem('userid');
     $('.camp_id').append('<input class="form-control" value="' + plan_id + '" type="text"/ readonly>')
     $('.radio_class').hide();
     var file_name_new;
     var main_output_new;
     fileobj_new = {};
-    (function ($) {
-        $('#load-file').on('change', function () {
 
-            main_output = ''
-            var file = $('#load-file')[0].files[0];
-            file_name_new = file.name;
-            file_name_new = "Buying Basket_" + version_downloadfile + ".xlsx"
+    
 
-            var fileReader = new FileReader();
-            fileReader.onloadend = function (e) {
-                blob___ = e.target.result;
-
-                fileobj_new.filename = file_name_new;
-
-                fileobj_new.blob = blob___;
-                fileobj_new.plan_id = plan_id;
-                fileobj_new.user_id = user_id;
-                console.log(fileobj_new);
-                $('#upl-btn').show();
-                $('#upl-btn').prop('disabled', false);
-            };
-
-            fileReader.readAsDataURL(file);
-        });
-    })(jQuery);
+    
 
 
     var counting = 0;
@@ -1448,103 +1647,168 @@ $('.campaign').focus(function () {
 
 
 
-    $("body").on("click", "#upl-btn", function () {
-        $(".loading").show();
-        fileobj_new.category = "buyingbasket"
-        console.log(file_name_new);
-        var form = new FormData();
-        form.append("file", JSON.stringify(fileobj_new));
-        var settings11 = {
-            "async": true,
-            "crossDomain": true,
-            "url": aws_url + 'Buying_basket',
-            "method": "POST",
-            "processData": false,
-            "contentType": false,
-            "mimeType": "multipart/form-data",
-            "data": form
-        };
-        $.ajax(settings11).done(function (msg) {
-            $('.radio_class').hide();
-            console.log(msg);
-            msg = JSON.parse(msg);
-            $('.loading').hide();
-            if (msg == "Path inserted Succesfully") {
-                $('.radio_class').show();
-                if (path_selection == 2) {
-                    $('.cprp_div').hide();
-                    $('.budget_div_').show();
-                    $('.radio_class').show();
-                } else {
-                    $('.cprp_div').show();
-                    $('.budget_div_').hide();
-                    $('.radio_class').show();
-                }
-                $('.radio_class').show();
-                $('.texttodisplay').show();
-                $('.file-input').hide();
-                $('.red_color').hide();
-                $('#upl-btn').hide();
-                // $('.cprp_div').show();
+    // $("body").on("click", "#upl-btn", function () {
+        
+    // })
 
-                $('.texttodisplay').append('<h5 style="color:#fff">Buying Basket file successfully uploaded</h5>')
-            } else if (msg == "wrong_file_uploaded") {
-                $('.radio_class').hide();
-                $('#upl-btn').show();
-                $('.texttodisplay').hide();
-                $('.file-input').show();
-                $('.red_color').show();
-                $.alert({
-                    title: 'Oops ! Seems you are uploading an incorrect file',
-                    animation: 'scale',
-                    closeAnimation: 'scale',
-                    opacity: 0.5,
-                    buttons: {
-                        okay: {
-                            text: 'Okay',
-                            btnClass: 'btn-primary'
-                        }
-                    }
-                });
-
-            }
-            $('.loading').hide();
-            // $('.radio_class').show();
-            $('#upl-btn').hide();
-            // $('.cprp_div').show();
-        });
+    $("#uploadFileTrigger1").on("click", function () {
+        $('#load-file1').click()
     })
-
-
     //budget upload file path B//
 
     var file_name_;
     var main_output;
     fileobj = {};
-    (function ($) {
+    // (function ($) {
         $('#load-file1').on('change', function () {
-
             main_output = ''
-            var file = $('#load-file1')[0].files[0];
+            var file = $(this)[0].files[0];
             filename = file.name;
-            filename = "ChannelLevelBudgetAllocation" + newcampaign_id + "_" + version + ".xlsx"
+            // filename = "ChannelLevelBudgetAllocation" + newcampaign_id + "_" + version + ".xlsx"
+            $(".ChannelLevelFileNameDisplay").html('<span style="border-left: 2px solid;height: 24px;position: relative;left: 17px;top:25px;"></span><p class="" style="margin-top: 10px;margin-left:20px;">'+filename+' <img src="assets/images/delete.svg" style="width:15px" class="deleteFile"></p>')
+
+
+            $("body").on("click", ".deleteFile", function () {
+                $(this).closest('.ChannelLevelFileNameDisplay').remove();
+                $('.hide_').hide();
+            })
+
+
+
+
+
+
+
+
+
             var fileReader = new FileReader();
             fileReader.onloadend = function (e) {
                 blob___ = e.target.result;
 
                 fileobj.filename = filename;
                 fileobj.blob = blob___;
-                fileobj.plan_id = planid;
+                fileobj.plan_id = plan_id;
                 fileobj.user_id = userid;
                 fileobj.category = "budgetallocation";
                 console.log(fileobj);
-                $('#upl-btn1').prop('disabled', false);
+
+                $(".loading").show();
+                console.log(file_name_);
+                var form = new FormData();
+                form.append("file", JSON.stringify(fileobj));
+                var settings11 = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url": aws_url + 'Buying_basket',
+                    "method": "POST",
+                    "processData": false,
+                    "contentType": false,
+                    "mimeType": "multipart/form-data",
+                    "data": form
+                };
+                $.ajax(settings11).done(function (msg) {
+                    console.log(msg);
+                    msg = JSON.parse(msg);
+                    console.log(msg);
+                    status = msg.Status
+                    process3ETA = msg.Process3ETA;
+                    $(".loading").hide();
+                    $('.acceleratorfiletext').hide();
+                   
+                    if (status == true) {
+                        $('#upl-btn1').hide();
+                        // ===========================
+                        // $('.texttodisplay').show();
+                        // $('.texttodisplayspill').show();
+                        // $('#upl-btn1').hide();
+                        // $('.bb_txt').hide();
+                        // $('.file-input').hide();
+                        // $('.red_color').hide();
+                        // $('.texttodisplayspill').append('<h5 style="color:#fff">Channel Level Budget Allocation Sheet is successfully uploaded</h5>')
+                        // $('.next_').prop('disabled', false)
+                        // =================================
+        
+                        if (path_selection == 2) {
+                            $('.acceleratorfiletext').show();
+                            $('.acceleratorfiletext').html('<h5> ' + genre_uploadlabel + ' ' + format_date(process3ETA) + ' </h5>')
+                        } else {
+                            $('.acceleratorfiletext').hide();
+                            $('.next_').prop('disabled', false)
+                            
+                        }
+                        $('.texttodisplay').show();
+                        $('.texttodisplayspill').show();
+                        $('#upl-btn__').hide();
+        
+                        $('.bb_txt').hide();
+                        $('.file-input').hide();
+                        $('.uploadFileTrigger1').hide();
+                        $('.ChannelLevelFileNameDisplay').hide();
+
+                        $('.red_color').hide();
+                        $('.texttodisplayspill').html('<p>'+msg.file_name +'</p>')
+                        // $('.texttodisplayspill').append('<h5 style="color:#000">'+file_name_2+' is successfully uploaded</h5>')
+                        // $('.texttodisplayspill').append('<h5 style="color:#fff;">Channel Level Budget Allocation Sheet is successfully uploaded</h5>')
+        
+        
+                        // $.alert({
+                        //     title: 'File succesfully uploaded',
+                        //     animation: 'scale',
+                        //     closeAnimation: 'scale',
+                        //     opacity: 0.5,
+                        //     buttons: {
+                        //         okay: {
+                        //             text: 'Okay',
+                        //             btnClass: 'btn-primary'
+                        //         }
+                        //     }
+                        // });
+                    } else {
+                        $('.texttodisplay').hide();
+                        $('.texttodisplayspill').hide();
+                        $('#upl-btn1').show();
+                        $('.file-input').show();
+                        $('.red_color').show();
+                        if (plancompleted == true) {
+                            $(".next_").prop('disabled', false);
+                        } else {
+        
+                            $('.next_').prop('disabled', true)
+                        }
+                        $.alert({
+                            title: 'Oops ! Seems you are uploading an incorrect file',
+                            // content: 'Oops ! something went wrong',
+                            animation: 'scale',
+                            closeAnimation: 'scale',
+                            opacity: 0.5,
+                            buttons: {
+                                okay: {
+                                    text: 'Okay',
+                                    btnClass: 'btn-primary'
+                                }
+                            }
+                        });
+        
+                    }
+                    version = 0;
+                });
+
+
+
+
+
+
+
+
+
+
+                // $('#upl-btn1').prop('disabled', false);
                 file_name_ = filename;
             };
 
             fileReader.readAsDataURL(file);
         });
-    })(jQuery);
+    // })(jQuery);
 
 
     //Path A//
@@ -1554,30 +1818,138 @@ $('.campaign').focus(function () {
     var file_name_2;
     var main_output2;
     fileobj2 = {};
-    (function ($) {
-        $('#load-file__').on('change', function () {
+    // (function ($) {
 
+
+        $("#uploadFileTrigger2").on("click", function () {
+            $('#load-file__').click()
+        })
+        $('#load-file__').on('change', function () {
+        debugger;
             main_output = ''
             var file = $('#load-file__')[0].files[0];
             filename = file.name;
-            filename = "GenreLevelBudgetAllocation_" + newcampaign_id + "_" + version + ".xlsx"
-            var fileReader = new FileReader();
-            fileReader.onloadend = function (e) {
+            // filename = "GenreLevelBudgetAllocation_" + newcampaign_id + "_" + version + ".xlsx"
+            
+            $(".GenreLevelFileNameDisplay").html('<span style="border-left: 2px solid;height: 24px;position: relative;left: 17px;top:25px"></span><p class="" style="margin-top: 5px;margin-left:25px;">'+filename+' <img src="assets/images/delete.svg" style="width:15px" class="deleteFile"></p>')
+            
+            
+
+
+            $("body").on("click", ".deleteFile", function () {
+                $(this).closest('.GenreLevelFileNameDisplays').remove();
+                $('.hide_').hide();
+            })
+
+
+               var fileReader = new FileReader();
+               fileReader.onloadend = function (e) {
                 blob___ = e.target.result;
 
                 fileobj2.filename = filename;
                 fileobj2.blob = blob___;
-                fileobj2.plan_id = planid;
+                fileobj2.plan_id = plan_id;
                 fileobj2.user_id = userid;
                 fileobj2.category = "spilloversheet";
                 console.log(fileobj2);
-                $('#upl-btn__').prop('disabled', false);
+
+                // $("body").on("click", "#upl-btn__", function () {
+
+                    $(".loading").show();
+                    console.log(file_name_2);
+                    var form = new FormData();
+                    form.append("file", JSON.stringify(fileobj2));
+                    var settings11 = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": aws_url + 'Buying_basket',
+                        "method": "POST",
+                        "processData": false,
+                        "contentType": false,
+                        "mimeType": "multipart/form-data",
+                        "data": form
+                    };
+                    $.ajax(settings11).done(function (msg) {
+                        $(".loading").hide();
+                        console.log(msg);
+                        msg = JSON.parse(msg);
+                        console.log(msg);
+                        Status = msg.status
+                        process3ETA = msg.Process3ETA;
+                        if (Status == true) {
+                            if (path_selection == 1) {
+                                $('.acceleratorfiletext').show();
+                                $('.acceleratorfiletext').html('<h5>' + genre_uploadlabel + ' ' + format_date(process3ETA) + ' </h5>')
+                            } else {
+                                $('.acceleratorfiletext').hide();
+                                $('.next_').prop('disabled', false)
+                            }
+                            $('.texttodisplay').show();
+                            $('.texttodisplayspill').show();
+                            // $('#upl-btn__').hide();
+            
+                            $('.bb_txt').hide();
+                            $('.file-input').hide();
+                            $('.red_color').hide();
+
+                            $('.texttodisplayspill').html('<p>'+msg.file_name +'</p>')
+                            // $('.texttodisplayspill').append('<h5 style="color:#000">'+file_name_2+' is successfully uploaded</h5>')
+                            // $('.texttodisplayspill').append('<h5 style="color:#fff;">Genre Level Budget Allocation Sheet  successfully uploaded </h5>')
+                            $('.uploadFileTrigger2').hide();
+                            $('.GenreLevelFileNameDisplay').hide();
+                                  
+                            // $.alert({
+                            //     title: 'File succesfully uploaded',
+                            //     // content: 'Oops ! something went wrong',
+                            //     animation: 'scale',
+                            //     closeAnimation: 'scale',
+                            //     opacity: 0.5,
+                            //     buttons: {
+                            //         okay: {
+                            //             text: 'Okay',
+                            //             btnClass: 'btn-primary'
+                            //         }
+                            //     }
+                            // });
+                        }
+                        if (Status == false) {
+                            $('.texttodisplay').hide();
+                            $('.texttodisplayspill').hide();
+                            $('#upl-btn__').show();
+                            $('.file-input').show();
+                            $('.red_color').show();
+                            $.alert({
+                                title: 'Oops ! Seems you are uploading an incorrect file',
+                                // content: 'Oops ! something went wrong',
+                                animation: 'scale',
+                                closeAnimation: 'scale',
+                                opacity: 0.5,
+                                buttons: {
+                                    okay: {
+                                        text: 'Okay',
+                                        btnClass: 'btn-primary'
+                                    }
+                                }
+                            });
+                        }
+                        version = 0;
+                    });
+                // })
+
+
+
+                // $('#upl-btn__').prop('disabled', false);
                 file_name_2 = filename;
+
+
+
+
+
             };
 
             fileReader.readAsDataURL(file);
         });
-    })(jQuery);
+    // })(jQuery);
 
 
     var counting = 0;
@@ -1631,187 +2003,15 @@ $('.campaign').focus(function () {
 
     })
 
-    $("body").on("click", "#upl-btn1", function () {
+    // $("body").on("click", "#upl-btn1", function () {
 
-        $(".loading").show();
-        console.log(file_name_);
-        var form = new FormData();
-        form.append("file", JSON.stringify(fileobj));
-        var settings11 = {
-            "async": true,
-            "crossDomain": true,
-            "url": aws_url + 'Buying_basket',
-            "method": "POST",
-            "processData": false,
-            "contentType": false,
-            "mimeType": "multipart/form-data",
-            "data": form
-        };
-        $.ajax(settings11).done(function (msg) {
-            console.log(msg);
-            msg = JSON.parse(msg);
-            console.log(msg);
-            status = msg.Status
-            process3ETA = msg.Process3ETA;
-            $(".loading").hide();
-            $('.acceleratorfiletext').hide();
-            if (status == "Path inserted Succesfully") {
-                $('#upl-btn1').hide();
-                // ===========================
-                // $('.texttodisplay').show();
-                // $('.texttodisplayspill').show();
-                // $('#upl-btn1').hide();
-                // $('.bb_txt').hide();
-                // $('.file-input').hide();
-                // $('.red_color').hide();
-                // $('.texttodisplayspill').append('<h5 style="color:#fff">Channel Level Budget Allocation Sheet is successfully uploaded</h5>')
-                // $('.next_').prop('disabled', false)
-                // =================================
+       
+    // })
 
-                if (path_selection == 2) {
-                    $('.acceleratorfiletext').show();
-                    $('.acceleratorfiletext').html('<h5> ' + genre_uploadlabel + ' ' + format_date(process3ETA) + ' </h5>')
-                } else {
-                    $('.acceleratorfiletext').hide();
-                    $('.next_').prop('disabled', false)
-                }
-                $('.texttodisplay').show();
-                $('.texttodisplayspill').show();
-                $('#upl-btn__').hide();
-
-                $('.bb_txt').hide();
-                $('.file-input').hide();
-                $('.red_color').hide();
-                // $('.texttodisplayspill').append('<h5 style="color:#000">'+file_name_2+' is successfully uploaded</h5>')
-                $('.texttodisplayspill').append('<h5 style="color:#fff;">Channel Level Budget Allocation Sheet is successfully uploaded</h5>')
-
-
-                // $.alert({
-                //     title: 'File succesfully uploaded',
-                //     animation: 'scale',
-                //     closeAnimation: 'scale',
-                //     opacity: 0.5,
-                //     buttons: {
-                //         okay: {
-                //             text: 'Okay',
-                //             btnClass: 'btn-primary'
-                //         }
-                //     }
-                // });
-            } else {
-                $('.texttodisplay').hide();
-                $('.texttodisplayspill').hide();
-                $('#upl-btn1').show();
-                $('.file-input').show();
-                $('.red_color').show();
-                if (plancompleted == true) {
-                    $(".next_").prop('disabled', false);
-                } else {
-
-                    $('.next_').prop('disabled', true)
-                }
-                $.alert({
-                    title: 'Oops ! Seems you are uploading an incorrect file',
-                    // content: 'Oops ! something went wrong',
-                    animation: 'scale',
-                    closeAnimation: 'scale',
-                    opacity: 0.5,
-                    buttons: {
-                        okay: {
-                            text: 'Okay',
-                            btnClass: 'btn-primary'
-                        }
-                    }
-                });
-
-            }
-            version = 0;
-        });
-    })
-
-    $("body").on("click", "#upl-btn__", function () {
-
-        $(".loading").show();
-        console.log(file_name_2);
-        var form = new FormData();
-        form.append("file", JSON.stringify(fileobj2));
-        var settings11 = {
-            "async": true,
-            "crossDomain": true,
-            "url": aws_url + 'Buying_basket',
-            "method": "POST",
-            "processData": false,
-            "contentType": false,
-            "mimeType": "multipart/form-data",
-            "data": form
-        };
-        $.ajax(settings11).done(function (msg) {
-            $(".loading").hide();
-            console.log(msg);
-            msg = JSON.parse(msg);
-            console.log(msg);
-            status = msg.Status
-            process3ETA = msg.Process3ETA;
-            if (status == "Path inserted Succesfully") {
-                if (path_selection == 1) {
-                    $('.acceleratorfiletext').show();
-                    $('.acceleratorfiletext').html('<h5>' + genre_uploadlabel + ' ' + format_date(process3ETA) + ' </h5>')
-                } else {
-                    $('.acceleratorfiletext').hide();
-                    $('.next_').prop('disabled', false)
-                }
-                $('.texttodisplay').show();
-                $('.texttodisplayspill').show();
-                $('#upl-btn__').hide();
-
-                $('.bb_txt').hide();
-                $('.file-input').hide();
-                $('.red_color').hide();
-                // $('.texttodisplayspill').append('<h5 style="color:#000">'+file_name_2+' is successfully uploaded</h5>')
-                $('.texttodisplayspill').append('<h5 style="color:#fff;">Genre Level Budget Allocation Sheet  successfully uploaded </h5>')
-
-
-                // $.alert({
-                //     title: 'File succesfully uploaded',
-                //     // content: 'Oops ! something went wrong',
-                //     animation: 'scale',
-                //     closeAnimation: 'scale',
-                //     opacity: 0.5,
-                //     buttons: {
-                //         okay: {
-                //             text: 'Okay',
-                //             btnClass: 'btn-primary'
-                //         }
-                //     }
-                // });
-            }
-            if (status == "wrong_file_uploaded") {
-                $('.texttodisplay').hide();
-                $('.texttodisplayspill').hide();
-                $('#upl-btn__').show();
-                $('.file-input').show();
-                $('.red_color').show();
-                $.alert({
-                    title: 'Oops ! Seems you are uploading an incorrect file',
-                    // content: 'Oops ! something went wrong',
-                    animation: 'scale',
-                    closeAnimation: 'scale',
-                    opacity: 0.5,
-                    buttons: {
-                        okay: {
-                            text: 'Okay',
-                            btnClass: 'btn-primary'
-                        }
-                    }
-                });
-            }
-            version = 0;
-        });
-    })
+   
 
     $('body').on('click', '.backclass', function () {
         sessionStorage.setItem('backclicked', true);
     })
-
 
 })

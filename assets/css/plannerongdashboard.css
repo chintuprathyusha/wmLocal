@@ -271,14 +271,6 @@ height: 100%;
         overflow-x: auto;
     } */
 }
-@media screen  and (min-width: 400px) {
-    .sidebar-mobile-main-toggle{
-        position: absolute;
-        /* top: 13px; */
-        right: 30px;
-      }
-}
-
 
 		/* @media screen and (max-width: 425px){
 			  .swal-modal {
@@ -302,7 +294,7 @@ height: 100%;
 				margin-top: -450px;
 			}
         } */
-
+        
 		/* @media screen and (max-width: 375px){
             .swal-modal {
                 width: 481px;
@@ -311,3 +303,18 @@ height: 100%;
 
 
 /* responsive */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -21,12 +21,13 @@ if ($_SESSION['usernamee'] == '') {
 
 	<script src="global_assets/js/plugins/uploaders/fileinput/plugins/purify.min.js"></script>
 	<script src="global_assets/js/plugins/uploaders/fileinput/plugins/sortable.min.js"></script>
-	<script src="global_assets/js/plugins/uploaders/fileinput/fileinput.min.js"></script>
+	<!-- <script src="global_assets/js/plugins/uploaders/fileinput/fileinput.min.js"></script> -->
 	<script src="global_assets/js/demo_pages/form_input_groups.js"></script>
 	<script src="global_assets/js/demo_pages/uploader_bootstrap.js"></script>
     <script src="global_assets/js/demo_pages/form_validation.js"></script>
 	<script src="assets/js/barc.js"></script> 
-     <link rel="stylesheet" href="assets/css/barc.css">
+	 <link rel="stylesheet" href="assets/css/barc.css">
+	 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <script>
 $(document).ready(function() {
@@ -72,13 +73,20 @@ $(document).ready(function() {
 									<div style="width: 100%;">
 										<div class="row">
 											<h6 class="font-weight-semibold">Upload Accelerator File</h6>
-											<div class="col-lg-10">
-												<div class="texttodisplay" style=""></div>
-												<input type="file" id="load-file" class="file-input-ajax" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" data-fouc>
+											<div class="col-lg-4">
+												<div  class="texttodisplay" style=""></div>
+												
+
+                                     <!-- <input type="file"  style="display:none"  class="file-input-ajax" id="load-file" accept=".csv, xlsm, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"></span> -->
+ 
+									 <button id="uploadFileTrigger2" style="background: #f07144;border: none;color: #fff;padding: 9px;border-radius: 4px;position: absolute;left: 7px;top: -5px;">Click to Select File</button>
+
+									         <div class="acceleratorFileNameDisplay" style="position: relative;left: 80px;top:3px;"></div>
+												<input type="file" name="myfile" style="display:none;" id="load-file" class="file-input-ajax" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
 											</div>
-											<div class="col-lg-12 submit_btn">
+											<!-- <div class="col-lg-12 submit_btn">
 												<button type="button" class="btn btn-primary" id="upl-btn" style="background: #4caf50;">Upload <i class="icon-upload ml-2"></i></button>
-											</div>
+											</div> -->
 										</div>
 									</div>
 									<!-- <span class="d-block text-muted">All fields are required</span> -->
@@ -141,15 +149,15 @@ $(document).ready(function() {
 							<!-- <hr> -->
 							<div class="row">
 								<div class="col-lg-3">
-									<button type="submit" class="btn btn-primary cprp_submit edit_barc" style="background: #F07144 !important;">Edit <i class="icon-paperplane ml-2"></i></button>
+									<button type="submit" class="btn btn-primary cprp_submit edit_barc" style="background: #F07144 !important;">Edit <i class="fa fa-pencil ml-2" style="font-size: 18px;"></i></button>
 
 								</div>
 								<div class="col-lg-3">
-									<button type="submit" class="btn btn-primary cprp_submit confirm_barc" style="background: #F07144 !important;">Confirm <i class="icon-paperplane ml-2"></i></button>
+									<button type="submit" class="btn btn-primary cprp_submit confirm_barc" style="background: #F07144 !important;">Confirm <i class="fa fa-check ml-2" style="font-size: 18px;"></i></button>
 
 								</div>
 								<div class="col-lg-6">
-									<button type="submit" class="btn btn-primary cprp_submit submit_barc" style="background-color: #BB2734 !important;color:#fff">Submit <i class="icon-paperplane ml-2"></i></button>
+									<button type="submit" class="btn btn-primary cprp_submit submit_barc" style="background-color: #BB2734 !important;color:#fff">Submit <i class="icon-paperplane ml-2" style="font-size: 18px;"></i></button>
 
 								</div>
 							</div>
@@ -186,4 +194,44 @@ $(document).ready(function() {
 	<!-- /page content -->
 
 </body>
+<script>
+function myFunction() {
+  var dots = document.getElementById("dots");
+  var moreText = document.getElementById("more");
+  var btnText = document.getElementById("myclick");
+
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "Read more"; 
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = "Read less"; 
+    moreText.style.display = "inline";
+  }
+}
+</script>
+<style>
+
+.uploadbtn{
+	display: block;
+    width: 150px;
+    padding: 7px 0px;
+    border: none;
+    border-radius: 6px;
+    /* height: 30px; */
+    color: #fff;
+    background-color: #F07144;
+    margin-top: -3px;
+}
+   .texttodisplay{margin: auto;
+    background: none !important;
+    color: #fff;
+    text-align: center;
+    padding: 0px !important;
+	
+    margin-top: 0px !important;
+	border: none!important;
+   }
+	</style>
 </html>

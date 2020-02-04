@@ -15,7 +15,12 @@ session_start();
     <?php include 'assets/includes/common_scripts.php';?>
 
 	<script src="assets/js/login.js" charset="utf-8"></script>
-<link rel="stylesheet" href="assets/css/index.css">
+	<link rel="stylesheet" href="assets/css/index.css">
+	<link rel="stylesheet" href="assets/css/updatesinprogress.css">
+	
+
+	
+	
 </head>
 
 <body>
@@ -219,4 +224,15 @@ session_start();
 	<div class="loading">
 		<img src="assets/images/loading.gif" alt="">
 	</div>
+
+	<script type="text/javascript">  
+    var versionUpdate = (new Date()).getTime();  
+	var link = document.createElement("link");
+    link.rel = "stylesheet";
+	link.href = "assets/css/updatesinprogress.css?v=" + versionUpdate; 
+	document.getElementsByTagName("head")[0].appendChild(link);
+	</script> 
+	
+
 </body>
+</html>

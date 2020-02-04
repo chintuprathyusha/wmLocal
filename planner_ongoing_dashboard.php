@@ -18,9 +18,9 @@ if ($_SESSION['usernamee'] == '') {
 	<?php include 'assets/includes/common_css.php'; ?>
 	<?php include 'assets/includes/common_scripts.php';?>
 
-	<script src="assets/js/user_dashboard.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Base64/1.0.2/base64.js"></script>
-	<!-- <script type="assets/js/configfile.json"></script> -->
+	<link rel="stylesheet" type="text/css" href="assets/js/daterangepicker/daterangepicker.css" />
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="assets/css/plannerongdashboard.css">
 </head>
 <body>
@@ -75,11 +75,30 @@ if ($_SESSION['usernamee'] == '') {
 						<div class="card">
 							<div class="createbtn__">
 
-								<button class="createbtn">CREATE PLAN</button>
-								<img class="btn3" src="assets/images/filter-icon.svg">
+								<button class="createbtn" style="display: inline-block;
+    position: relative;
+    top: 56px;
+">CREATE PLAN</button>
+								<!-- <img class="btn3" src="assets/images/filter-icon.svg"> -->
 							</div>
 
-							<div class="row displaytoptextboxes" >
+
+
+<!-- ...startdate....klmkjkl -->
+                                <div class="flt-r" style="position: absolute;
+    right: 0px;top:50px" >
+                                <input type="text" id="dateFilter" class="flt-r"  name="daterange" placeholder="Select Date Range" readonly/>
+                                <span><i class="fa fa-calendar" style="font-size:16px;color:black;position: absolute;
+    top: 30px;
+    left: 7px;"></i></span>
+                                   <!-- <i class="fa fa-caret-down"></i> -->
+                                </div>
+<!-- 
+
+
+
+
+							<div class="row " >
 								<div class="col-sm-4 colsm" >
 									<div class="s-e-date">Start Date:
 										<input class="form-control startdateclass"  placeholder="start date" type="date"/>
@@ -96,7 +115,7 @@ if ($_SESSION['usernamee'] == '') {
 										<button  class="form-control gobtn">GO</button>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							<div class="same_Class" >
 								On-Going Plans
 							</div>
@@ -199,3 +218,9 @@ if ($_SESSION['usernamee'] == '') {
 	<!-- /page content -->
 
 </body>
+<script type="text/javascript" src="assets/js/daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="assets/js/daterangepicker/daterangepicker.min.js"></script>
+    
+<script src="assets/js/user_dashboard.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Base64/1.0.2/base64.js"></script>
+</html>

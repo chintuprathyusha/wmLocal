@@ -27,7 +27,7 @@
 
 .form-control.buyingbasketbtn{
     margin-top: 20px !important;
-
+    
 }
 
 /* .dataTables_filter{
@@ -188,7 +188,7 @@ div.row_body div:nth-of-type(odd)
     .gobtn{
         width: fit-content;
     }
-
+    
 }
 @media screen and (max-width: 540px) {
 	.content-wrapper{
@@ -196,19 +196,17 @@ div.row_body div:nth-of-type(odd)
 	}
 }
 
-@media screen  and (max-width: 425px)  and (min-width: 320px){
-    .form-control.gobtn.gobtn{
-                    margin-top: 30px;
-                    position: relative;
-                }
-                .displaytoptextboxes.row {
-                    width: 300px;
-                }
-                .filter{
-                    padding: 12px;
-                    width: 300px;
-                }
 
+
+@media screen  and (min-width: 360px)  and (max-width: 720px){
+    .sidebar-mobile-main-toggle{
+        position: absolute;
+        /* top: 13px; */
+        right: 30px;
+      }
+}
+@media screen  and (max-width: 425px)  and (min-width: 320px){
+			
 			.card{
 				width: 1000px;
 			}
@@ -218,15 +216,27 @@ div.row_body div:nth-of-type(odd)
             .content{
                 overflow-x: auto;
             }
-            .col-sm-2{
-                width: 150px;
-            }
-            .col-sm-1{
-                width: 150px;
-                margin-left: 800px;
+            .filter {
+                padding:12px;
+                width: 291px;
             }
             .gobtn{
-                margin-top: -40px;
+                margin-top: 30px;
+                position: relative;
+            }
+            /* .col-sm-2{
+                width: 150px;
+            } */
+            /* .col-sm-1{
+                width: 150px;
+                margin-left: 800px;
+            } */
+            .dataTables_length {
+                display: contents;
+            }
+            .dataTables_length>label {
+                margin-bottom: 0;
+                margin-left: 35px;
             }
             .icon-paragraph-justify3:before {
                 margin-top: -75px;
@@ -262,8 +272,11 @@ div.row_body div:nth-of-type(odd)
 .card.card1{
     background-color: #1f2022;
     color: white;
+   
 }
-
+.displaytoptextboxes.row {
+    width: 300px;
+}
 .btn3{
     width:20px;
     height:20px;
@@ -278,7 +291,7 @@ div.row_body div:nth-of-type(odd)
 .form-control.acceleratorbtn{
     background-color: #192124;
     color: white;
-    color:#fff;
+    color:#fff;   
 }
 .modal-content{
     margin-top: 255px;
@@ -306,7 +319,8 @@ div.row_body div:nth-of-type(odd)
     color:#fff;
     border:none;
     position: absolute;
-    bottom: 0px;
+    top:19px;
+
 }
 .form-control.Campaignidclass{
     padding:5px;
@@ -319,11 +333,4 @@ div.row_body div:nth-of-type(odd)
 .table.datatable-multi-sorting{
     color:white;
     margin-top:30px;
-}
-@media screen  and (min-width: 400px) {
-    .sidebar-mobile-main-toggle{
-        position: absolute;
-        /* top: 13px; */
-        right: 30px;
-      }
 }

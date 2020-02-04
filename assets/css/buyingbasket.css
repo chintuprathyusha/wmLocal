@@ -27,7 +27,22 @@ input[type='radio']:checked:after {
 	border: 2px solid #f1f1f1;
 
 }
+.commonstyle {
+	margin-top: 25px!important;
+	padding: 12px 16%;
 
+	width: 100%;
+	color: white;
+	text-align: center;
+	background: black;
+	border: 1px solid black!important;
+	border-radius: 5px;
+}
+
+
+.budget_div_.close_{
+	min-height: 400px;
+}
 .file-drop-zone-title {
 	padding: 11px;
 }
@@ -38,7 +53,7 @@ input[type='radio']:checked:after {
 .submit_btn {
     margin-top: 19px;
     float: right;
-    text-align: right;
+    /* text-align: right; */
 }
 .form-control[readonly] {
 	background-color: #5c5e6147 !important;
@@ -143,11 +158,11 @@ button:focus {outline:0;}
 			text-align: center;
 		}
 		.commonstyle{
-			margin: auto;
+			/* margin: auto;
 			padding: 30px;
 			width: 600px;
 			background: #323335;
-		    border: 1px solid #f07144!important;
+		    border: 1px solid #f07144!important; */
 		}
 		/* .spillover{
 		display: none !important;
