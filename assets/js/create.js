@@ -226,54 +226,17 @@ $(document).ready(function () {
                     // var a=data[$dropdown.val()];
 
                     var a=data[$.trim($dropdown[0].selectedOptions[0].text)];
-                    console.log(a);
                     if(a!=undefined){
                             a = a.sort();
                     }
+
                     $.each(a,function(j){
+                        console.log(a[j]);
                         $('#select0').append('<option value='+a[j]+'>'+a[j]+'</option>')
                     })
                 });
 
                 $dropdown.trigger('change');
-
-// year===========
-
-
-                        dataaa = msg.Year;
-                        console.log(dataaa);
-                        var ordered = {};
-                            Object.keys(dataaa).sort().forEach(function(key) {
-                              ordered[key] = dataaa[key];
-                            });
-
-                        $.each(ordered ,function(key,i){
-                            $('#selectyear').append('<option value='+key+'>'+key+'</option>')
-                        })
-
-                        var $dropdownn = $('#selectyear');
-                        //console.log($dropdown);
-                        $dropdownn.on('change', function() {
-                            //console.log($dropdown);
-                            $('#selectendweek').empty();
-                            // var a=data[$dropdown.val()];
-
-                            var aa=dataaa[$.trim($dropdownn[0].selectedOptions[0].text)];
-                            if(aa!=undefined){
-                                    aa = aa;
-                            }
-
-                            $.each(aa,function(j){
-                                console.log(aa[j]);
-                                $('#selectendweek').append('<option value='+aa[j]+'>'+aa[j]+'</option>')
-                            })
-                        });
-
-             $dropdown.trigger('change');
-
-// year===
-
-
 
 
                 for (var i = 0; i < arr.length; i++) {
@@ -385,14 +348,6 @@ var plan_id;
         }
 
 
-        endweeek = []
-        endweeekk = $(".endweeek").select2('data');
-
-        for (var i = 0; i < endweeekk.length; i++) {
-            endweeek.push(endweeekk[i].text);
-        }
-
-
         cclinet = []
         clientselectedValues = $(".client").select2('data');
         for (var i = 0; i < clientselectedValues.length; i++) {
@@ -416,8 +371,7 @@ var plan_id;
         var brand =$.unique(brand__);
 
         var client = $.unique(cclinet);
-        var year = $(".year").val();
-        var endWeekName = $.unique(endweeek);
+        var end_week = $(".end_week").val();
         var key_end_week = $(".end_week").find("option:selected").attr('key');
             if ($('#channel_selection').is(':checked')) {
                 channel_selection_value = $('#channel_selection').is(':checked');
@@ -476,13 +430,8 @@ var plan_id;
             obj.channel_selection  = channel_selection
             obj.program_performance = program_performance
             obj.user_id = userid;
-<<<<<<< Updated upstream
             obj.skipChannelSelection = skipChannelSelection;
             obj.skipProgramPerformance = skipProgramPerformance;
-=======
-            obj.Year = year
-            obj.EndWeekName = endWeekName
->>>>>>> Stashed changes
             console.log(obj);
             var form = new FormData();
             form.append("file", JSON.stringify(obj));
@@ -658,7 +607,6 @@ var plan_id;
                 campaignId_ = msg.CampaignId;
                 campaignMarketId_ = msg.CampaignMarketId;
                 campaignName_ = msg.CampaignName;
-                year = msg.Year;
 
 
                 clientId_ = msg.ClientId;
@@ -709,7 +657,6 @@ var plan_id;
                 $(".primary_freeze").append('<p type="text" value='+primaryTGTd_+' class="form-control" readonly style="background-color:#d6d6d6;">'+primaryTGTd_+'</p>')
                 $(".base_freeze").append('<p type="text" value='+base_tg_+' class="form-control" readonly style="background-color:#d6d6d6;">'+base_tg_+'</p>')
                 $('.endfreeze').append('<p type="text" value='+endWeekId_+' class="form-control" readonly style="background-color:#d6d6d6;">'+endWeekId_+'</p>')
-<<<<<<< Updated upstream
                 // $('.channel_selection_freez').append('<p type="text" value='+skipChannelSelection+' class="form-control" readonly style="background-color:#d6d6d6;">'+skipChannelSelection+'</p>')
                 // $('.program_performance_freez').append('<p type="text" value='+skipProgramPerformance+' class="form-control" readonly style="background-color:#d6d6d6;">'+skipProgramPerformance+'</p>')
                 if (skipChannelSelection == "true") {
@@ -731,11 +678,6 @@ var plan_id;
                 $(".freezswith").hide()
                 $('#channel_selection').prop('disabled', true);
                 $('#program_performance').prop('disabled', true);
-=======
-                $('.yearfreez').append('<p type="text" value='+year+' class="form-control" readonly style="background-color:#d6d6d6;">'+year+'</p>')
-
-
->>>>>>> Stashed changes
             }
         })
     }

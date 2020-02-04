@@ -24,150 +24,6 @@
 	<?php include 'assets/includes/common_scripts.php';?>
 	<link rel="stylesheet" href="assets/css/plannercreatenewplan.css">
 </head>
-<<<<<<< Updated upstream
-=======
-<style>
-.file-drop-zone-title {
-	padding: 11px;
-}
-.submit_btn{
-	margin-top: 19px;
-	float: right;
-	text-align: right;
-}
-.cursor_pointer{
-	cursor: pointer;
-}
-.cprp{
-	padding: 30px 55px;
-}
-.budget{
-	padding: 30px 55px;
-}
-.disabled {
-	color: #999;
-}
-.disable_border{
-	border:1px solid #ccc !important;
-	cursor: auto;
-}
-.next_btn a{
-	color: white;
-}
-.file_download{
-	float: right;
-}
-#logoutbtnid{
-	background-color: #ffffff2e !important;
-	border: none;
-	border-radius: 5px;
-	padding: 2px 15px;
-	color: white;
-}
-.hidden{
-	display: none;
-}
-.sendpath h5{
-	cursor: pointer;
-}
-.select2-selection{
-	width: 400px;
-}
-.campign_name{
-	width: 400px;
-}
-.campign_id{
-	width: 400px;
-}
-/* added */
-.cprp{
-	background-color: #1f2022;
-}
-.content{
-	color: white;
-}
-
-.datatable-header{
-	display: none !important;
-}
-.content {
-	/* background-image: url("assets/images/wmflow.png");
-	background-repeat: no-repeat, repeat; */
-	background-color: #1f2022;
-	/* background-size: cover; */
-}
-
-
-.texttodisplay {
-    margin: auto;
-    background: #323335;
-    padding: 30px;
-    margin-top: 47px;
-    border: 1px solid oramge;
-    border: 1px solid #f07144!important;
-}
-
-p{
-	height: auto;
-}
-/* .basetgstyle{
-	padding: 12px !important;
-} */
-
-/* responsive */
-@media screen and (max-width: 540px) {
-	.select2-selection{
-	width: 275px;
-}
-.campign_name{
-	width: 275px;
-}
-.campign_id{
-	width: 275px;
-}
-.icon-paragraph-justify3:before {
-    content: "\eec1";
-	color: white;
-	float: right;
-}
-}
-
-@media screen and (max-width: 320px) {
-	.mb-12{
-	width: 275px;
-}
-body{
-	height : 200vh!important;
-            }
-.content{
-	width: 260px;
-			}
-			.page-header{
-				width: 318px
-			}
-			.content-wrapper{
-
-				width: 100%;
-			}
-			.page-content{
-				width: 333px!important;
-			}
-}
-
-@media screen and (max-width: 540px) {
-.cprp {
-    padding: 30px 0px;
-}
-}
-@media screen and (max-width: 768px) {
-.page-content{
-   width: 1000px!important;
-   height: 120vh;
-}
-}
-/* responsive */
-
->>>>>>> Stashed changes
 
 
 <body>
@@ -200,7 +56,7 @@ body{
 						</div>
 
 
-						<a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+						<a href="#" class="header-elements-toggle text-default d-md-none"></a>
 					</div>
 				</div>
 			</div>
@@ -265,7 +121,6 @@ body{
 
 
 									<div class="mb-4">
-<<<<<<< Updated upstream
 										<div class="row">
 
 											<div class="col-md-6">
@@ -300,24 +155,6 @@ body{
 
 
 
-=======
-											<!-- <p class="mb-2">Select2 supports ability to add choices automatically as the user is typing into the search field. Try typing in the search field below and entering a space or a comma.</p> -->
-											<div class="row">
-												<div class="col-md-3">
-													<h6  title="<?php echo $_SESSION['tool_tips']['CreateNewPlan_Brand'];?>" class="font-weight-semibold">Brand<span class="text-danger">*</span>
-													</h6>
-												</div>
-												<div class="col-md-4">
-													<select class="form-control select" required id="select0" data-fouc data-placeholder="Select Brand">
-														<option value=""></option>
-													</select>
-													<div data-placeholder="" class="freezebrand mm" data-fouc>
-
-													</div>
-												</div>
-											</div>
-										</div>
->>>>>>> Stashed changes
 									<div class="mb-4">
 										<!-- <p class="mb-2">Select2 supports ability to add choices automatically as the user is typing into the search field. Try typing in the search field below and entering a space or a comma.</p> -->
 										<div class="row">
@@ -429,7 +266,6 @@ body{
 										</div>
 									</div>
 								</div>
-<<<<<<< Updated upstream
 								</div> -->
 
 
@@ -499,47 +335,6 @@ body{
 														name="disableYXLogo">
 													<div class="slider round"></div>
 												</label>
-=======
-<!-- change -->
-<div class="mb-4">
-	<div class="row">
-		<div class="col-md-3">
-			<h6  title="<?php echo $_SESSION['tool_tips']['CreateNewPlan_Client'];?>" class="font-weight-semibold">year<span class="text-danger">*</span></h6>
-		</div>
-		<div class="col-md-4">
-			<select class="form-control select year" required id="selectyear" data-fouc data-placeholder="Select Client">
-				<option value=""></option>
-			</select>
-			<div data-placeholder="" class="mm yearfreez" data-fouc>
-
-			</div>
-		</div>
-	</div>
-</div>
-<div class="mb-4">
-	<!-- <p class="mb-2">Select2 supports ability to add choices automatically as the user is typing into the search field. Try typing in the search field below and entering a space or a comma.</p> -->
-	<div class="row">
-		<div class="col-md-3">
-			<h6  title="<?php echo $_SESSION['tool_tips']['CreateNewPlan_Brand'];?>" class="font-weight-semibold">Pre-eval End Week<span class="text-danger">*</span>
-			</h6>
-		</div>
-		<div class="col-md-4">
-			<select class="form-control select endweeek" required id="selectendweek" data-fouc data-placeholder="Select Brand">
-				<option value=""></option>
-			</select>
-			<div data-placeholder="" class="endfreeze mm" data-fouc>
-
-			</div>
-		</div>
-	</div>
-</div>
-
-
-
-
-
-							 <!-- change -->
->>>>>>> Stashed changes
 
 
 											</div>

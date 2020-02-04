@@ -132,18 +132,6 @@ $(document).ready(function() {
 										</div>
 									</div>
 								</div>
-
-								<div class="form-group row">
-									<label title="<?php echo $_SESSION['tool_tips']['BARC_EndWeek'];?>" class="col-form-label col-lg-3">Selected Year<span class="text-danger">*</span><span class="appendselectedendweek"></span></label>
-									<div class="col-lg-9">
-										<select name="select2" data-placeholder="Selected End Week" class="form-control form-control-select2 End_Week_dt" required data-fouc>
-											<option></option>
-										</select>
-										<div data-placeholder="" class="freezeLoc endfreeze" data-fouc>
-
-										</div>
-									</div>
-								</div>
 								<div class="form-group row">
 									<label title="<?php echo $_SESSION['tool_tips']['BARC_EndWeek'];?>" class="col-form-label col-lg-3">Selected End Week<span class="text-danger">*</span><span class="appendselectedendweek"></span></label>
 									<div class="col-lg-9">

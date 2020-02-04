@@ -69,7 +69,7 @@ $(document).ready(function () {
     })
 
     $('#load-file').on('change', function () {
-        
+
         debugger;
         main_output = ''
         var file = $(this)[0].files[0];
@@ -77,23 +77,23 @@ $(document).ready(function () {
         // file_name_new = "Buying Basket_" + version_downloadfile + ".xlsx"
         console.log(file, file_name_new);
         $(".buyingFileNameDisplay").html('<span style="border-left: 2px solid;height: 24px;position: relative;left: 17px;top: 8px;"></span><p class="" style="margin-top:-13px;margin-left:27px;">'+file_name_new+' <img src="assets/images/delete.svg" style="width:15px;" class="deleteFile"></p>')
-           
 
 
 
-             
+
+
         // $(".deleteFile").on('click', function(){
 
         //     $(".buyingFileNameDisplay").empty();
-    
+
         // });
-        
+
 
         $("body").on("click", ".deleteFile", function () {
             $(this).closest('.buyingFileNameDisplay').remove();
             $('.hide_').hide();
         })
-    
+
 
 
         var fileReader = new FileReader();
@@ -130,11 +130,11 @@ $(document).ready(function () {
                 // $.each(msg, function( key, value ) {
                     // console.log(key);
                 // })
-                
+
                 $('.loading').show();
                 if (msg.status == true) {
                     $('.radio_class').show();
-                    if (path_selection == 2) {  
+                    if (path_selection == 2) {
                         $('.cprp_div').hide();
                         $('.budget_div_').show();
                         $('.radio_class').show();
@@ -148,16 +148,16 @@ $(document).ready(function () {
                     $('.file-input').hide();
                     $('.red_color').hide();
                     $('#upl-btn').hide();
-                    // $('.cprp_div').show(); 
+                    // $('.cprp_div').show();
                     $('.file-input-ajax').hide();
                     $('.uploadFileTrigger').hide();
                     $('.buyingFileNameDisplay').hide();
                     $('.bb_txt').hide();
                     $('.bb_files').html('<p>'+msg.file_name +'</p>')
                     // $('.texttodisplay').append('<h5 style="color:#fff">Buying basket file is succesfully uploaded</h5>')
-                  
-                
-                
+
+
+
                 } else if (msg.status == false) {
                     $('.radio_class').hide();
                     $('#upl-btn').show();
@@ -192,7 +192,7 @@ $(document).ready(function () {
     });
 
 
-   
+
 
     editdisperionlablesFirst("", "");
     editdisperionlables1First("", "")
@@ -300,12 +300,12 @@ $(document).ready(function () {
             editDispersionHtmlAppend += '   <div class="row keyword row3">'
             editDispersionHtmlAppend += '        <div class="col-md-6 mr-b-10 pd-l-10 pd-r-10 appendobjvalinacd edit_res_class">'
             editDispersionHtmlAppend += '        <h6 class="font-weight-semibold">Edit<span class="appendaveragecommer"></span></h6>'
-            
+
             editDispersionHtmlAppend += '            <input type="number" name="number" min="0" max="200" onKeyUp="if(this.value>200){this.value=200;}else if(this.value<0){this.value=0;}" class="kav edit__class inputboxstyle  form-control mods_inputs name name_Class 0 editView__Check editView__Check' + class_ + '"   placeholder="Enter the duration in seconds" value="' + key + '">'
             editDispersionHtmlAppend += '        </div>'
             editDispersionHtmlAppend += '        <div class="col-md-6 mr-b-10 pd-l-10 pd-r-10 appendobjvalindispersion dispersion_res_class">'
             editDispersionHtmlAppend += '        <h6 class="font-weight-semibold">Dispersion <span class="appenddispers"></span></h6>'
-           
+
             editDispersionHtmlAppend += '            <input class="kav dispersion__class inputboxstyle form-control mods_inputs path path_Class 0 desView__Check desView__Check' + class_ + '" type="number" name="number" min="1" max="99" placeholder="Enter dispersion in percentage" value="' + val + '" >'
             if (key === "" && val === "") {
                 editDispersionHtmlAppend += '<img src="assets/images/delete.svg" style="width:20px;" class="remove"></img>'
@@ -343,12 +343,12 @@ $(document).ready(function () {
             editDispersionHtmlAppend += '   <div class="row keyword row3">'
             editDispersionHtmlAppend += '        <div class="col-md-6 mr-b-10 pd-l-10 pd-r-10 appendobjvalinacd edit_res_class">'
             editDispersionHtmlAppend += '        <h6 class="font-weight-semibold">Edit<span class="appendaveragecommer"></span></h6>'
-            
+
             editDispersionHtmlAppend += '            <input type="number" name="number" min="0" max="200" onKeyUp="if(this.value>200){this.value=200;}else if(this.value<0){this.value=0;}" class="kav edit__class inputboxstyle  form-control mods_inputs name name_Class 0 editView__Check editView__Check' + class_ + '"  readonly placeholder="Enter the duration in seconds" value="' + key + '">'
             editDispersionHtmlAppend += '        </div>'
             editDispersionHtmlAppend += '        <div class="col-md-6 mr-b-10 pd-l-10 pd-r-10 appendobjvalindispersion dispersion_res_class">'
             editDispersionHtmlAppend += '        <h6 class="font-weight-semibold">Dispersion <span class="appenddispers"></span></h6>'
-           
+
             editDispersionHtmlAppend += '            <input class="kav dispersion__class inputboxstyle form-control mods_inputs path path_Class 0 desView__Check desView__Check' + class_ + '" type="number" name="number" min="1" max="99" placeholder="Enter dispersion in percentage" value="' + val + '" readonly>'
             if (key === "" && val === "") {
                 editDispersionHtmlAppend += '<img src="assets/images/delete.svg" style="width:20px;" class="remove"></img>'
@@ -590,7 +590,7 @@ $(document).ready(function () {
                             } else {
                                 $('.spillll').hide();
                                 $('.spillovertexttodisplay').show();
-                                
+
                                 $('.spillovertexttodisplay').append('<h5>Genre Level Budget Allocation Sheet is successfully uploaded</h5>')
                                 if (plancompleted == true) {
                                     $(".next_").prop('disabled', false);
@@ -889,8 +889,8 @@ $(document).ready(function () {
                     editdisperionlablescopy(val, value[val])
                 }
             })
-        
-        
+
+
         // for (var val in value) {
         //            acd_value.push(val)
         //            acd_data.push(value[val])
@@ -904,12 +904,12 @@ $(document).ready(function () {
         //    $('.path_Class').hide();
         //    $('.appendobjvalinacd').append('<input type="number" name="number" min="1" max="99"  class="inputboxstyle  form-control mods_inputs name name_Class 0" placeholder="' + acd_value.join(",") + '" readonly="" style="background: rgba(41, 40, 40, 0.91); color: rgb(255, 255, 255);">')
         //    $('.appendobjvalindispersion').append('<input type="number" name="number" min="1" max="99"  class="inputboxstyle  form-control mods_inputs name name_Class 0" placeholder="' + acd_data.join(",") + '" readonly="" style="background: rgba(41, 40, 40, 0.91); color: rgb(255, 255, 255);">')
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
         } else {
             $(".cprp_main").prop("checked", true);
             $(".budget_main").prop("checked", false);
@@ -924,7 +924,7 @@ $(document).ready(function () {
     }
 
 
-    
+
 
     function unfreezebuyinginfo() {
         if (path_selection == 2) {
@@ -956,7 +956,7 @@ $(document).ready(function () {
                 $('.bb_files').show();
                 $('.bb_txt').show();
                 $('#upl-btn').show();
-                
+
             }
         } else {
             if (replan == false) {
@@ -972,7 +972,7 @@ $(document).ready(function () {
         if (path_selection == 2) {
             //    $('.kav').hide()
             //    $(".edit_disp").hide()
-            
+
             $(".cprp_main").css("background-color", "#292828");
             $(".budget_main").css("background-color", "#F07144");
             // $('.cprp_div').hide();
@@ -1598,9 +1598,9 @@ $(document).ready(function () {
     var main_output_new;
     fileobj_new = {};
 
-    
 
-    
+
+
 
 
     var counting = 0;
@@ -1648,7 +1648,7 @@ $(document).ready(function () {
 
 
     // $("body").on("click", "#upl-btn", function () {
-        
+
     // })
 
     $("#uploadFileTrigger1").on("click", function () {
@@ -1714,7 +1714,7 @@ $(document).ready(function () {
                     process3ETA = msg.Process3ETA;
                     $(".loading").hide();
                     $('.acceleratorfiletext').hide();
-                   
+
                     if (status == true) {
                         $('#upl-btn1').hide();
                         // ===========================
@@ -1727,19 +1727,19 @@ $(document).ready(function () {
                         // $('.texttodisplayspill').append('<h5 style="color:#fff">Channel Level Budget Allocation Sheet is successfully uploaded</h5>')
                         // $('.next_').prop('disabled', false)
                         // =================================
-        
+
                         if (path_selection == 2) {
                             $('.acceleratorfiletext').show();
                             $('.acceleratorfiletext').html('<h5> ' + genre_uploadlabel + ' ' + format_date(process3ETA) + ' </h5>')
                         } else {
                             $('.acceleratorfiletext').hide();
                             $('.next_').prop('disabled', false)
-                            
+
                         }
                         $('.texttodisplay').show();
                         $('.texttodisplayspill').show();
                         $('#upl-btn__').hide();
-        
+
                         $('.bb_txt').hide();
                         $('.file-input').hide();
                         $('.uploadFileTrigger1').hide();
@@ -1749,8 +1749,8 @@ $(document).ready(function () {
                         $('.texttodisplayspill').html('<p>'+msg.file_name +'</p>')
                         // $('.texttodisplayspill').append('<h5 style="color:#000">'+file_name_2+' is successfully uploaded</h5>')
                         // $('.texttodisplayspill').append('<h5 style="color:#fff;">Channel Level Budget Allocation Sheet is successfully uploaded</h5>')
-        
-        
+
+
                         // $.alert({
                         //     title: 'File succesfully uploaded',
                         //     animation: 'scale',
@@ -1772,7 +1772,7 @@ $(document).ready(function () {
                         if (plancompleted == true) {
                             $(".next_").prop('disabled', false);
                         } else {
-        
+
                             $('.next_').prop('disabled', true)
                         }
                         $.alert({
@@ -1788,7 +1788,7 @@ $(document).ready(function () {
                                 }
                             }
                         });
-        
+
                     }
                     version = 0;
                 });
@@ -1830,10 +1830,10 @@ $(document).ready(function () {
             var file = $('#load-file__')[0].files[0];
             filename = file.name;
             // filename = "GenreLevelBudgetAllocation_" + newcampaign_id + "_" + version + ".xlsx"
-            
+
             $(".GenreLevelFileNameDisplay").html('<span style="border-left: 2px solid;height: 24px;position: relative;left: 17px;top:25px"></span><p class="" style="margin-top: 5px;margin-left:25px;">'+filename+' <img src="assets/images/delete.svg" style="width:15px" class="deleteFile"></p>')
-            
-            
+
+
 
 
             $("body").on("click", ".deleteFile", function () {
@@ -1887,7 +1887,7 @@ $(document).ready(function () {
                             $('.texttodisplay').show();
                             $('.texttodisplayspill').show();
                             // $('#upl-btn__').hide();
-            
+
                             $('.bb_txt').hide();
                             $('.file-input').hide();
                             $('.red_color').hide();
@@ -1897,7 +1897,7 @@ $(document).ready(function () {
                             // $('.texttodisplayspill').append('<h5 style="color:#fff;">Genre Level Budget Allocation Sheet  successfully uploaded </h5>')
                             $('.uploadFileTrigger2').hide();
                             $('.GenreLevelFileNameDisplay').hide();
-                                  
+
                             // $.alert({
                             //     title: 'File succesfully uploaded',
                             //     // content: 'Oops ! something went wrong',
@@ -2005,10 +2005,10 @@ $(document).ready(function () {
 
     // $("body").on("click", "#upl-btn1", function () {
 
-       
+
     // })
 
-   
+
 
     $('body').on('click', '.backclass', function () {
         sessionStorage.setItem('backclicked', true);
