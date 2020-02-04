@@ -103,14 +103,14 @@ $(document).ready(function () {
 
                         <!-- Order direction sequence control -->
                         <!-- <div class="card" style="background-color: #222c31;"> -->
-                        <div class="row" style="height:100%" >
+                        <div class="row" >
                             <!-- <div class="row"> -->
                             <div  class="col-sm-6 col-md-2 campid">
                                 <div class="s-e-campid">Campaign ID:
                                     <input type="text" placeholder="search for Campaign ID" class="form-control Campaignidclass"/>
                                 </div>
                             </div>
-                         
+
                             <div class="col-sm-6 col-md-2 client">
                                 <div class="s-e-client">Client Name:
                                     <select data-placeholder="Client Name" class="form-control select clientclass" id="clientt" data-fouc>
@@ -134,10 +134,10 @@ $(document).ready(function () {
     top: 60px;
     margin-left: 15px;"></i>
     <!-- <i class="fa fa-caret-down" ></i> -->
-                                  </span> 
-                                  
+                                  </span>
+
                             </div>
-                            
+
                             <div class="col-sm-12 col-md-1 go">
                                 <button  class="form-control gobtn">GO</button>
                             </div>
