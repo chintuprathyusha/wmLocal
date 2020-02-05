@@ -1,4 +1,7 @@
 $(document).ready(function () {
+   
+    // $('.deletesavebtn').prop('disabled', true);
+
     var useridd = sessionStorage.getItem("userid");
     addpageonloadhit()
     function addpageonloadhit() {
@@ -62,7 +65,31 @@ $(document).ready(function () {
     $("body").on("click", ".addsavebtn", function(){
         email = $('.emailvalue').val()
         client_name = []
+
+        if(email=='' &&  client_name==''){
+            $.alert({
+                title: 'Please enter valid values',
+                animation: 'scale',
+                closeAnimation: 'scale',
+                opacity: 0.5,
+                buttons: {
+                    okay: {
+                        text: 'Okay',
+                        btnClass: 'btn-primary'
+                    }
+                }
+            });
+
+        }
+       
+       else{
+        
         clientname = $(".allclientnames").select2('data');
+        
+        
+        
+    // else{
+      
 
         for (var i = 0; i < clientname.length; i++) {
             client_name.push(clientname[i].text);
@@ -71,6 +98,10 @@ $(document).ready(function () {
         var clientnamees = $.unique(client_name);
 
 
+   
+                
+
+                 
         // clientname = $('.clientoptionclass').val()
         debugger
         objj = {}
@@ -189,7 +220,9 @@ $(document).ready(function () {
             }
 
         })
-
+    }
+    
+// }
     })
     
     $("body").on("click", ".deleteheaderbtn", function(){
@@ -263,8 +296,13 @@ $(document).ready(function () {
 
     $("body").on("click", ".deletesavebtn", function(){
 
-
+        deleteclient=''
         client_delete = []
+
+
+        
+
+
         deleteclient = $(".clientdelete").select2('data');
 
         for (var i = 0; i < deleteclient.length; i++) {
@@ -339,6 +377,7 @@ $(document).ready(function () {
             }
 
         })
-
+    
     })
+
 })

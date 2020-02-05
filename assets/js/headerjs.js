@@ -1,4 +1,4 @@
-$("body").on("click", ".logoutbtn", function () {
+    $("body").on("click", ".logoutbtn", function () {
     var sessionidddd = sessionStorage.getItem("sessionidd");
     var currentdate = new Date().toLocaleString();
     // alert(currentdate)

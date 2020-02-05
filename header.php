@@ -1,38 +1,28 @@
-
-<script>
-$(document).ready(function () {
-    var username = sessionStorage.getItem("usernamee");
-
-})
-
-// $('#displayusername').append('<p value='+username+'>Hello &nbsp;&nbsp<img src="assets/images/WhiteIcons/user profile.png" alt="" style="height: 29px;color:white;">&nbsp'+username+'</p>')
-// })
-</script>
-<!-- <link rel="stylesheet" href="assets/css/updatesinprogress.css"> -->
 <style media="screen">
-.navbar-expand-md .navbar-brand {
-    min-width: 13.625rem;
-}
-.navbar-nav-link{
-    margin: 0px !important;
-}
-#displayusername{
-    color: #fff;
-    font-size: 16px;
-}
-.dropdown-toggle::after {
-    font-family: icomoon;
-    display: inline-block;
-    border: 0;
-    vertical-align: middle;
-    font-size: .6875rem;
-    margin-left: .46875rem;
-    line-height: 1;
-    position: relative;
-    content: "";
-    font-size: 16px;
-    color: #fff;
-}
+    .navbar-expand-md .navbar-brand {
+        min-width: 13.625rem;
+    }
+    .navbar-nav-link{
+        margin: 0px !important;
+    }
+    #displayusername{
+        color: #fff;
+        font-size: 16px;
+    }
+    .dropdown-toggle::after {
+        font-family: icomoon;
+        display: inline-block;
+        border: 0;
+        vertical-align: middle;
+        font-size: .6875rem;
+        margin-left: .46875rem;
+        line-height: 0;
+        position: relative;
+        content: "";
+        font-size: 16px;
+        color: #fff;
+        top: -3px;
+    }
 </style>
 <div class="navbar navbar-expand-md" style="background-color:#1F2022">
     <div class="navbar-brand">
@@ -62,39 +52,22 @@ $(document).ready(function () {
 
         <ul style="float: right;width: 100%;">
             <li class="nav-item dropdown dropdown-user row" style="float: right;list-style-type: none;">
-               
-               
-               
-                   <div class="col-md-3" style="color: #ffff;position: relative;top: 15px;font-size: 16px;">Hello</div>
-                   
-                   
-                    <a href="#" class=" navbar-nav-link d-flex align-items-center dropdown-toggle col-md-2" data-toggle="dropdown" aria-expanded="false">
-                    <!-- <span id="displayusername"></span> -->
+                <a href="#" class=" navbar-nav-link d-flex align-items-center dropdown-toggle pd--0" data-toggle="dropdown" aria-expanded="false">
                     <span>
-                    <p id="displayusername"><?php echo $_SESSION['usernamee']?></p>
+                        <p id="displayusername">Hello <?php echo $_SESSION['usernamee']?></p>
                     </span>
-                   </a>
-
-              
-            
-
-
-
+                </a>
                 <div class="dropdown-menu dropdown-menu-right" style="background-color:#324148;">
-
                     <?php if ($_SESSION['login_type'] == 'ad'): ?>
                         <button class="dropdown-item logutAD" ><i class="icon-switch2"></i> Log out AD</button>
                     <?php endif; ?>
                     <?php if ($_SESSION['login_type'] == 'login'): ?>
                         <button id="logoutbtnid" class="dropdown-item logoutbtn"><i class="icon-switch2"></i> Logout</button>
                     <?php endif; ?>
-
                 </div>
             </li>
         </ul>
-
     </div>
 </div>
-<script src="assets/js/common.js"></script>
-<script src="assets/js/headerjs.js"></script>
+
 
