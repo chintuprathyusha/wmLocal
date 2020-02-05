@@ -3386,6 +3386,9 @@
 .displayNone{
     display: none !important;
 }
+.displayInlineBlock {
+    display: inline-block !important;
+}
 .visibilityHidden{
     visibility: hidden !important;
 }
