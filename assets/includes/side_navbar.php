@@ -72,7 +72,7 @@
 
         <li  id="add_deleteid"  class="nav-item nav-item-submenu hidden">
           <a href="add_delete.php" class="nav-link" style="color: #fff !important;">
-            <img style="width:22px;height:22px;color:white;" src="assets/images/WhiteIcons/completed Plans.png"/>
+            <img style="width:22px;height:22px;color:white;" src="assets/images/WhiteIcons/assign.png"/>
               <span style="width:20px;"></span>
 
              <span>Assign Planner</span></a>
@@ -94,9 +94,11 @@
             <!-- <span class="badge bg-blue-400 align-self-center ml-auto">2.2</span> -->
           </a>
         </li>
-        <li  id="help" class="nav-item  nav-item-submenu">
+        <li  id="help" class="nav-item  nav-item-submenu ">
               <a href="help.php" class="nav-link" style="color: #fff !important;">
-                <i class="icon-user"></i>
+
+            <img style="width:22px;height:22px;color:white;" src="assets/images/WhiteIcons/information.png"/>
+               <span style="width:20px;"></span>
                 <span>Help</span>
                 <!-- <span class="badge bg-blue-400 align-self-center ml-auto">2.2</span> -->
               </a>

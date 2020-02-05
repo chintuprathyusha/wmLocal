@@ -49,21 +49,27 @@
 }
 
 .commonstyle.barcmsg {
-    margin-top: 50px!important;
-    margin: auto;
-    padding: 18px 75px;
+	margin-top: 25px!important;
+	margin: auto;
+	padding: 10px 15%;
+    height: 7vh;
+    width: 100%;
+    color: white;
+    text-align: center;
+    background: black;
+    border: 1px solid black!important;
+    border-radius: 5px;   
+}
+.commonstyle {
+    margin-top: 25px!important;
+    padding: 12px 16%;
     width: 100%;
     color: white;
     text-align: center;
     background: black;
     border: 1px solid black!important;
     border-radius: 5px;
-    height: 9vh;
-    white-space: nowrap;
-	overflow: hidden;
-	
 }
-
 #logoutbtnid{
 	background-color: #ffffff2e !important;
 	border: none;
@@ -89,8 +95,12 @@
 .cprp_submit{
 	width: 100%;
 }
-.commonstyle{
-
+.btn.btn-primary.backclass {
+	top:100px;
+	color: #F07144;
+	border:none;
+	float: left;
+	background-color: transparent !Important;
 }
 .kv-file-upload {
 	display: none;

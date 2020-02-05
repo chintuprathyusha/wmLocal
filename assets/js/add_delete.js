@@ -196,7 +196,12 @@ $(document).ready(function () {
         deletepageonloadhit()
     })
 
+
+
+    
     function deletepageonloadhit() {
+
+        debugger;
         obj = {}
         obj.user_id = useridd
         console.log(obj);

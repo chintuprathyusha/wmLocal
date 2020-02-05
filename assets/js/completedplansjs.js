@@ -85,24 +85,153 @@ $("body").on("click", "#camp_idhyperlink_", function(){
 });
 
 
+// $("body").on("click", ".gobtn", function(){
+//     startdate = $('.startdateclass').val();
+//     enddate = $('.enddateclass').val();
+//     clientclass = $('.clientclass').val();
+//     brandclass = $('.brandclass').val();
+//     Campaignid = $('.Campaignidclass').val();
+
+//     objj = {}
+//     objj.startdate = startdate
+//     objj.enddate = enddate
+//     objj.clientclass = clientclass
+//     objj.brandclass = brandclass
+//     objj.Campaignid = Campaignid
+//     objj.IsDefault = false
+//     objj.user_id = useridd
+//     if (startdate!='' || enddate!='' || clientclass!='' || brandclass!='' || Campaignid!='') {
+
+//         if (startdate <= enddate) {
+//             console.log(objj);
+//             var form = new FormData();
+//             form.append("file", JSON.stringify(objj));
+//             var settings11 = {
+//                 "async": true,
+//                 "crossDomain": true,
+//                 "url": aws_url+'completed_gobutton',
+//                 "method": "POST",
+//                 "processData": false,
+//                 "contentType": false,
+//                 "mimeType": "multipart/form-data",
+//                 "data": form
+//             };
+//             $.ajax(settings11).done(function (msg) {
+//                 msg = JSON.parse(msg);
+//                 console.log(msg);
+//                 if(msg.message == "fail"){
+//                     $.alert({
+//                         title: 'Error',
+//                         content: 'Oops ! something went wrong, try again',
+//                         animation: 'scale',
+//                         closeAnimation: 'scale',
+//                         opacity: 0.5,
+//                         buttons: {
+//                             okay: {
+//                                 text: 'Okay',
+//                                 btnClass: 'btn-primary',
+//                                 action: function(){
+//                                     window.location.href="error.php"
+//                                 }
+//                             }
+//                         }
+//                     });
+//                 }
+//                 else {
+//                     displaytable(msg);
+//                 }
+//             })
+
+//         }
+//         else {
+//             $.alert({
+//                 title: 'Error',
+//                 content: 'Startdate should not be greater than Enddate'
+//             });
+//         }
+//     }
+//     else {
+//         $.alert({
+//             title: 'Error',
+//             content: 'Please select anyone value for search'
+//         });
+//     }
+// })
+
+
+ 
+ 
+var start = moment().subtract(29, 'days');
+var end = moment();
+$('input[name="daterange"]').daterangepicker({
+    autoUpdateInput: false,
+    opens: 'left',
+    ranges: {
+        'Today': [moment(), moment()],
+        'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+        'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+        'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+        'This Month': [moment().startOf('month'), moment().endOf('month')],
+        'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+    },
+    locale: {
+        cancelLabel: 'Clear'
+    }
+});
+
+$('input[name="daterange"]').on('apply.daterangepicker', function (ev, picker) {
+    $(this).val(picker.startDate.format('DD/MM/YYYY') + ' - ' + picker.endDate.format('DD/MM/YYYY'));
+    cb(picker.startDate.format('YYYY-MM-DD'), picker.endDate.format('YYYY-MM-DD'))
+});
+
+$('input[name="daterange"]').on('cancel.daterangepicker', function (ev, picker) {
+    $(this).val('');
+});
+
+
+
+
+$("body").on("click", "#camp_idhyperlink_", function(){
+    plainiddd =  $(this).attr('plainidattr');
+    // alert(plainiddd)
+    acceleratorpathbyrpaa = $(this).attr('acceleratorpathbyrpa');
+    sessionStorage.setItem('create_plan_id', plainiddd);
+    // window.location.href = 'planner_createnewplan.php';
+    newstatus = $(this).attr('status');
+    if (newstatus == 1) {
+        window.location.href = 'planner_createnewplan.php?planid='+plainiddd;
+    }
+    else if (newstatus == 2 || (newstatus == 3 && acceleratorpathbyrpaa == 'null')) {
+        window.location.href = 'buyingbasket.php?planid='+plainiddd;
+    }
+    else {
+        window.location.href = 'barc.php?planid='+plainiddd;
+    }
+});
+
+
+
+function cb(start,end){
+
 $("body").on("click", ".gobtn", function(){
-    startdate = $('.startdateclass').val();
-    enddate = $('.enddateclass').val();
+
+  debugger;
+   
     clientclass = $('.clientclass').val();
     brandclass = $('.brandclass').val();
     Campaignid = $('.Campaignidclass').val();
 
     objj = {}
-    objj.startdate = startdate
-    objj.enddate = enddate
+    objj.startdate = start
+    objj.enddate = end
     objj.clientclass = clientclass
     objj.brandclass = brandclass
     objj.Campaignid = Campaignid
     objj.IsDefault = false
     objj.user_id = useridd
-    if (startdate!='' || enddate!='' || clientclass!='' || brandclass!='' || Campaignid!='') {
+    if (start!='' || end!='' || clientclass!='' || brandclass!='' || Campaignid!='') {
 
-        if (startdate <= enddate) {
+        if (start <= end) {
             console.log(objj);
             var form = new FormData();
             form.append("file", JSON.stringify(objj));
@@ -146,17 +275,34 @@ $("body").on("click", ".gobtn", function(){
         else {
             $.alert({
                 title: 'Error',
-                content: 'Startdate should not be greater than Enddate'
+                content: 'Please enter the valid dates'
             });
         }
     }
     else {
         $.alert({
             title: 'Error',
-            content: 'Please select anyone value for search'
+            content: 'please select anyone value for search'
         });
     }
-})
+
+    })
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function displaytable(msg) {

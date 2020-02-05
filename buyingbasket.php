@@ -27,7 +27,7 @@ if ($_SESSION['usernamee'] == '') {
 	<?php include 'assets/includes/common_scripts.php';?>
 	<!-- /global stylesheets -->
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	
 
 	<script src="global_assets/js/demo_pages/uploader_bootstrap.js"></script>
 
@@ -408,6 +408,7 @@ function myFunction() {
   }
 }
 </script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
 <style>
 
 	

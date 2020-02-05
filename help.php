@@ -33,7 +33,9 @@ if ($_SESSION['usernamee'] == '') {
         //     window.location.href="index.php";
         // }
 
+
     </script>
+
 
     <!-- /theme JS files -->
 
@@ -202,18 +204,8 @@ div.row_body div:nth-of-type(odd)
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
-.icon-paragraph-justify3:before {
-    content: "\eec1";
-    color: white;
-    float: right;
-}
-@media screen  and (max-width: 425px)  and (min-width: 320px){
-.icon-paragraph-justify3:before {
-    content: "\eec1";
-    color: white;
-    float: right;
-}
-}
+
+
 </style>
 <body>
 
@@ -263,9 +255,9 @@ div.row_body div:nth-of-type(odd)
             <div class="card" style="height:100%;background-color: #1f2022;">
                 <div class="card" style="background-color: #1f2022;color: white;">
                     <div style="padding:12px;">
-                           <p style="font-size:20px;">Files to Help Document</p>
+                           <p style="font-size:20px;">Update Files to Help Document</p>
                            Search:
-                           <input style="background-color: #1f2022;border-color: #f07144;border-top: none;border-left: none;border-right: none;width: 201px;" type="text" />
+                           <input id="searchHelp" style="color:white;background-color: #1f2022;border-color: #f07144;border-top: none;border-left: none;border-right: none;width: 201px;" type="text" />
                         <!-- <span style="font-size:16px;color: #eade47;
                     font-weight: 600;float: right;
                     text-decoration: none;">More Filters </span> -->
@@ -273,47 +265,19 @@ div.row_body div:nth-of-type(odd)
                     <!-- <button onclick="location.href='planner_createnewplan.php';" class="createbtn">Create plan</button> -->
                     <!-- <button class="btn3">More filters+</button> -->
                 </div>
-                <!-- <div class="row displaytoptextboxes">
-                    <div style="margin-top:6px;margin-right:14px;margin-left:12px;" class="col-sm-2">
-                        <input type="text" style="padding:5px;" placeholder="search for Campaign ID" class="form-control Campaignidclass"/>
-                    </div>
-                    <div style="margin-top:6px;" class="col-sm-2">
-                        <input class="form-control startdateclass"  placeholder="start date" type="date"/>
-                    </div>
-                    <div style="margin-top:6px;" class="col-sm-2">
-                        <input class="form-control enddateclass"  placeholder="end date" type="date"/>
-                    </div>
-                    <div style="margin-top:6px;" class="col-sm-2">
-                        <select data-placeholder="Client Name" class="form-control select clientclass" id="clientt" data-fouc>
-                            <option value=""></option>
-                        </select>
-                    </div>
-                    <div style="margin-top:6px;" class="col-sm-2">
-                        <select data-placeholder="Brand Name" class="form-control select brandclass" id="brandd" data-fouc>
-                            <option value=""></option>
-                        </select>
-                    </div>
-                    <div style="margin-top:6px;" class="col-sm-1">
-                        <button style="background-color:#f07144;border:none;color:#fff;border:none;" class="form-control gobtn">GO</button>
-                    </div>
-                </div> -->
+
                 <!-- <div class="linesss">
                 </div> -->
-                <table class="table datatable-multi-sorting" style="color:white;margin-top:30px">
+                <table id="searchTable" class="table datatable-multi-sorting" style="color:white;margin-top:30px">
 
                     <thead>
                         <tr>
-							<th>Sl.no</th>
+							<th style="width:130px;">Sl.no</th>
                             <th>Files</th>
                             <th>Download</th>
                         </tr>
                     </thead>
                     <tbody style="color:white" class="table appendhere">
-                        <!-- <tr class="appendhere">
-                            <!-- <td>
-                                1
-                            </td> -->
-                        <!-- </tr> -->
                     </table>
                 </div>
 

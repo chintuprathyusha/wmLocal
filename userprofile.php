@@ -130,7 +130,7 @@ if ($_SESSION['usernamee'] == '') {
 										<option value=""></option>
 									</select>
 
-									<select data-placeholder="Select Client" required class="form-control select clientClass__"  data-fouc>
+									<select data-placeholder="Select Client" required class="form-control select clientClass__"multiple  data-fouc>
 										<option value=""></option>
 									</select>
 
@@ -195,5 +195,4 @@ if ($_SESSION['usernamee'] == '') {
 	<!-- /page content -->
 
 </body>
-<!-- Mirrored from demo.interface.club/limitless/demo/bs4/Template/layout_1/LTR/default/full/form_validation.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 Jun 2019 06:42:09 GMT -->
 </html>

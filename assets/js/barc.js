@@ -66,18 +66,33 @@ $(document).ready(function () {
     fileobj = {};
 
     $("#uploadFileTrigger2").on("click", function () {
+        debugger;
         $('#load-file').click()
     })
 
     $('#load-file').on('change', function () {
+
+
+  
         main_output = ''
         var file = $('#load-file')[0].files[0];
-        file_name_ = "AcceleratorOutput_"+campaign_id+"_"+version+".xlsx";
+        // file_name_ = "AcceleratorOutput_"+campaign_id+"_"+version+".xlsx";
+        file_name_ = file.name;
         var fileReader = new FileReader();
 
         $(".acceleratorFileNameDisplay").html('<p class="">'+file_name_+' <img src="assets/images/delete.svg" style="width:15px" class="deleteFile"></p>')
 
+        
+        $("body").on("click", ".deleteFile", function () {
+            $(this).closest('.acceleratorFileNameDisplay').remove();
+            $('.hide_').hide();
+        })
+        
+        
+        
         fileReader.onloadend = function (e) {
+            debugger;
+
             blob___ = e.target.result;
 
             fileobj.filename = "AcceleratorOutput_"+campaign_id+"_"+version+".xlsx";
@@ -111,10 +126,10 @@ $(document).ready(function () {
                     msg = JSON.parse(msg);
                     console.log(msg);
         
-                    msg1 = msg.Status
+                    msg1 = msg.message
         
                     $('.loading').show();
-                    if (msg1 ==true) {
+                    if (msg1 == true) {
                         if(msg1 != false){
                             $('.loading').show();
                         }
@@ -133,7 +148,7 @@ $(document).ready(function () {
 
 
                             // $('.texttodisplay').append('<h5>Accelerator Output file successfully uploaded</h5>')
-                    $('.texttodisplay').html('<p>'+msg.file_name +'</p>')
+                             $('.texttodisplay').html('<p>'+msg.file_name +'</p>')
                            
 
 
@@ -155,7 +170,7 @@ $(document).ready(function () {
                         }
         
                     }
-                    else if(msg1 == "wrong_file_uploaded" )
+                    else if(msg1 == false)
                     {
                         $('.loading').hide();
                         $.alert({
@@ -478,11 +493,11 @@ $(document).ready(function () {
                         $('.edit_barc').prop('disabled', true);
                         $('.barcmsg').show();
                         if (process4ETA == '') {
-                          $(".barcmsg").append('<h5 style="color:#fff"> '+barc_label+' : None</h5>')
+                          $(".barcmsg").append(' <p>'+barc_label+' : None</p>')
                         }
                         else {
                             if (plancompleted == false){
-                                $(".barcmsg").append('<h5 style="color:#fff">  '+barc_label+' : '+format_date(process4ETA)+'</h5>')
+                                $(".barcmsg").append('<p style="color:#fff">  '+barc_label+' : '+format_date(process4ETA)+'</h5>')
                             }
                             else{
                                 $('.barcmsg').hide();
@@ -787,7 +802,8 @@ $(document).ready(function () {
                           }
                           else {
                             if (plancompleted == false){
-                                $('.barcmsg').append('<span>'+ barc_label +'<span id="dots">...</span></span><span id="more" style="display:none;">' + format_date(process4ETA) + '</span><span onclick="myFunction()" id="myclick" style="color:#9780f1;text-decoration: underline; ">Read more</span>'); }
+                                $('.barcmsg').append('<span>'+ barc_label +'<span id="dots">...</span></span><span id="more" style="display:none;">' + format_date(process4ETA) + '</span><span onclick="myFunction()" id="myclick" style="color:#9780f1;text-decoration: underline; ">Read more</span>');
+                            }
                             else{
                                 $('.barcmsg').hide();
                             }

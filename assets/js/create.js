@@ -302,7 +302,7 @@ $(document).ready(function () {
         var channel_selection_value
         var program_performance_value
         $("body").on("change", "#channel_selection", function(){
-            debugger
+            // debugger
             if ($('#channel_selection').is(':checked')) {
                 $('#program_performance').prop('checked', true);
                 $('#program_performance').prop('disabled', false);
@@ -322,7 +322,7 @@ $(document).ready(function () {
         })
 
         $("body").on("change", "#program_performance", function(){
-            debugger;
+            // debugger;
             if ($('#program_performance').is(':checked')) {
                 $('.onnclass').show();
                 $('.offfclass').hide();
@@ -336,7 +336,7 @@ $(document).ready(function () {
 
 var plan_id;
     $("body").on("click", ".create_plan", function(){
-        debugger;
+        // debugger;
         $('.loading').show();
         userid = sessionStorage.getItem('userid');
 
@@ -487,7 +487,7 @@ var plan_id;
                        $('#program_performance').prop('disabled', true);
                        $("#channel_selection").prop('disabled',true);
                    $('.texttodisplay').append('');
-                   debugger;
+                //    debugger;
                 if (skipChannelSelection == "true") {
                     $(".next_btn").show();
                     $(".texttodisplay").hide();

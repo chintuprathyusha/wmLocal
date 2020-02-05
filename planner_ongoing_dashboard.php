@@ -14,14 +14,13 @@ if ($_SESSION['usernamee'] == '') {
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Wavemaker</title>
-	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
 	<?php include 'assets/includes/common_css.php'; ?>
 	<?php include 'assets/includes/common_scripts.php';?>
-	
-	
 
-	
-	<!-- <script type="assets/js/configfile.json"></script> -->
+	<link rel="stylesheet" type="text/css" href="assets/js/daterangepicker/daterangepicker.css" />
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="assets/css/plannerongdashboard.css">
 </head>
 <body>
@@ -76,13 +75,47 @@ if ($_SESSION['usernamee'] == '') {
 						<div class="card">
 							<div class="createbtn__">
 
-								<button class="createbtn">CREATE PLAN</button>
+								<button class="createbtn" style="display: inline-block;
+    position: relative;
+    top: 56px;
+">CREATE PLAN</button>
 								<!-- <img class="btn3" src="assets/images/filter-icon.svg"> -->
 							</div>
 
-							<div class="flt-r" >
-								<input type="text" id="dateFilter" class="flt-r" name="daterange" placeholder="Select Date Range" readonly/>
-							</div>
+
+
+<!-- ...startdate....klmkjkl -->
+                                <div class="flt-r" style="position: absolute;
+    right: 0px;top:50px" >
+                                <input type="text" id="dateFilter" class="flt-r"  name="daterange" placeholder="Select Date Range" readonly/>
+                                <span><i class="fa fa-calendar" style="font-size:16px;color:black;position: absolute;
+    top: 30px;
+    left: 7px;"></i></span>
+                                   <!-- <i class="fa fa-caret-down"></i> -->
+                                </div>
+<!-- 
+
+
+
+
+							<div class="row " >
+								<div class="col-sm-4 colsm" >
+									<div class="s-e-date">Start Date:
+										<input class="form-control startdateclass"  placeholder="start date" type="date"/>
+									</div>
+								</div>
+								<div class="col-sm-4 colsm" >
+									<div class="s-e-date">End Date:
+										<input  class="form-control enddateclass" placeholder="end date" type="date"/>
+									</div>
+								</div>
+								<div class="col-sm-3 colsm">
+
+									<div class="gobtndiv">
+										<button  class="form-control gobtn">GO</button>
+									</div>
+								</div>
+							</div> -->
 							<div class="same_Class" >
 								On-Going Plans
 							</div>
@@ -183,11 +216,11 @@ if ($_SESSION['usernamee'] == '') {
 		</div>
 	</div>
 	<!-- /page content -->
-	
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-	
-	<script src="assets/js/user_dashboard.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Base64/1.0.2/base64.js"></script>
+
 </body>
+<script type="text/javascript" src="assets/js/daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="assets/js/daterangepicker/daterangepicker.min.js"></script>
+    
+<script src="assets/js/user_dashboard.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Base64/1.0.2/base64.js"></script>
 </html>

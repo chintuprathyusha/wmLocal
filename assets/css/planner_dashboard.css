@@ -5,6 +5,16 @@
 /* .dataTables_filter{
     display: none;
 } */
+#dateFilter {
+    padding: 5px 10px;
+    width:213px;
+    border: 0px;
+    border-radius: 3px;
+    cursor: pointer;
+    height: 36px;
+    /* margin-left: 300px; */
+    margin-top: 26px;
+}
 
 .Prioritizebtn{
     background-color: #dfe4ea;

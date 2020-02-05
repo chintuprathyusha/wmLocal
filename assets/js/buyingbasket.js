@@ -70,11 +70,11 @@ $(document).ready(function () {
 
     $('#load-file').on('change', function () {
         
-        debugger;
+      
         main_output = ''
         var file = $(this)[0].files[0];
         file_name_new = file.name;
-        file_name_new = "Buying Basket_" + version_downloadfile + ".xlsx"
+        // file_name_new = "Buying Basket_" + version_downloadfile + ".xlsx"
         console.log(file, file_name_new);
         $(".buyingFileNameDisplay").html('<span style="border-left: 2px solid;height: 24px;position: relative;left: 17px;top: 8px;"></span><p class="" style="margin-top:-13px;margin-left:27px;">'+file_name_new+' <img src="assets/images/delete.svg" style="width:15px;" class="deleteFile"></p>')
            
@@ -88,6 +88,11 @@ $(document).ready(function () {
     
         // });
         
+
+        $("body").on("click", ".deleteFile", function () {
+            $(this).closest('.buyingFileNameDisplay').remove();
+            $('.hide_').hide();
+        })
     
 
 
@@ -294,10 +299,14 @@ $(document).ready(function () {
             editDispersionHtmlAppend = '<div class="main sub_div">'
             editDispersionHtmlAppend += '   <div class="row keyword row3">'
             editDispersionHtmlAppend += '        <div class="col-md-6 mr-b-10 pd-l-10 pd-r-10 appendobjvalinacd edit_res_class">'
-            editDispersionHtmlAppend += '            <input type="number" name="number" min="0" max="200" onKeyUp="if(this.value>200){this.value=200;}else if(this.value<0){this.value=0;}" class="kav edit__class inputboxstyle  form-control mods_inputs name name_Class 0 editView__Check editView__Check' + class_ + '" placeholder="Enter the duration in seconds" value="' + key + '">'
+            // editDispersionHtmlAppend += '        <h6 class="font-weight-semibold">Edit<span class="appendaveragecommer"></span></h6>'
+            
+            editDispersionHtmlAppend += '            <input type="number" name="number" min="0" max="200" onKeyUp="if(this.value>200){this.value=200;}else if(this.value<0){this.value=0;}" class="kav edit__class inputboxstyle  form-control mods_inputs name name_Class 0 editView__Check editView__Check' + class_ + '"   placeholder="Enter the duration in seconds" value="' + key + '">'
             editDispersionHtmlAppend += '        </div>'
             editDispersionHtmlAppend += '        <div class="col-md-6 mr-b-10 pd-l-10 pd-r-10 appendobjvalindispersion dispersion_res_class">'
-            editDispersionHtmlAppend += '            <input class="kav dispersion__class inputboxstyle form-control mods_inputs path path_Class 0 desView__Check desView__Check' + class_ + '" type="number" name="number" min="1" max="99" placeholder="Enter dispersion in percentage" value="' + val + '">'
+            // editDispersionHtmlAppend += '        <h6 class="font-weight-semibold">Dispersion <span class="appenddispers"></span></h6>'
+           
+            editDispersionHtmlAppend += '            <input class="kav dispersion__class inputboxstyle form-control mods_inputs path path_Class 0 desView__Check desView__Check' + class_ + '" type="number" name="number" min="1" max="99" placeholder="Enter dispersion in percentage" value="' + val + '" >'
             if (key === "" && val === "") {
                 editDispersionHtmlAppend += '<img src="assets/images/delete.svg" style="width:20px;" class="remove"></img>'
             }
@@ -309,6 +318,66 @@ $(document).ready(function () {
 
         }
     }
+
+    function editdisperionlablescopy(key, val) {
+        var class_ = $(".editView__Check").length;
+        if (widthofscreen <= 680) {
+            editDispersionHtmlAppend = '<div class="row edit_disp kav sub_div">'
+            editDispersionHtmlAppend += '    <div class="col-lg-6 col-md-6 col-xs-6">'
+            editDispersionHtmlAppend += '        <h6 class="font-weight-semibold">Edit<span class="appendaveragecommer"></span></h6>'
+            editDispersionHtmlAppend += '        <input type="number" name="number" min="0" max="200" onKeyUp="if(this.value>200){this.value=200;}else if(this.value<0){this.value=0;}" class="kav edit__class inputboxstyle  form-control mods_inputs name name_Class 0 editView__Check editView__Check' + class_ + '" placeholder="Enter the duration in seconds" value="' + key + '">'
+            editDispersionHtmlAppend += '    </div>'
+            editDispersionHtmlAppend += '    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 position">'
+            editDispersionHtmlAppend += '        <h6 class="font-weight-semibold">Dispersion <span class="appenddispers"></span></h6>'
+            editDispersionHtmlAppend += '        <input class="kav dispersion__class inputboxstyle form-control mods_inputs path path_Class 0 desView__Check desView__Check' + class_ + '" type="number" name="number" min="1" max="99" placeholder="Enter dispersion in percentage" value="' + val + '">'
+            if (key === "" && val === "") {
+                editDispersionHtmlAppend += '<img src="assets/images/delete.svg" style="width:20px;" class="remove"></img>'
+            }
+            editDispersionHtmlAppend += '    </div>'
+            editDispersionHtmlAppend += '</div>'
+
+            $(".editDispersionDisplay").append(editDispersionHtmlAppend)
+
+        } else {
+            editDispersionHtmlAppend = '<div class="main sub_div">'
+            editDispersionHtmlAppend += '   <div class="row keyword row3">'
+            editDispersionHtmlAppend += '        <div class="col-md-6 mr-b-10 pd-l-10 pd-r-10 appendobjvalinacd edit_res_class">'
+            // editDispersionHtmlAppend += '        <h6 class="font-weight-semibold">Edit<span class="appendaveragecommer"></span></h6>'
+            
+            editDispersionHtmlAppend += '            <input type="number" name="number" min="0" max="200" onKeyUp="if(this.value>200){this.value=200;}else if(this.value<0){this.value=0;}" class="kav edit__class inputboxstyle  form-control mods_inputs name name_Class 0 editView__Check editView__Check' + class_ + '"  readonly placeholder="Enter the duration in seconds" value="' + key + '">'
+            editDispersionHtmlAppend += '        </div>'
+            editDispersionHtmlAppend += '        <div class="col-md-6 mr-b-10 pd-l-10 pd-r-10 appendobjvalindispersion dispersion_res_class">'
+            // editDispersionHtmlAppend += '        <h6 class="font-weight-semibold">Dispersion <span class="appenddispers"></span></h6>'
+           
+            editDispersionHtmlAppend += '            <input class="kav dispersion__class inputboxstyle form-control mods_inputs path path_Class 0 desView__Check desView__Check' + class_ + '" type="number" name="number" min="1" max="99" placeholder="Enter dispersion in percentage" value="' + val + '" readonly>'
+            if (key === "" && val === "") {
+                editDispersionHtmlAppend += '<img src="assets/images/delete.svg" style="width:20px;" class="remove"></img>'
+            }
+            editDispersionHtmlAppend += '        </div>'
+            editDispersionHtmlAppend += '    </div>'
+            editDispersionHtmlAppend += '</div>'
+
+            $(".genreLevelEditDispersion").append(editDispersionHtmlAppend)
+
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     function editdisperionlables1(key, val) {
         var class_1 = $(".editView__Check1").length;
@@ -367,8 +436,13 @@ $(document).ready(function () {
         }
     });
 
+
+
+  // .......................getdata function...........
+
+
     function getData() {
-        debugger
+       
         sendObj = {}
         sendObj.planid = plan_id;
         console.log(sendObj);
@@ -512,7 +586,7 @@ $(document).ready(function () {
                     } else {
                         $('.channelbeing').hide();
                         if (path_selection == 1) {
-                            debugger
+                         
                             if (spilloversheet_filename == '' || spilloversheet_filename == null) {
                                 $('.spillover').show();
                                 $('.budegtdivnew').hide();
@@ -566,7 +640,9 @@ $(document).ready(function () {
                             if (process3ETA == "None") {
                                 $('.acceleratorfiletext').append('<h5> ' + genre_uploadlabel + '  none </h5>')
                             } else {
-                                $('.acceleratorfiletext').append('<h5> ' + genre_uploadlabel + ' ' + format_date(process3ETA) + ' </h5>')
+                                // $('.acceleratorfiletext').append('<h5> ' + genre_uploadlabel + ' ' + format_date(process3ETA) + ' </h5>')
+                                $('.acceleratorfiletext').append('<span> '+ genre_uploadlabel +'<span id="dots">...</span></span><span id="more" style="display:none;">' + format_date(process3ETA) + '</span><span onclick="myFunction()" id="myclick" style="color:#9780f1;text-decoration: underline; ">Read more</span>');
+                            
                             }
 
 
@@ -595,7 +671,11 @@ $(document).ready(function () {
                             if (process3ETA == "None") {
                                 $('.acceleratorfiletext').append('<h5> ' + genre_uploadlabel + ' : none </h5>')
                             } else {
-                                $('.acceleratorfiletext').append('<h5> ' + genre_uploadlabel + ' : ' + format_date(process3ETA) + ' </h5>')
+                                // $('.acceleratorfiletext').append('<h5> ' + genre_uploadlabel + ' : ' + format_date(process3ETA) + ' </h5>')
+                            
+                                $('.acceleratorfiletext').append('<span> '+ genre_uploadlabel +'<span id="dots">...</span></span><span id="more" style="display:none;">' + format_date(process3ETA) + '</span><span onclick="myFunction()" id="myclick" style="color:#9780f1;text-decoration: underline; ">Read more</span>');
+                            
+                            
                             }
 
 
@@ -690,8 +770,11 @@ $(document).ready(function () {
         })
     }
 
+
+
+      // .......................freezebuyinginfo...........
     function freezebuyinginfo() {
-        debugger
+    
         // $('.cprp_div').show();
         if (isFilePrepCompleted == "false") {
             $('.channelbeing').show();
@@ -817,9 +900,30 @@ $(document).ready(function () {
             $(".sub_div").remove()
             $.each(acd_dispersion, function (key, value) {
                 for (var val in value) {
-                    editdisperionlables(val, value[val])
+                    editdisperionlablescopy(val, value[val])
                 }
             })
+        
+        
+        // for (var val in value) {
+        //            acd_value.push(val)
+        //            acd_data.push(value[val])
+
+        //        }
+        //    })
+        //    console.log(acd_data);
+        //    console.log(acd_value);
+
+        //    $('.name_Class').hide();
+        //    $('.path_Class').hide();
+        //    $('.appendobjvalinacd').append('<input type="number" name="number" min="1" max="99"  class="inputboxstyle  form-control mods_inputs name name_Class 0" placeholder="' + acd_value.join(",") + '" readonly="" style="background: rgba(41, 40, 40, 0.91); color: rgb(255, 255, 255);">')
+        //    $('.appendobjvalindispersion').append('<input type="number" name="number" min="1" max="99"  class="inputboxstyle  form-control mods_inputs name name_Class 0" placeholder="' + acd_data.join(",") + '" readonly="" style="background: rgba(41, 40, 40, 0.91); color: rgb(255, 255, 255);">')
+        
+        
+        
+        
+        
+        
         } else {
             $(".cprp_main").prop("checked", true);
             $(".budget_main").prop("checked", false);
@@ -832,6 +936,9 @@ $(document).ready(function () {
             $('.reach_val').val(weightage[key])
         })
     }
+
+
+    // .......................unfreezebuyinginfo...........
 
     function unfreezebuyinginfo() {
         if (path_selection == 2) {
@@ -940,6 +1047,11 @@ $(document).ready(function () {
         //     $('.kav').hide()
         // }
     }
+
+
+
+
+
     $('body').on('click', '.cprp_main', function () {
         // $(".kav").show()
         $(".spanClass").css('color', 'rgb(13, 230, 241)')
@@ -1267,16 +1379,16 @@ $(document).ready(function () {
         var b = 100 - a;
         var b = parseInt($('#b').val(b));
     })
-    // $("#a").mousewheel(function () {
-    //     var a = parseInt($('#a').val());
-    //     var b = 100 - a;
-    //     var b = parseInt($('#b').val(b));
-    // })
-    // $("#b").mousewheel(function () {
-    //     var a = parseInt($('#b').val());
-    //     var b = 100 - a;
-    //     var b = parseInt($('#a').val(b));
-    // })
+    $("#a").mousewheel(function () {
+        var a = parseInt($('#a').val());
+        var b = 100 - a;
+        var b = parseInt($('#b').val(b));
+    })
+    $("#b").mousewheel(function () {
+        var a = parseInt($('#b').val());
+        var b = 100 - a;
+        var b = parseInt($('#a').val(b));
+    })
     $("#b").keyup(function () {
         var a = parseInt($('#b').val());
         var b = 100 - a;
@@ -1317,7 +1429,7 @@ $(document).ready(function () {
 
     $("body").on("click", ".submit_", function () {
 
-        debugger;
+      
         $('.forfirstpathtext').empty()
         path_selection = $(this).closest('.common_class').find('.cprp_main').attr('key');
         div_weitage = $(this).closest('.common_class').find('.cprp_div');
@@ -1568,11 +1680,29 @@ $(document).ready(function () {
     fileobj = {};
     // (function ($) {
         $('#load-file1').on('change', function () {
+
+
+            $('.uploadFileTrigger1').prop('disabled', true);
+            // $(".uploadFileTrigger1")
             main_output = ''
             var file = $(this)[0].files[0];
             filename = file.name;
-            filename = "ChannelLevelBudgetAllocation" + newcampaign_id + "_" + version + ".xlsx"
+            // filename = "ChannelLevelBudgetAllocation" + newcampaign_id + "_" + version + ".xlsx"
             $(".ChannelLevelFileNameDisplay").html('<span style="border-left: 2px solid;height: 24px;position: relative;left: 17px;top:25px;"></span><p class="" style="margin-top: 10px;margin-left:20px;">'+filename+' <img src="assets/images/delete.svg" style="width:15px" class="deleteFile"></p>')
+
+                
+            $("body").on("click", ".deleteFile", function () {
+                $(this).closest('.ChannelLevelFileNameDisplay').remove();
+                $('.hide_').hide();
+            })
+
+
+
+
+
+
+
+
 
             var fileReader = new FileReader();
             fileReader.onloadend = function (e) {
@@ -1717,18 +1847,28 @@ $(document).ready(function () {
         $("#uploadFileTrigger2").on("click", function () {
             $('#load-file__').click()
         })
-        $('#load-file__').on('change', function () {
 
+        $('#load-file__').on('change', function () {
+           
+  
             main_output = ''
             var file = $('#load-file__')[0].files[0];
             filename = file.name;
-            filename = "GenreLevelBudgetAllocation_" + newcampaign_id + "_" + version + ".xlsx"
+            // filename = "GenreLevelBudgetAllocation_" + newcampaign_id + "_" + version + ".xlsx"
             
             $(".GenreLevelFileNameDisplay").html('<span style="border-left: 2px solid;height: 24px;position: relative;left: 17px;top:25px"></span><p class="" style="margin-top: 5px;margin-left:25px;">'+filename+' <img src="assets/images/delete.svg" style="width:15px" class="deleteFile"></p>')
             
-            
-            var fileReader = new FileReader();
-            fileReader.onloadend = function (e) {
+           
+
+
+            $("body").on("click", ".deleteFile", function () {
+                $(this).closest('.GenreLevelFileNameDisplays').remove();
+                $('.hide_').hide();
+            })
+
+
+               var fileReader = new FileReader();
+               fileReader.onloadend = function (e) {
                 blob___ = e.target.result;
 
                 fileobj2.filename = filename;
@@ -1755,16 +1895,23 @@ $(document).ready(function () {
                         "data": form
                     };
                     $.ajax(settings11).done(function (msg) {
+                        $('.uploadFileTrigger2').hide();
                         $(".loading").hide();
                         console.log(msg);
+                       
                         msg = JSON.parse(msg);
                         console.log(msg);
-                        status = msg.Status
+                        Status = msg.status
                         process3ETA = msg.Process3ETA;
-                        if (status == true) {
+                        if (Status == true) {
+
+                        
                             if (path_selection == 1) {
                                 $('.acceleratorfiletext').show();
                                 $('.acceleratorfiletext').html('<h5>' + genre_uploadlabel + ' ' + format_date(process3ETA) + ' </h5>')
+                                
+                                
+                            
                             } else {
                                 $('.acceleratorfiletext').hide();
                                 $('.next_').prop('disabled', false)
@@ -1780,8 +1927,7 @@ $(document).ready(function () {
                             $('.texttodisplayspill').html('<p>'+msg.file_name +'</p>')
                             // $('.texttodisplayspill').append('<h5 style="color:#000">'+file_name_2+' is successfully uploaded</h5>')
                             // $('.texttodisplayspill').append('<h5 style="color:#fff;">Genre Level Budget Allocation Sheet  successfully uploaded </h5>')
-                            $('.uploadFileTrigger2').hide();
-                            $('.GenreLevelFileNameDisplay').hide();
+                            
                                   
                             // $.alert({
                             //     title: 'File succesfully uploaded',
@@ -1797,7 +1943,7 @@ $(document).ready(function () {
                             //     }
                             // });
                         }
-                        if (status == "wrong_file_uploaded") {
+                        if (Status == false) {
                             $('.texttodisplay').hide();
                             $('.texttodisplayspill').hide();
                             $('#upl-btn__').show();

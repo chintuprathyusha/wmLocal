@@ -3362,7 +3362,7 @@
     font-weight: bold !important;
 }
 .flt-r{
-    float: right !important;
+    float: right;
 }
 .flt-l{
     float: left !important;

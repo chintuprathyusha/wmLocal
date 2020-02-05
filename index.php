@@ -16,17 +16,10 @@ session_start();
 
 	<script src="assets/js/login.js" charset="utf-8"></script>
 	<link rel="stylesheet" href="assets/css/index.css">
-	<link rel="stylesheet" href="assets/css/updatesinprogress.css">
+	<!-- <link rel="stylesheet" href="assets/css/updatesinprogress.css"> -->
 	
 
-	<script type="text/javascript" language="javascript">  
-    var versionUpdate = (new Date()).getTime();  
-    var script = document.createElement("script");  
-    script.type = "stylesheet";  
-    script.src = "assets/css/updatesinprogress.css?v=" + versionUpdate;  
-    document.body.appendChild(script);  
-	</script>  
-
+	
 	
 </head>
 
@@ -231,4 +224,15 @@ session_start();
 	<div class="loading">
 		<img src="assets/images/loading.gif" alt="">
 	</div>
+
+	<!-- <script type="text/javascript">  
+    var versionUpdate = (new Date()).getTime();  
+	var link = document.createElement("link");
+    link.rel = "stylesheet";
+	link.href = "assets/css/updatesinprogress.css?v=" + versionUpdate; 
+	document.getElementsByTagName("head")[0].appendChild(link);
+	</script> 
+	 -->
+
 </body>
+</html>

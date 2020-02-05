@@ -25,7 +25,12 @@ if ($_SESSION['usernamee'] == '') {
 	<script src="assets/js/ongoing_dashboardjs.js"></script>
     <link rel="stylesheet" href="assets/css/planner_dashboard.css">
     <!-- <script src="assets\js\sessiontimeoutjs.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="assets/js/daterangepicker/daterangepicker.css" />
+    <script type="text/javascript" src="assets/js/daterangepicker/moment.min.js"></script>
+    <script type="text/javascript" src="assets/js/daterangepicker/daterangepicker.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Base64/1.0.2/base64.js"></script>
 </head>
 <script>
 $(document).ready(function () {
@@ -105,16 +110,7 @@ $(document).ready(function () {
                                     <input type="text" placeholder="search for Campaign ID" class="form-control Campaignidclass"/>
                                 </div>
                             </div>
-                            <div  class="col-sm-6 col-md-2 date">
-								<div class="s-e-date">Start Date:
-									<input class="form-control startdateclass"  placeholder="start date" type="date"/>
-								</div> 
-                            </div>
-                            <div class="col-sm-6 col-md-2 date">
-                                <div class="s-e-date">End Date:
-									<input class="form-control startdateclass"  placeholder="start date" type="date"/>
-								</div> 
-                            </div>
+                         
                             <div class="col-sm-6 col-md-2 client">
                                 <div class="s-e-client">Client Name:
                                     <select data-placeholder="Client Name" class="form-control select clientclass" id="clientt" data-fouc>
@@ -130,7 +126,17 @@ $(document).ready(function () {
                                 </div>
                             </div>
 
-
+                            <div class="flt-r" >
+                                <input type="text" id="dateFilter" class="flt-r" name="daterange" placeholder="Select Date Range" readonly/>
+                                <span><i class="fa fa-calendar" style="    font-size: 16px;
+    color: black;
+    position: absolute;
+    top: 60px;
+    margin-left: 15px;"></i>
+    <!-- <i class="fa fa-caret-down" ></i> -->
+                                  </span> 
+                                  
+                            </div>
                             
                             <div class="col-sm-12 col-md-1 go">
                                 <button  class="form-control gobtn">GO</button>

@@ -21,6 +21,15 @@ if ($_SESSION['usernamee'] == '') {
     <?php include 'assets/includes/common_scripts.php';?>
     <script src="assets/js/completedplansjs.js"></script>
     <link rel="stylesheet" href="assets/css/plannercompletedplans.css">
+    <link rel="stylesheet" type="text/css" href="assets/js/daterangepicker/daterangepicker.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- ========================= -->
+<script type="text/javascript" src="assets/js/daterangepicker/moment.min.js"></script>
+    <script type="text/javascript" src="assets/js/daterangepicker/daterangepicker.min.js"></script>
+    
+    <!-- <script src="assets/js/user_dashboard.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Base64/1.0.2/base64.js"></script>
     <!-- Core JS files -->
 
     <!-- <script src="assets\js\sessiontimeoutjs.js"></script> -->
@@ -127,7 +136,7 @@ if ($_SESSION['usernamee'] == '') {
                                                 class="form-control Campaignidclass" />
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 col-md-2 date">
+                                    <!-- <div class="col-sm-6 col-md-2 date">
                                         <div class="s-e-date">Start Date:
                                             <input class="form-control startdateclass" placeholder="start date"
                                                 type="date" />
@@ -138,7 +147,7 @@ if ($_SESSION['usernamee'] == '') {
                                             <input class="form-control startdateclass" placeholder="start date"
                                                 type="date" />
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="col-sm-6 col-md-2 client">
                                         <div class="s-e-client">Client Name:
                                             <select data-placeholder="Client Name"
@@ -155,6 +164,16 @@ if ($_SESSION['usernamee'] == '') {
                                             </select>
                                         </div>
                                     </div>
+
+
+                                    <div class="flt-r" >
+                                <input type="text" id="dateFilter" class="flt-r" name="daterange" placeholder="Select Date Range" readonly/>
+                                <span><i class="fa fa-calendar" style="    font-size: 16px;
+    color: black;
+    position: absolute;
+    top: 30px;
+    margin-left: 8px;"></i>
+                            </div>
                                     <div class="col-sm-12 col-md-1 go">
                                         <button class="form-control gobtn">GO</button>
                                     </div>

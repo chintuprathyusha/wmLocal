@@ -17,7 +17,6 @@ $(document).ready(function () {
     // $("body").on("click", ".btn3", function(){
     //     $(".displaytoptextboxes").slideToggle('slow');
     // });
-    
     var start = moment().subtract(29, 'days');
     var end = moment();
     
@@ -39,7 +38,7 @@ $(document).ready(function () {
     });
     
     $('input[name="daterange"]').on('apply.daterangepicker', function (ev, picker) {
-        $(this).val(picker.startDate.format('DD/MM/YYYY') + ' - ' + picker.endDate.format('DDMM/YYYY'));
+        $(this).val(picker.startDate.format('DD/MM/YYYY') + ' - ' + picker.endDate.format('DD/MM/YYYY'));
         cb(picker.startDate.format('YYYY-MM-DD'), picker.endDate.format('YYYY-MM-DD'))
     });
 
@@ -97,7 +96,6 @@ $(document).ready(function () {
         })
     }
 
-
     function pageonloadhit() {
         obj = {}
         brandclass = $('.brandclass').val();
@@ -147,6 +145,11 @@ $(document).ready(function () {
         })
     }
 
+
+
+
+
+    
 
     $("body").on("click", ".gobtn", function(){
         startdate =   $('.startdateclass').val();
