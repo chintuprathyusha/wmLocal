@@ -10,6 +10,10 @@ $(".displaytoptextboxes").slideToggle('hidden');
 // });
 
 
+
+var start_date=""
+var  end_date=""
+
 pageonloadhit()
 function pageonloadhit() {
     obj = {}
@@ -181,7 +185,9 @@ $('input[name="daterange"]').daterangepicker({
 
 $('input[name="daterange"]').on('apply.daterangepicker', function (ev, picker) {
     $(this).val(picker.startDate.format('DD/MM/YYYY') + ' - ' + picker.endDate.format('DD/MM/YYYY'));
-    cb(picker.startDate.format('YYYY-MM-DD'), picker.endDate.format('YYYY-MM-DD'))
+    start_date = picker.startDate.format('YYYY-MM-DD')
+    end_date = picker.endDate.format('YYYY-MM-DD')
+    // cb(picker.startDate.format('YYYY-MM-DD'), picker.endDate.format('YYYY-MM-DD'))
 });
 
 $('input[name="daterange"]').on('cancel.daterangepicker', function (ev, picker) {
@@ -211,7 +217,7 @@ $("body").on("click", "#camp_idhyperlink_", function(){
 
 
 
-function cb(start,end){
+// function cb(start,end){
 
 $("body").on("click", ".gobtn", function(){
 
@@ -222,8 +228,8 @@ $("body").on("click", ".gobtn", function(){
     Campaignid = $('.Campaignidclass').val();
 
     objj = {}
-    objj.startdate = start
-    objj.enddate = end
+    objj.startdate = start_date
+    objj.enddate = end_date
     objj.clientclass = clientclass
     objj.brandclass = brandclass
     objj.Campaignid = Campaignid
@@ -288,7 +294,7 @@ $("body").on("click", ".gobtn", function(){
 
     })
 
-}
+// }
 
 
 

@@ -191,17 +191,13 @@ $(document).ready(function () {
         })
 
     })
-
+    
     $("body").on("click", ".deleteheaderbtn", function(){
+        $('#select').empty();
         deletepageonloadhit()
     })
 
-
-
-    
     function deletepageonloadhit() {
-
-        debugger;
         obj = {}
         obj.user_id = useridd
         console.log(obj);
@@ -246,7 +242,7 @@ $(document).ready(function () {
                 $.each(data ,function(key,i){
                     $('#select').append('<option value='+key+'>'+key+'</option>')
                 })
-
+            
                 var $dropdown = $('#select');
                 console.log($dropdown);
                 $dropdown.on('change', function() {
@@ -345,5 +341,4 @@ $(document).ready(function () {
         })
 
     })
-
 })
