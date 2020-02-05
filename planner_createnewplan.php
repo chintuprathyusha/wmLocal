@@ -111,8 +111,10 @@
 													class="font-weight-semibold">Campaign Name<span
 														class="text-danger">*</span>
 												</h6>
+												<div class="capm_name_class">
 												<input class="form-control campign_name" required data-fouc
 													placeholder="Type the Campaign Name">
+                                               </div>
 											</div>
 											<div class="col-md-6 mr-b-20">
 												<h6 title="<?php echo $_SESSION['tool_tips']['CreateNewPlan_Campaignid'];?>"
@@ -123,6 +125,11 @@
 											</select> -->
 												</div>
 											</div>
+
+
+
+
+											
 											<div class="col-md-6 mr-b-20">
 												<h6 title="<?php echo $_SESSION['tool_tips']['CreateNewPlan_PrimaryTGId'];?>"
 													class="font-weight-semibold">Primary TG<span

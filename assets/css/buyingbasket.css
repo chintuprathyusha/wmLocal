@@ -137,7 +137,7 @@ button:focus {outline:0;}
 	padding: 2px 15px;
 	color: white;
 }
-
+.acceleratorfiletext
 .submit_ {
     margin-left: 10px !important;
 	/* color: #333;
@@ -447,7 +447,8 @@ button:focus {outline:0;}
             }
            
             .forfirstpathtext{
-               width: auto;
+			   width: auto;
+			   cursor: pointer;
             }
             .forsecoundpathtext{
                 width: auto;
