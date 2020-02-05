@@ -33,6 +33,10 @@ $(document).ready(function () {
         $('#admin').addClass('activee');
     }
 
+    if (filename == 'help.php') {
+        $('#help').addClass('activee');
+    }
+
     // if (filename == 'buyingbasket.php') {
     //     $('#ongoingdashboard').addClass('activee');
     // }

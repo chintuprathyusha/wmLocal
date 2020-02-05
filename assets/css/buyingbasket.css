@@ -1,4 +1,28 @@
 
+
+
+.acceleratorfiletext{
+	margin-top: 25px!important;
+	padding: 10px 16%!important;
+	height: 9vh;
+	width: 100%;
+	color: white;
+	text-align: center;
+	background: black;
+	border: 1px solid black!important;
+	border-radius: 5px;
+}
+.spillovertexttodisplay{
+	margin-top: 25px!important;
+	padding: 5px 26%!important;
+	height: 6vh;
+	width: 100%;
+	color: white;
+	text-align: center;
+	background: black;
+	border: 1px solid black!important;
+	border-radius: 5px;
+}
 input[type='radio']:after {
 	width: 15px;
 	height: 15px;
@@ -140,13 +164,13 @@ button:focus {outline:0;}
 		.changediv{
 			width: 100%;
 		}
-		.spillovertexttodisplay{
+		/* .spillovertexttodisplay{
 			margin: auto;
 			background: #323335;
 		    border: 1px solid #f07144!important;
 			color: #fff !important;
 			padding: 30px;
-		}
+		} */
 		.texttodisplayspill{
 			margin: auto;
 			background: #323335;
@@ -195,14 +219,14 @@ button:focus {outline:0;}
 			.common_main{
 				margin-right: 10px;
 			}
-			.acceleratorfiletext{
+			/* .acceleratorfiletext{
 				margin: auto;
 				background: #323335;
 			    border: 1px solid #f07144!important;
 				color: #fff !important;
 				padding: 30px;
 				margin-top: 50px;
-			}
+			} */
 			.spanClass{
 				font-weight: 400;
 			}

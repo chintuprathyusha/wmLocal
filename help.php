@@ -255,7 +255,7 @@ div.row_body div:nth-of-type(odd)
             <div class="card" style="height:100%;background-color: #1f2022;">
                 <div class="card" style="background-color: #1f2022;color: white;">
                     <div style="padding:12px;">
-                           <p style="font-size:20px;">Files To Download</p>
+                           <p style="font-size:20px;">Update Files to Help Document</p>
                            Search:
                            <input id="searchHelp" style="color:white;background-color: #1f2022;border-color: #f07144;border-top: none;border-left: none;border-right: none;width: 201px;" type="text" />
                         <!-- <span style="font-size:16px;color: #eade47;
@@ -272,7 +272,7 @@ div.row_body div:nth-of-type(odd)
 
                     <thead>
                         <tr>
-							<th>Sl.no</th>
+							<th style="width:130px;">Sl.no</th>
                             <th>Files</th>
                             <th>Download</th>
                         </tr>

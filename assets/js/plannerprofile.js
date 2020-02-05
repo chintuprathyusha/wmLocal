@@ -221,7 +221,7 @@ $(document).ready(function () {
                     
                     for (var i = 0; i < freezeClient.length; i++) {
 
-                        $(".freezeclient").append('<p key=' + freezeClient[i] + ' value=' + freezeClient[i] + ' class="getClass form-control" readonly style="background-color:#d6d6d6;width:auto;display: inline-block;margin-right: 10px;    position: absolute;left: -15px;">' + freezeClient[i] + '</p>')
+                        $(".freezeclient").append('<p key=' + freezeClient[i] + ' value=' + freezeClient[i] + ' class="getClass form-control" readonly style="background-color:#d6d6d6;width:auto;display:inline-block;margin-right:10px">' + freezeClient[i] + '</p>')
                    
                    
                     }
@@ -232,12 +232,14 @@ $(document).ready(function () {
 
 
 
-                        $(".freezeClientLead").append('<div  class="getClass" readonly style="background-color:none;color:#d6d6d6;width:auto;display: inline-block;font-size:14px;padding:3px">' + key + ':</div></br>')
+                       $(".freezeClientLead").append("<div class='clientLeads-"+key.replace(/ /g, '_')+"'></div>")
+
+                        $(".clientLeads-"+key.replace(/ /g, '_')).append('<div  class="getClass" readonly style="background-color:none;color:#d6d6d6;width:auto;display: inline-block;font-size:14px;padding:3px">' + key + ':</div>')
 
 
                         for (var i = 0; i <value.length; i++) {
 
-                            $(".freezeClientLead").append('<p class="getClass form-control" readonly style="background-color:#d6d6d6;width:auto;display: inline-block;margin-right: 10px;">' + value[i] + '</p>')
+                            $(".clientLeads-"+key.replace(/ /g, '_')).append('<p class="getClass form-control" readonly style="background-color:#d6d6d6;width:auto;display: inline-block;margin-right: 10px;">' + value[i] + '</p>')
                         
                         }
 
@@ -742,10 +744,23 @@ $(document).ready(function () {
                     }
                 });
             } else {
-                for (key in msg) {
-                    $(".clientleadClass").append('<textarea class="form-control" key=' + key + ' value=' + msg[key] + '  readonly="readonly"  class="getClass get_clientlead-' + count + '">' + msg[key] + '</textarea>')
-                    count++
-                }
+                // for (key in msg) {
+                     $.each(msg,function(key,value){
+
+
+
+
+                        $(".clientleadClass").append('<div style="background:none;border:none;color:#fff;width:auto;display:inline-block;" class="form-control" key=' + key + ' value=' + msg[key] + '  readonly="readonly"  class="getClass get_clientlead-' + count + '">' + key + '</div>')
+                
+                        for(i=0;i<value.length;i++){
+
+                            
+                        $(".clientleadClass").append('<div  style="display:inline-block;width:auto;margin-right:10px"class="form-control" key=' + key + ' value=' + msg[key] + '  readonly="readonly"  class="getClass get_clientlead-' + count + '">' + value[i] + '</div>')
+                                                count++
+                        }
+                // }
+            })
+
                 $(".CLemId").hide();
             }
         })

@@ -66,13 +66,14 @@ $(document).ready(function () {
     fileobj = {};
 
     $("#uploadFileTrigger2").on("click", function () {
+        debugger;
         $('#load-file').click()
     })
 
     $('#load-file').on('change', function () {
 
 
-        debugger
+  
         main_output = ''
         var file = $('#load-file')[0].files[0];
         // file_name_ = "AcceleratorOutput_"+campaign_id+"_"+version+".xlsx";
@@ -90,6 +91,8 @@ $(document).ready(function () {
         
         
         fileReader.onloadend = function (e) {
+            debugger;
+
             blob___ = e.target.result;
 
             fileobj.filename = "AcceleratorOutput_"+campaign_id+"_"+version+".xlsx";
@@ -490,11 +493,11 @@ $(document).ready(function () {
                         $('.edit_barc').prop('disabled', true);
                         $('.barcmsg').show();
                         if (process4ETA == '') {
-                          $(".barcmsg").append('<h5 style="color:#fff"> '+barc_label+' : None</h5>')
+                          $(".barcmsg").append(' <p>'+barc_label+' : None</p>')
                         }
                         else {
                             if (plancompleted == false){
-                                $(".barcmsg").append('<h5 style="color:#fff">  '+barc_label+' : '+format_date(process4ETA)+'</h5>')
+                                $(".barcmsg").append('<p style="color:#fff">  '+barc_label+' : '+format_date(process4ETA)+'</h5>')
                             }
                             else{
                                 $('.barcmsg').hide();
@@ -799,7 +802,8 @@ $(document).ready(function () {
                           }
                           else {
                             if (plancompleted == false){
-                                $('.barcmsg').append('<span>'+ barc_label +'<span id="dots">...</span></span><span id="more" style="display:none;">' + format_date(process4ETA) + '</span><span onclick="myFunction()" id="myclick" style="color:#9780f1;text-decoration: underline; ">Read more</span>'); }
+                                $('.barcmsg').append('<span>'+ barc_label +'<span id="dots">...</span></span><span id="more" style="display:none;">' + format_date(process4ETA) + '</span><span onclick="myFunction()" id="myclick" style="color:#9780f1;text-decoration: underline; ">Read more</span>');
+                            }
                             else{
                                 $('.barcmsg').hide();
                             }

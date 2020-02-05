@@ -8,7 +8,7 @@ $(document).ready(function () {
         password = $('.passwordclass').val();
 
         console.log(username+"...."+password+"-------------"+currentdate);
-        debugger
+ 
         login(username, password, currentdate)
     })
 

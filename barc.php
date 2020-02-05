@@ -168,11 +168,11 @@ $(document).ready(function() {
 						</div>
 						<div class="mr-t-10" style="margin-top: 20px;">
 							<!-- <button class="btn btn-primary backclass" title="Previous" tooltip="Previous"style="color: #fff;border:none;float: left;background-color: transparent !Important;"><span>Previous </span><img src="assets/images/left.svg" style="width:30px;"></button> -->
-							<button class="btn btn-primary backclass" title="Previous" tooltip="Previous"style="color: #F07144;border:none;float: left;background-color: transparent !Important;"><span>PREVIOUS </span></button>
+							<button class="btn btn-primary backclass" title="Previous" tooltip="Previous"><span>PREVIOUS </span></button>
 
 
 						</div>
-						<div class="commonstyle barcmsg" style="margin-top:50px;background: #323335;border: 1px solid #f07144!important;">
+						<div class="commonstyle barcmsg" style="">
 							<!-- <h5 style="color:#000">Genre Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox1232kavya.</h5> -->
 						</div>
 					</div>
@@ -194,23 +194,6 @@ $(document).ready(function() {
 	<!-- /page content -->
 
 </body>
-<script>
-function myFunction() {
-  var dots = document.getElementById("dots");
-  var moreText = document.getElementById("more");
-  var btnText = document.getElementById("myclick");
-
-  if (dots.style.display === "none") {
-    dots.style.display = "inline";
-    btnText.innerHTML = "Read more"; 
-    moreText.style.display = "none";
-  } else {
-    dots.style.display = "none";
-    btnText.innerHTML = "Read less"; 
-    moreText.style.display = "inline";
-  }
-}
-</script>
 <style>
 
 .uploadbtn{
@@ -234,4 +217,24 @@ function myFunction() {
 	border: none!important;
    }
 	</style>
+	
+<!-- readmore -->
+<script>
+function myFunction() {
+  var dots = document.getElementById("dots");
+  var moreText = document.getElementById("more");
+  var btnText = document.getElementById("myclick");
+
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "Read more"; 
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = "Read less"; 
+    moreText.style.display = "inline";
+  }
+}
+</script>
+	
 </html>

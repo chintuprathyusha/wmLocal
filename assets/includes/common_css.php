@@ -9,4 +9,3 @@
 <link href="assets/css/helper.css" rel="stylesheet" type="text/css">
 <link href="assets/css/common.css" rel="stylesheet" type="text/css">
 <link href="assets/css/sweetalert.css" rel="stylesheet" type="text/css">
-<link href="assets/css/updatesinprogess.css" rel="stylesheet" type="text/css">

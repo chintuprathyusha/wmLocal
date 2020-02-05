@@ -21,7 +21,7 @@ $( document ).ready(function() {
             console.log(msg);
             count = 1;
             for (var i = 0; i < msg.length; i++) {
-                $('.appendhere').append('<tr><td>'+count+'</td><td style="width: 446px;" >'+msg[i]+' <img style="width:20px;height:20px;" src="assets/images/pdf.png"/</td><td><img  class="downloadbtn"  filename="'+msg[i]+'" src="assets/images/WhiteIcons/FilesDownload.png" style="width:27px;"><td></tr>');
+                $('.appendhere').append('<tr><td>'+count+'</td><td style="width: 446px;" >'+msg[i]+' </td><td><img  class="downloadbtn"  filename="'+msg[i]+'" src="assets/images/WhiteIcons/download.png" style="width:27px;"><td></tr>');
 
                 count++
             }

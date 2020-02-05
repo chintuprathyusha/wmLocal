@@ -28,7 +28,7 @@ if ($_SESSION['usernamee'] == '') {
 <script type="text/javascript" src="assets/js/daterangepicker/moment.min.js"></script>
     <script type="text/javascript" src="assets/js/daterangepicker/daterangepicker.min.js"></script>
     
-    <script src="assets/js/user_dashboard.js"></script>
+    <!-- <script src="assets/js/user_dashboard.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Base64/1.0.2/base64.js"></script>
     <!-- Core JS files -->
 

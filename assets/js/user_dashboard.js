@@ -38,7 +38,7 @@ $(document).ready(function () {
     });
     
     $('input[name="daterange"]').on('apply.daterangepicker', function (ev, picker) {
-        $(this).val(picker.startDate.format('DD/MM/YYYY') + ' - ' + picker.endDate.format('DDMM/YYYY'));
+        $(this).val(picker.startDate.format('DD/MM/YYYY') + ' - ' + picker.endDate.format('DD/MM/YYYY'));
         cb(picker.startDate.format('YYYY-MM-DD'), picker.endDate.format('YYYY-MM-DD'))
     });
 
