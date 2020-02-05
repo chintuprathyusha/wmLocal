@@ -40,36 +40,6 @@ $(document).ready(function () {
         get_freezeDetails();
     }
 
-    // if (isnewuser == "false") {
-    //     if (role=="ClientLead") {
-    //         if (isprofile == "true") {
-    //             freezeforclientlead();
-    //         }
-    //         else {
-    //             onpageloadhit(isnewuser);
-    //             $('.clientClass').select2().next().show();
-    //             $('.clientClass').show();
-    //         }
-    //         // $('.select_').hide();
-    //     }
-    //     if(role  == "Planner") {
-    //         if (isprofile == "true") {
-    //             get_freezeDetails();
-    //         }
-    //         else {
-    //             $('.clientClass__').show();
-    //             $('.clientClass__').select2().next().show();
-    //             // $('.clientClass').hide();
-    //             onpageloadhit(isnewuser);
-    //         }
-    //
-    //     }
-    // }
-    // else {
-    //     onpageloadhit(isnewuser);
-    //
-    // }
-
     if (isnewuser == "false") {
         if (clinet_planner_flag == "true") {
             if (isprofile == "true") {
@@ -186,7 +156,7 @@ $(document).ready(function () {
                     freezeLoc = msg.Location;
                     freezeClient = msg.Client;
                     freezeClientLead = msg.Client_Lead;
-                    $(".freezeLoc").append('<p key=' + freezeLoc + ' value=' + freezeLoc + ' class="getClass form-control" readonly style="background-color:#d6d6d6;">' + freezeLoc + '</p>')
+                    $(".freezeLoc").append('<p key=' + freezeLoc + ' value=' + freezeLoc + ' class="smallBoxs" readonly style="background-color:#d6d6d6;">' + freezeLoc + '</p>')
                     // for (var i = 0; i < freezeClient.length; i++) {
                     $(".freezeclient").append('<textarea   class="getClass form-control" readonly style="background-color:#d6d6d6;"></textarea>')
                     // }
@@ -216,52 +186,18 @@ $(document).ready(function () {
                     console.log(freezeClientLead)
                     $(".freezeLoc").append('<p key=' + freezeLoc + ' value=' + freezeLoc + ' class="getClass form-control" readonly style="background-color:#d6d6d6;">' + freezeLoc + '</p>')
                     
-                    
-                    
-                    
                     for (var i = 0; i < freezeClient.length; i++) {
-
-                        $(".freezeclient").append('<p key=' + freezeClient[i] + ' value=' + freezeClient[i] + ' class="getClass form-control" readonly style="background-color:#d6d6d6;width:auto;display:inline-block;margin-right:10px">' + freezeClient[i] + '</p>')
-                   
-                   
+                        $(".freezeclient").append('<p key=' + freezeClient[i] + ' value=' + freezeClient[i] + ' class="smallBoxs" readonly style="background-color:#d6d6d6;width:auto;display:inline-block;margin-right:10px">' + freezeClient[i] + '</p>')
                     }
 
                     $.each(freezeClientLead, function( key, value ) {
-                        console.log(key);
-                        console.log(value);
-
-
-
-                       $(".freezeClientLead").append("<div class='clientLeads-"+key.replace(/ /g, '_')+"'></div>")
-
-                        $(".clientLeads-"+key.replace(/ /g, '_')).append('<div  class="getClass" readonly style="background-color:none;color:#d6d6d6;width:auto;display: inline-block;font-size:14px;padding:3px">' + key + ':</div>')
-
-
+                        $(".freezeClientLead").append("<div class='row  pd-l-20 pd-r-20 clientLeads-" + key.replace(/ /g, '_') + "'></div>")
+                        $(".clientLeads-" + key.replace(/ /g, '_')).append('<div class="col-sm-2" style="background-color:none;color:#d6d6d6;width:auto;display: inline-block;font-size:14px;padding:3px">' + key + ':</div><div class="col-sm-10 pd-t-3 values-' + key.replace(/ /g, '_') + '"></div>')
                         for (var i = 0; i <value.length; i++) {
-
-                            $(".clientLeads-"+key.replace(/ /g, '_')).append('<p class="getClass form-control" readonly style="background-color:#d6d6d6;width:auto;display: inline-block;margin-right: 10px;">' + value[i] + '</p>')
-                        
+                            $(".values-" + key.replace(/ /g, '_')).append('<p class="smallBoxs" readonly style="background-color:#d6d6d6;width:auto;display: inline-block;margin-right: 10px;">' + value[i] + '</p>')
                         }
-
-                           
                     })
-
-
-                    // $(".freezeClientLead").append('<p> '+key + '</p>')
-
-
-
-
-                    
-
-                    // $(".freezeclient").append('<input key='+freezeClient+' value='+freezeClient+' class="getClass form-control" readonly style="background-color:#d6d6d6;margin-top:10px;">')
-                    
-
-
                 }
-
-
-
             }
         })
     }

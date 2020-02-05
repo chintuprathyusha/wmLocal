@@ -123,7 +123,7 @@ if ($_SESSION['usernamee'] == '') {
 
 
 							<div class="form-group row">
-								<label title="<?php echo $_SESSION['tool_tips']['CreateProfile_Client'];?>" class="col-form-label col-lg-1">Client<span class="text-danger">*</span></label>
+								<label title="<?php echo $_SESSION['tool_tips']['CreateProfile_Client'];?>" class="col-lg-1">Client<span class="text-danger">*</span></label>
 								<div class="col-lg-9 select_">
 
 									<select data-placeholder="Select Client" required class="form-control select clientClass"  multiple  data-fouc>
