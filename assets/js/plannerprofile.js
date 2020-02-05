@@ -156,7 +156,7 @@ $(document).ready(function () {
                     freezeLoc = msg.Location;
                     freezeClient = msg.Client;
                     freezeClientLead = msg.Client_Lead;
-                    $(".freezeLoc").append('<p key=' + freezeLoc + ' value=' + freezeLoc + ' class="smallBoxs" readonly style="background-color:#d6d6d6;">' + freezeLoc + '</p>')
+                    $(".freezeLoc").append('<p key=' + freezeLoc + ' value=' + freezeLoc + ' class="smallBoxs" >' + freezeLoc + '</p>')
                     // for (var i = 0; i < freezeClient.length; i++) {
                     $(".freezeclient").append('<textarea   class="getClass form-control" readonly style="background-color:#d6d6d6;"></textarea>')
                     // }
@@ -187,14 +187,14 @@ $(document).ready(function () {
                     $(".freezeLoc").append('<p key=' + freezeLoc + ' value=' + freezeLoc + ' class="getClass form-control" readonly style="background-color:#d6d6d6;">' + freezeLoc + '</p>')
                     
                     for (var i = 0; i < freezeClient.length; i++) {
-                        $(".freezeclient").append('<p key=' + freezeClient[i] + ' value=' + freezeClient[i] + ' class="smallBoxs" readonly style="background-color:#d6d6d6;width:auto;display:inline-block;margin-right:10px">' + freezeClient[i] + '</p>')
+                        $(".freezeclient").append('<p key=' + freezeClient[i] + ' value=' + freezeClient[i] + ' class="smallBoxs">' + freezeClient[i] + '</p>')
                     }
 
                     $.each(freezeClientLead, function( key, value ) {
                         $(".freezeClientLead").append("<div class='row  pd-l-20 pd-r-20 clientLeads-" + key.replace(/ /g, '_') + "'></div>")
                         $(".clientLeads-" + key.replace(/ /g, '_')).append('<div class="col-sm-2" style="background-color:none;color:#d6d6d6;width:auto;display: inline-block;font-size:14px;padding:3px">' + key + ':</div><div class="col-sm-10 pd-t-3 values-' + key.replace(/ /g, '_') + '"></div>')
                         for (var i = 0; i <value.length; i++) {
-                            $(".values-" + key.replace(/ /g, '_')).append('<p class="smallBoxs" readonly style="background-color:#d6d6d6;width:auto;display: inline-block;margin-right: 10px;">' + value[i] + '</p>')
+                            $(".values-" + key.replace(/ /g, '_')).append('<p class="smallBoxs">' + value[i] + '</p>')
                         }
                     })
                 }
@@ -275,39 +275,21 @@ $(document).ready(function () {
 
 
                 for (var i = 0; i < freezeClient.length; i++) {
-
-                    $(".freezeclient").append('<span key=' + freezeClient + ' value=' + freezeClient + ' class="getClass form-control"  style="background-color:#fff;margin-top:10px;width:auto;width: auto;display: inline-block; margin-right: 10px;">' + freezeClient[i] + '</span>')
-
+                    $(".freezeclient").append('<span key=' + freezeClient + ' value=' + freezeClient + ' class="smallBoxs" >' + freezeClient[i] + '</span>')
                 }
 
 
                 for (var i = 0; i < allclients.length; i++) {
-
                     $(".clientClass").append('<option key=' + allclients[i] + ' value=' + allclients[i] + ' style="background-color:#d6d6d6;margin-top:10px" class="getClass form-control">' + allclients[i] + '</option>')
                 }
 
 
-
-
-
-                console.log(freezeClientLead)
-
                 $.each(freezeClientLead, function (key, value) {
-                    console.log(key)
-                    var list = value
-
-                    $(".freezeClientLead").append('<div style="margin-right:16px;color:#fff;width:auto;font-size:16px">' + key + ':</div>')
-
-                    for (var i = 0; i < list.length; i++) {
-
-                        // console.log(freezeClientLead[key][i])
-
-                        $(".freezeClientLead").append('<span class="getClass form-control"  style="background-color:#fff;margin-top:10px;width:auto;display:inline-block; margin-right: 10px;" readonly>' + list[i] + '</span>')
-
+                    $(".freezeClientLead").append("<div class='row  pd-l-20 pd-r-20 clientLeads-" + key.replace(/ /g, '_') + "'></div>")
+                    $(".clientLeads-" + key.replace(/ /g, '_')).append('<div class="col-sm-2" style="background-color:none;color:#d6d6d6;width:auto;display: inline-block;font-size:14px;padding:3px">' + key + ':</div><div class="col-sm-10 pd-t-3 values-' + key.replace(/ /g, '_') + '"></div>')
+                    for (var i = 0; i < value.length; i++) {
+                        $(".values-" + key.replace(/ /g, '_')).append('<p class="smallBoxs">' + value[i] + '</p>')
                     }
-
-
-
                 })
 
             }
@@ -548,8 +530,6 @@ $(document).ready(function () {
     var selectedValues_;
     $(".clientClass").empty();
     $("body").on("change", ".clientClass", function () {
-        debugger
-        $('.freezeClientLead').hide();
         $('.loading').show();
 
         client_key = $(this).find("option:selected").attr('key');
@@ -599,28 +579,14 @@ $(document).ready(function () {
                     }
                 });
             } else {
-                for (key in msg) {
-                    console.log(msg[key], key);
-                    console.log(msg[key]);
-                       
-
-                    $(".clientleadClass").append('<div style="margin-right:16px;color:#fff;width:auto;font-size:16px">' + key + ':</div>')
-
-                    for (var i = 0; i < msg[key].length; i++) {
-
-                        // console.log(freezeClientLead[key][i])
-
-                        $(".clientleadClass").append('<span class="getClass form-control"  style="background-color:#fff;margin-top:10px;width:auto;display:inline-block; margin-right: 10px;" readonly>' + msg[key][i] + '</span>')
-
+                
+                $.each(msg, function (key, value) {
+                    $(".clientleadClass").append("<div class='row  pd-l-20 pd-r-20 clientLeads1-" + key.replace(/ /g, '_') + "'></div>")
+                    $(".clientLeads1-" + key.replace(/ /g, '_')).append('<div class="col-sm-2" style="background-color:none;color:#d6d6d6;width:auto;display: inline-block;font-size:14px;padding:3px">' + key + ':</div><div class="col-sm-10 pd-t-3 values1-' + key.replace(/ /g, '_') + '"></div>')
+                    for (var i = 0; i < value.length; i++) {
+                        $(".values1-" + key.replace(/ /g, '_')).append('<p class="smallBoxs">' + value[i] + '</p>')
                     }
-
-
-                    // $(".clientleadClass").append('<label class="form-control"  readonly="readonly"  key=' + key + ' value=' + msg[key] + ' class="getClass get_clientlead-' + count + '">' + msg[key] + '</label>')
-                    // count++
-                }
-
-
-
+                })
                 $(".CLemId").hide();
             }
         })

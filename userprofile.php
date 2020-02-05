@@ -134,7 +134,7 @@ if ($_SESSION['usernamee'] == '') {
 										<option value=""></option>
 									</select>
 
-									<div data-placeholder="" class="freezeclient" data-fouc>
+									<div data-placeholder="" class="freezeclient mr-t-15" data-fouc>
 
 									</div>
 								</div>
