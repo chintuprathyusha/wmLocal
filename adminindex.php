@@ -145,6 +145,9 @@ $( document ).ready(function() {
                                             <div class="col-md-8 masterdata_">
                                                 <!-- <input type="file" class="file-input" multiple="multiple" data-fouc> -->
                                                 <!-- <div class="col-md-4"> -->
+
+
+                                                
                                                 <input type="file" class="file-input-ajax" id="locationclass" data-fouc>
 
                                                 <!-- <span><button id="locationuploadbtn">Upload</button></span> -->
