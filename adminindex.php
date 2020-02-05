@@ -57,6 +57,7 @@ if ($_SESSION['usernamee'] == '') {
                                     <div class="row timestampfiles">
                                         <h4 class="h4">Recent uploaded files </h4>
                                         <div class="col-lg-6 col-md-6 col-sm-6">
+                                            <h2>Master </h2>
                                             <div class="masterdatastamp">
                                             </div>
                                         </div>
@@ -126,8 +127,6 @@ if ($_SESSION['usernamee'] == '') {
             <div class="loading">
                 <img src="assets/images/loading.gif" alt="">
             </div>
-
-
 
             <div class="null">
 
