@@ -95,6 +95,7 @@ $(document).ready(function () {
 
         })
     }
+   
 
     function pageonloadhit() {
         obj = {}
