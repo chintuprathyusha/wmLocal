@@ -22,12 +22,12 @@ if ($_SESSION['usernamee'] == '') {
     <script src="assets/js/completedplansjs.js"></script>
     <link rel="stylesheet" href="assets/css/plannercompletedplans.css">
     <link rel="stylesheet" type="text/css" href="assets/js/daterangepicker/daterangepicker.css" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<!-- ========================= -->
-<script type="text/javascript" src="assets/js/daterangepicker/moment.min.js"></script>
+    <!-- ========================= -->
+    <script type="text/javascript" src="assets/js/daterangepicker/moment.min.js"></script>
     <script type="text/javascript" src="assets/js/daterangepicker/daterangepicker.min.js"></script>
-    
+
     <!-- <script src="assets/js/user_dashboard.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Base64/1.0.2/base64.js"></script>
     <!-- Core JS files -->
@@ -166,14 +166,14 @@ if ($_SESSION['usernamee'] == '') {
                                     </div>
 
 
-                                    <div class="flt-r" >
-                                <input type="text" id="dateFilter" class="flt-r" name="daterange" placeholder="Select Date Range" readonly/>
-                                <span><i class="fa fa-calendar" style="    font-size: 16px;
-    color: black;
+                                    <div class="flt-r">
+                                        <input type="text" id="dateFilter" class="flt-r" name="daterange"
+                                            placeholder="Select Date Range" readonly />
+                                        <span><i class="fa fa-calendar" style="    font-size: 16px; color: black;
     position: absolute;
     top: 30px;
     margin-left: 8px;"></i>
-                            </div>
+                                    </div>
                                     <div class="col-sm-12 col-md-1 go">
                                         <button class="form-control gobtn">GO</button>
                                     </div>
@@ -184,7 +184,7 @@ if ($_SESSION['usernamee'] == '') {
 
                                     <thead>
                                         <tr>
-                                            <th>Sl.no</th>
+                                            <th>S.No</th>
                                             <th>Campaign ID</th>
                                             <th>Brand</th>
                                             <th>Client</th>

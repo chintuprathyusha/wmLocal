@@ -149,7 +149,7 @@ $(document).ready(function () {
                         <table class="table datatable-multi-sorting" >
                             <thead>
                                 <tr>
-									<th>Sl.no</th>
+									<th>S.No</th>
                                     <th>Campaign ID</th>
                                     <th class="brnd">Brand</th>
                                     <th class="clnt">Client</th>
