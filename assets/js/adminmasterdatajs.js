@@ -179,44 +179,6 @@ $(document).ready(function(){
          });
     }
 
-
-    var counting = 0;
-    function exceltoblob(file) {
-        pagesArr = [];
-        window.PDFJS = window.pdfjsLib;
-        PDFJS.disableWorker = true;
-        PDFJS.getDocument(file).then(function getPdfHelloWorld(pdf) {
-            const go = async function(){
-                let h = 0;
-                for(var pageN = 1; pageN <= pdf.numPages; pageN++){
-                    const page = await pdf.getPage(pageN);
-                    var scale = 2;
-                    var viewport = page.getViewport(scale);
-                    //
-                    // Prepare canvas using PDF page dimensions
-                    //
-                    var canvas = document.createElement('canvas');
-                    //document.body.appendChild(canvas);
-                    var context = canvas.getContext('2d');
-                    canvas.height += viewport.height;
-                    canvas.width = viewport.width;
-                    //
-                    // Render PDF page into canvas context
-                    //
-                    var task = page.render({ canvasContext: context, viewport: viewport })
-                    await task.promise;
-                    pages = canvas.toDataURL('image/jpeg');
-                    pagesArr.push(pages)
-                    if (pageN == pdf.numPages) {
-                        displayImagesMain(pagesArr)
-                    }
-                }
-            };
-            go();
-        }, function(error){
-            //console.log(error);
-        });
-    }
     $("body").on("click", ".downloadall", function() {
         var form = new FormData();
         form.append("file", JSON.stringify(fileobj));
@@ -269,77 +231,6 @@ $(document).ready(function(){
         for (var i=0; i!=s.length; ++i) view[i] = s.charCodeAt(i) & 0xFF;
         return buf;
     }
-
-    var file_name_new;
-    var main_output_new;
-    fileobj_new = {};
-        $('#channelgenre').on('change', function () {
-            debugger
-            main_output_new = ''
-            var file = $('#channelgenre')[0].files[0];
-            filename_new = file.name;
-            var fileReader = new FileReader();
-            fileReader.onloadend = function (e) {
-                blob___ = e.target.result;
-
-                fileobj_new.filename = filename_new;
-                fileobj_new.blob = blob___;
-                // fileobj_new.plan_id = plan_id;
-                fileobj_new.user_id = user_id;
-                fileobj_new.category = "ChannelGenreMappingSheet"
-                console.log(fileobj_new);
-                file_name_ = filename_new;
-            };
-
-            fileReader.readAsDataURL(file);
-        });
-
-
-    var counting = 0;
-    function exceltoblob(file) {
-        pagesArr = [];
-        window.PDFJS = window.pdfjsLib;
-        PDFJS.disableWorker = true;
-        PDFJS.getDocument(file).then(function getPdfHelloWorld(pdf) {
-            const go = async function(){
-                let h = 0;
-                for(var pageN = 1; pageN <= pdf.numPages; pageN++){
-                    const page = await pdf.getPage(pageN);
-                    var scale = 2;
-                    var viewport = page.getViewport(scale);
-                    //
-                    // Prepare canvas using PDF page dimensions
-                    //
-                    var canvas = document.createElement('canvas');
-                    //document.body.appendChild(canvas);
-                    var context = canvas.getContext('2d');
-                    canvas.height += viewport.height;
-                    canvas.width = viewport.width;
-                    //
-                    // Render PDF page into canvas context
-                    //
-                    var task = page.render({ canvasContext: context, viewport: viewport })
-                    await task.promise;
-                    pages = canvas.toDataURL('image/jpeg');
-                    pagesArr.push(pages)
-                    if (pageN == pdf.numPages) {
-                        displayImagesMain(pagesArr)
-                    }
-                }
-            };
-            go();
-        }, function(error){
-            //console.log(error);
-        });
-    }
-
-    $("body").on("click", "#channelgenrebtn", function(){
-        $('.loading').show();
-        // //debuggers
-        console.log(fileobj_new);
-       
-    })
-
 
 
 })
