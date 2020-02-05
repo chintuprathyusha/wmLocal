@@ -360,7 +360,7 @@ $(document).ready(function () {
                 // setInterval(function(){  location.reload(); }, 1500);
                 $.alert({
                     title: 'Successful',
-                    content: 'Removed succesfully',
+                    content: 'Removed Succesfully',
                     animation: 'scale',
                     closeAnimation: 'scale',
                     opacity: 0.5,

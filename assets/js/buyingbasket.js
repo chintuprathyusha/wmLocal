@@ -673,7 +673,7 @@ $(document).ready(function () {
                             } else {
                                 // $('.acceleratorfiletext').append('<h5> ' + genre_uploadlabel + ' : ' + format_date(process3ETA) + ' </h5>')
                             
-                                $('.acceleratorfiletext').append('<span> '+ genre_uploadlabel +'<span id="dots">...</span></span><span id="more" style="display:none;">' + format_date(process3ETA) + '</span><span onclick="myFunction()" id="myclick" style="color:#9780f1;text-decoration: underline; ">Read more</span>');
+                                $('.acceleratorfiletext').append('<span> '+ genre_uploadlabel +'<span id="dots">...</span></span><span id="more" style="display:none;">' + format_date(process3ETA) + '</span><span onclick="myFunction()" id="myclick" style="color:#9780f1;text-decoration: underline;">Read more</span>');
                             
                             
                             }
@@ -700,7 +700,7 @@ $(document).ready(function () {
 
                     $('.forfirstpathtext').append('' + genre_levellabel + ' : none');
                 } else {
-                    $('.forfirstpathtext').append('<span> '+ genre_levellabel +'<span id="dots">...</span></span><span id="more" style="display:none;">' + format_date(process2ETA) + '</span><span onclick="myFunction()" id="myclick" style="color:#9780f1;text-decoration: underline; ">Read more</span>');
+                    $('.forfirstpathtext').append('< style="cursor: pointer;"> '+ genre_levellabel +'<span id="dots">...</span></span><span id="more" style="display:none;cursor: pointer;">' + format_date(process2ETA) + '</span><span onclick="myFunction()" id="myclick" style="color:#9780f1;text-decoration: underline;cursor: pointer; ">Read more</div>');
 
                     // $('.forfirstpathtext').append('' + genre_levellabel + ' : ' + format_date(process2ETA) + '');
 
@@ -1317,7 +1317,7 @@ $(document).ready(function () {
                     } else {
 
 
-                        $('.forsecoundpathtext').append('<span>'+ channel_levellabel +'<span id="dots">...</span></span><span id="more" style="display:none;">' + format_date(process2ETA) + '</span><span onclick="myFunction()" id="myclick" style="color:#9780f1;text-decoration: underline; ">Read more</span>');
+                        $('.forsecoundpathtext').append('<span>'+ channel_levellabel +'<span id="dots">...</span></span><span id="more" style="display:none;">' + format_date(process2ETA) + '</span><span onclick="myFunction()" id="myclick" style="color:#9780f1;text-decoration: underline;cursor: pointer ">Read more</span>');
                         // $('.forsecoundpathtext').append('' + channel_levellabel + ' ' + format_date(process2ETA) + '');
 
                     }

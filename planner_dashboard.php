@@ -103,7 +103,7 @@ $(document).ready(function () {
 
                         <!-- Order direction sequence control -->
                         <!-- <div class="card" style="background-color: #222c31;"> -->
-                        <div class="row" style="height:100%" >
+                        <div class="row">
                             <!-- <div class="row"> -->
                             <div  class="col-sm-6 col-md-2 campid">
                                 <div class="s-e-campid">Campaign ID:
