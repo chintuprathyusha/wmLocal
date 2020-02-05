@@ -44,9 +44,6 @@
 .hide{
 	display: none;
 }
-.navbar-nav-link{
-	display: none !important;
-}
 
 .commonstyle.barcmsg {
 	margin-top: 25px!important;
@@ -70,13 +67,7 @@
     border: 1px solid black!important;
     border-radius: 5px;
 }
-#logoutbtnid{
-	background-color: #ffffff2e !important;
-	border: none;
-	border-radius: 5px;
-	padding: 2px 15px;
-	color: white;
-}
+
 .content{
 	background-size: cover;
 }
@@ -154,3 +145,8 @@
 	}
 }
 /* responsive */
+.file_nameBarc {
+	margin: 0px;
+	border-left: 3px solid #fff;
+	padding-left: 20px;
+}

@@ -15,13 +15,17 @@
 .spillovertexttodisplay{
 	margin-top: 25px!important;
 	padding: 5px 26%!important;
-	height: 6vh;
 	width: 100%;
 	color: white;
 	text-align: center;
 	background: black;
 	border: 1px solid black!important;
 	border-radius: 5px;
+}
+.spillovertexttodisplay h5,
+.acceleratorfiletext h5{
+	font-size: 14px;
+	margin: 0px;
 }
 input[type='radio']:after {
 	width: 15px;
@@ -146,8 +150,8 @@ button:focus {outline:0;}
 	}
 	.close_{
 		width: 100%;
-        padding: 0px 50px;
-        padding: 0px;
+		padding: 0px 50px;
+		padding: 0px;
 	}
 	/* .cprp_div{
 		display: none;
@@ -181,22 +185,9 @@ button:focus {outline:0;}
 			border: 1px solid #f07144!important;
 			text-align: center;
 		}
-		.commonstyle{
-			/* margin: auto;
-			padding: 30px;
-			width: 600px;
-			background: #323335;
-		    border: 1px solid #f07144!important; */
-		}
-		/* .spillover{
-		display: none !important;
-		} */
-
-		/* .common_main{
-			margin-left: 40px;
-		} */
+		
 		.budget_main{
-		padding: 12px;
+			padding: 12px;
 			width: 50%;
 			border: 2px solid #1f2022;
 			color: white;
@@ -352,7 +343,7 @@ button:focus {outline:0;}
             }
             .budgetdivnew{
                width: 100%;
-               padding:50px;
+               padding:0px;
             }
             .forfirstpathtext{
                 margin-top:50px;
@@ -362,7 +353,7 @@ button:focus {outline:0;}
             }
             .spillover{
                 width: 100%;
-                padding:50px;
+                padding:0px;
             }
            .btn.btn-primary.btn1{
             background: #4caf50;

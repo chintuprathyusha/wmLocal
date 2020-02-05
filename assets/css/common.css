@@ -97,7 +97,6 @@ body {
     font-size: 20px;
 }
 
-.notetoupload {}
 
 .selectAll {
     padding: 4px 20px;
@@ -303,10 +302,6 @@ th {
 
 
 
-#logoutbtnid:hover {
-    color: #000 !important;
-}
-
 .odd {
     background-color: #1f2022;
 }
@@ -454,10 +449,6 @@ body {
 .dataTables_paginate .paginate_button.disabled {
     background-color: #37474f3b;
 
-}
-
-.content {
-    /* background-color: #1f2022; */
 }
 
 .createbtn {
@@ -623,9 +614,6 @@ blink {
     content: '' !important;
 }
 
-.swal-footer .swal-button-container :first-child {
-    /* margin-left: -16px; */
-}
 
 .cancelclass {
     left: -19px;
@@ -668,10 +656,22 @@ blink {
     text-align: end;
 }
 
-
+#logoutbtnid {
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    padding: 2px 15px;
+    color: white;
+    outline: 0px;
+}
 
 .logoutbtn:hover {
-    color: #333;
+    color: #ffffff !important;
     text-decoration: none;
-    background-color: #f5f5f5;
+    background-color: #595959 !important;
+}
+
+
+.dropdown-menu:hover {
+    background: #454545;
 }

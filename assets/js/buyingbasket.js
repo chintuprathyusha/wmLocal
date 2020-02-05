@@ -7,8 +7,6 @@ $(document).ready(function () {
     $('#upl-btn').prop('disabled', true);
     $('#upl-btn1').prop('disabled', true);
     $('#upl-btn__').prop('disabled', true);
-
-
     $('.radio_class').hide();
     $('.budget_div_').hide();
     $('.cprp_div').hide();
@@ -68,33 +66,18 @@ $(document).ready(function () {
         $('#load-file').click()
     })
 
+    $("body").on("click", ".deleteFile", function () {
+        $(this).closest('.buyingFileNameDisplay').remove();
+        $('.hide_').hide();
+    })
+    
     $('#load-file').on('change', function () {
-        
-      
         main_output = ''
         var file = $(this)[0].files[0];
         file_name_new = file.name;
         // file_name_new = "Buying Basket_" + version_downloadfile + ".xlsx"
         console.log(file, file_name_new);
-        $(".buyingFileNameDisplay").html('<span style="border-left: 2px solid;height: 24px;position: relative;left: 17px;top: 8px;"></span><p class="" style="margin-top:-13px;margin-left:27px;">'+file_name_new+' <img src="assets/images/delete.svg" style="width:15px;" class="deleteFile"></p>')
-           
-
-
-
-             
-        // $(".deleteFile").on('click', function(){
-
-        //     $(".buyingFileNameDisplay").empty();
-    
-        // });
-        
-
-        $("body").on("click", ".deleteFile", function () {
-            $(this).closest('.buyingFileNameDisplay').remove();
-            $('.hide_').hide();
-        })
-    
-
+        $(".buyingFileNameDisplay").html('<p class="mr-b-0 mr-l-20 pd-l-20" style="border-left: 3px solid #fff">'+file_name_new+' <img src="assets/images/delete.svg" style="width:15px;" class="deleteFile"></p>')
 
         var fileReader = new FileReader();
         fileReader.onloadend = function (e) {
@@ -149,7 +132,6 @@ $(document).ready(function () {
                     $('.red_color').hide();
                     $('#upl-btn').hide();
                     // $('.cprp_div').show(); 
-                    $('.file-input-ajax').hide();
                     $('.uploadFileTrigger').hide();
                     $('.buyingFileNameDisplay').hide();
                     $('.bb_txt').hide();
@@ -477,8 +459,7 @@ $(document).ready(function () {
             }
 
             if (acceleratedFilePathByRPA != null && PlanProcessed >= 3) {
-                $('.file-input-ajax').prop('disabled', true);
-                $(".file-input-ajax").css("background-color", "#4b6584");
+               
             }
 
             if (plancompleted == true) {
@@ -522,15 +503,10 @@ $(document).ready(function () {
                 $(".camp_id_").html('<input class="form-control" placeholder="Campaign Name" type="text" value="' + campaignName + '" readonly style="background:#1f2022;color:#fff/>')
                 if (version > 1) {
                     replan = true;
-                    if (plancompleted == true) {
-                        $('.bb_files').show();
-                        $('.bb_txt').show();
+                    if (plancompleted == true || (buyingbasket_filename != '' && buyingbasket_filename != null)) {
+                        $('.bb_files').html('<p>' + buyingbasket_filename + '</p>')
                         $('#upl-btn').show();
-                        $('.file-input-ajax').prop('disabled', true);
-                        $(".file-input-ajax").css("background-color", "#4b6584");
                     } else {
-                        $('.bb_files').show();
-                        $('.bb_txt').show();
                         $('#upl-btn').show();
                     }
 
@@ -594,9 +570,7 @@ $(document).ready(function () {
                                 $('.channelbeing').hide();
                             } else {
                                 $('.spillll').hide();
-                                $('.spillovertexttodisplay').show();
-                                
-                                $('.spillovertexttodisplay').append('<h5>Genre Level Budget Allocation Sheet is successfully uploaded</h5>')
+                                $('.ss_files').append('<p>' + spilloversheet_filename + '</p>')
                                 if (plancompleted == true) {
                                     $(".next_").prop('disabled', false);
                                 } else {
@@ -655,9 +629,8 @@ $(document).ready(function () {
                         $('.changediv').show();
                         $('.ss_files').hide();
                         $('.submit_btn1').hide();
-                        $('.spillovertexttodisplay').show();
                         $('.spillll').hide();
-                        $('.spillovertexttodisplay').append('<h5>Genre Level Budget Allocation Sheet is successfully uploaded</h5>')
+                        $('.changediv').append('<p>' + spilloversheet_filename + '</p>')
                     } else {
                         if (acceleratedFilePathByRPA == null) {
                             if (plancompleted == true) {
@@ -688,9 +661,9 @@ $(document).ready(function () {
                         $('.changediv').show();
                         $('.ss_files').hide();
                         $('.submit_btn1').hide();
-                        $('.spillovertexttodisplay').show();
+                        $('.spillovertexttodisplay').hide();
                         $('.spillll').hide();
-                        $('.spillovertexttodisplay').append('<h5>Channel Level Budget Allocation Sheet is successfully uploaded</h5>')
+                        $('.changediv').append('<p>' + budgetallocation_filename + '</p>')
 
                     }
                 }
@@ -731,31 +704,19 @@ $(document).ready(function () {
                     console.log(msg.BuyingBasketFilePath);
                     if (msg.BuyingBasketFilePath == '' || msg.BuyingBasketFilePath == null) {
                         if (plancompleted == true) {
-                            $('.bb_files').show();
                             $('.bb_txt').show();
                             $('#upl-btn').show();
-                            // $('.next_').prop('disabled', true)
                             $('.cprp_div').hide();
                             $('.radio_class').hide();
-                            $('.file-input-ajax').prop('disabled', true);
-                            $(".file-input-ajax").css("background-color", "#4b6584");
                         } else {
-                            $('.bb_files').show();
                             $('.bb_txt').show();
                             $('#upl-btn').show();
-                            // $('.next_').prop('disabled', true)
                             $('.cprp_div').hide();
                             $('.radio_class').hide();
                         }
 
                     } else {
-                        $('.bb_files').hide();
-                        $('#upl-btn').hide();
-                        $('.texttodisplay').show()
-
-                        $('.bb_txt').append('<h5>Buying Basket file is succesfully uploaded</h5>')
-                        console.log(file_name_new);
-                        // $('.bb_files').html('<p>'+msg.file_name +'</p>')
+                        $('.bb_files').html('<p>' + msg.BuyingBasketFilePath + '</p>')
                         $('.radio_class').show();
                         $('.cprp_div').show();
                         if (path_selection == 2) {
@@ -813,7 +774,7 @@ $(document).ready(function () {
                     $('.budget_text').show();
                     $('.budget__').hide();
                     $('.submit_btn2').hide();
-                    $('.budget_text').append('<h5 class="texttodisplayspill" style="color:#fff">Channel Level Budget Allocation Sheet is successfully uploaded</h5>')
+                    $('.budget_text').append('<p>' + budgetallocation_filename + '</p>')
                     $(".next_").removeAttr('disabled');
                 }
             } else {
@@ -827,16 +788,11 @@ $(document).ready(function () {
         $('.cprp_div').show()
         $(".camp_id_").html('<label>Campaign Name</label><input class="form-control" placeholder="Campaign Name" type="text" value="' + campaignName + '" readonly style="background:black;color:#fff;"/>')
         if (buyingbasket_filename == '' || buyingbasket_filename == "NULL") {
-            $('.bb_files').show();
             $('.bb_txt').show();
             $('#upl-btn').show();
 
         } else {
-            $('.bb_files').hide();
-            // append(filename)
             $('#upl-btn').hide();
-            // $('.texttodisplay').show()
-            // $('.texttodisplay').html('<h5 style="color:#fff">Buying Basket file is succesfully uploaded</h5>')
         }
         if (path_selection == 2) {
 
@@ -958,7 +914,6 @@ $(document).ready(function () {
 
         if (buyingbasket_filename == '' || buyingbasket_filename == "NULL" || replan == true) {
             if (replan == true && buyingbasket_filename != null) {
-                $('.bb_files').hide();
                 $('#upl-btn').hide();
                 $('.texttodisplay').show()
                 $('.texttodisplay').html('<h5 style="color:#fff">Buying Basket file is succesfully uploaded</h5>')
@@ -967,14 +922,11 @@ $(document).ready(function () {
                 $('.radio_class').hide();
                 $('.cprp_div').hide();
                 $('.budget_div_').hide();
-                $('.bb_files').show();
-                $('.bb_txt').show();
                 $('#upl-btn').show();
                 
             }
         } else {
             if (replan == false) {
-                $('.bb_files').hide();
                 $('#upl-btn').hide();
                 $('.texttodisplay').show()
                 $('.texttodisplay').html('<h5 style="color:#fff">Buying Basket file is succesfully uploaded</h5>')
@@ -1679,367 +1631,194 @@ $(document).ready(function () {
     var main_output;
     fileobj = {};
     // (function ($) {
-        $('#load-file1').on('change', function () {
+    $("body").on("click", ".deleteFile", function () {
+        $(this).closest('.ChannelLevelFileNameDisplay').remove();
+        $('.hide_').hide();
+    })
+    $('#load-file1').on('change', function () {
+        $('.uploadFileTrigger1').prop('disabled', true);
+        // $(".uploadFileTrigger1")
+        main_output = ''
+        var file = $(this)[0].files[0];
+        filename = file.name;
+        // filename = "ChannelLevelBudgetAllocation" + newcampaign_id + "_" + version + ".xlsx"
+        $(".ChannelLevelFileNameDisplay").html('<p  class="mr-b-0 mr-l-20 pd-l-20" style="border-left: 3px solid #fff">' + filename + ' <img src="assets/images/delete.svg" style="width:15px" class="deleteFile"></p>')
+        var fileReader = new FileReader();
+        fileReader.onloadend = function (e) {
+            blob___ = e.target.result;
 
+            fileobj.filename = filename;
+            fileobj.blob = blob___;
+            fileobj.plan_id = plan_id;
+            fileobj.user_id = userid;
+            fileobj.category = "budgetallocation";
+            console.log(fileobj);
 
-            $('.uploadFileTrigger1').prop('disabled', true);
-            // $(".uploadFileTrigger1")
-            main_output = ''
-            var file = $(this)[0].files[0];
-            filename = file.name;
-            // filename = "ChannelLevelBudgetAllocation" + newcampaign_id + "_" + version + ".xlsx"
-            $(".ChannelLevelFileNameDisplay").html('<span style="border-left: 2px solid;height: 24px;position: relative;left: 17px;top:25px;"></span><p class="" style="margin-top: 10px;margin-left:20px;">'+filename+' <img src="assets/images/delete.svg" style="width:15px" class="deleteFile"></p>')
-
-                
-            $("body").on("click", ".deleteFile", function () {
-                $(this).closest('.ChannelLevelFileNameDisplay').remove();
-                $('.hide_').hide();
-            })
-
-
-
-
-
-
-
-
-
-            var fileReader = new FileReader();
-            fileReader.onloadend = function (e) {
-                blob___ = e.target.result;
-
-                fileobj.filename = filename;
-                fileobj.blob = blob___;
-                fileobj.plan_id = plan_id;
-                fileobj.user_id = userid;
-                fileobj.category = "budgetallocation";
-                console.log(fileobj);
-
-                $(".loading").show();
-                console.log(file_name_);
-                var form = new FormData();
-                form.append("file", JSON.stringify(fileobj));
-                var settings11 = {
-                    "async": true,
-                    "crossDomain": true,
-                    "url": aws_url + 'Buying_basket',
-                    "method": "POST",
-                    "processData": false,
-                    "contentType": false,
-                    "mimeType": "multipart/form-data",
-                    "data": form
-                };
-                $.ajax(settings11).done(function (msg) {
-                    console.log(msg);
-                    msg = JSON.parse(msg);
-                    console.log(msg);
-                    status = msg.Status
-                    process3ETA = msg.Process3ETA;
-                    $(".loading").hide();
-                    $('.acceleratorfiletext').hide();
-                   
-                    if (status == true) {
-                        $('#upl-btn1').hide();
-                        // ===========================
-                        // $('.texttodisplay').show();
-                        // $('.texttodisplayspill').show();
-                        // $('#upl-btn1').hide();
-                        // $('.bb_txt').hide();
-                        // $('.file-input').hide();
-                        // $('.red_color').hide();
-                        // $('.texttodisplayspill').append('<h5 style="color:#fff">Channel Level Budget Allocation Sheet is successfully uploaded</h5>')
-                        // $('.next_').prop('disabled', false)
-                        // =================================
-        
-                        if (path_selection == 2) {
-                            $('.acceleratorfiletext').show();
-                            $('.acceleratorfiletext').html('<h5> ' + genre_uploadlabel + ' ' + format_date(process3ETA) + ' </h5>')
-                        } else {
-                            $('.acceleratorfiletext').hide();
-                            $('.next_').prop('disabled', false)
-                            
-                        }
-                        $('.texttodisplay').show();
-                        $('.texttodisplayspill').show();
-                        $('#upl-btn__').hide();
-        
-                        $('.bb_txt').hide();
-                        $('.file-input').hide();
-                        $('.uploadFileTrigger1').hide();
-                        $('.ChannelLevelFileNameDisplay').hide();
-
-                        $('.red_color').hide();
-                        $('.texttodisplayspill').html('<p>'+msg.file_name +'</p>')
-                        // $('.texttodisplayspill').append('<h5 style="color:#000">'+file_name_2+' is successfully uploaded</h5>')
-                        // $('.texttodisplayspill').append('<h5 style="color:#fff;">Channel Level Budget Allocation Sheet is successfully uploaded</h5>')
-        
-        
-                        // $.alert({
-                        //     title: 'File succesfully uploaded',
-                        //     animation: 'scale',
-                        //     closeAnimation: 'scale',
-                        //     opacity: 0.5,
-                        //     buttons: {
-                        //         okay: {
-                        //             text: 'Okay',
-                        //             btnClass: 'btn-primary'
-                        //         }
-                        //     }
-                        // });
-                    } else {
-                        $('.texttodisplay').hide();
-                        $('.texttodisplayspill').hide();
-                        $('#upl-btn1').show();
-                        $('.file-input').show();
-                        $('.red_color').show();
-                        if (plancompleted == true) {
-                            $(".next_").prop('disabled', false);
-                        } else {
-        
-                            $('.next_').prop('disabled', true)
-                        }
-                        $.alert({
-                            title: 'Oops ! Seems you are uploading an incorrect file',
-                            // content: 'Oops ! something went wrong',
-                            animation: 'scale',
-                            closeAnimation: 'scale',
-                            opacity: 0.5,
-                            buttons: {
-                                okay: {
-                                    text: 'Okay',
-                                    btnClass: 'btn-primary'
-                                }
-                            }
-                        });
-        
-                    }
-                    version = 0;
-                });
-
-
-
-
-
-
-
-
-
-
-                // $('#upl-btn1').prop('disabled', false);
-                file_name_ = filename;
+            $(".loading").show();
+            console.log(file_name_);
+            var form = new FormData();
+            form.append("file", JSON.stringify(fileobj));
+            var settings11 = {
+                "async": true,
+                "crossDomain": true,
+                "url": aws_url + 'Buying_basket',
+                "method": "POST",
+                "processData": false,
+                "contentType": false,
+                "mimeType": "multipart/form-data",
+                "data": form
             };
+            $.ajax(settings11).done(function (msg) {
+                console.log(msg);
+                msg = JSON.parse(msg);
+                console.log(msg);
+                status = msg.status
+                process3ETA = msg.Process3ETA;
+                $(".loading").hide();
+                $('.acceleratorfiletext').hide();
+                
+                if (status == "true") {
+                    if (path_selection == 2) {
+                        $('.acceleratorfiletext').show();
+                        $('.acceleratorfiletext').html('<h5> ' + genre_uploadlabel + ' ' + format_date(process3ETA) + ' </h5>')
+                    } else {
+                        $('.acceleratorfiletext').hide();
+                        $('.next_').prop('disabled', false)
+                    }
+                    $('#upl-btn__').hide();
+    
+                    $('.bb_txt').hide();
+                    $('.file-input').hide();
+                    $('.uploadFileTrigger1').hide();
+                    $('.ChannelLevelFileNameDisplay').hide();
 
-            fileReader.readAsDataURL(file);
-        });
-    // })(jQuery);
+                    $('.red_color').hide();
+                } else {
+                    $('.texttodisplay').hide();
+                    $('.texttodisplayspill').hide();
+                    $('#upl-btn1').show();
+                    $('.file-input').show();
+                    $('.red_color').show();
+                    if (plancompleted == true) {
+                        $(".next_").prop('disabled', false);
+                    } else {
+    
+                        $('.next_').prop('disabled', true)
+                    }
+                    $.alert({
+                        title: 'Error',
+                        content: 'Oops ! Seems you are uploading an incorrect file',
+                        animation: 'scale',
+                        closeAnimation: 'scale',
+                        opacity: 0.5,
+                        buttons: {
+                            okay: {
+                                text: 'Okay',
+                                btnClass: 'btn-primary'
+                            }
+                        }
+                    });
+    
+                }
+                version = 0;
+            });
 
-
-    //Path A//
-
-
+            file_name_ = filename;
+        };
+        fileReader.readAsDataURL(file);
+    });
 
     var file_name_2;
     var main_output2;
     fileobj2 = {};
-    // (function ($) {
+   
+    $("#uploadFileTrigger2").on("click", function () {
+        $('#load-file__').click()
+    })
 
+    $("body").on("click", ".deleteFile", function () {
+        $(this).closest('.GenreLevelFileNameDisplays').remove();
+    })
 
-        $("#uploadFileTrigger2").on("click", function () {
-            $('#load-file__').click()
-        })
-
-        $('#load-file__').on('change', function () {
-           
-  
-            main_output = ''
-            var file = $('#load-file__')[0].files[0];
-            filename = file.name;
-            // filename = "GenreLevelBudgetAllocation_" + newcampaign_id + "_" + version + ".xlsx"
-            
-            $(".GenreLevelFileNameDisplay").html('<span style="border-left: 2px solid;height: 24px;position: relative;left: 17px;top:25px"></span><p class="" style="margin-top: 5px;margin-left:25px;">'+filename+' <img src="assets/images/delete.svg" style="width:15px" class="deleteFile"></p>')
-            
-           
-
-
-            $("body").on("click", ".deleteFile", function () {
-                $(this).closest('.GenreLevelFileNameDisplays').remove();
-                $('.hide_').hide();
-            })
-
-
-               var fileReader = new FileReader();
-               fileReader.onloadend = function (e) {
-                blob___ = e.target.result;
-
-                fileobj2.filename = filename;
-                fileobj2.blob = blob___;
-                fileobj2.plan_id = plan_id;
-                fileobj2.user_id = userid;
-                fileobj2.category = "spilloversheet";
-                console.log(fileobj2);
-
-                // $("body").on("click", "#upl-btn__", function () {
-
-                    $(".loading").show();
-                    console.log(file_name_2);
-                    var form = new FormData();
-                    form.append("file", JSON.stringify(fileobj2));
-                    var settings11 = {
-                        "async": true,
-                        "crossDomain": true,
-                        "url": aws_url + 'Buying_basket',
-                        "method": "POST",
-                        "processData": false,
-                        "contentType": false,
-                        "mimeType": "multipart/form-data",
-                        "data": form
-                    };
-                    $.ajax(settings11).done(function (msg) {
-                        $('.uploadFileTrigger2').hide();
-                        $(".loading").hide();
-                        console.log(msg);
-                       
-                        msg = JSON.parse(msg);
-                        console.log(msg);
-                        Status = msg.status
-                        process3ETA = msg.Process3ETA;
-                        if (Status == true) {
-
-                        
-                            if (path_selection == 1) {
-                                $('.acceleratorfiletext').show();
-                                $('.acceleratorfiletext').html('<h5>' + genre_uploadlabel + ' ' + format_date(process3ETA) + ' </h5>')
-                                
-                                
-                            
-                            } else {
-                                $('.acceleratorfiletext').hide();
-                                $('.next_').prop('disabled', false)
-                            }
-                            $('.texttodisplay').show();
-                            $('.texttodisplayspill').show();
-                            // $('#upl-btn__').hide();
-            
-                            $('.bb_txt').hide();
-                            $('.file-input').hide();
-                            $('.red_color').hide();
-
-                            $('.texttodisplayspill').html('<p>'+msg.file_name +'</p>')
-                            // $('.texttodisplayspill').append('<h5 style="color:#000">'+file_name_2+' is successfully uploaded</h5>')
-                            // $('.texttodisplayspill').append('<h5 style="color:#fff;">Genre Level Budget Allocation Sheet  successfully uploaded </h5>')
-                            
-                                  
-                            // $.alert({
-                            //     title: 'File succesfully uploaded',
-                            //     // content: 'Oops ! something went wrong',
-                            //     animation: 'scale',
-                            //     closeAnimation: 'scale',
-                            //     opacity: 0.5,
-                            //     buttons: {
-                            //         okay: {
-                            //             text: 'Okay',
-                            //             btnClass: 'btn-primary'
-                            //         }
-                            //     }
-                            // });
-                        }
-                        if (Status == false) {
-                            $('.texttodisplay').hide();
-                            $('.texttodisplayspill').hide();
-                            $('#upl-btn__').show();
-                            $('.file-input').show();
-                            $('.red_color').show();
-                            $.alert({
-                                title: 'Oops ! Seems you are uploading an incorrect file',
-                                // content: 'Oops ! something went wrong',
-                                animation: 'scale',
-                                closeAnimation: 'scale',
-                                opacity: 0.5,
-                                buttons: {
-                                    okay: {
-                                        text: 'Okay',
-                                        btnClass: 'btn-primary'
-                                    }
-                                }
-                            });
-                        }
-                        version = 0;
-                    });
-                // })
-
-
-
-                // $('#upl-btn__').prop('disabled', false);
-                file_name_2 = filename;
-
-
-
-
-
+    $('#load-file__').on('change', function () {
+        main_output = ''
+        var file = $(this)[0].files[0];
+        filename = file.name;
+        
+        $(".GenreLevelFileNameDisplay").html('<p class="mr-b-0 mr-l-20 pd-l-20" style="border-left: 3px solid #fff">' + filename + ' <img src="assets/images/delete.svg" style="width:15px" class="deleteFile"></p>')
+        var fileReader = new FileReader();
+        fileReader.onloadend = function (e) {
+            blob___ = e.target.result;
+            fileobj2.filename = filename;
+            fileobj2.blob = blob___;
+            fileobj2.plan_id = plan_id;
+            fileobj2.user_id = userid;
+            fileobj2.category = "spilloversheet";
+            $(".loading").show();
+            console.log(file_name_2);
+            var form = new FormData();
+            form.append("file", JSON.stringify(fileobj2));
+            var settings11 = {
+                "async": true,
+                "crossDomain": true,
+                "url": aws_url + 'Buying_basket',
+                "method": "POST",
+                "processData": false,
+                "contentType": false,
+                "mimeType": "multipart/form-data",
+                "data": form
             };
-
-            fileReader.readAsDataURL(file);
-        });
-    // })(jQuery);
-
-
-    var counting = 0;
-
-    function exceltoblob(file) {
-        pagesArr = [];
-        window.PDFJS = window.pdfjsLib;
-        PDFJS.disableWorker = true;
-        PDFJS.getDocument(file).then(function getPdfHelloWorld(pdf) {
-            const go = async function () {
-                let h = 0;
-                for (var pageN = 1; pageN <= pdf.numPages; pageN++) {
-                    const page = await pdf.getPage(pageN);
-                    var scale = 2;
-                    var viewport = page.getViewport(scale);
-                    //
-                    // Prepare canvas using PDF page dimensions
-                    //
-                    var canvas = document.createElement('canvas');
-                    //document.body.appendChild(canvas);
-                    var context = canvas.getContext('2d');
-                    canvas.height += viewport.height;
-                    canvas.width = viewport.width;
-                    //
-                    // Render PDF page into canvas context
-                    //
-                    var task = page.render({
-                        canvasContext: context,
-                        viewport: viewport
-                    })
-                    await task.promise;
-                    pages = canvas.toDataURL('image/jpeg');
-                    pagesArr.push(pages)
-                    if (pageN == pdf.numPages) {
-                        displayImagesMain(pagesArr)
+            $.ajax(settings11).done(function (msg) {
+                $(".loading").hide();
+                msg = JSON.parse(msg);
+                
+                console.log(msg);
+                Status = msg.status
+                process3ETA = msg.Process3ETA;
+                if (Status == true) {
+                    if (path_selection == 1) {
+                        $(".ss_files").html(msg.file_name)
+                    } else {
+                        $('.acceleratorfiletext').hide();
+                        $('.next_').prop('disabled', false)
                     }
+                    $('.bb_txt').hide();
+                    $('.file-input').hide();
+                    $('.red_color').hide();
+                    $('.spillovertexttodisplay').show()
                 }
-            };
-            go();
-        }, function (error) {
-            //console.log(error);
-        });
-    }
+                if (Status == false) {
+                    $('.texttodisplay').hide();
+                    $('.texttodisplayspill').hide();
+                    $('#upl-btn__').show();
+                    $('.file-input').show();
+                    $('.red_color').show();
+                    $.alert({
+                        title: 'Oops ! Seems you are uploading an incorrect file',
+                        // content: 'Oops ! something went wrong',
+                        animation: 'scale',
+                        closeAnimation: 'scale',
+                        opacity: 0.5,
+                        buttons: {
+                            okay: {
+                                text: 'Okay',
+                                btnClass: 'btn-primary'
+                            }
+                        }
+                    });
+                }
+                version = 0;
+            });
+            file_name_2 = filename;
+        };
+        fileReader.readAsDataURL(file);
+    });
 
     //remove btn click
 
     $("body").on("click", ".fileinput-remove-button", function () {
-
         $('#upl-btn').prop('disabled', 'disabled')
-
-
     })
-
-    // $("body").on("click", "#upl-btn1", function () {
-
-       
-    // })
-
-   
 
     $('body').on('click', '.backclass', function () {
         sessionStorage.setItem('backclicked', true);
