@@ -25,22 +25,7 @@ $(document).ready(function(){
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg)
             if(msg.message == "fail"){
-                $.alert({
-                    title: 'Error',
-                    content: 'Oops ! something went wrong, try again',
-                    animation: 'scale',
-                    closeAnimation: 'scale',
-                    opacity: 0.5,
-                    buttons: {
-                        okay: {
-                            text: 'Okay',
-                            btnClass: 'btn-primary',
-                            action: function(){
-                                window.location.href="error.php"
-                            }
-                        }
-                    }
-                });
+               errorAlert('Oops ! something went wrong, try again', "error.php")
             }
             else {
                 console.log(msg);
@@ -48,52 +33,151 @@ $(document).ready(function(){
                 masterstamp = msg.master_data;
                 channelstamp = msg.ChannelGenreMappingSheet;
                 if (jQuery.isEmptyObject(channelstamp) == true) {
-                    $('.channelstamp').show();
                     $('.channelstamp').html('<p>Channel Genre Mapping Sheet not uploaded</p>')
-
                 }
                 else {
-                    $('.channelstamp').show();
-                        $('.channelstamp').html('<ul><li>'+channelstamp+'</ul></li>')
+                    $('.channelstamp').html('<ul><li>'+channelstamp+'</ul></li>')
                 }
                 if (jQuery.isEmptyObject(masterstamp) == true) {
-                    $('.masterdatastamp').show();
                     $('.masterdatastamp').html('<p>Master data file Sheet not uploaded</p>')
                 }
                 else {
-                    $('.masterdatastamp').show();
-                        $('.masterdatastamp').html('<ul><li>'+masterstamp+'</ul></li>')
+                    $('.masterdatastamp').html('<ul><li>'+masterstamp+'</ul></li>')
                 }
             }
         });
     }
 
 
-    var file_name_;
-    var main_output;
-    fileobj = {};
-        $('#locationclass').on('change', function () {
-            debugger
-            main_output = ''
-            var file = $('#locationclass')[0].files[0];
-            filename = file.name;
-            var fileReader = new FileReader();
-            fileReader.onloadend = function (e) {
-                blob___ = e.target.result;
+    $("body").on("click", "#masterUploadBtn", function () {
+        $("#masterFile").click();
+    })
+    
+    $('#masterFile').on('change', function () {
+        var file = $(this)[0].files[0];
+        filename = file.name;
+        var fileReader = new FileReader();
+        fileReader.onloadend = function (e) {
+            blob___ = e.target.result;
+            file_name_ = filename;
+            uploadMasterFile(file_name_, blob___)
+        };
 
-                fileobj.filename = filename;
-                fileobj.blob = blob___;
-                // fileobj.plan_id = plan_id;
-                fileobj.user_id = user_id;
-                fileobj.category = "masterdata"
-                console.log(fileobj);
-                file_name_ = filename;
-                $('#locationuploadbtn').prop('disabled', false)
-            };
-
-            fileReader.readAsDataURL(file);
+        fileReader.readAsDataURL(file);
+    });
+    
+    function uploadMasterFile(file_name, blob) {
+        $(".masterFileName").html('<span>' + file_name + '</span>')
+        fileobj = {}
+        fileobj.filename = file_name;
+        fileobj.blob = blob;
+        fileobj.user_id = user_id;
+        fileobj.category = "masterdata"
+        
+        $('.loading').show();
+        var form = new FormData();
+        form.append("file", JSON.stringify(fileobj));
+        var settings11 = {
+            "async": true,
+            "crossDomain": true,
+            "url": aws_url + 'master_data_settings',
+            "method": "POST",
+            "processData": false,
+            "contentType": false,
+            "mimeType": "multipart/form-data",
+            "data": form
+        };
+        $.ajax(settings11).done(function (msg) {
+            console.log(msg);
+            msg = JSON.parse(msg);
+            $('.loading').hide();
+            if (msg.hasOwnProperty('Error')) {
+                errorAlert(msg.Error, "adminindex.php")
+            } else {
+                $.alert({
+                    title: 'Success',
+                    content: 'Uploaded Successfully',
+                    animation: 'scale',
+                    closeAnimation: 'scale',
+                    opacity: 0.5,
+                    buttons: {
+                        okay: {
+                            text: 'Okay',
+                            btnClass: 'btn-primary',
+                            action: function () {
+                                window.location.reload();
+                            }
+                        }
+                    }
+                });
+                $('.masterdata_').hide();
+                $('.masterdata_new').show();
+                $('.masterdata_new').append('<h5>' + file_name_ + '</h5>');
+            }
         });
+    }
+    
+    $("body").on("click", "#acceleratorBtn", function () {
+        $("#acceleratorFile").click();
+    })
 
+     $('#acceleratorFile').on('change', function () {
+         var file = $(this)[0].files[0];
+         filename = file.name;
+         var fileReader = new FileReader();
+         fileReader.onloadend = function (e) {
+             blob___ = e.target.result;
+             file_name_ = filename;
+             uploadAcceleratorFile(file_name_, blob___)
+         };
+
+         fileReader.readAsDataURL(file);
+     });
+    
+    function uploadAcceleratorFile(file, blob) {
+        $(".acceleratorFileName").html('<span>' + file + '</span>')
+        
+        fileobj_new = {}
+        fileobj_new.filename = file;
+        fileobj_new.blob = blob;
+        fileobj_new.user_id = user_id;
+        fileobj_new.category = "ChannelGenreMappingSheet";
+         var form = new FormData();
+         form.append("file", JSON.stringify(fileobj_new));
+         var settings11 = {
+             "async": true,
+             "crossDomain": true,
+             "url": aws_url + 'master_data_settings',
+             "method": "POST",
+             "processData": false,
+             "contentType": false,
+             "mimeType": "multipart/form-data",
+             "data": form
+         };
+         $.ajax(settings11).done(function (msg) {
+             $('.loading').hide();
+             msg = JSON.parse(msg);
+             if (msg.message == "fail") {
+                 errorAlert('Oops ! something went wrong, try again', 'error.php')
+             } else if (msg.hasOwnProperty('Error')) {
+                  errorAlert(msg.Error, 'adminindex.php')
+             } else {
+                 $.alert({
+                     title: 'Success',
+                     content: 'Uploaded Succesfully',
+                     animation: 'scale',
+                     closeAnimation: 'scale',
+                     opacity: 0.5,
+                     buttons: {
+                         okay: {
+                             text: 'Okay',
+                             btnClass: 'btn-primary'
+                         }
+                     }
+                 });
+             }
+         });
+    }
 
 
     var counting = 0;
@@ -186,71 +270,6 @@ $(document).ready(function(){
         return buf;
     }
 
-    $("body").on("click", "#locationuploadbtn", function(){
-        debugger
-        $('.loading').show();
-        console.log(fileobj);
-        var form = new FormData();
-        form.append("file", JSON.stringify(fileobj));
-        var settings11 = {
-            "async": true,
-            "crossDomain": true,
-            "url":aws_url+'master_data_settings',
-            "method": "POST",
-            "processData": false,
-            "contentType": false,
-            "mimeType": "multipart/form-data",
-            "data": form
-        };
-        $.ajax(settings11).done(function (msg) {
-            console.log(msg);
-            msg = JSON.parse(msg);
-            $('.loading').hide();
-             if(msg.hasOwnProperty('Error')){
-                $.alert({
-                    title: 'Error',
-                    content: msg.Error,
-                    animation: 'scale',
-                    closeAnimation: 'scale',
-                    opacity: 0.5,
-                    buttons: {
-                        okay: {
-                            text: 'Okay',
-                            btnClass: 'btn-primary',
-                            action: function(){
-                                window.location.reload();
-                            }
-                        }
-                    }
-                });
-            }
-            else {
-                    $.alert({
-                    title: 'Success',
-                    content: 'Uploaded Successfully',
-                    animation: 'scale',
-                    closeAnimation: 'scale',
-                    opacity: 0.5,
-                    buttons: {
-                        okay: {
-                            text: 'Okay',
-                            btnClass: 'btn-primary',
-                            action:  function(){
-                                window.location.reload();
-                            }
-                        }
-                    }
-                });
-                $('#locationuploadbtn').prop('disabled', true);
-                $('.masterdata_').hide();
-                $('.masterdata_new').show();
-                $('.masterdata_new').append('<h5>'+file_name_+'</h5>');
-            }
-        });
-    })
-
-
-
     var file_name_new;
     var main_output_new;
     fileobj_new = {};
@@ -270,7 +289,6 @@ $(document).ready(function(){
                 fileobj_new.category = "ChannelGenreMappingSheet"
                 console.log(fileobj_new);
                 file_name_ = filename_new;
-                $('#channelgenrebtn').prop('disabled', false)
             };
 
             fileReader.readAsDataURL(file);
@@ -319,77 +337,7 @@ $(document).ready(function(){
         $('.loading').show();
         // //debuggers
         console.log(fileobj_new);
-        var form = new FormData();
-        form.append("file", JSON.stringify(fileobj_new));
-        var settings11 = {
-            "async": true,
-            "crossDomain": true,
-            "url":aws_url+'master_data_settings',
-            "method": "POST",
-            "processData": false,
-            "contentType": false,
-            "mimeType": "multipart/form-data",
-            "data": form
-        };
-        $.ajax(settings11).done(function (msg) {
-            $('.loading').hide();
-            console.log(msg);
-            msg = JSON.parse(msg);
-            if(msg.message == "fail"){
-                $.alert({
-                    title: 'Error',
-                    content: 'Oops ! something went wrong, try again',
-                    animation: 'scale',
-                    closeAnimation: 'scale',
-                    opacity: 0.5,
-                    buttons: {
-                        okay: {
-                            text: 'Okay',
-                            btnClass: 'btn-primary',
-                            action: function(){
-                                window.location.href="error.php"
-                            }
-                        }
-                    }
-                });
-            }
-            else if(msg.hasOwnProperty('Error')){
-                $.alert({
-                    title: 'Error',
-                    content: msg.Error,
-                    animation: 'scale',
-                    closeAnimation: 'scale',
-                    opacity: 0.5,
-                    buttons: {
-                        okay: {
-                            text: 'Okay',
-                            btnClass: 'btn-primary',
-                            action: function(){
-                                window.location.reload();
-                            }
-                        }
-                    }
-                });
-            }
-            else {
-                $.alert({
-                    title: 'Success',
-                    content: 'Uploaded Succesfully',
-                    animation: 'scale',
-                    closeAnimation: 'scale',
-                    opacity: 0.5,
-                    buttons: {
-                        okay: {
-                            text: 'Okay',
-                            btnClass: 'btn-primary'
-                        }
-                    }
-                });
-                $('#channelgenrebtn').prop('disabled', true);
-                $('#channelgenre').hide();
-                $('.channel_').append('<h5>'+file_name_+'</h5>')
-            }
-        });
+       
     })
 
 
