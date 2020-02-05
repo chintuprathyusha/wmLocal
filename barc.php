@@ -94,55 +94,53 @@ $(document).ready(function() {
 								</div>
 								<h5 class="mb-0" style="text-align:center">BARC Evaluation</h5>
 								<br>
+
+								
 								<div class="form-group row">
+									<div class="col-md-6 mr-b-20">
 									<label title="<?php echo $_SESSION['tool_tips']['BARC_CampaignMarkets'];?>"  class="col-form-label col-lg-3">Campaign Markets <span class="text-danger">*</span><span class="appendcampaignmarket"></span></label>
-									<div class="col-lg-9">
 										<select multiple="multiple" class="form-control select-fixed-multiple campaign_markets" required data-fouc data-placeholder="Select Campaign Markets">
 											<option value=""></option>
 										</select>
 										<div data-placeholder="" class="freezeLoc select_markets" data-fouc>
-
 										</div>
 									</div>
-								</div>
-								<div class="form-group row">
-									<label title="<?php echo $_SESSION['tool_tips']['BARC_PrimaryTGId'];?>" class="col-form-label col-lg-3">Selected Primary TG <span class="text-danger">*</span><span class="appendselectedpritg"></span></label>
-									<div class="col-lg-9">
-
+								<div class="col-md-6 mr-b-20">
+									<label title="<?php echo $_SESSION['tool_tips']['BARC_PrimaryTGId'];?>" class="col-form-label ">Selected Primary TG <span class="text-danger">*</span><span class="appendselectedpritg"></span></label>
 										<select name="select2" data-placeholder="Selected Primary TG" class="form-control js-example-basic-single form-control-select2 Primary_Tg_dt" required data-fouc>
 											<option value=""></option>
-
 										</select>
-
 										<div data-placeholder="" class="freezeLoc primary_freeze" data-fouc>
-
 										</div>
 									</div>
-								</div>
-								<div class="form-group row">
-									<label title="<?php echo $_SESSION['tool_tips']['BARC_BaseTGId'];?>" class="col-form-label col-lg-3">Selected Secondary TG <span class="text-danger">*</span><span class="appendselectedbasetg"></span></label>
-									<div class="col-lg-9">
+								
 
+
+
+
+									<div class="col-md-6 mr-b-20">
+									<label title="<?php echo $_SESSION['tool_tips']['BARC_BaseTGId'];?>" class="col-form-label">Selected Secondary TG <span class="text-danger">*</span><span class="appendselectedbasetg"></span></label>
 										<select name="select2" data-placeholder="Selected Secondary TG" class="form-control js-example-basic-single form-control-select2 base_tg" required data-fouc>
 											<option value=""></option>
-
 										</select>
 										<div data-placeholder="" class="freezeLoc base_freeze" data-fouc>
-
 										</div>
 									</div>
-								</div>
-								<div class="form-group row">
-									<label title="<?php echo $_SESSION['tool_tips']['BARC_EndWeek'];?>" class="col-form-label col-lg-3">Selected End Week<span class="text-danger">*</span><span class="appendselectedendweek"></span></label>
-									<div class="col-lg-9">
+							
+									<div class="col-md-6 mr-b-20">
+									<label title="<?php echo $_SESSION['tool_tips']['BARC_EndWeek'];?>" class="col-form-label">Selected End Week<span class="text-danger">*</span><span class="appendselectedendweek"></span></label>
+									
 										<select name="select2" data-placeholder="Selected End Week" class="form-control form-control-select2 End_Week_dt" required data-fouc>
 											<option></option>
 										</select>
 										<div data-placeholder="" class="freezeLoc endfreeze" data-fouc>
-
 										</div>
 									</div>
-								</div>
+							
+
+                          </div>
+
+
 
 
 							</fieldset>
@@ -150,15 +148,12 @@ $(document).ready(function() {
 							<div class="row">
 								<div class="col-lg-3">
 									<button type="submit" class="btn btn-primary cprp_submit edit_barc" style="background: #F07144 !important;">Edit <i class="fa fa-pencil ml-2" style="font-size: 18px;"></i></button>
-
 								</div>
 								<div class="col-lg-3">
 									<button type="submit" class="btn btn-primary cprp_submit confirm_barc" style="background: #F07144 !important;">Confirm <i class="fa fa-check ml-2" style="font-size: 18px;"></i></button>
-
 								</div>
 								<div class="col-lg-6">
 									<button type="submit" class="btn btn-primary cprp_submit submit_barc" style="background-color: #BB2734 !important;color:#fff">Submit <i class="icon-paperplane ml-2" style="font-size: 18px;"></i></button>
-
 								</div>
 							</div>
 							<!-- <div class="" style="float:right">
@@ -194,30 +189,7 @@ $(document).ready(function() {
 	<!-- /page content -->
 
 </body>
-<style>
 
-.uploadbtn{
-	display: block;
-    width: 150px;
-    padding: 7px 0px;
-    border: none;
-    border-radius: 6px;
-    /* height: 30px; */
-    color: #fff;
-    background-color: #F07144;
-    margin-top: -3px;
-}
-   .texttodisplay{margin: auto;
-    background: none !important;
-    color: #fff;
-    text-align: center;
-    padding: 0px !important;
-	
-    margin-top: 0px !important;
-	border: none!important;
-   }
-	</style>
-	
 <!-- readmore -->
 <script>
 function myFunction() {
