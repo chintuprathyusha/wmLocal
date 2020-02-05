@@ -32,6 +32,7 @@ $(document).ready(function () {
     content: "";
     font-size: 16px;
     color: #fff;
+    margin-top: -6px;
 }
 </style>
 <div class="navbar navbar-expand-md" style="background-color:#1F2022">
@@ -62,26 +63,10 @@ $(document).ready(function () {
 
         <ul style="float: right;width: 100%;">
             <li class="nav-item dropdown dropdown-user row" style="float: right;list-style-type: none;">
-               
-               
-               
-                   <div class="col-md-3" style="color: #ffff;position: relative;top: 15px;font-size: 16px;">Hello</div>
-                   
-                   
-                    <a href="#" class=" navbar-nav-link d-flex align-items-center dropdown-toggle col-md-2" data-toggle="dropdown" aria-expanded="false">
-                    <!-- <span id="displayusername"></span> -->
-                    <span>
-                    <p id="displayusername"><?php echo $_SESSION['usernamee']?></p>
-                    </span>
-                   </a>
-
-              
-            
-
-
-
+                <a href="#" class=" navbar-nav-link d-flex align-items-center dropdown-toggle col-md-2" data-toggle="dropdown" aria-expanded="false">
+                    <p id="displayusername">Hello <?php echo $_SESSION['usernamee']?></p>
+                </a>
                 <div class="dropdown-menu dropdown-menu-right" style="background-color:#324148;">
-
                     <?php if ($_SESSION['login_type'] == 'ad'): ?>
                         <button class="dropdown-item logutAD" ><i class="icon-switch2"></i> Log out AD</button>
                     <?php endif; ?>

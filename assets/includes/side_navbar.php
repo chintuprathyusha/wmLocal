@@ -67,7 +67,7 @@
           <a href="planner_dashboard.php" class="nav-link" style="color: #fff !important;">
           <img style="width:22px;height:22px;color:white;" src="assets/images/WhiteIcons/OnGoing Plans.png"/>
             <span style="width:20px;"></span>
-            <span>Ongoing Team Plans</span></a>
+            <span>OnGoing Team Plans</span></a>
         </li>
 
         <li  id="add_deleteid"  class="nav-item nav-item-submenu hidden">

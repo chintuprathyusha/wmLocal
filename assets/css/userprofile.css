@@ -97,3 +97,14 @@ body{
 .page-header-light{
     background-color: transparent !important;
 }
+
+.smallBoxs {
+	background-color: #d6d6d6;
+	width: auto;
+	display: inline-block;
+	margin-right: 10px;
+	margin-bottom: 0px !important;
+	padding: 1px 8px;
+	color: black;
+	border-radius: 3px;
+}

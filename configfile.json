@@ -1,12 +1,11 @@
 {
-"data": [{
-    "sessionTimeOut": "7200",
-    "pythonurl" : "https://cin-appsvplan-indtvauto-api-stg.azurewebsites.net/",
-    "create_plan_label" : "Channel Selection Sheet is being created. Once created you will receive it in your inbox - Expected Time of Arrival (ETA) is: ",
-    "genre_level_label" :  "Genre Level Budget Allocation Sheet being created. Once created you will receive it in your inbox. - Expected Time of Arrival (ETA) is: ",
-    "channel_level_label" : "Channel Level Budget Allocation Sheet being created. Once created you will receive it in your inbox - Expected Time of Arrival (ETA) is: ",
-    "genre_upload_label" : "Accelerator Output Sheet being created. Once created you will receive it in your inbox - Expected Time of Arrival (ETA) is: ",
-    "barc_label" : "Final Plan with  Eval is being created. Once created you will receive it in your inbox - Expected Time of Arrival (ETA) is: "
-}]
-
+    "data": [{
+        "sessionTimeOut": "7200",
+        "pythonurl" : "https://cin-appsvplan-indtvauto-api-stg.azurewebsites.net/",
+        "create_plan_label" : "Channel Selection Sheet is being created. Once created you will receive it in your inbox - Expected Time of Arrival (ETA) is: ",
+        "genre_level_label" :  "Genre Level Budget Allocation Sheet being created. Once created you will receive it in your inbox. - Expected Time of Arrival (ETA) is: ",
+        "channel_level_label" : "Channel Level Budget Allocation Sheet being created. Once created you will receive it in your inbox - Expected Time of Arrival (ETA) is: ",
+        "genre_upload_label" : "Accelerator Output Sheet being created. Once created you will receive it in your inbox - Expected Time of Arrival (ETA) is: ",
+        "barc_label" : "Final Plan with  Eval is being created. Once created you will receive it in your inbox - Expected Time of Arrival (ETA) is: "
+    }]
 }

@@ -63,7 +63,7 @@ if ($_SESSION['usernamee'] == '') {
 							<a href="planner_ongoing_dashboard.php" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
 							<span class="breadcrumb-item active">User Profile</span>
 							<!-- <span style="position:absolute;right:0px;margin-left:13px;">Help<img style="width:17px;height:17px;" title="'+client+'" src="assets/images/informicon.svg"/></span> -->
-							<p class="help">HELP
+							<p class="help">Help
 								<img style="width:17px;" title="Write to adminwmflow@wmglobal.com to get details added" src="assets/images/informicon.svg">
 							</p>	
 						</div>
@@ -98,7 +98,7 @@ if ($_SESSION['usernamee'] == '') {
                          <div class="col-md-6">
 							<div class="form-group row">
 
-								<label title="<?php echo $_SESSION['tool_tips']['CreateProfile_EmailId'];?>" class="col-form-label col-lg-12">Email Id <span class="text-danger">*</span> </label>
+								<label title="<?php echo $_SESSION['tool_tips']['CreateProfile_EmailId'];?>" class="col-form-label col-lg-12">Email ID <span class="text-danger">*</span> </label>
 								<div class="col-lg-12 email">
 									<!-- <input type="email" name="email" class="form-control" id="email" required placeholder="Enter a valid email address"> -->
 								</div>
@@ -123,7 +123,7 @@ if ($_SESSION['usernamee'] == '') {
 
 
 							<div class="form-group row">
-								<label title="<?php echo $_SESSION['tool_tips']['CreateProfile_Client'];?>" class="col-form-label col-lg-1">Client<span class="text-danger">*</span></label>
+								<label title="<?php echo $_SESSION['tool_tips']['CreateProfile_Client'];?>" class="col-lg-1">Client<span class="text-danger">*</span></label>
 								<div class="col-lg-9 select_">
 
 									<select data-placeholder="Select Client" required class="form-control select clientClass"  multiple  data-fouc>
@@ -134,7 +134,7 @@ if ($_SESSION['usernamee'] == '') {
 										<option value=""></option>
 									</select>
 
-									<div data-placeholder="" class="freezeclient" data-fouc>
+									<div data-placeholder="" class="freezeclient mr-t-15" data-fouc>
 
 									</div>
 								</div>
@@ -144,7 +144,7 @@ if ($_SESSION['usernamee'] == '') {
 							</div>
 
 							<div class="form-group row">
-								<label title="<?php echo $_SESSION['tool_tips']['CreateProfile_ClientLeadEmailId'];?>" class="col-form-label col-lg-2">Client Lead Email Id's<span class="text-danger">*</span></label>
+								<label title="<?php echo $_SESSION['tool_tips']['CreateProfile_ClientLeadEmailId'];?>" class="col-form-label col-lg-2">Client Lead Email ID's<span class="text-danger">*</span></label>
 								<div class="col-lg-12">
 									<input type="text" name="" value="" required placeholder="Client Email Id's" readonly class="form-control CLemId">
 									<!-- <input type="text" name="text" class="form-control CLemId" readonly placeholder="Enter a valid email address"> -->

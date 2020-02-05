@@ -2,9 +2,7 @@
     /* background-image: url('./assets/images/wmflow.png'); */
     	background-size: cover;
 }
-.file-drop-zone-title {
-    padding: 11px;
-}
+
 .submit_btn{
     margin-top: 19px;
     float: right;
@@ -14,7 +12,7 @@
     cursor: pointer;
 }
 .cprp{
-    padding: 30px 55px;
+    padding: 10px 0px;
 }
 .budget{
     padding: 30px 55px;
@@ -37,7 +35,7 @@
 }
 .my-custom-scrollbar {
     position: relative;
-    height: 200px;
+    height: calc(50vh - 35px);
     overflow: auto;
 }
 .table-wrapper-scroll-y {
@@ -51,8 +49,6 @@
 }
 .beforeedit{
     display: block;
-}
-.btn_style{
 }
 .masterdata_new{
     display: none;
@@ -142,4 +138,12 @@
 .h4{
     width:100%; 
     text-align:center"
+}
+
+
+.file_nameView{
+    display: inline-block;
+    margin-left: 15px !important;
+    padding-left: 15px !important;
+    border-left: 2px solid #ffffff;
 }
