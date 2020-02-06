@@ -732,7 +732,7 @@ $(document).ready(function () {
                 $.ajax(settings11).done(function (msg) {
                     msg = JSON.parse(msg);
                     createplanid = msg.ProfileId
-                    alert(userid)
+                    // alert(userid)
                     setInterval(function () {
                         $('.loading').hide();
                     }, 1000);

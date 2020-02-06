@@ -1700,7 +1700,7 @@ input[type=text].noui-height-helper:not(.noUi-target)[data-fouc] {
     border-top: none;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    width:400px !important;
+    width:400px;
 }
 
 .select2-container--open .select2-dropdown--below[class*=bg-] {
