@@ -868,6 +868,7 @@ $(document).ready(function () {
     // =====================
     $("body").on("click", "#camp_idhyperlink_", function(){
         plainiddd =  $(this).attr('plainidattr');
+
         acceleratorpathbyrpaa = $(this).attr('acceleratorpathbyrpa');
         // alert(plainiddd)
         sessionStorage.setItem('create_plan_id', plainiddd);
@@ -918,6 +919,7 @@ $(document).ready(function () {
     $(".displaycompletedplans").empty();
 
     $("body").on("click", ".completebtn", function(){
+       
         plainid = $(this).attr('plainidattr')
         Id = plainid
         startdate =   $('.startdateclass').val();

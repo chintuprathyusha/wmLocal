@@ -1,5 +1,9 @@
 $(document).ready(function () {
     $('.loading').show();
+    // if(msg.IsPlanCompleted==true){
+   
+    // }
+    // $('#upl-btn').prop('disabled', true);
     $('#upl-btn').prop('disabled', true);
     $(".campaign_markets").attr("disabled", "disabled");
     $(".campaign_markets").prop("disabled", true);
@@ -64,7 +68,9 @@ $(document).ready(function () {
     fileobj = {};
 
     $("#uploadFileTrigger2").on("click", function () {
+
         $('#load-file').click()
+
     })
     $("body").on("click", ".deleteFile", function () {
         $(this).closest('.acceleratorFileNameDisplay').remove();
@@ -271,8 +277,7 @@ $(document).ready(function () {
         $.ajax(settings11).done(function (msg) {
             msg = JSON.parse(msg);
             console.log(msg);
-
-
+            
             // setTimeout(function(){
             //     $('.loading').hide();
             // }, 5000)
@@ -314,6 +319,7 @@ $(document).ready(function () {
                 // if (pathSelection == 1 ||  version > 1) {
                 if (acce_file_name == null) {
                     if (plancompleted == true) {
+                        $('#uploadFileTrigger2').prop('disabled', true);
                         // $('.acceleratorFileDetails').html('<p>' + msg.AcceleratedFilePath + '</p>')
                     } else {
                         $('.acce_File_').hide();

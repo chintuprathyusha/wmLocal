@@ -72,6 +72,8 @@ $(document).ready(function () {
     })
     
     $('#load-file').on('change', function () {
+        debugger;
+        
         main_output = ''
         var file = $(this)[0].files[0];
         file_name_new = file.name;
@@ -110,6 +112,7 @@ $(document).ready(function () {
                 $('.radio_class').hide();
                 msg = JSON.parse(msg);
                 console.log(msg.file_name);
+                console.log(msg.status);
                 // $.each(msg, function( key, value ) {
                     // console.log(key);
                 // })
@@ -122,7 +125,9 @@ $(document).ready(function () {
                         $('.budget_div_').show();
                         $('.radio_class').show();
                     } else {
+
                         $('.cprp_div').show();
+
                         $('.budget_div_').hide();
                         $('.radio_class').show();
                     }
@@ -424,6 +429,7 @@ $(document).ready(function () {
 
 
     function getData() {
+      
        
         sendObj = {}
         sendObj.planid = plan_id;
@@ -463,6 +469,7 @@ $(document).ready(function () {
             }
 
             if (plancompleted == true) {
+                $('#uploadFileTrigger').prop('disabled', true);
                 $('.add_more').prop('disabled', true);
                 $('.submit_').prop('disabled', true);
             }
@@ -542,6 +549,8 @@ $(document).ready(function () {
 
 
                     if (plancompleted == true) {
+                        
+                        $('#uploadFileTrigger2').prop('disabled', true);
                         $(".next_").prop('disabled', false);
                     } else {
                         $(".next_").prop('disabled', true);
@@ -572,6 +581,7 @@ $(document).ready(function () {
                                 $('.spillll').hide();
                                 $('.ss_files').append('<p>' + spilloversheet_filename + '</p>')
                                 if (plancompleted == true) {
+                                   
                                     $(".next_").prop('disabled', false);
                                 } else {
 
@@ -591,6 +601,7 @@ $(document).ready(function () {
                                 $('.budget_files').hide();
                                 $('.budget_text').append('<h5>' + budgetallocation_filename + '</h5>')
                                 if (plancompleted == true) {
+
                                     $(".next_").prop('disabled', false);
                                 } else {
 
@@ -621,6 +632,7 @@ $(document).ready(function () {
 
 
                         } else {
+
                             $(".next_").prop('disabled', false);
                         }
                         $('.channelbeing').hide();
@@ -634,6 +646,7 @@ $(document).ready(function () {
                     } else {
                         if (acceleratedFilePathByRPA == null) {
                             if (plancompleted == true) {
+                                
                                 $(".next_").prop('disabled', false);
                             } else {
 
@@ -673,7 +686,7 @@ $(document).ready(function () {
 
                     $('.forfirstpathtext').append('' + genre_levellabel + ' : none');
                 } else {
-                    $('.forfirstpathtext').append('< style="cursor: pointer;"> '+ genre_levellabel +'<span id="dots">...</span></span><span id="more" style="display:none;cursor: pointer;">' + format_date(process2ETA) + '</span><span onclick="myFunction()" id="myclick" style="color:#9780f1;text-decoration: underline;cursor: pointer; ">Read more</div>');
+                    $('.forfirstpathtext').append('<div style="cursor: pointer;"> '+ genre_levellabel +'<span id="dots">...</span></span><span id="more" style="display:none;cursor: pointer;">' + format_date(process2ETA) + '</span><span onclick="myFunction()" id="myclick" style="color:#9780f1;text-decoration: underline;cursor: pointer; ">Read more</div>');
 
                     // $('.forfirstpathtext').append('' + genre_levellabel + ' : ' + format_date(process2ETA) + '');
 
@@ -763,6 +776,8 @@ $(document).ready(function () {
                     $('.budget_text').hide();
                     $('.budget_files').show();
                     if (plancompleted == true) {
+                        $('#uploadFileTrigger1').prop('disabled', true);
+
                         $(".next_").prop('disabled', false);
                     } else {
 
@@ -897,6 +912,9 @@ $(document).ready(function () {
     // .......................unfreezebuyinginfo...........
 
     function unfreezebuyinginfo() {
+
+
+        debugger;
         if (path_selection == 2) {
             $('.cprp_div').hide();
             $('.budget_div_').show();
@@ -1074,6 +1092,7 @@ $(document).ready(function () {
             x = 0 + parseInt(path_cls_val);
 
         }
+       
         if (x > 100) {
 
             $.alert({
@@ -1103,6 +1122,9 @@ $(document).ready(function () {
 
         }
     })
+
+
+
 
     $("body").on("click", ".add_more_new", function () {
 
@@ -1195,8 +1217,16 @@ $(document).ready(function () {
             }
 
         }
-        console.log(obj_subdivs);
-        if (campaign_days == '') {
+        if(kw == '' && vl == '') {
+            $.alert({
+                title: 'Alert',
+                content: 'Acd and Dispersion fields sholud not be empty'
+            });
+
+        }
+        
+        // console.log(obj_subdivs);
+       else if (campaign_days == '') {
             $.alert({
                 title: 'Filed should not be empty',
                 content: 'Oops ! something went wrong',
@@ -1275,6 +1305,7 @@ $(document).ready(function () {
                     }
                     $('.add_more_new').prop('disabled', true);
                     $('.submit_new').prop('disabled', true);
+                    $('.remove').hide();
                     $(this).prop('disabled', true);
                     $('.spillover').hide();
                     $('.channelbeing').show();
@@ -1381,7 +1412,7 @@ $(document).ready(function () {
 
     $("body").on("click", ".submit_", function () {
 
-      
+      debugger;
         $('.forfirstpathtext').empty()
         path_selection = $(this).closest('.common_class').find('.cprp_main').attr('key');
         div_weitage = $(this).closest('.common_class').find('.cprp_div');
@@ -1423,18 +1454,37 @@ $(document).ready(function () {
             var vl = path_cls[i].value;
             var kw = name_cls[i].value;
 
+
+
+
+             // if(kw =='' && vl == ''){
+        //     $.alert({
+        //         title: 'Alert',
+        //         content: 'Acd and Dispersion fields sholud not be empty'
+        //     });
+
+        // }
             if (kw != '' && vl != '') {
+
 
                 sum += parseFloat(vl) || 0;
                 acdobj = {}
                 acdobj[kw] = vl;
                 obj_subdivs.push(acdobj)
             }
+            
+
+        }
+        if(kw == '' && vl == '') {
+            $.alert({
+                title: 'Alert',
+                content: 'Acd and Dispersion fields sholud not be empty'
+            });
 
         }
 
-        console.log(obj_subdivs);
-        if (campaign_days == '' || cprp_weitage == '' || reach_weitage == '') {
+        // console.log(obj_subdivs);
+       else if (campaign_days == '' || cprp_weitage == '' || reach_weitage == '') {
 
             $.alert({
                 title: 'Alert',
@@ -1442,13 +1492,14 @@ $(document).ready(function () {
             });
 
         } else if (sum < 100 || sum > 100) {
-            // $.alert({
-            //     title: 'Alert',
-            //     content: 'Dispersion should be 100'
-            // });
+            $.alert({
+                title: 'Alert',
+                content: 'Dispersion should be 100'
+            });
         } else {
             $('.loading').show();
             $('.add_more').prop('disabled', true);
+            $('.remove').hide();
             $(this).prop('disabled', true);
             $('.spillover').hide();
             $('.channelbeing').show();
