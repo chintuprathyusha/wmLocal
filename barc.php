@@ -67,64 +67,52 @@ if ($_SESSION['usernamee'] == '') {
 									<h5 class="mb-0" style="text-align:center">BARC Evaluation</h5>
 									<br>
 									<div class="form-group row">
+									<div class="col-md-6 mr-b-20">
 										<label title="<?php echo $_SESSION['tool_tips']['BARC_CampaignMarkets'];?>"
 											class="col-form-label col-lg-3">Campaign Markets <span
 												class="text-danger">*</span><span
 												class="appendcampaignmarket"></span></label>
-										<div class="col-lg-9">
 											<select multiple="multiple"
 												class="form-control select-fixed-multiple campaign_markets" required
 												data-fouc data-placeholder="Select Campaign Markets">
 												<option value=""></option>
 											</select>
 											<div data-placeholder="" class="freezeLoc select_markets" data-fouc>
-
 											</div>
 										</div>
-									</div>
-									<div class="form-group row">
+								
+									<div class="col-md-6 mr-b-20">
 										<label title="<?php echo $_SESSION['tool_tips']['BARC_PrimaryTGId'];?>"
-											class="col-form-label col-lg-3">Selected Primary TG <span
+											class="col-form-label ">Selected Primary TG <span
 												class="text-danger">*</span><span
 												class="appendselectedpritg"></span></label>
-										<div class="col-lg-9">
-
+									
 											<select name="select2" data-placeholder="Selected Primary TG"
 												class="form-control js-example-basic-single form-control-select2 Primary_Tg_dt"
 												required data-fouc>
 												<option value=""></option>
-
 											</select>
-
 											<div data-placeholder="" class="freezeLoc primary_freeze" data-fouc>
-
 											</div>
-										</div>
 									</div>
-									<div class="form-group row">
+									<div class="col-md-6 mr-b-20">
 										<label title="<?php echo $_SESSION['tool_tips']['BARC_BaseTGId'];?>"
-											class="col-form-label col-lg-3">Selected Secondary TG <span
+											class="col-form-label ">Selected Secondary TG <span
 												class="text-danger">*</span><span
 												class="appendselectedbasetg"></span></label>
-										<div class="col-lg-9">
-
 											<select name="select2" data-placeholder="Selected Secondary TG"
 												class="form-control js-example-basic-single form-control-select2 base_tg"
 												required data-fouc>
 												<option value=""></option>
-
 											</select>
 											<div data-placeholder="" class="freezeLoc base_freeze" data-fouc>
-
-											</div>
 										</div>
 									</div>
-									<div class="form-group row">
+									<div class="col-md-6 mr-b-20">
 										<label title="<?php echo $_SESSION['tool_tips']['BARC_EndWeek'];?>"
-											class="col-form-label col-lg-3">Selected End Week<span
+											class="col-form-label ">Selected End Week<span
 												class="text-danger">*</span><span
 												class="appendselectedendweek"></span></label>
-										<div class="col-lg-9">
 											<select name="select2" data-placeholder="Selected End Week"
 												class="form-control form-control-select2 End_Week_dt" required
 												data-fouc>
@@ -135,7 +123,7 @@ if ($_SESSION['usernamee'] == '') {
 											</div>
 										</div>
 									</div>
-
+                             	</div>
 
 								</fieldset>
 								<!-- <hr> -->
