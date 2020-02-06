@@ -19,9 +19,10 @@ $(document).ready(function () {
     // });
     var start = moment().subtract(29, 'days');
     var end = moment();
-    
+
     
     $('input[name="daterange"]').daterangepicker({
+        maxDate: moment(),
         autoUpdateInput: false,
         opens: 'left',
         ranges: {
@@ -38,12 +39,15 @@ $(document).ready(function () {
     });
     
     $('input[name="daterange"]').on('apply.daterangepicker', function (ev, picker) {
+        
         $(this).val(picker.startDate.format('DD/MM/YYYY') + ' - ' + picker.endDate.format('DD/MM/YYYY'));
         cb(picker.startDate.format('YYYY-MM-DD'), picker.endDate.format('YYYY-MM-DD'))
     });
 
     $('input[name="daterange"]').on('cancel.daterangepicker', function (ev, picker) {
+       
         $(this).val('');
+
     });
     
     function cb(start, end) {

@@ -173,6 +173,7 @@ $("document").ready(function () {
         var start = moment().subtract(29, 'days');
         var end = moment();
         $('input[name="daterange"]').daterangepicker({
+            maxDate: moment(),
             autoUpdateInput: false,
             opens: 'left',
             ranges: {
