@@ -1741,7 +1741,7 @@ $(document).ready(function () {
                 if (status == "true") {
                     if (path_selection == 2) {
                         $('.acceleratorfiletext').show();
-                        $('.acceleratorfiletext').append( '' + channel_level_label + ' :' + format_date(process3ETA) + '')
+                        $('.acceleratorfiletext').append('<h5>Channel Level Budget Allocation Sheet being created. Once created you will receive it in your inbox - Expected Time of Arrival (ETA) is: '+ format_date(process3ETA) + '</h5>')
                         // '<h5> ' + genre_uploadlabel + ' : ' + format_date(process3ETA) + ' </h5>'
                    
                    
