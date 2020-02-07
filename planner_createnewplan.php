@@ -112,9 +112,9 @@
 														class="text-danger">*</span>
 												</h6>
 												<div class="capm_name_class">
-												<input class="form-control campign_name" required data-fouc
-													placeholder="Type the Campaign Name">
-                                               </div>
+													<input class="form-control campign_name" required data-fouc
+														placeholder="Type the Campaign Name">
+												</div>
 											</div>
 											<div class="col-md-6 mr-b-20">
 												<h6 title="<?php echo $_SESSION['tool_tips']['CreateNewPlan_Campaignid'];?>"
@@ -129,7 +129,7 @@
 
 
 
-											
+
 											<div class="col-md-6 mr-b-20">
 												<h6 title="<?php echo $_SESSION['tool_tips']['CreateNewPlan_PrimaryTGId'];?>"
 													class="font-weight-semibold">Primary TG<span
@@ -170,140 +170,140 @@
 												<div class="endfreeze">
 												</div>
 											</div>
-											<div class="col-md-12 mr-b-20">
+											<div class="col-md-6 mr-b-20" style="margin-top: 2px">
+												<h6 title="<?php echo $_SESSION['tool_tips']['CreateNewPlan_CampaignMarkets'];?>"
+													class="font-weight-semibold">Channel Selection Report<span
+														class="text-danger">*</span></h6>
+
+												<p class="onclass">ON</p>
+												<p class="offclass">OFF</p>
+												<div class="channel_selection_freez">
+
+												</div>
+
+												<label class="switch">
+													<input type="checkbox" id="channel_selection" checked value="true"
+														name="disableYXLogo">
+													<div class="slider round"></div>
+												</label>
+
+											</div>
+											<div class="col-md-6 mr-b-20">
 												<h6 title="<?php echo $_SESSION['tool_tips']['CreateNewPlan_CampaignMarkets'];?>"
 													class="font-weight-semibold">Campaign Markets<span
 														class="text-danger">*</span></h6>
 												<select multiple="multiple"
 													class="form-control select-fixed-multiple campign_markets" required
-													data-fouc data-placeholder="Select Campaign Markets" style="width: 100%">
+													data-fouc data-placeholder="Select Campaign Markets"
+													style="width: 100%">
 													<option value=""></option>
 												</select>
 												<div class="select_markets">
-
 												</div>
 											</div>
-									<div class="col-md-6">
-											<h6 title="<?php echo $_SESSION['tool_tips']['CreateNewPlan_CampaignMarkets'];?>"
-												class="font-weight-semibold">Channel Selection Report<span
-													class="text-danger">*</span></h6>
-
-										<p class="onclass">ON</p>
-										<p class="offclass">OFF</p>
-											<div class="channel_selection_freez">
-
+											<div class="col-md-6 mr-b-20">
+												<h6 title="<?php echo $_SESSION['tool_tips']['CreateNewPlan_CampaignMarkets'];?>"
+													class="font-weight-semibold">Program Performance Report<span
+														class="text-danger">*</span></h6>
+												<p class="onnclass">ON</p>
+												<p class="offfclass">OFF</p>
+												<div class="program_performance_freez">
+												</div>
+												<label class="switch">
+													<input type="checkbox" id="program_performance" checked value="true"
+														name="disableYXLogo">
+													<div class="slider round"></div>
+												</label>
 											</div>
-
-											<label class="switch">
-												<input type="checkbox" id="channel_selection" checked value="true"
-													name="disableYXLogo">
-												<div class="slider round"></div>
-											</label>
-
+											
+										</div>
 									</div>
-									<div class="col-md-6">
-											<h6 title="<?php echo $_SESSION['tool_tips']['CreateNewPlan_CampaignMarkets'];?>"
-												class="font-weight-semibold">Program Performance Report<span
-													class="text-danger">*</span></h6>
-										<p class="onnclass">ON</p>
-										<p class="offfclass">OFF</p>
-											<div class="program_performance_freez">
 
+									<div class="row">
+										<div class="col-md-6">
+
+										</div>
+										<div class="col-md-6" style="margin-bottom: 35px;">
+
+											<button type="button" name="button" class="btn btn-primary file_download"
+												data-toggle="modal" data-target="#myModal">File Download</button>
+										</div>
+									</div>
+
+
+									<div class="mb-12">
+										<div class="row">
+											<div class="col-md-4"></div>
+											<div class="col-md-4">
+												<button type="submit"
+													class="btn form-control cprp_submit create_plan">Create <i
+														class="icon-paperplane ml-2"></i></button>
 											</div>
+											<div class="col-md-4"></div>
+										</div>
 
-											<label class="switch">
-												<input type="checkbox" id="program_performance" checked value="true"
-													name="disableYXLogo">
-												<div class="slider round"></div>
-											</label>
+
 									</div>
 								</div>
-							</div>
-
-							<div class="row">
-								<div class="col-md-6">
-
-								</div>
-								<div class="col-md-6" style="margin-bottom: 35px;">
-
-									<button type="button" name="button" class="btn btn-primary file_download"
-										data-toggle="modal" data-target="#myModal">File Download</button>
+								<div class="card fadeInDown texttodisplay" style="">
+									<!-- <h5 style="color:#000;">Channel Selection Sheet being created. Once complete you will receive it in your inbox. -->
+									</h5>
 								</div>
 							</div>
 
 
-							<div class="mb-12">
-								<div class="row">
-									<div class="col-md-4"></div>
-									<div class="col-md-4">
-										<button type="submit" class="btn form-control cprp_submit create_plan">Create <i
-												class="icon-paperplane ml-2"></i></button>
-									</div>
-									<div class="col-md-4"></div>
-								</div>
-
-
-							</div>
-						</div>
-						<div class="card fadeInDown texttodisplay" style="">
-							<!-- <h5 style="color:#000;">Channel Selection Sheet being created. Once complete you will receive it in your inbox. -->
-							</h5>
 						</div>
 					</div>
 
+					<div class="row btns">
+						<div class="col-md-6"></div>
+						<div class="col-md-6">
 
-				</div>
-			</div>
+							<button type="submit" class="btn btn-primary fadeInDown next_btn" title="Next"
+								tooltip="Next"><span>NEXT </span></button>
 
-			<div class="row btns">
-				<div class="col-md-6"></div>
-				<div class="col-md-6">
-
-					<button type="submit" class="btn btn-primary fadeInDown next_btn" title="Next"
-						tooltip="Next"><span>NEXT </span></button>
-
-				</div>
-			</div>
-			<div class="loading">
-				<img src="assets/images/loading.gif" alt="">
-			</div>
-			<div class="" style="height:30px;">
-
-			</div>
-		</div>
-		<!-- /page content -->
-
-		<!-- Modal -->
-		<div class="modal fade" id="myModal" role="dialog">
-			<div class="modal-dialog">
-
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<!-- <h4 class="modal-title">Modal Header</h4> -->
+						</div>
 					</div>
-					<div class="modal-body">
+					<div class="loading">
+						<img src="assets/images/loading.gif" alt="">
+					</div>
+					<div class="" style="height:30px;">
 
 					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal" style="background: #f1efefbd;
+				</div>
+				<!-- /page content -->
+
+				<!-- Modal -->
+				<div class="modal fade" id="myModal" role="dialog">
+					<div class="modal-dialog">
+
+						<!-- Modal content-->
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<!-- <h4 class="modal-title">Modal Header</h4> -->
+							</div>
+							<div class="modal-body">
+
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal" style="background: #f1efefbd;
 							border: 1px solid #ccc;
 							border-radius: 5px;">Close</button>
+							</div>
+						</div>
+
 					</div>
 				</div>
 
 			</div>
-		</div>
+			<div class="ExportTableMain hidden">
 
-	</div>
-	<div class="ExportTableMain hidden">
+			</div>
 
-	</div>
+			<!-- Core JS files -->
 
-	<!-- Core JS files -->
-
-	<!-- <script src="assets/js/sample.js" charset="utf-8"></script> -->
+			<!-- <script src="assets/js/sample.js" charset="utf-8"></script> -->
 </body>
 
 <script src="assets/js/create.js"></script>
@@ -314,13 +314,6 @@
 	});
 </script>
 
-
-<style>
-	.select2.select2-container {
-
-		width: 100% !important;
-	}
-</style>
 <!-- Mirrored from demo.interface.club/limitless/demo/bs4/Template/layout_1/LTR/default/full/uploader_bootstrap.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 Jun 2019 06:48:45 GMT -->
 
 </html>

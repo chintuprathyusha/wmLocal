@@ -41,6 +41,10 @@
 .sendpath h5{
 	cursor: pointer;
 }
+.select2.select2-container {
+
+	width:  494px!important;
+}
 /* added */
 .cprp{
 	background-color: #1f2022;

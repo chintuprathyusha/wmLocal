@@ -2,7 +2,10 @@
 .displaytoptextboxes{
 	display: none;
 }
-
+.swal-button--confirm{
+    width: 83px;
+    margin-left: -26px;
+}
 .DownloadAllfiles{
    padding: 4px 20px;
     background: #bb512b;
