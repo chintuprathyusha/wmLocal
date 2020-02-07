@@ -93,7 +93,10 @@ $(document).ready(function(){
             $('.loading').hide();
             if (msg.hasOwnProperty('Error')) {
                 errorAlert(msg.Error, "adminindex.php")
-            } else {
+            } else if (msg.message == 'fail' ) {
+                errorAlert('Oops ! something went wrong, try again', 'error.php')
+            }
+            else if(msg.status == 'true'){
                 $.alert({
                     title: 'Success',
                     content: 'Uploaded Successfully',
@@ -110,13 +113,35 @@ $(document).ready(function(){
                         }
                     }
                 });
+            }
+            else {
+                $.alert({
+                    title: 'Error',
+                    content: 'Oops ! Seems you are uploading an incorrect file',
+                    animation: 'scale',
+                    closeAnimation: 'scale',
+                    opacity: 0.5,
+                    buttons: {
+                        okay: {
+                            text: 'Okay',
+                            btnClass: 'btn-primary'
+                        }
+                    }
+                });
+            }
                 $('.masterdata_').hide();
                 $('.masterdata_new').show();
                 $('.masterdata_new').append('<h5>' + file_name_ + '</h5>');
-            }
         });
     }
     
+
+    // $("body").on("click", ".deleteFile", function () {
+    //     $(this).closest('.GenreLevelFileNameDisplay').remove();
+    //     $('.hide_').hide();
+    // })
+
+
     $("body").on("click", "#acceleratorBtn", function () {
         $("#acceleratorFile").click();
     })
@@ -161,7 +186,9 @@ $(document).ready(function(){
                  errorAlert('Oops ! something went wrong, try again', 'error.php')
              } else if (msg.hasOwnProperty('Error')) {
                   errorAlert(msg.Error, 'adminindex.php')
-             } else {
+             
+             } else if  (msg.status == 'true'){ 
+                     
                  $.alert({
                      title: 'Success',
                      content: 'Uploaded Succesfully',
@@ -175,7 +202,28 @@ $(document).ready(function(){
                          }
                      }
                  });
+                 
              }
+             else if  (msg.status == 'false'){ 
+                     
+                $.alert({
+                    title: 'Error',
+                    content: 'Oops ! Seems you are uploading an incorrect file',
+                    animation: 'scale',
+                    closeAnimation: 'scale',
+                    opacity: 0.5,
+                    buttons: {
+                        okay: {
+                            text: 'Okay',
+                            btnClass: 'btn-primary'
+                        }
+                    }
+                });
+            }
+                else{
+                    errorAlert('Oops ! something went wrong, try again', "error.php")
+                 }
+            
          });
     }
 
