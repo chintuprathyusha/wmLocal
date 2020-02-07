@@ -295,8 +295,9 @@ $("document").ready(function () {
     
                 if (userrole!= 'Planner') {
                     if (block.IsPrioritized == false) {
-                        row += '<td><button  style="" plainidattr="'+block.PlanId+'"  class="Prioritizebtn">Prioritize</button></td>';
-    
+                        row += '<td><div  style="background:none;border:none;text-align:center" plainidattr="'+block.PlanId+'"  class="Prioritizebtn"><img class="idimg" src="assets/images/WhiteIcons/list.png" style="width:23px;"></div></td>';
+                    // row += '<td> <div  plainidattr="'+v[i]['PlanId']+'"  class="form-control completebtn" style="background:none;border:none;text-align:center"><img class="idimg" src="assets/images/WhiteIcons/normal_check.png" style="width:27px;"></div> </td>'
+                        
                     }
                     else {
                         row += '<td  style="color:#2ed573;font-weight:600" plainidattr="'+block.PlanId+'">Prioritized</td>';
