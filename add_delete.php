@@ -153,7 +153,7 @@ $( document ).ready(function() {
                                       <div class="col-md-6">
                                     <div class="mb-4">
                                      <div class="col-md-12">
-                                        <h6  title="<?php echo $_SESSION['tool_tips']['AddPlanner_UserEmails'];?>"  class="font-weight-semibold">UserEmail </h6>
+                                        <h6  title="<?php echo $_SESSION['tool_tips']['AddPlanner_UserEmails'];?>"  class="font-weight-semibold">User Email </h6>
                                         </div>
                                         
                                         <!-- <div class="row"> -->
@@ -238,7 +238,7 @@ $( document ).ready(function() {
 
                                     <div class="col-md-6">
                                     <div class="mb-4">
-                                        <h6  title="<?php echo $_SESSION['tool_tips']['DeletePlanner_Useremails'];?>"  class="font-weight-semibold" >UserEmail</h6>
+                                        <h6  title="<?php echo $_SESSION['tool_tips']['DeletePlanner_Useremails'];?>"  class="font-weight-semibold" >User Email</h6>
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <select class="form-control select  deletemails" id="select0"  data-fouc >

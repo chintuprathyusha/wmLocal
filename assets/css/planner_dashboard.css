@@ -15,7 +15,10 @@
     /* margin-left: 300px; */
     margin-top: 26px;
 }
-
+.swal-button--confirm{
+    width: 83px;
+    margin-left: -26px;
+}
 .Prioritizebtn{
     background-color: #dfe4ea;
     border: none;
