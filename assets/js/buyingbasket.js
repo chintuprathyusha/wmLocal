@@ -626,7 +626,9 @@ $(document).ready(function () {
                                 $('.acceleratorfiletext').append('<h5> ' + genre_uploadlabel + '  none </h5>')
                             } else {
                                 // $('.acceleratorfiletext').append('<h5> ' + genre_uploadlabel + ' ' + format_date(process3ETA) + ' </h5>')
-                                $('.acceleratorfiletext').append('<span> '+ genre_uploadlabel +'<span id="dots">...</span></span><span id="more" style="display:none;">' + format_date(process3ETA) + '</span><span onclick="myFunction()" id="myclick" style="color:#9780f1;text-decoration: underline; ">Read more</span>');
+                            
+                                $('.acceleratorfiletext').append('<span>' + genre_uploadlabel + '<span id="dots1">...</span></span><span id="more1" style="display:none;">' + format_date(process3ETA) + '</span><span onclick="myFunction1()" id="myclick" style="color:#9780f1;text-decoration: underline; ">Read more</span>');
+                            
                             
                             }
 
@@ -914,7 +916,7 @@ $(document).ready(function () {
     function unfreezebuyinginfo() {
 
 
-        debugger;
+       
         if (path_selection == 2) {
             $('.cprp_div').hide();
             $('.budget_div_').show();
@@ -1343,12 +1345,16 @@ $(document).ready(function () {
 
     function format_date(date_string) {
         date = new Date(date_string)
+        var dd = date.getDate();
+        if (dd < 10) {
+        dd = '0' + dd;
+        } 
         months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
         weeks_ = ["Mon", "Tue", "Wed", "Thr", "Fri", "Sat", "Sun"];
         hours_mian = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"];
         hrs = date.getHours().toString().length < 2 ? '0' + date.getHours() : date.getHours()
         mins = date.getMinutes().toString().length < 2 ? '0' + date.getMinutes() : date.getMinutes()
-        return date.getDate() + '-' + months[date.getMonth()] + '-' + date.getFullYear() + '&nbsp;&nbsp;' + hrs + ':' + mins;
+        return dd + '-' + months[date.getMonth()] + '-' + date.getFullYear() + '&nbsp;&nbsp;' + hrs + ':' + mins;
     }
 
 
@@ -1412,7 +1418,7 @@ $(document).ready(function () {
 
     $("body").on("click", ".submit_", function () {
 
-      debugger;
+      
         $('.forfirstpathtext').empty()
         path_selection = $(this).closest('.common_class').find('.cprp_main').attr('key');
         div_weitage = $(this).closest('.common_class').find('.cprp_div');
@@ -1475,16 +1481,16 @@ $(document).ready(function () {
             
 
         }
-        if(kw == '' && vl == '') {
-            $.alert({
-                title: 'Alert',
-                content: 'Acd and Dispersion fields sholud not be empty'
-            });
+        // if(kw == '' && vl == '' ) {
+        //     $.alert({
+        //         title: 'Alert',
+        //         content: 'Acd and Dispersion fields sholud not be empty'
+        //     });
 
-        }
+        // }
 
         // console.log(obj_subdivs);
-       else if (campaign_days == '' || cprp_weitage == '' || reach_weitage == '') {
+       if (campaign_days == '' || cprp_weitage == '' || reach_weitage == '' || cprp_channel_val == '' || frequency_channel ==''|| kw == '' && vl == '') {
 
             $.alert({
                 title: 'Alert',
@@ -1496,7 +1502,10 @@ $(document).ready(function () {
                 title: 'Alert',
                 content: 'Dispersion should be 100'
             });
-        } else {
+        } 
+        
+        
+        else {
             $('.loading').show();
             $('.add_more').prop('disabled', true);
             $('.remove').hide();

@@ -136,7 +136,7 @@ if ($_SESSION['usernamee'] == '') {
                                     <input type="text" id="dateFilter" class="flt-r" name="daterange"
                                         placeholder="Select Date Range" readonly />
                                     <span><i class="fa fa-calendar"
-                                            style="    font-size: 16px;color: black;position: absolute;top: 60px;margin-left: 15px;"></i>
+                                            style=" font-size: 16px;color: black;position: absolute;top: 60px;margin-left:6px;"></i>
                                         <!-- <i class="fa fa-caret-down" ></i> -->
                                     </span>
 
