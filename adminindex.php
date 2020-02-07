@@ -33,7 +33,7 @@ if ($_SESSION['usernamee'] == '') {
                                 </li>
                                 <li class="nav-item">
                                     <a href="#login-tab2" class="nav-link border-y-0 border-right-0" data-toggle="tab">
-                                        <h5 class="my-1">User Privileges</h5>
+                                        <h5 class="my-1">User Role Privileges</h5>
                                     </a>
                                 </li>
                             </ul>

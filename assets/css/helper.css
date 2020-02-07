@@ -3361,9 +3361,9 @@
 .fnt-wt-bd{
     font-weight: bold !important;
 }
-.flt-r{
+/* .flt-r{
     float: right;
-}
+} */
 .flt-l{
     float: left !important;
 }

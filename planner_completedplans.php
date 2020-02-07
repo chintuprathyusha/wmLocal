@@ -79,7 +79,7 @@ if ($_SESSION['usernamee'] == '') {
                         <div class="breadcrumb">
                             <a href="planner_ongoing_dashboard.php" class="breadcrumb-item"><i
                                     class="icon-home2 mr-2"></i> Home</a>
-                            <span class="breadcrumb-item active">Completed Plans</span>
+                            <span class="breadcrumb-item active">Completed Team Plans</span>
                             <!-- <span style="position:absolute;right:0px;margin-left:13px;">Help<img style="width:17px;height:17px;" title="'+client+'" src="assets/images/informicon.svg"/></span> -->
                             <p class="help">HELP
                                 <img style="width:15px;" title="Write to adminwmflow@wmglobal.com to get details added"
@@ -166,13 +166,10 @@ if ($_SESSION['usernamee'] == '') {
                                     </div>
 
 
-                                    <div class="flt-r">
+                                    <div class="col-sm-6 col-md-3 flt-r">
                                         <input type="text" id="dateFilter" class="flt-r" name="daterange"
                                             placeholder="Select Date Range" readonly />
-                                        <span><i class="fa fa-calendar" style="    font-size: 16px; color: black;
-    position: absolute;
-    top: 30px;
-    margin-left: 8px;"></i>
+                                        <span><i class="fa fa-calendar" style="font-size: 16px; color: black;margin-left: -24px"></i>
                                     </div>
                                     <div class="col-sm-12 col-md-1 go">
                                         <button class="form-control gobtn">GO</button>

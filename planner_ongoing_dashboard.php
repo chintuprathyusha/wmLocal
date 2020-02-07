@@ -46,7 +46,6 @@ if ($_SESSION['usernamee'] == '') {
 
 			<!-- Page header -->
 			<div class="page-header page-header-light">
-
 				<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
 					<div class="">
 						<div class="breadcrumb">
@@ -59,8 +58,6 @@ if ($_SESSION['usernamee'] == '') {
 									src="assets/images/informicon.svg">
 							</p>
 						</div>
-
-
 						<a href="#" class="header-elements-toggle text-default d-md-none"><i class=""></i></a>
 					</div>
 				</div>
