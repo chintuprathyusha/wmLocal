@@ -302,7 +302,7 @@ $(document).ready(function () {
         var channel_selection_value
         var program_performance_value
         $("body").on("change", "#channel_selection", function(){
-            // debugger
+            
             if ($('#channel_selection').is(':checked')) {
                 $('#program_performance').prop('checked', true);
                 $('#program_performance').prop('disabled', false);
@@ -322,7 +322,7 @@ $(document).ready(function () {
         })
 
         $("body").on("change", "#program_performance", function(){
-            // debugger;
+          
             if ($('#program_performance').is(':checked')) {
                 $('.onnclass').show();
                 $('.offfclass').hide();
@@ -334,9 +334,10 @@ $(document).ready(function () {
             }
         })
 
-var plan_id;
+    var plan_id;
     $("body").on("click", ".create_plan", function(){
-        // debugger;
+
+        
         $('.loading').show();
         userid = sessionStorage.getItem('userid');
 
@@ -485,9 +486,10 @@ var plan_id;
                         }
                     });
                        $('#program_performance').prop('disabled', true);
+
                        $("#channel_selection").prop('disabled',true);
-                   $('.texttodisplay').append('');
-                //    debugger;
+                       $('.texttodisplay').append('');
+           
                 if (skipChannelSelection == "true") {
                     $(".next_btn").show();
                     $(".texttodisplay").hide();
@@ -536,6 +538,7 @@ var plan_id;
     })
 
     function get_freezeDetails(){
+        debugger;
         $('.next_btn').show();
         $('.client_freezeclass').show();
         $('.select2-hidden-accessible').hide();
@@ -661,9 +664,19 @@ var plan_id;
                 // $('.program_performance_freez').append('<p type="text" value='+skipProgramPerformance+' class="form-control" readonly style="background-color:#d6d6d6;">'+skipProgramPerformance+'</p>')
                 if (skipChannelSelection == "true") {
                    $('.channel_selection_freez').append('<label class="switch"><input type="checkbox" id="channel_selection"  value="true" name="disableYXLogo"><div class="slider round"></div></label>')
+                   $('.onclass').hide();
+                   $('.onnclass').hide();
+                   $('.offclass').show();
+                   $('.offfclass').show()
                 }
                 else {
                   $('.channel_selection_freez').append('<label class="switch"><input type="checkbox" id="channel_selection" checked value="true" name="disableYXLogo"><div class="slider round"></div></label>')
+                  $('.onclass').show();
+                  $('.onnclass').show();
+                  $('.offclass').hide();
+                  $('.offfclass').hide()
+                
+                
                 }
 
                 if (skipProgramPerformance == "true") {
