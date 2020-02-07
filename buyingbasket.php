@@ -191,9 +191,9 @@ if ($_SESSION['usernamee'] == '') {
 												</div>
 												<br>
 												<div class="card fadeInDown spillovertexttodisplay">
-													<h5 class="spillll">Genre Level Budget Allocation Sheet being
+													<!-- <h5 class="spillll">Genre Level Budget Allocation Sheet being
 														created.Once complete you will receive it in your inbox.....
-													</h5>
+													</h5> -->
 
 												</div>
 

@@ -625,9 +625,9 @@ $(document).ready(function () {
                             if (process3ETA == "None") {
                                 $('.acceleratorfiletext').append('<h5> ' + genre_uploadlabel + '  none </h5>')
                             } else {
-                                // $('.acceleratorfiletext').append('<h5> ' + genre_uploadlabel + ' ' + format_date(process3ETA) + ' </h5>')
+                                $('.acceleratorfiletext').append('<h5> ' + genre_uploadlabel + ' ' + format_date(process3ETA) + ' </h5>')
                             
-                                $('.acceleratorfiletext').append('<span>' + genre_uploadlabel + '<span id="dots1">...</span></span><span id="more1" style="display:none;">' + format_date(process3ETA) + '</span><span onclick="myFunction1()" id="myclick" style="color:#9780f1;text-decoration: underline; ">Read more</span>');
+                                // $('.acceleratorfiletext').append('<span>' + genre_uploadlabel + '</span>');
                             
                             
                             }
@@ -659,9 +659,9 @@ $(document).ready(function () {
                             if (process3ETA == "None") {
                                 $('.acceleratorfiletext').append('<h5> ' + genre_uploadlabel + ' : none </h5>')
                             } else {
-                                // $('.acceleratorfiletext').append('<h5> ' + genre_uploadlabel + ' : ' + format_date(process3ETA) + ' </h5>')
+                                $('.acceleratorfiletext').append('<h5> ' + genre_uploadlabel + ' : ' + format_date(process3ETA) + ' </h5>')
                             
-                                $('.acceleratorfiletext').append('<span> '+ genre_uploadlabel +'<span id="dots">...</span></span><span id="more" style="display:none;">' + format_date(process3ETA) + '</span><span onclick="myFunction()" id="myclick" style="color:#9780f1;text-decoration: underline;">Read more</span>');
+                                // $('.acceleratorfiletext').append('<span> '+ genre_uploadlabel +'<span id="dots">...</span></span><span id="more" style="display:none;">' + format_date(process3ETA) + '</span><span onclick="myFunction()" id="myclick" style="color:#9780f1;text-decoration: underline;">Read more</span>');
                             
                             
                             }
@@ -1696,6 +1696,7 @@ $(document).ready(function () {
         $('.hide_').hide();
     })
     $('#load-file1').on('change', function () {
+        debugger;
         $('.uploadFileTrigger1').prop('disabled', true);
         // $(".uploadFileTrigger1")
         main_output = ''
@@ -1740,7 +1741,10 @@ $(document).ready(function () {
                 if (status == "true") {
                     if (path_selection == 2) {
                         $('.acceleratorfiletext').show();
-                        $('.acceleratorfiletext').html('<h5> ' + genre_uploadlabel + ' ' + format_date(process3ETA) + ' </h5>')
+                        $('.acceleratorfiletext').append( '' + channel_level_label + ' :' + format_date(process3ETA) + '')
+                        // '<h5> ' + genre_uploadlabel + ' : ' + format_date(process3ETA) + ' </h5>'
+                   
+                   
                     } else {
                         $('.acceleratorfiletext').hide();
                         $('.next_').prop('disabled', false)
@@ -1839,6 +1843,7 @@ $(document).ready(function () {
                 if (Status == true) {
                     if (path_selection == 1) {
                         $(".ss_files").html(msg.file_name)
+
                     } else {
                         $('.acceleratorfiletext').hide();
                         $('.next_').prop('disabled', false)
@@ -1846,6 +1851,8 @@ $(document).ready(function () {
                     $('.bb_txt').hide();
                     $('.file-input').hide();
                     $('.red_color').hide();
+                    $('.spillovertexttodisplay').append('<h5 style="color:#fff;">Genre Level Budget Allocation Sheet  successfully uploaded Expected Time of Arrival (ETA) is : '+format_date(process3ETA)+'  </h5>')
+
                     $('.spillovertexttodisplay').show()
                 }
                 if (Status == false) {
