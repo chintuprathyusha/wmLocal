@@ -1797,7 +1797,8 @@ $(document).ready(function () {
     })
 
     $("body").on("click", ".deleteFile", function () {
-        $(this).closest('.GenreLevelFileNameDisplays').remove();
+        $(this).closest('.GenreLevelFileNameDisplay').remove();
+        $('.hide_').hide();
     })
 
     $('#load-file__').on('change', function () {
