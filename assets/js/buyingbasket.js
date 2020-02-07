@@ -626,7 +626,9 @@ $(document).ready(function () {
                                 $('.acceleratorfiletext').append('<h5> ' + genre_uploadlabel + '  none </h5>')
                             } else {
                                 // $('.acceleratorfiletext').append('<h5> ' + genre_uploadlabel + ' ' + format_date(process3ETA) + ' </h5>')
-                                $('.acceleratorfiletext').append('<span> '+ genre_uploadlabel +'<span id="dots">...</span></span><span id="more" style="display:none;">' + format_date(process3ETA) + '</span><span onclick="myFunction()" id="myclick" style="color:#9780f1;text-decoration: underline; ">Read more</span>');
+                            
+                                $('.acceleratorfiletext').append('<span>' + genre_uploadlabel + '<span id="dots1">...</span></span><span id="more1" style="display:none;">' + format_date(process3ETA) + '</span><span onclick="myFunction1()" id="myclick" style="color:#9780f1;text-decoration: underline; ">Read more</span>');
+                            
                             
                             }
 
@@ -1479,16 +1481,16 @@ $(document).ready(function () {
             
 
         }
-        if(kw == '' && vl == '') {
-            $.alert({
-                title: 'Alert',
-                content: 'Acd and Dispersion fields sholud not be empty'
-            });
+        // if(kw == '' && vl == '' ) {
+        //     $.alert({
+        //         title: 'Alert',
+        //         content: 'Acd and Dispersion fields sholud not be empty'
+        //     });
 
-        }
+        // }
 
         // console.log(obj_subdivs);
-       else if (campaign_days == '' || cprp_weitage == '' || reach_weitage == '') {
+       if (campaign_days == '' || cprp_weitage == '' || reach_weitage == '' || cprp_channel_val == '' || frequency_channel ==''|| kw == '' && vl == '') {
 
             $.alert({
                 title: 'Alert',
@@ -1500,7 +1502,10 @@ $(document).ready(function () {
                 title: 'Alert',
                 content: 'Dispersion should be 100'
             });
-        } else {
+        } 
+        
+        
+        else {
             $('.loading').show();
             $('.add_more').prop('disabled', true);
             $('.remove').hide();

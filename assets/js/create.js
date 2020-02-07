@@ -812,12 +812,16 @@ var plan_id;
 
     function format_date(date_string) {
         date = new Date(date_string)
+        var dd = date.getDate();
+        if (dd < 10) {
+        dd = '0' + dd;
+        } 
         months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
         weeks_ = ["Mon", "Tue", "Wed", "Thr", "Fri", "Sat", "Sun"];
         hours_mian = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"];
-        hrs = date.getHours().toString().length < 2 ? '0'+date.getHours() : date.getHours()
-        mins = date.getMinutes().toString().length < 2 ? '0'+date.getMinutes() : date.getMinutes()
-        return date.getDate()+'-'+months[date.getMonth()]+'-'+date.getFullYear()+'&nbsp;&nbsp;'+hrs+':'+mins;
+        hrs = date.getHours().toString().length < 2 ? '0' + date.getHours() : date.getHours()
+        mins = date.getMinutes().toString().length < 2 ? '0' + date.getMinutes() : date.getMinutes()
+        return dd + '-' + months[date.getMonth()] + '-' + date.getFullYear() + '&nbsp;&nbsp;' + hrs + ':' + mins;
     }
 
     $("body").on("click", ".next_btn", function(){

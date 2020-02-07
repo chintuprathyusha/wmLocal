@@ -332,6 +332,21 @@ if ($_SESSION['usernamee'] == '') {
 				moreText.style.display = "inline";
 			}
 		}
+		function myFunction1() {
+			var dots = document.getElementById("dots1");
+			var moreText = document.getElementById("more1");
+			var btnText = document.getElementById("myclick1");
+
+			if (dots.style.display === "none") {
+				dots.style.display = "inline";
+				btnText.innerHTML = "Read more";
+				moreText.style.display = "none";
+			} else {
+				dots.style.display = "none";
+				btnText.innerHTML = "Read less";
+				moreText.style.display = "inline";
+			}
+		}
 	</script>
 	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
 	<style>
