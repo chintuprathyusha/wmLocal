@@ -642,7 +642,7 @@ $(document).ready(function () {
                         $(".barcmsg").append('' + barc_label + ' : None')
                     } else {
                         if (plancompleted == false) {
-                            $('.barcmsg').append('<span>' + barc_label + '<span id="dots">...</span></span><span id="more" style="display:none;">' + format_date(process4ETA) + '</span><span onclick="myFunction()" id="myclick" style="color:#9780f1;text-decoration: underline; ">Read more</span>');
+                            $('.barcmsg').append('' + barc_label + ':' + format_date(process4ETA) + '');
                         } else {
                             $('.barcmsg').hide();
                         }

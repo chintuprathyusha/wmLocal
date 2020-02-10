@@ -55,13 +55,16 @@ function pageonloadhit() {
             console.log($dropdown);
             $dropdown.on('change', function() {
                 console.log($dropdown);
-                $('#brandd').empty();
+                // $('#brandd').empty();
                 // var a=data[$dropdown.val()];
                 var a=data[$.trim($dropdown[0].selectedOptions[0].text)];
                 $.each(a,function(j){
+                 
                     console.log(a[j]);
+                    // $('#brandd').empty();
                     $('#brandd').append('<option value='+a[j]+'>'+a[j]+'</option>')
                 })
+
             });
             $dropdown.trigger('change');
         }
@@ -222,7 +225,7 @@ $("body").on("click", "#camp_idhyperlink_", function(){
 
 $("body").on("click", ".gobtn", function(){
 
-  debugger;
+
    
     clientclass = $('.clientclass').val();
     brandclass = $('.brandclass').val();
@@ -236,9 +239,26 @@ $("body").on("click", ".gobtn", function(){
     objj.Campaignid = Campaignid
     objj.IsDefault = false
     objj.user_id = useridd
-    if (start!='' || end!='' || clientclass!='' || brandclass!='' || Campaignid!='') {
 
-        if (start <= end) {
+
+ 
+
+
+    if (((start_date=='' || end_date=='') && (clientclass!='' || brandclass!='')) &&(Campaignid=='')) {
+
+        $.alert({
+            title: 'Error',
+            content: 'please Select Date Range'
+        });
+
+
+
+    } 
+     
+
+      else{  
+
+        if (start_date <= end_date) {
             console.log(objj);
             var form = new FormData();
             form.append("file", JSON.stringify(objj));
@@ -279,19 +299,31 @@ $("body").on("click", ".gobtn", function(){
             })
 
         }
+        
+       
+        
         else {
             $.alert({
                 title: 'Error',
                 content: 'Please enter the valid dates'
             });
         }
+
+  
     }
-    else {
-        $.alert({
-            title: 'Error',
-            content: 'please select anyone value for search'
-        });
-    }
+    
+
+
+
+   
+
+
+
+
+
+
+
+
 
     })
 
@@ -651,7 +683,7 @@ $("body").on("click", ".downloadbtn", function(){
         "data": form
     };
     $.ajax(settings11).done(function (msg) {
-        debugger
+      
         filesData = JSON.parse(msg);
         console.log(msg);
         console.log(filesData);
@@ -737,7 +769,7 @@ $("body").on("click", ".fileClick", function () {
 //-----------------SelectALl-------------//
 var selectedFiles;
 $('body').on('click', '.selectAll', function(){
-    debugger
+   
      $('input[name=checkbox]').prop('checked', true)
     $('.downloadAll').prop('disabled', false)
     selectedFiles = Object.values(filesData);

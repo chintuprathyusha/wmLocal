@@ -76,7 +76,7 @@ if ($_SESSION['usernamee'] == '') {
 						<div class="card">
 							<div class="createbtn__">
 
-								<button class="createbtn" style="display: inline-block;position: relative;top: 56px;">CREATE PLAN</button>
+								<button class="createbtn">CREATE PLAN</button>
 								<!-- <img class="btn3" src="assets/images/filter-icon.svg"> -->
 							</div>
 

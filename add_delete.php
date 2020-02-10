@@ -226,7 +226,7 @@ $( document ).ready(function() {
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <select class="form-control select  clientdelete" id="select"  data-fouc >
-                                                    <option disabled>--select ClientName--</option>
+                                                    <option disabled>--Select Client--</option>
 
                                                 </select>
                                             </div>

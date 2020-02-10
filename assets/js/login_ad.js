@@ -1,7 +1,7 @@
 // #1: Set up ADAL
 var authContext = new AuthenticationContext({
-    // clientId: 'd3cc7c04-0c90-44d5-b40b-7f10a5cce951',
-    clientId: 'CfzX/0aFF0.aZi_Oy:MpLlzci2pnuAH8',
+    clientId: 'd3cc7c04-0c90-44d5-b40b-7f10a5cce951',
+    // clientId: 'CfzX/0aFF0.aZi_Oy:MpLlzci2pnuAH8',
     postLogoutRedirectUri: window.location
 });
 

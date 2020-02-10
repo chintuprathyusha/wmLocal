@@ -170,6 +170,20 @@
 												<div class="endfreeze">
 												</div>
 											</div>
+											
+											<div class="col-md-12 mr-b-20">
+												<h6 title="<?php echo $_SESSION['tool_tips']['CreateNewPlan_CampaignMarkets'];?>"
+													class="font-weight-semibold">Campaign Markets<span
+														class="text-danger">*</span></h6>
+												<select multiple="multiple"
+													class="form-control select-fixed-multiple campign_markets" required
+													data-fouc data-placeholder="Select Campaign Markets"
+													style="width: 100%">
+													<option value=""></option>
+												</select>
+												<div class="select_markets">
+												</div>
+											</div>
 											<div class="col-md-6 mr-b-20" style="margin-top: 2px">
 												<h6 title="<?php echo $_SESSION['tool_tips']['CreateNewPlan_CampaignMarkets'];?>"
 													class="font-weight-semibold">Channel Selection Report<span
@@ -187,19 +201,6 @@
 													<div class="slider round"></div>
 												</label>
 
-											</div>
-											<div class="col-md-6 mr-b-20">
-												<h6 title="<?php echo $_SESSION['tool_tips']['CreateNewPlan_CampaignMarkets'];?>"
-													class="font-weight-semibold">Campaign Markets<span
-														class="text-danger">*</span></h6>
-												<select multiple="multiple"
-													class="form-control select-fixed-multiple campign_markets" required
-													data-fouc data-placeholder="Select Campaign Markets"
-													style="width: 100%">
-													<option value=""></option>
-												</select>
-												<div class="select_markets">
-												</div>
 											</div>
 											<div class="col-md-6 mr-b-20">
 												<h6 title="<?php echo $_SESSION['tool_tips']['CreateNewPlan_CampaignMarkets'];?>"

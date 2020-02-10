@@ -270,6 +270,11 @@ height: 100%;
      .navbar-toggler.sidebar-mobile-main-toggle{
          float: right;
      }
+
+
+     .same_Class{
+         margin-top:50px
+     }
     /* .content-wrapper{
         overflow-x: auto;
     } */

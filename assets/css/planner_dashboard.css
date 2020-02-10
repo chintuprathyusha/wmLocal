@@ -1,7 +1,7 @@
-
-.hidden{
-    display:none;
+.hidden {
+    display: none;
 }
+
 /* .dataTables_filter{
     display: none;
 } */
@@ -15,74 +15,77 @@
     /* margin-left: 300px; */
     margin-top: 26px;
 }
-.swal-button--confirm{
+
+.swal-button--confirm {
     width: 83px;
     margin-left: -26px;
 }
-.Prioritizebtn{
+
+.Prioritizebtn {
     background-color: #dfe4ea;
     border: none;
     color: #000;
     padding: 5px 22px;
     border-radius: 2px;
 }
+
 .container {
-  display: block;
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 13px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 13px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 /* Hide the browser's default checkbox */
 .container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
 }
 
 /* Create a custom checkbox */
 .checkmark {
-	position: absolute;
-   top: 4px;
-   left: 3px;
-   height: 16px;
-   width: 16px;
-   background-color: #eee;
+    position: absolute;
+    top: 4px;
+    left: 3px;
+    height: 16px;
+    width: 16px;
+    background-color: #eee;
 }
 
 /* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
-  background-color: #ccc;
+.container:hover input~.checkmark {
+    background-color: #ccc;
 }
 
 /* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
-  background-color: #bb512b;
+.container input:checked~.checkmark {
+    background-color: #bb512b;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
+    content: "";
+    position: absolute;
+    display: none;
 }
 
 /* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
-  display: block;
+.container input:checked~.checkmark:after {
+    display: block;
 }
 
 /* Style the checkmark/indicator */
 .container .checkmark:after {
-	left: 5px;
+    left: 5px;
     top: 2px;
     width: 5px;
     height: 10px;
@@ -111,8 +114,8 @@ display: none !important;
 .loading img{
     width: 70px;
 } */
-.DownloadAllfiles{
-   padding: 4px 20px;
+.DownloadAllfiles {
+    padding: 4px 20px;
     background: #bb512b;
     border: 1px solid #131514;
     /* border-radius: 5px; */
@@ -121,13 +124,21 @@ display: none !important;
     margin-right: 10px;
     color: white;
 }
-div.row_body div:nth-of-type(even)
-{
+
+.fa.fa-calendar {
+    font-size: 16px;
+    color: black;
+    /* position: absolute; */
+    top: 60px;
+    margin-left: -195px;
+}
+
+div.row_body div:nth-of-type(even) {
     background-color: #131514;
 }
-div.row_body div:nth-of-type(odd)
-{
-    background-color : #1f1d1d;
+
+div.row_body div:nth-of-type(odd) {
+    background-color: #1f1d1d;
 }
 
 .content {
@@ -137,7 +148,8 @@ div.row_body div:nth-of-type(odd)
     background-repeat: no-repeat, repeat; */
     background-color: #1f2022;
 }
-.createbtn{
+
+.createbtn {
     border-radius: 3px;
     background-color: #b7cfe0;
     color: whi;
@@ -148,96 +160,132 @@ div.row_body div:nth-of-type(odd)
     border: none;
     font-weight: 500;
 }
-.linesss{
-        position: absolute;
-        top: 90px;
-        width: 100%;
-        border-top: 1px solid #484545;
-        border-bottom: 1px solid #3e3b3b;
-        padding: 1px;
+
+.linesss {
+    position: absolute;
+    top: 90px;
+    width: 100%;
+    border-top: 1px solid #484545;
+    border-bottom: 1px solid #3e3b3b;
+    padding: 1px;
 }
-.breadcrumb-line-light{
+
+.breadcrumb-line-light {
     background-color: #1f2022;
     color: white;
 }
-.content.cntnt{
+
+.content.cntnt {
     background-color: #1f2022;
 }
-.row_{
-    height:100%
+
+.row_ {
+    height: 100%
 }
-.colxl{
-    height:100%;
+
+.colxl {
+    height: 100%;
 }
-.card{
-    height:100%;
+
+.card {
+    height: 100%;
     background-color: #1f2022;
 }
-.btn3_{
-    padding:12px;
+
+.btn3_ {
+    padding: 12px;
 }
-.btn3{
-    float:right;
-    width:20px;
-    height:20px; 
-    cursor:pointer !important;
+
+.btn3 {
+    float: right;
+    width: 20px;
+    height: 20px;
+    cursor: pointer !important;
 }
+
 /* .row.displaytoptextboxes{
     display:none;
 } */
-.campid{
-    margin-top:6px;
-    margin-right:14px;
-    margin-left:12px;
+.client {
+    top: 6px;
 }
-.Campaignidclass{
-    padding:5px;
+
+.brand {
+    top: 6px;
 }
-.date{
-   margin-top:6px;
+
+.go {
+    top: 5px;
+    margin-left: 30px;
 }
-.gobtn{
-    background-color:#f07144;
-    color:#fff;
-    border:none;
+
+.campid {
+    margin-top: 6px;
+    margin-right: 14px;
+    margin-left: 12px;
+}
+
+.Campaignidclass {
+    padding: 5px;
+}
+
+.date {
+    margin-top: 6px;
+}
+
+.gobtn {
+    background-color: #f07144;
+    color: #fff;
+    border: none;
     position: absolute;
     top: 21px;
-   
+
 }
-.datatable-multi-sorting{
-    color:white;
-    margin-top:30px;
+
+.datatable-multi-sorting {
+    color: white;
+    margin-top: 30px;
 }
-.brnd{
-    width:76px;
+
+.brnd {
+    width: 76px;
 }
-.clnt{
-    width:170px;
+
+.clnt {
+    width: 170px;
 }
-.startdate{
-    width:162px;
+
+.startdate {
+    width: 162px;
 }
-.modal-content{
+
+.modal-content {
     margin-top: 255px;
 }
-.form-control.up{
+
+.form-control.up {
     background-color: #192124;
     color: white;
 }
-.modal-content.mc{
+
+.modal-content.mc {
     margin-top: 255px;
     background-color: #131514;
     border: 1px solid #b54d27;
 }
-.down{
-    color:white;
+
+.down {
+    color: white;
 }
-.modal-body.sl{
+
+.modal-body.sl {
     padding-top: 0px;
 }
-.row.rowsl{
-    display:block;
+
+.row.rowsl {
+    display: block;
 }
+
 /* .col-sm-6.col-md-1.go {
     display: inline-block;
 } */
@@ -245,111 +293,128 @@ div.row_body div:nth-of-type(odd)
 /* responsive */
 .icon-paragraph-justify3:before {
     content: "\eec1";
-	color: white;
-	float: right;
+    color: white;
+    float: right;
 }
 
 @media screen and (max-width: 1024px) {
-	.content-wrapper{
-		overflow-x:auto;
-	}
-}
-@media screen and (max-width: 768px) {
-	.content-wrapper{
-        overflow-x:auto;
-        overflow-y: auto;
-    }
-	.page-content{
-		/* width: 1000px; */
-    height: 100%;
-	}
-	.modal-content{
-		  width: 617px;
-	  }
-	  .modal-backdrop {
-		  background-color: #1f2022 !important;
-      }
-      .navbar{
-          display: block;
-      }
-      .dataTables_wrapper.no-footer{
+    .content-wrapper {
         overflow-x: auto;
     }
-    .gobtn{
+}
+
+@media screen and (max-width: 768px) {
+    .content-wrapper {
+        overflow-x: auto;
+        overflow-y: auto;
+    }
+
+    .page-content {
+        /* width: 1000px; */
+        height: 100%;
+    }
+
+    .modal-content {
+        width: 617px;
+    }
+
+    .modal-backdrop {
+        background-color: #1f2022 !important;
+    }
+
+    .navbar {
+        display: block;
+    }
+
+    .dataTables_wrapper.no-footer {
+        overflow-x: auto;
+    }
+
+    .gobtn {
         width: fit-content;
     }
 }
+
 @media screen and (max-width: 540px) {
-	.content-wrapper{
-		overflow-x:auto;
-	}
+    .content-wrapper {
+        overflow-x: auto;
+    }
 }
 
-@media screen  and (min-width: 360px)  and (max-width: 720px){
-    .sidebar-mobile-main-toggle{
+@media screen and (min-width: 360px) and (max-width: 720px) {
+    .sidebar-mobile-main-toggle {
         position: absolute;
         /* top: 13px; */
         right: 30px;
-      }
+    }
 }
 
-@media screen  and (max-width: 425px)  and (min-width: 320px){
-	.modal-content{
-		  width: 617px;
-		  margin-left: 218px;
-	  }
-	  .modal-backdrop {
-		  background-color: #1f2022 !important;
-	  }
-			/* .page-header{
+@media screen and (max-width: 425px) and (min-width: 320px) {
+    .modal-content {
+        width: 617px;
+        margin-left: 218px;
+    }
+
+    .modal-backdrop {
+        background-color: #1f2022 !important;
+    }
+
+    /* .page-header{
 				width: 1000px;
 			} */
-			/* .card{
+    /* .card{
 				width: 1000px;
 			} */
-			/* body{
+    /* body{
 				width:fit-content;
 			} */
-			/* .col-sm-2{
+    /* .col-sm-2{
 			  width: 150px;
           } */
-          .s-e-campid {
-            margin-left: -13px;
-            width: 280px;
-          }
-		  .col-sm-1{
-			  width: 150px;
-			  margin-left: 50px;
-		  }
-		  .gobtn{
-              margin-top: 30px;
-              position: relative;
-          }
-          .dataTables_wrapper.no-footer{
-              overflow-x: auto;
-          }
-          .card.card-sidebar-mobile{
-              display: contents;
-          }
-          .icon-paragraph-justify3:before {
-              margin-top: -75px;
-          }
-          .d-md-none{
-            margin-left: 250px;
-          }
+    .s-e-campid {
+        margin-left: -13px;
+        width: 280px;
+    }
+
+    .col-sm-1 {
+        width: 150px;
+        margin-left: 50px;
+    }
+
+    .gobtn {
+        margin-top: 30px;
+        position: relative;
+    }
+
+    .dataTables_wrapper.no-footer {
+        overflow-x: auto;
+    }
+
+    .card.card-sidebar-mobile {
+        display: contents;
+    }
+
+    .icon-paragraph-justify3:before {
+        margin-top: -75px;
+    }
+
+    .d-md-none {
+        margin-left: 250px;
+    }
+
+    .fa.fa-calendar {
+        position: initial !important;
+        margin-left: -272px;
+    }
+
+    #dateFilter {
+        width: 277px;
+    }
+
+    .go {
+        top: -36px;
+        margin-left: 0px;
+    }
 }
+
 /* responsive */
-.client{
-    top: 6px;
- }
- .brand{
-    top: 6px;
- }
- .go{
-    top: 6px;
- }
-
-
-
-
-

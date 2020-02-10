@@ -132,7 +132,7 @@ if ($_SESSION['usernamee'] == '') {
                                 <div class="row ">
                                     <div class="col-sm-6 col-md-2 campid">
                                         <div class="s-e-campid">Campaign ID:
-                                            <input type="text" placeholder="search for Campaign ID"
+                                            <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" placeholder="search for Campaign ID"
                                                 class="form-control Campaignidclass" />
                                         </div>
                                     </div>
@@ -152,15 +152,15 @@ if ($_SESSION['usernamee'] == '') {
                                         <div class="s-e-client">Client Name:
                                             <select data-placeholder="Client Name"
                                                 class="form-control select clientclass" id="clientt" data-fouc>
-                                                <option value=""></option>
+                                                <option value="Select Client">--Select Client--</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-sm-6 col-md-2 brand">
                                         <div class="s-e-brand">Brand Name:
-                                            <select data-placeholder="BrandName" class="form-control select brandclass"
+                                            <select data-placeholder="Brand Name" class="form-control select brandclass"
                                                 id="brandd" data-fouc>
-                                                <option value=""></option>
+                                                <option value="Select Brand">--Select Brand--</option>
                                             </select>
                                         </div>
                                     </div>

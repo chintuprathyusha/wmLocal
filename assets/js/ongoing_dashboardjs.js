@@ -73,13 +73,15 @@ $("document").ready(function () {
                     $.each(data ,function(key,i){
                         $('#clientt').append('<option value='+key+'>'+key+'</option>')
                     })
+
                     var $dropdown = $('#clientt');
                     console.log($dropdown);
                     $dropdown.on('change', function() {
                         console.log($dropdown);
-                        $('#brandd').empty();
+                        // $('#brandd').html('');
                         // var a=data[$dropdown.val()];
-                        var a=data[$.trim($dropdown[0].selectedOptions[0].text)];
+                 
+                       var a=data[$.trim($dropdown[0].selectedOptions[0].text)];
                         $.each(a,function(j){
                             console.log(a[j]);
                             $('#brandd').append('<option value='+a[j]+'>'+a[j]+'</option>')
@@ -217,8 +219,22 @@ $("document").ready(function () {
             objj.IsDefault = false
             objj.user_id = useridd
             console.log(objj);
-            if (start!='' && end!='' || clientclass!='' || brandclass!='' || Campaignid!='') {
-                if(start <= end){
+
+
+            if (((start_date=='' || end_date=='') && (clientclass!='' || brandclass!='')) &&(Campaignid=='')) {
+
+                $.alert({
+                    title: 'Error',
+                    content: 'please Select Date Range'
+                });
+        
+        
+        
+            }
+            else  {
+
+                
+                if(start_date <= end_date){
                     console.log(objj);
                     var form = new FormData();
                     form.append("file", JSON.stringify(objj));
@@ -266,13 +282,14 @@ $("document").ready(function () {
                         content: 'Please enter the valid dates'
                     });
                 }
+            
             }
-            else {
-                $.alert({
-                    title: 'Error',
-                    content: 'please select anyone value for search'
-                });
-            }
+
+
+
+
+
+
         })
     
     
@@ -373,8 +390,11 @@ $("document").ready(function () {
                     objjj = {}
                     objjj.user_id = useridd
                     objjj.plainid = plainiddd
-                    objjj.startdate =$('.startdateclass').val();
-                    objjj.enddate = $('.enddateclass').val();
+                    objjj.startdate =start_date;
+                    objjj.enddate =end_date;
+
+                    // objjj.startdate =$('.startdateclass').val();
+                    // objjj.enddate = $('.enddateclass').val();
                     objjj.clientclass =$('.clientclass').val();
                     objjj.brandclass =$('.brandclass').val();
                     objjj.Campaignid = $('.Campaignidclass').val();

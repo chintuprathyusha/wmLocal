@@ -1,17 +1,46 @@
 <?php
-	session_start();
+session_start();
 ?>
 <!DOCTYPE html>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
-	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Wavemaker - WM FLOW</title>
+
+	<!-- <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css"> -->
 	<?php include 'assets/includes/common_css.php';?>
-	<link rel="stylesheet" href="assets/css/index.css">
+
+    <?php include 'assets/includes/common_scripts.php';?>
+
+	<script src="assets/js/login.js" charset="utf-8"></script>
 
 </head>
+<style>
+/* .content{
+/* background-image: ('assets/images/wmflow.png') */
+/* background-image: url('assets/images/wmflow.png');
+} */
+.pleasewaitforlogin{
+	color:red;
+	font-size: 20px;
+	margin-left: 20px;
+}
+@media screen and (max-width: 540px) {
+    .card-body {
+		width:280px !important;
+    	-ms-flex: 1 1 auto;
+    	flex: 1 1 auto!important;
+    	padding: 0.25rem;
+		padding-right: 13px !important;
+    }
+    .img{
+        padding:0px!important;
+    }
+}
+</style>
+
 
 <body>
 
@@ -81,131 +110,137 @@
 		$(".loading").hide();
 
 		$('.pleasewaitforlogin').hide();
-		var authContext = new AuthenticationContext({
-			clientId: 'd3cc7c04-0c90-44d5-b40b-7f10a5cce951',
-			postLogoutRedirectUri: window.location
-		});
+	var authContext = new AuthenticationContext({
+		clientId: 'd3cc7c04-0c90-44d5-b40b-7f10a5cce951',
+		postLogoutRedirectUri: window.location
+	});
 
 
-		// #3: Handle redirect after token requests
-		if (authContext.isCallback(window.location.hash)) {
+	// #3: Handle redirect after token requests
+	if (authContext.isCallback(window.location.hash)) {
 
-			authContext.handleWindowCallback();
-			var err = authContext.getLoginError();
-			if (err) {
-				// TODO: Handle errors signing in and getting tokens
-			}
+		authContext.handleWindowCallback();
+		var err = authContext.getLoginError();
+		if (err) {
+			// TODO: Handle errors signing in and getting tokens
+		}
 
-		} else {
+	} else {
 
-			// If logged in, get access token and make an API request
-			var user = authContext.getCachedUser();
-			if (user) {
-				$('.loginbtnn').hide()
-				// $('.pleasewaitforlogin').show();
+		// If logged in, get access token and make an API request
+		var user = authContext.getCachedUser();
+		if (user) {
+			$('.loginbtnn').hide()
+			// $('.pleasewaitforlogin').show();
 
-				console.log('Signed in as: ' + user.userName);
+			console.log('Signed in as: ' + user.userName);
 
-				// #4: Get an access token to the Microsoft Graph API
-				authContext.acquireToken(
-					'https://graph.microsoft.com',
-					function (error, token) {
+			// #4: Get an access token to the Microsoft Graph API
+			authContext.acquireToken(
+				'https://graph.microsoft.com',
+				function (error, token) {
 
-						// TODO: Handle error obtaining access token
-						if (error || !token) { return; }
+					// TODO: Handle error obtaining access token
+					if (error || !token) { return; }
 
-						// #5: Use the access token to make an AJAX call
-						var xhr = new XMLHttpRequest();
-						xhr.open('GET', 'https://graph.microsoft.com/v1.0/me', true);
-						xhr.setRequestHeader('Authorization', 'Bearer ' + token);
-						xhr.onreadystatechange = function () {
-							if (xhr.readyState === 4 && xhr.status === 200) {
-								$(".loading").show();
+					// #5: Use the access token to make an AJAX call
+					var xhr = new XMLHttpRequest();
+					xhr.open('GET', 'https://graph.microsoft.com/v1.0/me', true);
+					xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+					xhr.onreadystatechange = function () {
+						if (xhr.readyState === 4 && xhr.status === 200) {
+							$(".loading").show();
 
-								console.log(xhr.responseText);
-								var response_fromAD = xhr.responseText
-								console.log(response_fromAD);
-								currentdate = generateDateTime();
-								sendObj = {};
-								sendObj.responsefromad = response_fromAD;
-								sendObj.currentdate = currentdate;
-								console.log(sendObj);
-								var form = new FormData();
-								form.append("file", JSON.stringify(sendObj));
-								var settings11 = {
-									"async": true,
-									"crossDomain": true,
-									"url": aws_url+'Login_ad',
-									"method": "POST",
-									"processData": false,
-									"contentType": false,
-									"mimeType": "multipart/form-data",
-									"data": form
-								};
-								$.ajax(settings11).done(function (msg) {
-									$(".loading").hide();
-									msg = JSON.parse(msg);
+							console.log(xhr.responseText);
+							var response_fromAD = xhr.responseText
+							console.log(response_fromAD);
+							currentdate = generateDateTime();
+							sendObj = {};
+							sendObj.responsefromad = response_fromAD;
+							sendObj.currentdate = currentdate;
+							debugger
+							console.log(sendObj);
+							var form = new FormData();
+							form.append("file", JSON.stringify(sendObj));
+							var settings11 = {
+								"async": true,
+								"crossDomain": true,
+								"url": aws_url+'Login_ad',
+								"method": "POST",
+								"processData": false,
+								"contentType": false,
+								"mimeType": "multipart/form-data",
+								"data": form
+							};
+							$.ajax(settings11).done(function (msg) {
+								$(".loading").hide();
+								msg = JSON.parse(msg);
+								console.log(msg);
+								localStorage.setItem("allprevialges",JSON.stringify(msg.privilegers))
+								sessionStorage.setItem("isnewuser",msg.isnewuser)
+								sessionStorage.setItem("role",msg.role)
+								sessionStorage.setItem("useremail",msg.useremail)
+								sessionStorage.setItem("userid",msg.user_id)
+								sessionStorage.setItem("sessionidd",msg.sessionid)
+								sessionStorage.setItem("usernamee",msg.username)
+								sessionStorage.setItem("isprofile", msg.isprofile_created)
+								if (msg.validlogin == "true") {
+									login_obj = msg;
+									login_obj.login_type = 'ad'
+
+									console.log(login_obj);
+
 									console.log(msg);
-									localStorage.setItem("allprevialges",JSON.stringify(msg.privilegers))
-									sessionStorage.setItem("isnewuser",msg.isnewuser)
-									sessionStorage.setItem("role",msg.role)
-									sessionStorage.setItem("useremail",msg.useremail)
-									sessionStorage.setItem("userid",msg.user_id)
-									sessionStorage.setItem("sessionidd",msg.sessionid)
-									sessionStorage.setItem("usernamee",msg.username)
-									sessionStorage.setItem("isprofile", msg.isprofile_created)
-									if (msg.validlogin == "true") {
-										login_obj = msg;
-										login_obj.login_type = 'ad'
 
-										console.log(login_obj);
-
-										$.ajax({
-											url: 'assets/backgrounds/session_create.php',
-											method: 'POST',
-											data: login_obj,
-											success: function (msg) {
-												if(login_obj.role == "Admin"){
-													window.location.href="adminindex.php";
-												}
-												else {
-													if (login_obj.isnewuser == "true") {
-														window.location.href="userprofile.php";
-													}
-													else {
-														if (login_obj.isprofile_created == "true") {
-															window.location.href="planner_ongoing_dashboard.php";
-														}
-														else {
-															window.location.href="userprofile.php";
-														}
-													}
-												}
-											}
-										})
+									if(msg.role == "Admin"){
+										window.location.href="adminindex.php";
 									}
 									else {
-										swal("Invalid username/password")
+										if (msg.isnewuser == "true") {
+											window.location.href="userprofile.php";
+										}
+										else {
+											if (msg.isprofile_created == "true") {
+												window.location.href="planner_ongoing_dashboard.php";
+											}
+											else {
+												window.location.href="userprofile.php";
+											}
+										}
+									}
+								}
+								else {
+									swal("Invalid username/password")
+								}
+
+								$.ajax({
+									url: 'assets/backgrounds/session_create.php',
+									method: 'POST',
+									data: login_obj,
+
+									success: function (msg) {
+										console.log(msg);
+
 									}
 								})
-							} else {
-							}
-						};
-						xhr.send();
-					}
-				);
-			} else {
-				console.log('Not signed in.')
-			}
+
+							})
+
+						} else {
+							// TODO: Do something with the error
+							// (or other non-200 responses)
+						}
+					};
+					xhr.send();
+				}
+			);
+		} else {
+
+			console.log('Not signed in.')
 		}
+	}
 	</script>
 	<div class="loading">
 		<img src="assets/images/loading.gif" alt="">
 	</div>
-
-	
-    <?php include 'assets/includes/common_scripts.php';?>
-
-	<script src="assets/js/login.js" charset="utf-8"></script>
 </body>
-</html>

@@ -75,7 +75,7 @@ if ($_SESSION['usernamee'] == '') {
                         <div class="breadcrumb">
                             <a href="planner_ongoing_dashboard.php" class="breadcrumb-item"><i
                                     class="icon-home2 mr-2"></i> Home</a>
-                            <span class="breadcrumb-item active">OnGoing Plan</span>
+                            <span class="breadcrumb-item active">OnGoing Team Plans</span>
                             <!-- <span style="position:absolute;right:0px;margin-left:13px;">Help<img style="width:17px;height:17px;" title="'+client+'" src="assets/images/informicon.svg"/></span> -->
                             <p class="help">HELP
                                 <img style="width:15px;" title="Write to adminwmflow@wmglobal.com to get details added"
@@ -110,7 +110,7 @@ if ($_SESSION['usernamee'] == '') {
                                 <!-- <div class="row"> -->
                                 <div class="col-sm-6 col-md-2 campid">
                                     <div class="s-e-campid" name="number">Campaign ID:
-                                        <input type="text" placeholder="search for Campaign ID"
+                                        <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" placeholder="search for Campaign ID"
                                             class="form-control Campaignidclass" />
                                     </div>
                                 </div>
@@ -119,15 +119,15 @@ if ($_SESSION['usernamee'] == '') {
                                     <div class="s-e-client">Client Name:
                                         <select data-placeholder="Client Name" class="form-control select clientclass"
                                             id="clientt" data-fouc>
-                                            <option value=""></option>
+                                            <option value="Select Client">--Select Client--</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 col-md-2 brand">
                                     <div class="s-e-brand">Brand Name:
-                                        <select data-placeholder="BrandName" class="form-control select brandclass"
+                                        <select data-placeholder="Brand Name" class="form-control select brandclass"
                                             id="brandd" data-fouc>
-                                            <option value=""></option>
+                                            <option value="Select Brand">--Select Brand--</option>
                                         </select>
                                     </div>
                                 </div>
@@ -136,7 +136,7 @@ if ($_SESSION['usernamee'] == '') {
                                     <input type="text" id="dateFilter" class="flt-r" name="daterange"
                                         placeholder="Select Date Range" readonly />
                                     <span><i class="fa fa-calendar"
-                                            style=" font-size: 16px;color: black;position: absolute;top: 60px;margin-left:6px;"></i>
+                                            style=" font-size: 16px;color: black;position: absolute;top: 60px;margin-left:-195px;"></i>
                                         <!-- <i class="fa fa-caret-down" ></i> -->
                                     </span>
 

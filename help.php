@@ -15,7 +15,14 @@ if ($_SESSION['usernamee'] == '') {
         <?php include 'assets/includes/common_css.php'; ?>
         <?php include 'assets/includes/common_scripts.php';?>
     </head>
+<style>
+.icon-paragraph-justify3:before {
+    content: "\eec1";
+    color: white;
+    float: right;
+}
 
+</style>
     <body>
         <?php	include 'header.php';?>
         <div class="page-content">
@@ -37,7 +44,7 @@ if ($_SESSION['usernamee'] == '') {
 
 
                             <a href="#" class="header-elements-toggle text-default d-md-none"><i
-                                    class="icon-more"></i></a>
+                                    class=""></i></a>
                         </div>
                     </div>
                 </div>
@@ -51,7 +58,7 @@ if ($_SESSION['usernamee'] == '') {
                             <div class="card" style="height:100%;background-color: #1f2022;">
                                 <div class="card" style="background-color: #1f2022;color: white;">
                                     <div style="padding:12px;">
-                                        <p style="font-size:20px;">Update Files to Help Document</p>
+                                        <!-- <p style="font-size:20px;">Update Files to Help Document</p> -->
                                         Search:
                                         <input id="searchHelp"
                                             style="color:white;background-color: #1f2022;border-color: #f07144;border-top: none;border-left: none;border-right: none;width: 201px;"
@@ -63,7 +70,7 @@ if ($_SESSION['usernamee'] == '') {
                                         <thead>
                                             <tr>
                                                 <th style="width:130px;">Sl.no</th>
-                                                <th>Files</th>
+                                                <th>Help Document</th>
                                                 <th>Download</th>
                                             </tr>
                                         </thead>

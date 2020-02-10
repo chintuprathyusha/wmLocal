@@ -69,14 +69,14 @@ if ($_SESSION['usernamee'] == '') {
 									<hr>
 									<h6 class="font-weight-semibold weight">Weightage</h6>
 									<div class="row">
-										<div class="col-md-6">
+										<div class="col-md-6" >
 											<h6 class="font-weight-semibold">CPRP <span class="appendcprp"></span></h6>
 											<input
 												class="inputboxstyle form-control touchspin-no-mousewheel input cprp_val"
 												id="a" type="number" name="number" min="1" max="99"
 												placeholder="Select the range till 100">
 										</div>
-										<div class="col-md-6">
+										<div class="col-md-6" >
 											<h6 class="font-weight-semibold">Reach <span class="appendreach"></span>
 											</h6>
 											<input
@@ -84,7 +84,8 @@ if ($_SESSION['usernamee'] == '') {
 												id="b" type="number" name="number" min="0" max="100"
 												placeholder="Select the range till 100">
 										</div>
-										<div class="col-md-6">
+										
+										<div class="col-md-6" style='margin-top: 20px;'>
 											<h6 class="font-weight-semibold">CPRP Channels - Spots/day <span
 													class="appendcprpchannels"></span></h6>
 											<input
@@ -93,7 +94,7 @@ if ($_SESSION['usernamee'] == '') {
 												onKeyUp="if(this.value>50){this.value='50';}else if(this.value<0){this.value='0';}"
 												placeholder="Select the range till 50">
 										</div>
-										<div class="col-md-6">
+										<div class="col-md-6" style='margin-top: 20px;'>
 											<h6 class="font-weight-semibold">Frequency Channels - Spots/day <span
 													class="appendfreqchannels"></span></h6>
 											<input
@@ -171,7 +172,7 @@ if ($_SESSION['usernamee'] == '') {
 									<!-- <h5 style="color:#000">Channel Level Budget Allocation Sheet being created.Once complete you will receive it in your inbox.</h5> -->
 								</div>
 
-								<div class="spillover mr-t-40">
+								<div class="spillover">
 									<p class="uploadtext">Upload Budget Allocation Sheet Here<p>
 											<p class="notetoupload"> Note : Fill in the budgets accross channels/genres
 												before upload </p>

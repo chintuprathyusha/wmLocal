@@ -86,10 +86,12 @@ $( document ).ready(function() {
 
 
     $("body").on("click", ".downloadbtn", function () {
+       
          filename =  $(this).attr('filename');
          obj = {}
          obj.filename = filename
          console.log(obj);
+         result = filename;
          var form = new FormData();
          form.append("file", JSON.stringify(obj));
          var settings11 = {
@@ -104,18 +106,52 @@ $( document ).ready(function() {
          };
          $.ajax(settings11).done(function (msg) {
              console.log(msg);
-             blob =  msg
-             var xhr = new XMLHttpRequest()
-                xhr.open("GET", url)
-                xhr.responseType = 'blob'
-                xhr.onload = function() {
-                  window.saveAs(xhr.response, filename);
-                }
-                xhr.send()
+            //  blob =  msg
+            //  var xhr = new XMLHttpRequest()
+            //     xhr.open("GET", url)
+            //     xhr.responseType = 'blob'
+            //     xhr.onload = function() {
+            //       window.saveAs(xhr.response, filename);
+            //     }
+            //     xhr.send()
+            msg_obj=msg;
+            var blob = new Blob([s2ab(atob(encodeURI(msg_obj)))], {
+                type: 'octet/stream'
+            });
+
+            href = URL.createObjectURL(blob);
+            var a = document.createElement("a");
+            a.href = href;
+            a.download = result;
+            document.body.appendChild(a);
+            a.click();
+            // $.alert({
+            //     title: 'Success',
+            //     content: 'Excel sheet downloaded Successfully'
+            // });
+        
+
+
+
 
          })
 
 
     })
+
+
+    function s2ab(s) {
+        var buf = new ArrayBuffer(s.length);
+        var view = new Uint8Array(buf);
+        for (var i=0; i!=s.length; ++i) view[i] = s.charCodeAt(i) & 0xFF;
+        return buf;
+    }
+
+
+
+
+
+
+
 
     })

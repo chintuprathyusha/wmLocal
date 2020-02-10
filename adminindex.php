@@ -55,9 +55,9 @@ if ($_SESSION['usernamee'] == '') {
                                         </div>
                                     </div>
                                     <div class="row timestampfiles">
-                                        <h4 class="h4">Recent uploaded files </h4>
+                                        <h4 class="h4" style="text-align: center;">Recent uploaded files </h4>
                                         <div class="col-lg-6 col-md-6 col-sm-6">
-                                            <h2>Master </h2>
+                                            <!-- <h2>Master </h2> -->
                                             <div class="masterdatastamp">
                                             </div>
                                         </div>
@@ -90,17 +90,20 @@ if ($_SESSION['usernamee'] == '') {
                                         <div class="mb-4">
                                             <div class="table-wrapper-scroll-y my-custom-scrollbar">
 
-                                                <table class="table table-bordered table-striped mb-0">
+                                                <table  class="table table-bordered table-striped mb-0">
                                                     <thead>
                                                         <tr>
                                                             <!-- <th scope="col">#</th> -->
-                                                            <th scope="col" class="scope">User role previlages </th>
-                                                            <th scope="col" class="scope">Status</th>
+                                                            <th  style= "border-top: 1px solid #fff;padding-right: 504px;"scope="col" class="scope">User Role Privileges</th>
+                                                            <th style="padding-right: 293px;border-top: 1px solid #fff;" scope="col" class="scope">Status</th>
 
                                                         </tr>
                                                     </thead>
                                                     <tbody class="displayhere">
                                                 </table>
+                                                
+                                                
+
                                             </div>
                                         </div>
                                         <div class="mr-b-0">
@@ -144,7 +147,26 @@ if ($_SESSION['usernamee'] == '') {
         <script src="assets/js/exportExcel.js" charset="utf-8"></script>
         <script src="assets/js/FileSaver.min.js" charset="utf-8"></script>
         <script src="assets/js/xlsx.full.min.js" charset="utf-8"></script>
-
+        
+    <script>
+     $(document).ready(function () {
+       var table1 = $('.table').DataTable({ 
+               
+                paging: false,   
+                scrollY:        200,
+                deferRender:    true,
+                scroller:       true ,
+                bFilter: false,
+                bInfo: false,
+                bSortable: false
+               
+});
+            
+        });
+//     $('.table').DataTable( {
+//     fixedHeader: true
+// } );
+</script>
 
     </body>
 
